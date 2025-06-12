@@ -1,25 +1,29 @@
-﻿using Services_327LG.Singleton_327LG;
+﻿using Services_327LG.Observer_327LG;
+using Services_327LG.Singleton_327LG;
 
 namespace GUI_327LG
 {
-    public partial class FormMenuPrincipal : Form
+    public partial class FormMenuPrincipal : Form, IObserverIdioma_327LG
     {
+
         public FormMenuPrincipal()
         {
             InitializeComponent();
             lblBienvenido.AutoSize = true;
             lblBienvenido.Font = new Font("Segoe UI", 14, FontStyle.Regular); 
             lblBienvenido.ForeColor = Color.White;
-            
+            LanguageManager.Instance.AgregarObservador_327LG(this);
         }
 
-        internal void ActualizarBienvenida()
+        public void Actualizar_327LG()
         {
             if (SessionManager_327LG.Instancia.IsLoggedIn_327LG())
-                lblBienvenido.Text = "Bienvenido " + SessionManager_327LG.Instancia.Usuario.nombre_327LG;
+                lblBienvenido.Text = LanguageManager.Instance.ObtenerString("FormMenuPrincipal.lblBienvenida") + SessionManager_327LG.Instancia.Usuario.nombre_327LG;
             else
                 lblBienvenido.Text = "";
         }
+
+
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
@@ -27,8 +31,7 @@ namespace GUI_327LG
             this.Size = new Size(this.Parent.Width, this.Parent.Height);
             this.FormBorderStyle = FormBorderStyle.None;
             FormMenuPrincipal_Resize(sender, e);
-            if (SessionManager_327LG.Instancia.IsLoggedIn_327LG())
-                lblBienvenido.Text = "Bienvenido " + SessionManager_327LG.Instancia.Usuario.nombre_327LG;
+            Actualizar_327LG();
         }
 
         private void FormMenuPrincipal_Resize(object sender, EventArgs e)
