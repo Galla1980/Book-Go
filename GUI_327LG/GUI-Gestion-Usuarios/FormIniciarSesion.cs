@@ -1,15 +1,28 @@
 ﻿using BLL_327LG;
+using Services_327LG.Observer_327LG;
 using Services_327LG.Singleton_327LG;
 
 namespace GUI_327LG
 {
-    public partial class FormIniciarSesion : Form
+    public partial class FormIniciarSesion : Form, IObserverIdioma_327LG
     {
         BLLUsuario_327LG bllUsuario_327LG;
         public FormIniciarSesion()
         {
             InitializeComponent();
             bllUsuario_327LG = new BLLUsuario_327LG();
+            LanguageManager.Instance.AgregarObservador_327LG(this);
+        }
+
+        public void Actualizar_327LG()
+        {
+            lblIniciarSesion.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.label.lblTitulo");
+            lblIniciarSesion.Left = (this.ClientSize.Width - lblIniciarSesion.Width) / 2;
+            lblUsuario.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.label.lblUsuario");
+            lblContraseña.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.label.lblContrasena");
+            btnIniciarSesion.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.button.btnIniciarSesion");
+            btnSalir.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.button.btnSalir");
+            chkVerContraseña.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.checkbox.chkVerContrasena");
         }
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
@@ -93,6 +106,7 @@ namespace GUI_327LG
             btnSalir.ForeColor = Color.Black;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.FlatAppearance.BorderSize = 0;
+            Actualizar_327LG();
         }
     }
 }

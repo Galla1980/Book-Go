@@ -151,7 +151,8 @@ namespace GUI_327LG
                         string password_327LG = dni_327LG + apellido_327LG;
                         string email_327LG = txtEmail.Text;
                         string rol_327LG = cmbRol.Text;
-                        if (!Regex.IsMatch(dni_327LG, @"^\d{8}$") || bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.dni_327LG.Equals(dni_327LG))) throw new Exception("El DNI no es valido");
+                        if (!Regex.IsMatch(dni_327LG, @"^\d{8}$")) throw new Exception("El DNI no es valido");
+                        if(bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.dni_327LG.Equals(dni_327LG))) throw new Exception("El DNI ya esta en uso.");
                         ValidarEntradasUsuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, email_327LG, rol_327LG);
                         if (bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.email_327LG.Equals(email_327LG, StringComparison.OrdinalIgnoreCase))) throw new Exception("Email en uso.");
                         bllUsuario_327LG.AgregarUsuario_327LG(new Usuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, username_327LG, Encriptador_327LG.Encriptar_327LG(password_327LG), rol_327LG, email_327LG, false, true, 0));
