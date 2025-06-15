@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
+            mnsPestañas = new MenuStrip();
             usuarioItem = new ToolStripMenuItem();
             iniciarSesiónItem = new ToolStripMenuItem();
             cambiarContraseñaItem = new ToolStripMenuItem();
@@ -40,19 +40,23 @@
             reposicionItem = new ToolStripMenuItem();
             reporteItem = new ToolStripMenuItem();
             ayudaItem = new ToolStripMenuItem();
-            menuStrip1.SuspendLayout();
+            mnsIdioma = new MenuStrip();
+            tsmiIdioma = new ToolStripMenuItem();
+            tscmbIdioma = new ToolStripComboBox();
+            mnsPestañas.SuspendLayout();
+            mnsIdioma.SuspendLayout();
             SuspendLayout();
             // 
-            // menuStrip1
+            // mnsPestañas
             // 
-            menuStrip1.BackColor = SystemColors.Control;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { usuarioItem, adminItem, maestroItem, prestamosItem, reposicionItem, reporteItem, ayudaItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.RenderMode = ToolStripRenderMode.Professional;
-            menuStrip1.Size = new Size(1208, 24);
-            menuStrip1.TabIndex = 2;
-            menuStrip1.Text = "menuStrip1";
+            mnsPestañas.BackColor = SystemColors.Control;
+            mnsPestañas.Items.AddRange(new ToolStripItem[] { usuarioItem, adminItem, maestroItem, prestamosItem, reposicionItem, reporteItem, ayudaItem });
+            mnsPestañas.Location = new Point(0, 0);
+            mnsPestañas.Name = "mnsPestañas";
+            mnsPestañas.RenderMode = ToolStripRenderMode.Professional;
+            mnsPestañas.Size = new Size(1208, 24);
+            mnsPestañas.TabIndex = 2;
+            mnsPestañas.Text = "menuStrip1";
             // 
             // usuarioItem
             // 
@@ -126,27 +130,57 @@
             ayudaItem.Size = new Size(53, 20);
             ayudaItem.Text = "Ayuda";
             // 
+            // mnsIdioma
+            // 
+            mnsIdioma.Dock = DockStyle.Bottom;
+            mnsIdioma.Items.AddRange(new ToolStripItem[] { tsmiIdioma, tscmbIdioma });
+            mnsIdioma.Location = new Point(0, 586);
+            mnsIdioma.Name = "mnsIdioma";
+            mnsIdioma.Size = new Size(1208, 27);
+            mnsIdioma.TabIndex = 8;
+            mnsIdioma.Text = "menuStrip1";
+            // 
+            // tsmiIdioma
+            // 
+            tsmiIdioma.Enabled = false;
+            tsmiIdioma.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            tsmiIdioma.Name = "tsmiIdioma";
+            tsmiIdioma.Size = new Size(60, 23);
+            tsmiIdioma.Text = "Idioma:";
+            // 
+            // tscmbIdioma
+            // 
+            tscmbIdioma.Items.AddRange(new object[] { "Español", "English" });
+            tscmbIdioma.Name = "tscmbIdioma";
+            tscmbIdioma.Size = new Size(121, 23);
+            tscmbIdioma.Text = "Español";
+            tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
+            // 
             // FormMDI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1208, 613);
-            Controls.Add(menuStrip1);
+            Controls.Add(mnsPestañas);
+            Controls.Add(mnsIdioma);
             IsMdiContainer = true;
+            MainMenuStrip = mnsIdioma;
             Name = "FormMDI";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de gestion de biblioteca";
             Load += FormMDI_Load;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            mnsPestañas.ResumeLayout(false);
+            mnsPestañas.PerformLayout();
+            mnsIdioma.ResumeLayout(false);
+            mnsIdioma.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private MenuStrip menuStrip1;
+        private MenuStrip mnsPestañas;
         private ToolStripMenuItem usuarioItem;
         private ToolStripMenuItem iniciarSesiónItem;
         private ToolStripMenuItem cerrarSesiónItem;
@@ -158,5 +192,8 @@
         private ToolStripMenuItem ayudaItem;
         private ToolStripMenuItem gestiónUsuariosMenuItem;
         private ToolStripMenuItem cambiarContraseñaItem;
+        private MenuStrip mnsIdioma;
+        private ToolStripMenuItem tsmiIdioma;
+        private ToolStripComboBox tscmbIdioma;
     }
 }
