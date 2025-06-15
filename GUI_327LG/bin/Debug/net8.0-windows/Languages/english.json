@@ -69,7 +69,7 @@
     },
     "checkbox": 
     {
-      "chkVerContrasena": "See"
+      "chkVerContrasena": "Show"
     },
     "messagebox": 
     {
@@ -92,7 +92,7 @@
     },
     "checkbox": 
     {
-      "chkMostrarContrasena": "See"
+      "chkMostrarContrasena": "Show"
     },
     "messagebox": 
     {
