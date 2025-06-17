@@ -1,6 +1,6 @@
 ﻿namespace GUI_327LG.GUIRF1
 {
-    partial class FormRegSancion
+    partial class FormRegSancion_327LG
     {
         /// <summary>
         /// Required designer variable.

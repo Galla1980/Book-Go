@@ -1,6 +1,6 @@
 ﻿namespace GUI_327LG
 {
-    partial class FormGestionUsuarios
+    partial class FormGestionUsuarios_327LG
     {
         /// <summary>
         /// Required designer variable.

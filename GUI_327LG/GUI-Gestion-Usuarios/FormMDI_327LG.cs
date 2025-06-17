@@ -4,38 +4,40 @@ using Services_327LG.Observer_327LG;
 using Services_327LG.Singleton_327LG;
 namespace GUI_327LG
 {
-
-    public partial class FormMDI : Form, IObserverIdioma_327LG
+    public partial class FormMDI_327LG : Form, IObserverIdioma_327LG
     {
-        private FormMenuPrincipal menuPrincipal_327LG;
+        private FormMenuPrincipal_327LG menuPrincipal_327LG;
         BLLUsuario_327LG bllUsuario_327LG;
+        private LanguageManager_327LG LM_327LG;
 
-        public FormMDI()
+        public FormMDI_327LG()
         {
             InitializeComponent();
-            ActualizarFormulario_327LG();
             mnsPestañas.BackColor = ColorTranslator.FromHtml("#EAEAEA");
             mnsPestañas.ForeColor = ColorTranslator.FromHtml("#055b6b");
             bllUsuario_327LG = new BLLUsuario_327LG();
-            LanguageManager.Instance.AgregarObservador_327LG(this);
-            LanguageManager.Instance.CargarIdioma("spanish");
+            LM_327LG = LanguageManager_327LG.Instance;
+            LM_327LG.AgregarObservador_327LG(this);
+            LM_327LG.CambiarIdioma_327LG("spanish");
+            Actualizar_327LG();
         }
 
         private void FormMDI_Load(object sender, EventArgs e)
         {
-            menuPrincipal_327LG = new FormMenuPrincipal();
+            menuPrincipal_327LG = new FormMenuPrincipal_327LG();
             menuPrincipal_327LG.MdiParent = this;
             menuPrincipal_327LG.Dock = DockStyle.Fill;
             menuPrincipal_327LG.Show();
+            ActualizarFormulario_327LG();
         }
-
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!SessionManager_327LG.Instancia.IsLoggedIn_327LG()) throw new Exception(LanguageManager.Instance.ObtenerString("FormMDI.exception.sesion_no_iniciada"));
-                if (MessageBox.Show(LanguageManager.Instance.ObtenerString("FormMDI.messagebox.confirmar_cierre_sesion"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                LM_327LG.CargarFormulario_327LG("FormMDI_327LG");
+                if (!SessionManager_327LG.Instancia.IsLoggedIn_327LG()) throw new Exception(LM_327LG.ObtenerString("exception.sesion_no_iniciada"));
+                if (MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.cierre_sesion"), LM_327LG.ObtenerString("messagebox.titulo.cierre_sesion"), LM_327LG.ObtenerString("messagebox.button.aceptar"), LM_327LG.ObtenerString("messagebox.button.cancelar"),MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     bllUsuario_327LG.CerrarSesion_327LG();
                     ActualizarFormulario_327LG();
@@ -43,10 +45,27 @@ namespace GUI_327LG
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxPersonalizado.Show(ex.Message, "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
             }
         }
 
+        public void Actualizar_327LG()
+        {
+            LM_327LG.CargarFormulario_327LG("FormMDI_327LG");
+            usuarioItem.Text = LM_327LG.ObtenerString("menu_usuario.texto");
+            iniciarSesiónItem.Text = LM_327LG.ObtenerString("menu_usuario.items.iniciar_sesion");
+            cambiarContraseñaItem.Text = LM_327LG.ObtenerString("menu_usuario.items.cambiar_contrasena");
+            cerrarSesiónItem.Text = LM_327LG.ObtenerString("menu_usuario.items.cerrar_sesion");
+            adminItem.Text = LM_327LG.ObtenerString("menu_admin.texto");
+            gestiónUsuariosMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_usuarios");
+            maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
+            prestamosItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
+            reposicionItem.Text = LM_327LG.ObtenerString("menu_reposicion.texto");
+            reporteItem.Text = LM_327LG.ObtenerString("menu_reporte.texto");
+            ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");
+            tsmiIdioma.Text = LM_327LG.ObtenerString("label_idioma.texto");
+        }
+                
         public void ActualizarFormulario_327LG()
         {
             bool logueado = SessionManager_327LG.Instancia.IsLoggedIn_327LG();
@@ -59,17 +78,16 @@ namespace GUI_327LG
             this.ayudaItem.Visible = logueado;
             if (menuPrincipal_327LG != null) menuPrincipal_327LG.Actualizar_327LG();
             if (!logueado) CerrarFormularios();
-
         }
 
         private void iniciarSesiónItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormIniciarSesion>();
+            AbrirFormulario<FormIniciarSesion_327LG>();
         }
 
         private void gestiónUsuariosMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormGestionUsuarios>();
+            AbrirFormulario<FormGestionUsuarios_327LG>();
         }
 
         private void AbrirFormulario<T>() where T : Form, new()
@@ -97,34 +115,18 @@ namespace GUI_327LG
 
         private void cambiarContraseñaItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormCambiarContraseña>();
-        }
-
-        public void Actualizar_327LG()
-        {
-            usuarioItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_usuario.texto");
-            iniciarSesiónItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_usuario.items.iniciar_sesion");
-            cambiarContraseñaItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_usuario.items.cambiar_contrasena");
-            cerrarSesiónItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_usuario.items.cerrar_sesion");
-            adminItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_admin.texto");
-            gestiónUsuariosMenuItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_admin.items.gestion_usuarios");
-            maestroItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_maestro.texto");
-            prestamosItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_prestamos.texto");
-            reposicionItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_reposicion.texto");
-            reporteItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_reporte.texto");
-            ayudaItem.Text = LanguageManager.Instance.ObtenerString("FormMDI.menu_ayuda.texto");
-            tsmiIdioma.Text = LanguageManager.Instance.ObtenerString("FormMDI.label_idioma.texto");
+            AbrirFormulario<FormCambiarContraseña_327LG>();
         }
 
         private void tscmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tscmbIdioma.Text == "Español")
             {
-                LanguageManager.Instance.CargarIdioma("spanish");
+                LanguageManager_327LG.Instance.CambiarIdioma_327LG("spanish");
             }
             else if (tscmbIdioma.Text == "English")
             {
-                LanguageManager.Instance.CargarIdioma("english");
+                LanguageManager_327LG.Instance.CambiarIdioma_327LG("english");
             }
             else
             {

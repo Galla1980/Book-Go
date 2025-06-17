@@ -1,6 +1,6 @@
 ﻿namespace GUI_327LG.GUIRF1
 {
-    partial class FormRegistrarCliente
+    partial class FormRegistrarCliente_327LG
     {
         /// <summary>
         /// Required designer variable.

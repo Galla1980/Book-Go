@@ -14,14 +14,16 @@ using System.Windows.Forms;
 
 namespace GUI_327LG
 {
-    public partial class FormCambiarContraseña : Form, IObserverIdioma_327LG
+    public partial class FormCambiarContraseña_327LG : Form, IObserverIdioma_327LG
     {
         BLLUsuario_327LG bllUsuario_327LG;
-        public FormCambiarContraseña()
+        LanguageManager_327LG LM_327LG;
+        public FormCambiarContraseña_327LG()
         {
             InitializeComponent();
             bllUsuario_327LG = new BLLUsuario_327LG();
-            LanguageManager.Instance.AgregarObservador_327LG(this);
+            LM_327LG = LanguageManager_327LG.Instance;
+            LM_327LG.AgregarObservador_327LG(this);
             Actualizar_327LG();
         }
 
@@ -32,25 +34,26 @@ namespace GUI_327LG
                 string contraseña = txtContraseñaAct.Text;
                 string nuevaContraseña = txtNuevaContraseña.Text;
                 string confirmarContraseña = txtConfContraseña.Text;
-                if(string.IsNullOrWhiteSpace(contraseña) || string.IsNullOrWhiteSpace(nuevaContraseña) || string.IsNullOrWhiteSpace(confirmarContraseña))
-                {
-                    throw new Exception(LanguageManager.Instance.ObtenerString("FormCambiarContrasena.messagebox.campos_vacios"));
-                }
-                if (SessionManager_327LG.Instancia.Usuario.password_327LG != Encriptador_327LG.Encriptar_327LG(contraseña)) throw new Exception(LanguageManager.Instance.ObtenerString("FormCambiarContrasena.messagebox.contrasena_actual_incorrecta"));
-                if (nuevaContraseña != confirmarContraseña) throw new Exception(LanguageManager.Instance.ObtenerString("FormCambiarContrasena.messagebox.contrasena_no_coincide"));
-                if (contraseña == nuevaContraseña) throw new Exception(LanguageManager.Instance.ObtenerString("FormCambiarContrasena.messagebox.contrasena_nueva_identica"));
-                if (MessageBox.Show(LanguageManager.Instance.ObtenerString("FormCambiarContrasena.messagebox.confirmar_cambio_contrasena.mensaje"), LanguageManager.Instance.ObtenerString("FormCambiarContrasena.messagebox.confirmar_cambio_contrasena.titulo"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                
+                LM_327LG.CargarFormulario_327LG("FormCambiarContraseña_327LG");
+                if (string.IsNullOrWhiteSpace(contraseña) || string.IsNullOrWhiteSpace(nuevaContraseña) || string.IsNullOrWhiteSpace(confirmarContraseña)) throw new Exception(LM_327LG.ObtenerString("exception.campos_vacios"));
+                if (SessionManager_327LG.Instancia.Usuario.password_327LG != Encriptador_327LG.Encriptar_327LG(contraseña)) throw new Exception(LM_327LG.ObtenerString("exception.contrasena_actual_incorrecta"));
+                if (nuevaContraseña != confirmarContraseña) throw new Exception(LM_327LG.ObtenerString("exception.contrasena_no_coincide"));
+                if (contraseña == nuevaContraseña) throw new Exception(LM_327LG.ObtenerString("exception.contrasena_nueva_identica"));
+
+                if (MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.confirmar_cambio_contrasena.mensaje"), LM_327LG.ObtenerString("messagebox.confirmar_cambio_contrasena.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"),LM_327LG.ObtenerString("messagebox.button.cancelar"), MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     bllUsuario_327LG.CambiarContraseña_327LG(SessionManager_327LG.Instancia.Usuario, nuevaContraseña);
                     bllUsuario_327LG.CerrarSesion_327LG();
-                    MessageBox.Show(LanguageManager.Instance.ObtenerString("FormCambiarContrasena.messagebox.contrasena_cambiada"), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.contrasena_cambiada.mensaje"), LM_327LG.ObtenerString("messagebox.contrasena_cambiada.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                 }
-                FormMDI mdi = (FormMDI)this.MdiParent;
+
+                FormMDI_327LG mdi = (FormMDI_327LG)this.MdiParent;
                 mdi.ActualizarFormulario_327LG();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxPersonalizado.Show(ex.Message, "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
             }
         }
 
@@ -59,6 +62,19 @@ namespace GUI_327LG
             this.Close();
         }
 
+
+        public void Actualizar_327LG()
+        {
+            LM_327LG.CargarFormulario_327LG("FormCambiarContraseña_327LG");
+            lblCmbContraseña.Text = LM_327LG.ObtenerString("label.lblTitulo");
+            lblContraseñaAct.Text = LM_327LG.ObtenerString("label.lblContrasenaActual");
+            lblNuevaContraseña.Text = LM_327LG.ObtenerString("label.lblNuevaContrasena");
+            lblConfContraseña.Text = LM_327LG.ObtenerString("label.lblConfirmarContrasena");
+            btnCambiarContraseña.Text = LM_327LG.ObtenerString("button.btnCambiar");
+            btnSalir.Text = LM_327LG.ObtenerString("button.btnCancelar");
+            chkContraseñaActual.Text = LM_327LG.ObtenerString("checkbox.chkMostrarContrasena");
+            chkConfContraseña.Text = LM_327LG.ObtenerString("checkbox.chkMostrarContrasena");
+        }
         private void chkContraseñaActual_CheckedChanged(object sender, EventArgs e)
         {
             VerContraseña(chkContraseñaActual, txtContraseñaAct);
@@ -79,7 +95,10 @@ namespace GUI_327LG
                 txtContraseña.PasswordChar = '●';
             }
         }
-
+        private void FormCambiarContraseña_327LG_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LM_327LG.EliminarObservador_327LG(this);
+        }
         private void FormCambiarContraseña_Load(object sender, EventArgs e)
         {
             // Fondo del formulario
@@ -121,18 +140,6 @@ namespace GUI_327LG
             btnSalir.ForeColor = Color.Black;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.FlatAppearance.BorderSize = 0;
-        }
-
-        public void Actualizar_327LG()
-        {
-            lblCmbContraseña.Text = LanguageManager.Instance.ObtenerString("FormCambiarContrasena.label.lblTitulo");
-            lblContraseñaAct.Text = LanguageManager.Instance.ObtenerString("FormCambiarContrasena.label.lblContrasenaActual");
-            lblNuevaContraseña.Text = LanguageManager.Instance.ObtenerString("FormCambiarContrasena.label.lblNuevaContrasena");
-            lblConfContraseña.Text = LanguageManager.Instance.ObtenerString("FormCambiarContrasena.label.lblConfirmarContrasena");
-            btnCambiarContraseña.Text = LanguageManager.Instance.ObtenerString("FormCambiarContrasena.button.btnCambiar");
-            btnSalir.Text = LanguageManager.Instance.ObtenerString("FormCambiarContrasena.button.btnCancelar");
-            chkContraseñaActual.Text = LanguageManager.Instance.ObtenerString("FormCambiarContrasena.checkbox.chkMostrarContrasena");
-            chkConfContraseña.Text = LanguageManager.Instance.ObtenerString("FormCambiarContrasena.checkbox.chkMostrarContrasena");
         }
     }
 }

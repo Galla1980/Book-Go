@@ -1,21 +1,27 @@
 ﻿using BLL_327LG;
-using Microsoft.VisualBasic;
 using Services_327LG;
+using Services_327LG.Observer_327LG;
 using Services_327LG.Singleton_327LG;
 using System.Data;
 using System.Text.RegularExpressions;
 
 namespace GUI_327LG
 {
-    public partial class FormGestionUsuarios : Form
+    public partial class FormGestionUsuarios_327LG : Form, IObserverIdioma_327LG
     {
         BLLUsuario_327LG bllUsuario_327LG;
-        public FormGestionUsuarios()
+        LanguageManager_327LG LM_327LG;
+        string modo = "Modo Consulta";
+        public FormGestionUsuarios_327LG()
         {
             InitializeComponent();
             bllUsuario_327LG = new BLLUsuario_327LG();
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            LM_327LG = LanguageManager_327LG.Instance;
+            LM_327LG.AgregarObservador_327LG(this);
+            LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
+            Actualizar_327LG();
         }
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
@@ -65,10 +71,10 @@ namespace GUI_327LG
                 var usuario = listaUsuarios.FirstOrDefault(x => x.dni_327LG == dni);
                 if (usuario != null && usuario.bloqueado_327LG)
                     row.DefaultCellStyle.BackColor = Color.Red;
-                else if(usuario.activo_327LG == false)
+                else if (usuario.activo_327LG == false)
                     row.DefaultCellStyle.BackColor = Color.Gray;
             }
-            lblCanUsuarios.Text = "Cantidad de usuarios:" + dgvUsuarios.Rows.Count.ToString();
+            lblCanUsuarios.Text = LM_327LG.ObtenerString("label.lblCantidadUsuarios") + dgvUsuarios.Rows.Count.ToString();
             if (dgvUsuarios.Rows.Count > 0)
                 dgvUsuarios.ClearSelection();
         }
@@ -78,7 +84,9 @@ namespace GUI_327LG
         }
         private void btnAñadir_Click_327LG(object sender, EventArgs e)
         {
-            txtMensaje.Text = "Modo Añadir";
+            LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
+            modo = "Modo Añadir";
+            txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.anadir");
             btnAñadir.Enabled = false;
             btnDesbloquear.Enabled = false;
             btnModificar.Enabled = false;
@@ -89,7 +97,9 @@ namespace GUI_327LG
         }
         private void btnDesbloquear_Click_327LG(object sender, EventArgs e)
         {
-            txtMensaje.Text = "Modo Desbloquear";
+            LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
+            modo = "Modo Desbloquear";
+            txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.desbloquear");
             btnAñadir.Enabled = false;
             btnDesbloquear.Enabled = false;
             btnModificar.Enabled = false;
@@ -100,7 +110,9 @@ namespace GUI_327LG
         }
         private void btnModificar_Click_327LG(object sender, EventArgs e)
         {
-            txtMensaje.Text = "Modo Modificar";
+            LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
+            modo = "Modo Modificar";
+            txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.modificar");
             txtDNI.Enabled = false;
             btnAñadir.Enabled = false;
             btnDesbloquear.Enabled = false;
@@ -116,7 +128,9 @@ namespace GUI_327LG
         }
         private void btnActDes_Click(object sender, EventArgs e)
         {
-            txtMensaje.Text = "Modo Activar/Desactivar";
+            LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
+            modo = "Modo Activar/Desactivar";
+            txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.desactivar");
             btnAñadir.Enabled = false;
             btnDesbloquear.Enabled = false;
             btnModificar.Enabled = false;
@@ -139,9 +153,10 @@ namespace GUI_327LG
 
         private void btnAplicar_Click_327LG(object sender, EventArgs e)
         {
+            LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
             try
             {
-                switch (txtMensaje.Text)
+                switch (modo)
                 {
                     case "Modo Añadir":
                         string dni_327LG = txtDNI.Text;
@@ -151,27 +166,31 @@ namespace GUI_327LG
                         string password_327LG = dni_327LG + apellido_327LG;
                         string email_327LG = txtEmail.Text;
                         string rol_327LG = cmbRol.Text;
-                        if (!Regex.IsMatch(dni_327LG, @"^\d{8}$")) throw new Exception("El DNI no es valido");
-                        if(bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.dni_327LG.Equals(dni_327LG))) throw new Exception("El DNI ya esta en uso.");
+                        if (!Regex.IsMatch(dni_327LG, @"^\d{8}$")) throw new Exception(LM_327LG.ObtenerString("exception.dni_no_valido"));
+                        if (bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.dni_327LG.Equals(dni_327LG))) throw new Exception(LM_327LG.ObtenerString("exception.dni_en_uso"));
                         ValidarEntradasUsuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, email_327LG, rol_327LG);
-                        if (bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.email_327LG.Equals(email_327LG, StringComparison.OrdinalIgnoreCase))) throw new Exception("Email en uso.");
+                        if (bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.email_327LG.Equals(email_327LG, StringComparison.OrdinalIgnoreCase))) throw new Exception(LM_327LG.ObtenerString("exception.email_en_uso"));
                         bllUsuario_327LG.AgregarUsuario_327LG(new Usuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, username_327LG, Encriptador_327LG.Encriptar_327LG(password_327LG), rol_327LG, email_327LG, false, true, 0));
-                        MessageBox.Show("Usuario añadido correctamente.", "Usuario añadido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.usuario_anadido.mensaje"), LM_327LG.ObtenerString("messagebox.usuario_anadido.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                         CargarGrillaUsuarios_327LG();
                         ModoConsulta();
                         break;
+
                     case "Modo Desbloquear":
-                        if (dgvUsuarios.SelectedRows.Count <= 0) throw new Exception("No hay usuarios seleccionados para desbloquear");
+                        if (dgvUsuarios.SelectedRows.Count <= 0) throw new Exception(LM_327LG.ObtenerString("exception.seleccion_usuario_desbloqueo"));
                         string dniBloqueado_327LG = dgvUsuarios.SelectedRows[0].Cells[0].Value.ToString();
-                        string respuesta = MessageBox.Show("¿Está seguro que desea desbloquear al usuario?", "Desbloquear usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
+                        string respuesta = MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.desbloquear_usuario.mensaje"), LM_327LG.ObtenerString("messagebox.desbloquear_usuario.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), LM_327LG.ObtenerString("messagebox.button.cancelar"), MessageBoxIcon.Question).ToString();
                         if (respuesta == "No") return;
+                        if (bllUsuario_327LG.ConsultaIndividual_327LG(dniBloqueado_327LG).bloqueado_327LG == false) throw new Exception(LM_327LG.ObtenerString("exception.usuario_no_bloqueado"));
+
                         bllUsuario_327LG.ActualizarBloqueo_327LG(dniBloqueado_327LG, false);
-                        MessageBox.Show("Usuario desbloqueado correctamente.", "Usuario desbloqueado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.usuario_desbloqueado.mensaje"), LM_327LG.ObtenerString("messagebox.usuario_desbloqueado.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                         CargarGrillaUsuarios_327LG();
                         ModoConsulta();
                         break;
+
                     case "Modo Modificar":
-                        if (dgvUsuarios.SelectedRows.Count <= 0) throw new Exception("No hay usuarios seleccionados para modificar.");
+                        if (dgvUsuarios.SelectedRows.Count <= 0) throw new Exception(LM_327LG.ObtenerString("exception.seleccion_usuario_modificar"));
                         ValidarEntradasUsuario_327LG(txtDNI.Text, txtApellido.Text, txtNombre.Text, txtEmail.Text, cmbRol.Text);
                         Usuario_327LG user = bllUsuario_327LG.ConsultaIndividual_327LG(txtDNI.Text);
                         user.nombre_327LG = txtNombre.Text;
@@ -179,36 +198,40 @@ namespace GUI_327LG
                         user.email_327LG = txtEmail.Text;
                         user.rol_327LG = cmbRol.Text;
                         user.userName_327LG = txtDNI.Text + txtNombre.Text;
-                        if(MessageBox.Show("¿Desea cambiar la contraseña con los nuevos valores?","Cambio de contraseña", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes) user.password_327LG = Encriptador_327LG.Encriptar_327LG(txtDNI.Text + txtApellido.Text);
+                        if (MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.cambiar_contrasena.mensaje"), LM_327LG.ObtenerString("messagebox.cambiar_contrasena.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), "No", MessageBoxIcon.Question) == DialogResult.Yes) user.password_327LG = Encriptador_327LG.Encriptar_327LG(txtDNI.Text + txtApellido.Text);
                         bllUsuario_327LG.ModificarUsuario_327LG(user);
-                        MessageBox.Show("Usuario modificado correctamente.", "Usuario modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.usuario_modificado.mensaje"), LM_327LG.ObtenerString("messagebox.usuario_modificado.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                         CargarGrillaUsuarios_327LG();
                         ModoConsulta();
                         break;
+
                     case "Modo Activar/Desactivar":
-                        if (dgvUsuarios.SelectedRows.Count <= 0) throw new Exception("No hay usuarios seleccionados para modificar.");
+                        if (dgvUsuarios.SelectedRows.Count <= 0) throw new Exception(LM_327LG.ObtenerString("exception.seleccion_usuario_desactivar"));
                         string dniActDes_327LG = dgvUsuarios.SelectedRows[0].Cells[0].Value.ToString();
                         //si el usuario es el mismo que el que inicio sesion no se puede desactivar
-                        if (dniActDes_327LG == SessionManager_327LG.Instancia.Usuario.dni_327LG) throw new Exception("No se puede desactivar el usuario que inicio sesion.");
-                        bllUsuario_327LG.ActualizarActivo_327LG(bllUsuario_327LG.ConsultaIndividual_327LG(dniActDes_327LG));
-                        CargarGrillaUsuarios_327LG();
-                        ModoConsulta();
+                        if (dniActDes_327LG == SessionManager_327LG.Instancia.Usuario.dni_327LG) throw new Exception(LM_327LG.ObtenerString("exception.usuario_desactivar_no_valido"));
+                        if (MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.desactivar_activar.mensaje"), LM_327LG.ObtenerString("messagebox.desactivar_activar.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), LM_327LG.ObtenerString("messagebox.button.cancelar"), MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            bllUsuario_327LG.ActualizarActivo_327LG(bllUsuario_327LG.ConsultaIndividual_327LG(dniActDes_327LG));
+                            MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.usuario_desactivado.mensaje"), LM_327LG.ObtenerString("messagebox.usuario_desactivado.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
+                            CargarGrillaUsuarios_327LG();
+                            ModoConsulta();
+                        }
                         break;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBoxPersonalizado.Show(ex.Message, "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
             }
         }
 
         private void ValidarEntradasUsuario_327LG(string dni_327LG, string apellido_327LG, string nombre_327LG, string email_327LG, string rol_327LG)
         {
             if (dni_327LG == string.Empty || apellido_327LG == string.Empty || nombre_327LG == string.Empty || email_327LG == string.Empty || rol_327LG == string.Empty)
-                throw new Exception("Deben estar completos todos los campos.");
-            if (nombre_327LG.Any(char.IsDigit)) throw new Exception("El nombre no puede contener números.");
-            if (apellido_327LG.Any(char.IsDigit)) throw new Exception("El apellido no puede contener números.");
+                throw new Exception(LM_327LG.ObtenerString("exception.campos_vacios"));
+            if (nombre_327LG.Any(char.IsDigit)) throw new Exception(LM_327LG.ObtenerString("exception.nombre_con_numeros"));
+            if (apellido_327LG.Any(char.IsDigit)) throw new Exception(LM_327LG.ObtenerString("exception.apellido_con_numeros"));
         }
 
         private void btnCancelar_Click_327LG(object sender, EventArgs e)
@@ -222,7 +245,10 @@ namespace GUI_327LG
         }
         private void ModoConsulta()
         {
-            txtMensaje.Text = "Modo Consulta";
+            LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
+            modo = "Modo Consulta";
+            txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.consulta");
+
             txtDNI.Enabled = true;
             btnAñadir.Enabled = true;
             btnDesbloquear.Enabled = true;
@@ -252,5 +278,27 @@ namespace GUI_327LG
             }
         }
 
+        public void Actualizar_327LG()
+        {
+            LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
+            //Label
+            lblUsuarios.Text = LM_327LG.ObtenerString("label.lblUsuarios");
+            lblCanUsuarios.Text = LM_327LG.ObtenerString("label.lblCantidadUsuarios") + dgvUsuarios.Rows.Count.ToString();
+            lblApellido.Text = LM_327LG.ObtenerString("label.lblApellido");
+            lblNombre.Text = LM_327LG.ObtenerString("label.lblNombre");
+            lblUsername.Text = LM_327LG.ObtenerString("label.lblUsername");
+            //Radio
+            rdoActivos.Text = LM_327LG.ObtenerString("radio.rdoActivos");
+            rdoTodos.Text = LM_327LG.ObtenerString("radio.rdoTodos");
+            //Botones
+            btnAñadir.Text = LM_327LG.ObtenerString("button.btnAnadir");
+            btnDesbloquear.Text = LM_327LG.ObtenerString("button.btnDesbloquear");
+            btnModificar.Text = LM_327LG.ObtenerString("button.btnModificar");
+            btnActDes.Text = LM_327LG.ObtenerString("button.btnActivarDesactivar");
+            btnAplicar.Text = LM_327LG.ObtenerString("button.btnAplicar");
+            btnCancelar.Text = LM_327LG.ObtenerString("button.btnCancelar");
+            btnSalir.Text = LM_327LG.ObtenerString("button.btnSalir");
+
+        }
     }
 }

@@ -9,22 +9,26 @@ using System.Diagnostics;
 
 namespace Services_327LG.Observer_327LG
 {
-    public class LanguageManager : ISujeto_327LG
+    public class LanguageManager_327LG : ISujeto_327LG
     {
         private List<IObserverIdioma_327LG> listaFormularios = new List<IObserverIdioma_327LG>();
         private Dictionary<string, object> traduccion = new Dictionary<string, object>();
-        public static LanguageManager Instance { get; } = new LanguageManager();
-        public LanguageManager()
+        public string Idioma { get; set; }
+        public static LanguageManager_327LG Instance { get; } = new LanguageManager_327LG();
+        public LanguageManager_327LG()
         {
         }
-
-        public void CargarIdioma(string idioma)
+        public void CambiarIdioma_327LG(string idioma)
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Languages",$"{idioma}.json");
+            Idioma = idioma;
+            NotificarObservadores_327LG();
+        }
+        public void CargarFormulario_327LG(string formulario)
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Languages",$"{Idioma}",$"{formulario}.json");
             if(!File.Exists(path)) throw new FileNotFoundException($"No se encontro el archivo de idioma{path}");
             string json = File.ReadAllText(path);
             traduccion = JsonSerializer.Deserialize<Dictionary<string, object>>(json);
-            NotificarObservadores_327LG();
         }
 
         public string ObtenerString(string clave)

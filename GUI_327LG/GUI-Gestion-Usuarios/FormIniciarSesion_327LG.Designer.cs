@@ -1,6 +1,6 @@
 ﻿namespace GUI_327LG
 {
-    partial class FormIniciarSesion
+    partial class FormIniciarSesion_327LG
     {
         /// <summary>
         /// Required designer variable.
@@ -117,7 +117,7 @@
             btnIniciarSesion.UseVisualStyleBackColor = true;
             btnIniciarSesion.Click += btnIniciarSesion_Click;
             // 
-            // FormIniciarSesion
+            // FormIniciarSesion_327LG
             // 
             AcceptButton = btnIniciarSesion;
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -131,9 +131,10 @@
             Controls.Add(txtContraseña);
             Controls.Add(txtUsuario);
             Controls.Add(btnIniciarSesion);
-            Name = "FormIniciarSesion";
+            Name = "FormIniciarSesion_327LG";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormIniciarSesion";
+            FormClosed += FormIniciarSesion_327LG_FormClosed;
             Load += FormIniciarSesion_Load;
             ResumeLayout(false);
             PerformLayout();

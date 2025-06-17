@@ -1,0 +1,97 @@
+{
+  "label": {
+    "lblUsuarios": "Users",
+    "lblCantidadUsuarios": "Number of users: ",
+    "lblApellido": "Last name:",
+    "lblNombre": "Name:",
+    "lblUsername": "Username"
+  },
+
+  "radio": {
+    "rdoActivos": "Active",
+    "rdoTodos": "All"
+  },
+
+  "button": 
+  {
+    "btnAnadir": "Add",
+    "btnDesbloquear": "Unlock",
+    "btnModificar": "Modify",
+    "btnActivarDesactivar": "Activate/Deactivate",
+    "btnAplicar": "Apply",
+    "btnCancelar": "Cancel",
+    "btnSalir": "Exit"
+  },
+
+  "textbox":
+  {
+    "modo":
+    {
+      "consulta": "Query mode",
+      "anadir": "Add mode",
+      "desbloquear": "Unlock mode",
+      "modificar": "Modify mode",
+      "desactivar": "Activate/deactivate mode"
+    }
+  },
+
+  "messagebox": {
+    "usuario_anadido": {
+      "titulo": "User added",
+      "mensaje": "The user was added successfully."
+    },
+    "contrasena_cambiada": {
+      "titulo": "Password changed",
+      "mensaje": "Password successfully changed."
+    },
+    "desbloquear_usuario":
+      {
+        "titulo": "Unlock",
+        "mensaje": "Are you sure to unlock this user?"
+      },
+      "usuario_desbloqueado":
+      {
+        "titulo": "User unlocked",
+        "mensaje": "User unlocked succesfully."
+      },
+      "cambiar_contrasena":
+      {
+        "titulo": "Change password",
+        "mensaje": "Do you want to change the password to the new values?"
+      },
+       "usuario_modificado":
+      {
+        "titulo": "User modified",
+        "mensaje": "The user was modified successfully."
+      },
+      "desactivar_activar":
+      {
+        "titulo": "Confirm operation",
+        "mensaje": "Are you sure you want to deactivate/activate the user?"
+      },
+      "usuario_desactivado":
+      {
+        "titulo": "Operation complete",
+        "mensaje": "Operation completed succesfully."
+      },
+
+
+    "button": {
+      "aceptar": "Ok",
+      "cancelar": "Cancel"
+      
+    }
+  },
+  "exception": {
+    "campos_vacios": "Please complete all fields.",
+    "nombre_con_numeros": "First name cannot contain numbers.",
+    "apellido_con_numeros": "Last name cannot contain numbers.",
+    "dni_no_valido": "The ID number does not meet the format (8 digits).",
+    "dni_en_uso": "The ID number is already in use.",
+    "email_en_uso": "Email is already in use.",
+    "seleccion_usuario_desbloqueo": "There are no users selected to unlock.",
+    "usuario_no_bloqueado": "User not locked.",
+    "seleccion_usuario_modificar": "There are no users selected to modifiy.",
+    "seleccion_usuario_desactivar": "There are no users selected."
+  }
+}

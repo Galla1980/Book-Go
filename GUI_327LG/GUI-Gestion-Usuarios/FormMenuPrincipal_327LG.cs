@@ -3,22 +3,25 @@ using Services_327LG.Singleton_327LG;
 
 namespace GUI_327LG
 {
-    public partial class FormMenuPrincipal : Form, IObserverIdioma_327LG
+    public partial class FormMenuPrincipal_327LG : Form, IObserverIdioma_327LG
     {
-
-        public FormMenuPrincipal()
+        LanguageManager_327LG LM_327;
+        public FormMenuPrincipal_327LG()
         {
             InitializeComponent();
             lblBienvenido.AutoSize = true;
             lblBienvenido.Font = new Font("Segoe UI", 14, FontStyle.Regular); 
             lblBienvenido.ForeColor = Color.White;
-            LanguageManager.Instance.AgregarObservador_327LG(this);
+            LM_327 = LanguageManager_327LG.Instance;
+            LM_327.AgregarObservador_327LG(this);
+            Actualizar_327LG();
         }
 
         public void Actualizar_327LG()
         {
+            LM_327.CargarFormulario_327LG("FormMenuPrincipal_327LG");
             if (SessionManager_327LG.Instancia.IsLoggedIn_327LG())
-                lblBienvenido.Text = LanguageManager.Instance.ObtenerString("FormMenuPrincipal.lblBienvenida") + SessionManager_327LG.Instancia.Usuario.nombre_327LG;
+                lblBienvenido.Text = LanguageManager_327LG.Instance.ObtenerString("label.lblBienvenida") + SessionManager_327LG.Instancia.Usuario.nombre_327LG;
             else
                 lblBienvenido.Text = "";
         }

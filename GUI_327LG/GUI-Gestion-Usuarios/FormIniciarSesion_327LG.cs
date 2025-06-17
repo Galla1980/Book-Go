@@ -4,51 +4,58 @@ using Services_327LG.Singleton_327LG;
 
 namespace GUI_327LG
 {
-    public partial class FormIniciarSesion : Form, IObserverIdioma_327LG
+    public partial class FormIniciarSesion_327LG : Form, IObserverIdioma_327LG
     {
         BLLUsuario_327LG bllUsuario_327LG;
-        public FormIniciarSesion()
+        LanguageManager_327LG LM_327LG;
+        public FormIniciarSesion_327LG()
         {
             InitializeComponent();
             bllUsuario_327LG = new BLLUsuario_327LG();
-            LanguageManager.Instance.AgregarObservador_327LG(this);
+            LM_327LG = LanguageManager_327LG.Instance;
+            LM_327LG.AgregarObservador_327LG(this);
+            Actualizar_327LG();
         }
 
         public void Actualizar_327LG()
         {
-            lblIniciarSesion.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.label.lblTitulo");
+            LM_327LG.CargarFormulario_327LG("FormIniciarSesion_327LG");
+            lblIniciarSesion.Text = LM_327LG.ObtenerString("label.lblTitulo");
             lblIniciarSesion.Left = (this.ClientSize.Width - lblIniciarSesion.Width) / 2;
-            lblUsuario.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.label.lblUsuario");
-            lblContraseña.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.label.lblContrasena");
-            btnIniciarSesion.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.button.btnIniciarSesion");
-            btnSalir.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.button.btnSalir");
-            chkVerContraseña.Text = LanguageManager.Instance.ObtenerString("FormIniciarSesion.checkbox.chkVerContrasena");
+            lblUsuario.Text = LM_327LG.ObtenerString("label.lblUsuario");
+            lblContraseña.Text = LM_327LG.ObtenerString("label.lblContrasena");
+            btnIniciarSesion.Text = LM_327LG.ObtenerString("button.btnIniciarSesion");
+            btnSalir.Text = LM_327LG.ObtenerString("button.btnSalir");
+            chkVerContraseña.Text = LM_327LG.ObtenerString("checkbox.chkVerContrasena");
         }
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             try
             {
+                LM_327LG.CargarFormulario_327LG("FormIniciarSesion_327LG");
+                if (SessionManager_327LG.Instancia.IsLoggedIn_327LG()) throw new Exception(LM_327LG.ObtenerString("exception.sesion_iniciada"));
                 bllUsuario_327LG.IniciarSesion_327LG(txtUsuario.Text, txtContraseña.Text);
-                FormMDI form = (FormMDI)this.MdiParent;
+                FormMDI_327LG form = (FormMDI_327LG)this.MdiParent;
                 form.ActualizarFormulario_327LG();
                 this.Close();
             }
             catch (LoginException_327LG ex)
             {
+                LM_327LG.CargarFormulario_327LG("FormIniciarSesion_327LG");
                 switch (ex.Result)
                 {
                     case LoginResult_327LG.InvalidUsername:
-                        MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.invalid_username"), "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
                         break;
                     case LoginResult_327LG.InvalidPassword:
-                        MessageBox.Show("Contraseña incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.invalid_password"), "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
                         break;
                     case LoginResult_327LG.UserBlocked:
-                        MessageBox.Show("Usuario bloqueado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.user_bloqued"), "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
                         break;
                     case LoginResult_327LG.UserDisabled:
-                        MessageBox.Show("Usuario deshabilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.user_disabled"), "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
                         break;
                     default:
                         break;
@@ -56,7 +63,8 @@ namespace GUI_327LG
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LM_327LG.CargarFormulario_327LG("FormIniciarSesion_327LG");
+                MessageBoxPersonalizado.Show(ex.Message, "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
             }
         }
 
@@ -89,6 +97,11 @@ namespace GUI_327LG
                 label.ForeColor = Color.White;
                 label.BackColor = Color.Transparent;
             }
+
+            // CheckBox
+            chkVerContraseña.ForeColor = Color.White;
+            chkVerContraseña.BackColor = Color.Transparent;
+
             // TextBoxes
             txtUsuario.BackColor = Color.White;
             txtUsuario.ForeColor = Color.Black;
@@ -107,6 +120,11 @@ namespace GUI_327LG
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.FlatAppearance.BorderSize = 0;
             Actualizar_327LG();
+        }
+
+        private void FormIniciarSesion_327LG_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LM_327LG.EliminarObservador_327LG(this);
         }
     }
 }

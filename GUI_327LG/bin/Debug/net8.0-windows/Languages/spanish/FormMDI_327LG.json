@@ -1,0 +1,53 @@
+{
+  "menu_usuario": {
+    "texto": "Usuario",
+    "items": {
+      "iniciar_sesion": "Iniciar sesión",
+      "cambiar_contrasena": "Cambiar contraseña",
+      "cerrar_sesion": "Cerrar sesión"
+    }
+  },
+  "menu_admin": {
+    "texto": "Admin",
+    "items": {
+      "gestion_usuarios": "Gestión de usuarios"
+    }
+  },
+  "menu_maestro": {
+    "texto": "Maestro"
+  },
+  "menu_prestamos": {
+    "texto": "Prestamos"
+  },
+  "menu_reposicion": {
+    "texto": "Reposición"
+  },
+  "menu_reporte": {
+    "texto": "Reportes"
+  },
+  "menu_ayuda": {
+    "texto": "Ayuda"
+  },
+  "label_idioma": "Idioma:",
+
+  "messagebox": {
+    "titulo": 
+    {
+      "cierre_sesion": "Cerrar sesión"
+    },
+    "mensaje":
+    {
+      "cierre_sesion": "¿Desea cerrar la sesión?"
+    },
+    "button":
+    {
+      "aceptar": "aceptar",
+      "cancelar": "Cancelar"
+    }
+  },
+
+
+  "exception": {
+    "sesion_no_iniciada": "No hay sesión iniciada"
+  }
+}

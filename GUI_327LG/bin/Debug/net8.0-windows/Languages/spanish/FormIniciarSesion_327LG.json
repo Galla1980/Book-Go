@@ -1,0 +1,43 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Inicio de sesión",
+      "lblUsuario": "Usuario:",
+      "lblContrasena": "Contraseña:"
+    },
+    "button": 
+    {
+      "btnIniciarSesion": "Iniciar sesión",
+      "btnSalir": "Salir"
+    },
+    "checkbox": 
+    {
+      "chkVerContrasena": "Ver"
+    },
+
+    "exception":
+    {
+      "sesion_iniciada": "Ya hay una sesión iniciada"
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "Error": "Error"
+      },
+      "mensaje":
+      {
+        "invalid_username": "Usuario no encontrado",
+        "invalid_password": "Contraseña incorrecta",
+        "user_bloqued": "Usuario bloqueado",
+        "user_disabled": "Usuario deshabilitado"
+      },
+      "button":
+      {
+        "aceptar": "aceptar",
+        "cancelar": "Cancelar"
+      }
+
+    }
+}

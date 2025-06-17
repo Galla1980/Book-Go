@@ -1,6 +1,6 @@
 ﻿namespace GUI_327LG
 {
-    partial class FormCambiarContraseña
+    partial class FormCambiarContraseña_327LG
     {
         /// <summary>
         /// Required designer variable.
@@ -144,7 +144,7 @@
             chkContraseñaActual.UseVisualStyleBackColor = true;
             chkContraseñaActual.CheckedChanged += chkContraseñaActual_CheckedChanged;
             // 
-            // FormCambiarContraseña
+            // FormCambiarContraseña_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -160,9 +160,10 @@
             Controls.Add(txtNuevaContraseña);
             Controls.Add(txtContraseñaAct);
             Controls.Add(btnCambiarContraseña);
-            Name = "FormCambiarContraseña";
+            Name = "FormCambiarContraseña_327LG";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCambiarContraseña";
+            FormClosed += FormCambiarContraseña_327LG_FormClosed;
             Load += FormCambiarContraseña_Load;
             ResumeLayout(false);
             PerformLayout();

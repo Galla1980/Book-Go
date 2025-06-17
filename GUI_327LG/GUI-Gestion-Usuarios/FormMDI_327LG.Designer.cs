@@ -1,6 +1,6 @@
 ﻿namespace GUI_327LG
 {
-    partial class FormMDI
+    partial class FormMDI_327LG
     {
         /// <summary>
         ///  Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI_327LG.GUIRF1
 {
-    public partial class FormRegistrarCliente : Form
+    public partial class FormSeleccionarLibro_327LG : Form
     {
-        public FormRegistrarCliente()
+        public FormSeleccionarLibro_327LG()
         {
             InitializeComponent();
         }

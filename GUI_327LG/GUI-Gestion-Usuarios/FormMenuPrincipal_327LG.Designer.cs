@@ -1,6 +1,6 @@
 ﻿namespace GUI_327LG
 {
-    partial class FormMenuPrincipal
+    partial class FormMenuPrincipal_327LG
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal_327LG));
             pic = new PictureBox();
             lblBienvenido = new Label();
             ((System.ComponentModel.ISupportInitialize)pic).BeginInit();

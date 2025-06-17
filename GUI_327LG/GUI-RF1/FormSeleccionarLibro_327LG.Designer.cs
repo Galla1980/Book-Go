@@ -1,6 +1,6 @@
 ﻿namespace GUI_327LG.GUIRF1
 {
-    partial class FormSeleccionarLibro
+    partial class FormSeleccionarLibro_327LG
     {
         /// <summary>
         /// Required designer variable.
