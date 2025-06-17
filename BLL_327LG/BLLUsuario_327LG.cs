@@ -16,7 +16,7 @@ namespace BLL_327LG
 
         public LoginResult_327LG IniciarSesion_327LG(string usuario, string contraseña)
         {
-            if (SessionManager_327LG.Instancia.IsLoggedIn_327LG()) throw new Exception("Ya hay una sesión iniciada");
+            
             var user = dalUsuario_327LG.ObtenerUsuarios_327LG().Where(x => x.userName_327LG.Equals(usuario)).FirstOrDefault();
             ValidarUsuario_327LG(user);
             string contrasena = Encriptador_327LG.Encriptar_327LG(contraseña);
@@ -57,13 +57,17 @@ namespace BLL_327LG
 
         public List<Usuario_327LG> ObtenerUsuarios_327LG()
         {
-
             return dalUsuario_327LG.ObtenerUsuarios_327LG();
         }
 
         public void ModificarUsuario_327LG(Usuario_327LG user)
         {
             dalUsuario_327LG.ActualizarUsuario_327LG(user);
+        }
+
+        public void CambiarIdioma_327LG(Usuario_327LG user)
+        {
+            dalUsuario_327LG.CambiarIdioma_327LG(user);
         }
 
         private void ActualizarIntentos_327LG(Usuario_327LG user)
@@ -87,7 +91,6 @@ namespace BLL_327LG
             }
             else
             {
-                if (user.bloqueado_327LG == false) throw new Exception("El usuario no esta bloqueado.");
                 user.bloqueado_327LG = false;
                 user.intento_327LG = 0;
                 string contraseña = user.dni_327LG+user.apellido_327LG;

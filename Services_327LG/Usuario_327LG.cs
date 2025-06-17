@@ -18,17 +18,15 @@ namespace Services_327LG
         public bool bloqueado_327LG { get; set; }
         public bool activo_327LG { get; set; }
         public int intento_327LG { get; set; }
-        public override string ToString()
-        {
-            return userName_327LG;
-        }
+        public string  IdiomaPref_327LG { get; set; }
+
 
         public Usuario_327LG() 
         {
 
         }
 
-        public Usuario_327LG(string dni_327LG, string apellido_327LG, string nombre_327LG, string userName_327LG, string password_327LG, string rol_327LG, string email_327LG, bool bloqueado_327LG, bool activo_327LG, int intento_327LG)
+        public Usuario_327LG(string dni_327LG, string apellido_327LG, string nombre_327LG, string userName_327LG, string password_327LG, string rol_327LG, string email_327LG, bool bloqueado_327LG, bool activo_327LG, int intento_327LG, string idioma)
         {
             this.dni_327LG = dni_327LG;
             this.apellido_327LG = apellido_327LG;
@@ -40,8 +38,7 @@ namespace Services_327LG
             this.bloqueado_327LG = bloqueado_327LG;
             this.activo_327LG = activo_327LG;
             this.intento_327LG = intento_327LG;
+            this.IdiomaPref_327LG = idioma; 
         }
-
-        
     }
 }
