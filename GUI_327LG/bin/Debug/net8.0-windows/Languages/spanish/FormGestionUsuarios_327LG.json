@@ -5,7 +5,8 @@
     "lblCantidadUsuarios": "Cantidad de usuarios: ",
     "lblApellido": "Apellido:",
     "lblNombre": "Nombre:",
-    "lblUsername":"Usuario"
+    "lblUsername":"Usuario",
+    "lblCorreo": "Correo"
   },
 
   "radio":
@@ -36,6 +37,18 @@
       "desactivar": "Modo Activar/Desactivar"
     }
   },
+  
+  "datagridview":
+  {
+    "columna":
+    {
+      "apellido": "Apellido",
+      "nombre": "Nombre",
+      "usuario": "Usuario",
+      "correo": "Correo"
+    }
+  },
+
   "messagebox": 
   {
     "usuario_anadido": 
@@ -88,7 +101,7 @@
     "apellido_con_numeros": "El apellido no puede contener números.",
     "dni_no_valido": "El DNI no cumple el formato (8 digitos)",
     "dni_en_uso": "El DNI está en uso.",
-    "email_en_uso": "Email en uso.",
+    "email_en_uso": "Correo en uso.",
     "seleccion_usuario_desbloqueo": "No hay usuarios seleccionados para desbloquear.",
     "usuario_no_bloqueado": "El usuario no está bloqueado.",
     "seleccion_usuario_modificar": "No hay usuarios seleccionados para modificar.",

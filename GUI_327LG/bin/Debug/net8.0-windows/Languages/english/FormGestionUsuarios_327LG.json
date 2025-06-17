@@ -4,7 +4,8 @@
     "lblCantidadUsuarios": "Number of users: ",
     "lblApellido": "Last name:",
     "lblNombre": "Name:",
-    "lblUsername": "Username"
+    "lblUsername": "Username",
+    "lblCorreo": "Email"
   },
 
   "radio": {
@@ -35,6 +36,17 @@
     }
   },
 
+  "datagridview":
+  {
+    "columna":
+    {
+      "apellido": "Last name",
+      "nombre": "Name",
+      "usuario": "Username",
+      "correo": "Email"
+    }
+  },
+  
   "messagebox": {
     "usuario_anadido": {
       "titulo": "User added",

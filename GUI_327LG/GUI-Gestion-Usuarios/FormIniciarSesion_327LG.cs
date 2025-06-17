@@ -38,6 +38,7 @@ namespace GUI_327LG
                 bllUsuario_327LG.IniciarSesion_327LG(txtUsuario.Text, txtContraseña.Text);
                 FormMDI_327LG form = (FormMDI_327LG)this.MdiParent;
                 form.ActualizarFormulario_327LG();
+                form.CargarIdioma_327LG();
                 this.Close();
             }
             catch (LoginException_327LG ex)

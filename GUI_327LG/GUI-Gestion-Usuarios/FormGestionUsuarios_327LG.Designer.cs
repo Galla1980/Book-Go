@@ -178,7 +178,7 @@
             rdoTodos.CheckAlign = ContentAlignment.TopCenter;
             rdoTodos.Location = new Point(400, 12);
             rdoTodos.Name = "rdoTodos";
-            rdoTodos.Size = new Size(42, 32);
+            rdoTodos.Size = new Size(43, 32);
             rdoTodos.TabIndex = 10;
             rdoTodos.Text = "Todos";
             rdoTodos.UseVisualStyleBackColor = true;
@@ -349,7 +349,7 @@
             lblDNI.TabIndex = 1;
             lblDNI.Text = "DNI";
             // 
-            // FormGestionUsuarios
+            // FormGestionUsuarios_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -368,9 +368,10 @@
             Controls.Add(btnDesbloquear);
             Controls.Add(btnAñadir);
             Controls.Add(dgvUsuarios);
-            Name = "FormGestionUsuarios";
+            Name = "FormGestionUsuarios_327LG";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión de usuarios";
+            FormClosed += FormGestionUsuarios_327LG_FormClosed;
             Load += FormGestionUsuarios_Load;
             Shown += FormGestionUsuarios_Shown_327LG;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();

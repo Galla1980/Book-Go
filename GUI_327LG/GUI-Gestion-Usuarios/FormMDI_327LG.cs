@@ -123,14 +123,37 @@ namespace GUI_327LG
             if (tscmbIdioma.Text == "Español")
             {
                 LanguageManager_327LG.Instance.CambiarIdioma_327LG("spanish");
+                if (SessionManager_327LG.Instancia.IsLoggedIn_327LG())
+                {
+                    SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG = "spanish";
+                    bllUsuario_327LG.CambiarIdioma_327LG(SessionManager_327LG.Instancia.Usuario);
+                }
             }
             else if (tscmbIdioma.Text == "English")
             {
                 LanguageManager_327LG.Instance.CambiarIdioma_327LG("english");
+                if (SessionManager_327LG.Instancia.IsLoggedIn_327LG())
+                {
+                    SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG = "english";
+                    bllUsuario_327LG.CambiarIdioma_327LG(SessionManager_327LG.Instancia.Usuario);
+                }
             }
             else
             {
                 MessageBox.Show("Idioma no soportado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+        public void CargarIdioma_327LG()
+        {
+            if(SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG == "spanish")
+            {
+                LanguageManager_327LG.Instance.CambiarIdioma_327LG("spanish");
+                tscmbIdioma.Text = "Español";
+            }else if (SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG == "english")
+            {
+                LanguageManager_327LG.Instance.CambiarIdioma_327LG("spanish");
+                tscmbIdioma.Text = "English";
             }
         }
     }

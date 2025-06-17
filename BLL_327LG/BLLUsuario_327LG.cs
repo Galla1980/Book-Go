@@ -65,6 +65,11 @@ namespace BLL_327LG
             dalUsuario_327LG.ActualizarUsuario_327LG(user);
         }
 
+        public void CambiarIdioma_327LG(Usuario_327LG user)
+        {
+            dalUsuario_327LG.CambiarIdioma_327LG(user);
+        }
+
         private void ActualizarIntentos_327LG(Usuario_327LG user)
         {
             dalUsuario_327LG.ActualizarIntentos_327LG(user);

@@ -65,6 +65,7 @@ namespace GUI_327LG
                            };
                 dgvUsuarios.DataSource = linq.ToList();
             }
+            //Pinta los registros desactivados y bloqueados
             foreach (DataGridViewRow row in dgvUsuarios.Rows)
             {
                 string dni = row.Cells[0].Value.ToString();
@@ -74,6 +75,11 @@ namespace GUI_327LG
                 else if (usuario.activo_327LG == false)
                     row.DefaultCellStyle.BackColor = Color.Gray;
             }
+
+            dgvUsuarios.Columns["Apellido"].HeaderText = LM_327LG.ObtenerString("datagridview.columna.apellido");
+            dgvUsuarios.Columns["Nombre"].HeaderText = LM_327LG.ObtenerString("datagridview.columna.nombre");
+            dgvUsuarios.Columns["Username"].HeaderText = LM_327LG.ObtenerString("datagridview.columna.usuario");
+            dgvUsuarios.Columns["Email"].HeaderText = LM_327LG.ObtenerString("datagridview.columna.correo");
             lblCanUsuarios.Text = LM_327LG.ObtenerString("label.lblCantidadUsuarios") + dgvUsuarios.Rows.Count.ToString();
             if (dgvUsuarios.Rows.Count > 0)
                 dgvUsuarios.ClearSelection();
@@ -170,7 +176,7 @@ namespace GUI_327LG
                         if (bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.dni_327LG.Equals(dni_327LG))) throw new Exception(LM_327LG.ObtenerString("exception.dni_en_uso"));
                         ValidarEntradasUsuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, email_327LG, rol_327LG);
                         if (bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.email_327LG.Equals(email_327LG, StringComparison.OrdinalIgnoreCase))) throw new Exception(LM_327LG.ObtenerString("exception.email_en_uso"));
-                        bllUsuario_327LG.AgregarUsuario_327LG(new Usuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, username_327LG, Encriptador_327LG.Encriptar_327LG(password_327LG), rol_327LG, email_327LG, false, true, 0));
+                        bllUsuario_327LG.AgregarUsuario_327LG(new Usuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, username_327LG, Encriptador_327LG.Encriptar_327LG(password_327LG), rol_327LG, email_327LG, false, true, 0, "spanish"));
                         MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.usuario_anadido.mensaje"), LM_327LG.ObtenerString("messagebox.usuario_anadido.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                         CargarGrillaUsuarios_327LG();
                         ModoConsulta();
@@ -281,12 +287,19 @@ namespace GUI_327LG
         public void Actualizar_327LG()
         {
             LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
+            if (modo == "Modo Consulta") txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.consulta");
+            if (modo == "Modo Añadir") txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.anadir");
+            if (modo == "Modo Modificar") txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.modificar");
+            if (modo == "Modo Desbloquear") txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.desbloquear");
+            if (modo == "Modo Activar/Desactivar") txtMensaje.Text = LM_327LG.ObtenerString("textbox.modo.desactivar");
+            CargarGrillaUsuarios_327LG();
             //Label
             lblUsuarios.Text = LM_327LG.ObtenerString("label.lblUsuarios");
             lblCanUsuarios.Text = LM_327LG.ObtenerString("label.lblCantidadUsuarios") + dgvUsuarios.Rows.Count.ToString();
             lblApellido.Text = LM_327LG.ObtenerString("label.lblApellido");
             lblNombre.Text = LM_327LG.ObtenerString("label.lblNombre");
             lblUsername.Text = LM_327LG.ObtenerString("label.lblUsername");
+            lblEmail.Text = LM_327LG.ObtenerString("label.lblCorreo");
             //Radio
             rdoActivos.Text = LM_327LG.ObtenerString("radio.rdoActivos");
             rdoTodos.Text = LM_327LG.ObtenerString("radio.rdoTodos");
@@ -298,7 +311,11 @@ namespace GUI_327LG
             btnAplicar.Text = LM_327LG.ObtenerString("button.btnAplicar");
             btnCancelar.Text = LM_327LG.ObtenerString("button.btnCancelar");
             btnSalir.Text = LM_327LG.ObtenerString("button.btnSalir");
+        }
 
+        private void FormGestionUsuarios_327LG_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LM_327LG.EliminarObservador_327LG(this);
         }
     }
 }
