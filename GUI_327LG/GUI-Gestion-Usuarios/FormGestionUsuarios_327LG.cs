@@ -18,7 +18,7 @@ namespace GUI_327LG
             bllUsuario_327LG = new BLLUsuario_327LG();
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            LM_327LG = LanguageManager_327LG.Instance;
+            LM_327LG = LanguageManager_327LG.Instance_327LG;
             LM_327LG.AgregarObservador_327LG(this);
             LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
             Actualizar_327LG();

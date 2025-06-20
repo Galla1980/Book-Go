@@ -12,7 +12,7 @@ namespace GUI_327LG
         {
             InitializeComponent();
             bllUsuario_327LG = new BLLUsuario_327LG();
-            LM_327LG = LanguageManager_327LG.Instance;
+            LM_327LG = LanguageManager_327LG.Instance_327LG;
             LM_327LG.AgregarObservador_327LG(this);
             Actualizar_327LG();
         }

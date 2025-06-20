@@ -43,6 +43,7 @@
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
+            registrarPrestamoToolStripMenuItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -108,6 +109,7 @@
             // 
             // prestamosItem
             // 
+            prestamosItem.DropDownItems.AddRange(new ToolStripItem[] { registrarPrestamoToolStripMenuItem });
             prestamosItem.Name = "prestamosItem";
             prestamosItem.Size = new Size(74, 20);
             prestamosItem.Text = "Prestamos";
@@ -156,7 +158,14 @@
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
             // 
-            // FormMDI
+            // registrarPrestamoToolStripMenuItem
+            // 
+            registrarPrestamoToolStripMenuItem.Name = "registrarPrestamoToolStripMenuItem";
+            registrarPrestamoToolStripMenuItem.Size = new Size(180, 22);
+            registrarPrestamoToolStripMenuItem.Text = "Registrar Prestamo";
+            registrarPrestamoToolStripMenuItem.Click += registrarPrestamoToolStripMenuItem_Click;
+            // 
+            // FormMDI_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -165,7 +174,7 @@
             Controls.Add(mnsIdioma);
             IsMdiContainer = true;
             MainMenuStrip = mnsIdioma;
-            Name = "FormMDI";
+            Name = "FormMDI_327LG";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de gestion de biblioteca";
@@ -195,5 +204,6 @@
         private MenuStrip mnsIdioma;
         private ToolStripMenuItem tsmiIdioma;
         private ToolStripComboBox tscmbIdioma;
+        private ToolStripMenuItem registrarPrestamoToolStripMenuItem;
     }
 }
