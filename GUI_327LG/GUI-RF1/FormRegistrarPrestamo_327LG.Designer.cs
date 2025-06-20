@@ -35,7 +35,7 @@
             txtDNICliente = new TextBox();
             lblDNICliente = new Label();
             btnSeleccionarLibro = new Button();
-            button1 = new Button();
+            btnRegistrarCliente = new Button();
             button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
@@ -55,7 +55,7 @@
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Location = new Point(12, 89);
             dgvClientes.Name = "dgvClientes";
-            dgvClientes.Size = new Size(580, 195);
+            dgvClientes.Size = new Size(627, 195);
             dgvClientes.TabIndex = 1;
             // 
             // lblClientes
@@ -104,20 +104,21 @@
             btnSeleccionarLibro.UseVisualStyleBackColor = true;
             btnSeleccionarLibro.Click += btnSeleccionarLibro_Click;
             // 
-            // button1
+            // btnRegistrarCliente
             // 
-            button1.Font = new Font("Segoe UI", 14F);
-            button1.Location = new Point(645, 157);
-            button1.Name = "button1";
-            button1.Size = new Size(160, 62);
-            button1.TabIndex = 9;
-            button1.Text = "Registrar Cliente";
-            button1.UseVisualStyleBackColor = true;
+            btnRegistrarCliente.Font = new Font("Segoe UI", 14F);
+            btnRegistrarCliente.Location = new Point(645, 157);
+            btnRegistrarCliente.Name = "btnRegistrarCliente";
+            btnRegistrarCliente.Size = new Size(160, 62);
+            btnRegistrarCliente.TabIndex = 9;
+            btnRegistrarCliente.Text = "Registrar Cliente";
+            btnRegistrarCliente.UseVisualStyleBackColor = true;
+            btnRegistrarCliente.Click += btnRegistrarCliente_Click;
             // 
             // button2
             // 
             button2.Font = new Font("Segoe UI", 14F);
-            button2.Location = new Point(645, 298);
+            button2.Location = new Point(645, 304);
             button2.Name = "button2";
             button2.Size = new Size(160, 62);
             button2.TabIndex = 10;
@@ -128,9 +129,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(817, 402);
+            ClientSize = new Size(836, 440);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnRegistrarCliente);
             Controls.Add(btnSeleccionarLibro);
             Controls.Add(btnFiltrar);
             Controls.Add(txtDNICliente);
@@ -139,7 +140,9 @@
             Controls.Add(dgvClientes);
             Controls.Add(lblTituloForm);
             Name = "FormRegistrarPrestamo_327LG";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRegistrarPrestamo";
+            Load += FormRegistrarPrestamo_327LG_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -154,7 +157,7 @@
         private TextBox txtDNICliente;
         private Label lblDNICliente;
         private Button btnSeleccionarLibro;
-        private Button button1;
+        private Button btnRegistrarCliente;
         private Button button2;
     }
 }

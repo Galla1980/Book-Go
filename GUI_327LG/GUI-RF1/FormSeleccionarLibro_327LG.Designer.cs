@@ -57,7 +57,7 @@
             dgvLibro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLibro.Location = new Point(12, 42);
             dgvLibro.Name = "dgvLibro";
-            dgvLibro.Size = new Size(538, 213);
+            dgvLibro.Size = new Size(722, 213);
             dgvLibro.TabIndex = 0;
             dgvLibro.SelectionChanged += dgvLibro_SelectionChanged;
             // 
@@ -139,7 +139,7 @@
             // 
             lblLibroSel.AutoSize = true;
             lblLibroSel.Font = new Font("Segoe UI", 16F);
-            lblLibroSel.Location = new Point(576, 9);
+            lblLibroSel.Location = new Point(749, 9);
             lblLibroSel.Name = "lblLibroSel";
             lblLibroSel.Size = new Size(198, 30);
             lblLibroSel.TabIndex = 10;
@@ -148,7 +148,7 @@
             // lblDisponibles
             // 
             lblDisponibles.AutoSize = true;
-            lblDisponibles.Location = new Point(591, 68);
+            lblDisponibles.Location = new Point(764, 68);
             lblDisponibles.Name = "lblDisponibles";
             lblDisponibles.Size = new Size(68, 15);
             lblDisponibles.TabIndex = 11;
@@ -157,7 +157,7 @@
             // lblDañados
             // 
             lblDañados.AutoSize = true;
-            lblDañados.Location = new Point(591, 97);
+            lblDañados.Location = new Point(764, 97);
             lblDañados.Name = "lblDañados";
             lblDañados.Size = new Size(53, 15);
             lblDañados.TabIndex = 12;
@@ -166,7 +166,7 @@
             // lblDesaparecidos
             // 
             lblDesaparecidos.AutoSize = true;
-            lblDesaparecidos.Location = new Point(591, 126);
+            lblDesaparecidos.Location = new Point(764, 126);
             lblDesaparecidos.Name = "lblDesaparecidos";
             lblDesaparecidos.Size = new Size(13, 15);
             lblDesaparecidos.TabIndex = 13;
@@ -175,7 +175,7 @@
             // lblPrestados
             // 
             lblPrestados.AutoSize = true;
-            lblPrestados.Location = new Point(591, 155);
+            lblPrestados.Location = new Point(764, 155);
             lblPrestados.Name = "lblPrestados";
             lblPrestados.Size = new Size(58, 15);
             lblPrestados.TabIndex = 14;
@@ -184,7 +184,7 @@
             // txtDisponibles
             // 
             txtDisponibles.Enabled = false;
-            txtDisponibles.Location = new Point(665, 65);
+            txtDisponibles.Location = new Point(838, 65);
             txtDisponibles.Name = "txtDisponibles";
             txtDisponibles.Size = new Size(100, 23);
             txtDisponibles.TabIndex = 15;
@@ -192,7 +192,7 @@
             // txtDañados
             // 
             txtDañados.Enabled = false;
-            txtDañados.Location = new Point(665, 94);
+            txtDañados.Location = new Point(838, 94);
             txtDañados.Name = "txtDañados";
             txtDañados.Size = new Size(100, 23);
             txtDañados.TabIndex = 16;
@@ -200,7 +200,7 @@
             // txtDesaparecidos
             // 
             txtDesaparecidos.Enabled = false;
-            txtDesaparecidos.Location = new Point(665, 123);
+            txtDesaparecidos.Location = new Point(838, 123);
             txtDesaparecidos.Name = "txtDesaparecidos";
             txtDesaparecidos.Size = new Size(100, 23);
             txtDesaparecidos.TabIndex = 17;
@@ -208,7 +208,7 @@
             // txtPrestados
             // 
             txtPrestados.Enabled = false;
-            txtPrestados.Location = new Point(665, 152);
+            txtPrestados.Location = new Point(838, 152);
             txtPrestados.Name = "txtPrestados";
             txtPrestados.Size = new Size(100, 23);
             txtPrestados.TabIndex = 18;
@@ -216,7 +216,7 @@
             // btnTomarPrestado
             // 
             btnTomarPrestado.Font = new Font("Segoe UI", 14F);
-            btnTomarPrestado.Location = new Point(644, 196);
+            btnTomarPrestado.Location = new Point(817, 196);
             btnTomarPrestado.Name = "btnTomarPrestado";
             btnTomarPrestado.Size = new Size(121, 59);
             btnTomarPrestado.TabIndex = 19;
@@ -238,7 +238,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 384);
+            ClientSize = new Size(959, 384);
             Controls.Add(btnBuscar);
             Controls.Add(btnTomarPrestado);
             Controls.Add(txtPrestados);
@@ -263,6 +263,7 @@
             Name = "FormSeleccionarLibro_327LG";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Seleccionar libro";
+            FormClosed += FormSeleccionarLibro_327LG_FormClosed;
             Load += FormSeleccionarLibro_327LG_Load;
             ((System.ComponentModel.ISupportInitialize)dgvLibro).EndInit();
             ResumeLayout(false);

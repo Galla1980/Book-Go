@@ -19,9 +19,18 @@ namespace GUI_327LG.GUIRF1
             InitializeComponent();
         }
 
+
+        private void FormRegistrarPrestamo_327LG_Load(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml("#055b6b");
+            foreach (Label label in this.Controls.OfType<Label>())
+            {
+                label.ForeColor = Color.White;
+                label.BackColor = Color.Transparent;
+            }
+        }
         private void btnSeleccionarLibro_Click(object sender, EventArgs e)
         {
-            
             using (FormSeleccionarLibro_327LG formSeleccionarLibro_327LG = new FormSeleccionarLibro_327LG())
             {
                 if (formSeleccionarLibro_327LG.ShowDialog() == DialogResult.OK)
@@ -29,8 +38,16 @@ namespace GUI_327LG.GUIRF1
                     ejemplarPrestamo = formSeleccionarLibro_327LG.libroSeleccionado_327LG;
                 }
             }
-            
-            
+        }
+
+        private void btnRegistrarCliente_Click(object sender, EventArgs e)
+        {
+            using (FormRegistrarCliente_327LG formRegistrarCliente_327LG = new FormRegistrarCliente_327LG())
+            {
+                if (formRegistrarCliente_327LG.ShowDialog() == DialogResult.OK)
+                {
+                }
+            }
         }
     }
 }
