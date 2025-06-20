@@ -88,7 +88,6 @@ namespace GUI_327LG
                 if (btnCancelar != null)
                     btnCancelar.Location = new Point(btnAceptar.Right + spacing, botonesY);
 
-                // Ajustes finales
                 form.ClientSize = new Size(totalWidth, botonesY + btnAceptar.Height + padding);
                 form.Controls.AddRange(new Control[] { iconoBox, label, btnAceptar });
                 if (btnCancelar != null) form.Controls.Add(btnCancelar);

@@ -1,4 +1,5 @@
 using BLL_327LG;
+using GUI_327LG.GUIRF1;
 using Services_327LG;
 using Services_327LG.Observer_327LG;
 using Services_327LG.Singleton_327LG;
@@ -16,7 +17,7 @@ namespace GUI_327LG
             mnsPestañas.BackColor = ColorTranslator.FromHtml("#EAEAEA");
             mnsPestañas.ForeColor = ColorTranslator.FromHtml("#055b6b");
             bllUsuario_327LG = new BLLUsuario_327LG();
-            LM_327LG = LanguageManager_327LG.Instance;
+            LM_327LG = LanguageManager_327LG.Instance_327LG;
             LM_327LG.AgregarObservador_327LG(this);
             LM_327LG.CambiarIdioma_327LG("spanish");
             Actualizar_327LG();
@@ -37,7 +38,7 @@ namespace GUI_327LG
             {
                 LM_327LG.CargarFormulario_327LG("FormMDI_327LG");
                 if (!SessionManager_327LG.Instancia.IsLoggedIn_327LG()) throw new Exception(LM_327LG.ObtenerString("exception.sesion_no_iniciada"));
-                if (MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.cierre_sesion"), LM_327LG.ObtenerString("messagebox.titulo.cierre_sesion"), LM_327LG.ObtenerString("messagebox.button.aceptar"), LM_327LG.ObtenerString("messagebox.button.cancelar"),MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.cierre_sesion"), LM_327LG.ObtenerString("messagebox.titulo.cierre_sesion"), LM_327LG.ObtenerString("messagebox.button.aceptar"), LM_327LG.ObtenerString("messagebox.button.cancelar"), MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     bllUsuario_327LG.CerrarSesion_327LG();
                     ActualizarFormulario_327LG();
@@ -65,7 +66,7 @@ namespace GUI_327LG
             ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");
             tsmiIdioma.Text = LM_327LG.ObtenerString("label_idioma.texto");
         }
-                
+
         public void ActualizarFormulario_327LG()
         {
             bool logueado = SessionManager_327LG.Instancia.IsLoggedIn_327LG();
@@ -122,7 +123,7 @@ namespace GUI_327LG
         {
             if (tscmbIdioma.Text == "Español")
             {
-                LanguageManager_327LG.Instance.CambiarIdioma_327LG("spanish");
+                LanguageManager_327LG.Instance_327LG.CambiarIdioma_327LG("spanish");
                 if (SessionManager_327LG.Instancia.IsLoggedIn_327LG())
                 {
                     SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG = "spanish";
@@ -131,7 +132,7 @@ namespace GUI_327LG
             }
             else if (tscmbIdioma.Text == "English")
             {
-                LanguageManager_327LG.Instance.CambiarIdioma_327LG("english");
+                LanguageManager_327LG.Instance_327LG.CambiarIdioma_327LG("english");
                 if (SessionManager_327LG.Instancia.IsLoggedIn_327LG())
                 {
                     SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG = "english";
@@ -142,19 +143,25 @@ namespace GUI_327LG
             {
                 MessageBox.Show("Idioma no soportado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
         public void CargarIdioma_327LG()
         {
-            if(SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG == "spanish")
+            if (SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG == "spanish")
             {
-                LanguageManager_327LG.Instance.CambiarIdioma_327LG("spanish");
+                LanguageManager_327LG.Instance_327LG.CambiarIdioma_327LG("spanish");
                 tscmbIdioma.Text = "Español";
-            }else if (SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG == "english")
+            }
+            else if (SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG == "english")
             {
-                LanguageManager_327LG.Instance.CambiarIdioma_327LG("spanish");
+                LanguageManager_327LG.Instance_327LG.CambiarIdioma_327LG("spanish");
                 tscmbIdioma.Text = "English";
             }
+        }
+
+        private void registrarPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormRegistrarPrestamo_327LG>();
         }
     }
 }

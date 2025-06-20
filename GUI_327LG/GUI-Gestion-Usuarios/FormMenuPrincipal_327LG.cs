@@ -12,7 +12,7 @@ namespace GUI_327LG
             lblBienvenido.AutoSize = true;
             lblBienvenido.Font = new Font("Segoe UI", 14, FontStyle.Regular); 
             lblBienvenido.ForeColor = Color.White;
-            LM_327 = LanguageManager_327LG.Instance;
+            LM_327 = LanguageManager_327LG.Instance_327LG;
             LM_327.AgregarObservador_327LG(this);
             Actualizar_327LG();
         }
@@ -21,7 +21,7 @@ namespace GUI_327LG
         {
             LM_327.CargarFormulario_327LG("FormMenuPrincipal_327LG");
             if (SessionManager_327LG.Instancia.IsLoggedIn_327LG())
-                lblBienvenido.Text = LanguageManager_327LG.Instance.ObtenerString("label.lblBienvenida") + SessionManager_327LG.Instancia.Usuario.nombre_327LG;
+                lblBienvenido.Text = LanguageManager_327LG.Instance_327LG.ObtenerString("label.lblBienvenida") + SessionManager_327LG.Instancia.Usuario.nombre_327LG;
             else
                 lblBienvenido.Text = "";
         }

@@ -70,11 +70,3 @@ _ReSharper*/
 # Ignore test results
 TestResults/
 
-#Ignorar todo en bin excepto los .json dentro de Languages
-bin/*
-!bin/Debug/
-bin/Debug/*
-!bin/Debug/net8.0-windows/
-bin/Debug/net8.0-windows/*
-!bin/Debug/net8.0-windows/Languages/
-!bin/Debug/net8.0-windows/Languages/**/*.json

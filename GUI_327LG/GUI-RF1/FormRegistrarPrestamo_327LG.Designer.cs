@@ -102,6 +102,7 @@
             btnSeleccionarLibro.TabIndex = 8;
             btnSeleccionarLibro.Text = "Seleccionar Libro";
             btnSeleccionarLibro.UseVisualStyleBackColor = true;
+            btnSeleccionarLibro.Click += btnSeleccionarLibro_Click;
             // 
             // button1
             // 
@@ -123,7 +124,7 @@
             button2.Text = "Registrar Préstamo";
             button2.UseVisualStyleBackColor = true;
             // 
-            // FormRegistrarPrestamo
+            // FormRegistrarPrestamo_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -137,7 +138,7 @@
             Controls.Add(lblClientes);
             Controls.Add(dgvClientes);
             Controls.Add(lblTituloForm);
-            Name = "FormRegistrarPrestamo";
+            Name = "FormRegistrarPrestamo_327LG";
             Text = "FormRegistrarPrestamo";
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
