@@ -49,6 +49,7 @@
             txtPrestados = new TextBox();
             btnTomarPrestado = new Button();
             btnBuscar = new Button();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvLibro).BeginInit();
             SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             dgvLibro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLibro.Location = new Point(12, 42);
             dgvLibro.Name = "dgvLibro";
-            dgvLibro.Size = new Size(722, 213);
+            dgvLibro.Size = new Size(688, 213);
             dgvLibro.TabIndex = 0;
             dgvLibro.SelectionChanged += dgvLibro_SelectionChanged;
             // 
@@ -139,7 +140,7 @@
             // 
             lblLibroSel.AutoSize = true;
             lblLibroSel.Font = new Font("Segoe UI", 16F);
-            lblLibroSel.Location = new Point(749, 9);
+            lblLibroSel.Location = new Point(711, 9);
             lblLibroSel.Name = "lblLibroSel";
             lblLibroSel.Size = new Size(198, 30);
             lblLibroSel.TabIndex = 10;
@@ -148,7 +149,7 @@
             // lblDisponibles
             // 
             lblDisponibles.AutoSize = true;
-            lblDisponibles.Location = new Point(764, 68);
+            lblDisponibles.Location = new Point(711, 57);
             lblDisponibles.Name = "lblDisponibles";
             lblDisponibles.Size = new Size(68, 15);
             lblDisponibles.TabIndex = 11;
@@ -157,7 +158,7 @@
             // lblDañados
             // 
             lblDañados.AutoSize = true;
-            lblDañados.Location = new Point(764, 97);
+            lblDañados.Location = new Point(711, 86);
             lblDañados.Name = "lblDañados";
             lblDañados.Size = new Size(53, 15);
             lblDañados.TabIndex = 12;
@@ -166,7 +167,7 @@
             // lblDesaparecidos
             // 
             lblDesaparecidos.AutoSize = true;
-            lblDesaparecidos.Location = new Point(764, 126);
+            lblDesaparecidos.Location = new Point(711, 115);
             lblDesaparecidos.Name = "lblDesaparecidos";
             lblDesaparecidos.Size = new Size(13, 15);
             lblDesaparecidos.TabIndex = 13;
@@ -175,7 +176,7 @@
             // lblPrestados
             // 
             lblPrestados.AutoSize = true;
-            lblPrestados.Location = new Point(764, 155);
+            lblPrestados.Location = new Point(711, 144);
             lblPrestados.Name = "lblPrestados";
             lblPrestados.Size = new Size(58, 15);
             lblPrestados.TabIndex = 14;
@@ -184,7 +185,7 @@
             // txtDisponibles
             // 
             txtDisponibles.Enabled = false;
-            txtDisponibles.Location = new Point(838, 65);
+            txtDisponibles.Location = new Point(785, 54);
             txtDisponibles.Name = "txtDisponibles";
             txtDisponibles.Size = new Size(100, 23);
             txtDisponibles.TabIndex = 15;
@@ -192,7 +193,7 @@
             // txtDañados
             // 
             txtDañados.Enabled = false;
-            txtDañados.Location = new Point(838, 94);
+            txtDañados.Location = new Point(785, 83);
             txtDañados.Name = "txtDañados";
             txtDañados.Size = new Size(100, 23);
             txtDañados.TabIndex = 16;
@@ -200,7 +201,7 @@
             // txtDesaparecidos
             // 
             txtDesaparecidos.Enabled = false;
-            txtDesaparecidos.Location = new Point(838, 123);
+            txtDesaparecidos.Location = new Point(785, 112);
             txtDesaparecidos.Name = "txtDesaparecidos";
             txtDesaparecidos.Size = new Size(100, 23);
             txtDesaparecidos.TabIndex = 17;
@@ -208,7 +209,7 @@
             // txtPrestados
             // 
             txtPrestados.Enabled = false;
-            txtPrestados.Location = new Point(838, 152);
+            txtPrestados.Location = new Point(785, 141);
             txtPrestados.Name = "txtPrestados";
             txtPrestados.Size = new Size(100, 23);
             txtPrestados.TabIndex = 18;
@@ -216,7 +217,7 @@
             // btnTomarPrestado
             // 
             btnTomarPrestado.Font = new Font("Segoe UI", 14F);
-            btnTomarPrestado.Location = new Point(817, 196);
+            btnTomarPrestado.Location = new Point(826, 289);
             btnTomarPrestado.Name = "btnTomarPrestado";
             btnTomarPrestado.Size = new Size(121, 59);
             btnTomarPrestado.TabIndex = 19;
@@ -234,11 +235,23 @@
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Font = new Font("Segoe UI", 14F);
+            btnCancelar.Location = new Point(699, 289);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(121, 59);
+            btnCancelar.TabIndex = 21;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // FormSeleccionarLibro_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(959, 384);
+            Controls.Add(btnCancelar);
             Controls.Add(btnBuscar);
             Controls.Add(btnTomarPrestado);
             Controls.Add(txtPrestados);
@@ -293,5 +306,6 @@
         private TextBox txtPrestados;
         private Button btnTomarPrestado;
         private Button btnBuscar;
+        private Button btnCancelar;
     }
 }

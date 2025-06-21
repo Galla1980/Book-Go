@@ -27,7 +27,7 @@ namespace GUI_327LG.GUIRF1
         private void FormSeleccionarLibro_327LG_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#055b6b");
-           
+
             foreach (Label label in this.Controls.OfType<Label>())
             {
                 label.ForeColor = Color.White;
@@ -87,6 +87,7 @@ namespace GUI_327LG.GUIRF1
             lblEdicion.Text = LM_327LG.ObtenerString("label.lblEdicion");
             btnBuscar.Text = LM_327LG.ObtenerString("button.btnBuscar");
             btnTomarPrestado.Text = LM_327LG.ObtenerString("button.btnTomarPrestado");
+            btnCancelar.Text = LM_327LG.ObtenerString("button.btnCancelar");
             CambiarIdiomaGrillaLibros_327LG();
         }
 
@@ -147,6 +148,12 @@ namespace GUI_327LG.GUIRF1
         private void FormSeleccionarLibro_327LG_FormClosed(object sender, FormClosedEventArgs e)
         {
             LM_327LG.EliminarObservador_327LG(this);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Abort;
+            this.Close();
         }
     }
 }

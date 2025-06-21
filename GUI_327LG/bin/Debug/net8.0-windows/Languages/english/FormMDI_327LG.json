@@ -9,7 +9,8 @@
   },
   "menu_admin": {
     "texto": "Admin",
-    "items": {
+    "items": 
+    {
       "gestion_usuarios": "User management"
     }
   },
@@ -17,7 +18,11 @@
     "texto": "Master"
   },
   "menu_prestamos": {
-    "texto": "Book Loans"
+    "texto": "Book Loans",
+    "items": 
+    {
+      "registrar_prestamo": "Register loan"
+    }
   },
   "menu_reposicion": {
     "texto": "Replenishment"

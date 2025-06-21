@@ -18,7 +18,7 @@ namespace BLL_327LG
 
         public List<BECliente_327LG> ObtenerClientes_327LG()
         {
-            throw new NotImplementedException();
+            return dalCliente_327LG.ObtenerTodos_327LG();
         }
 
         public void RegistrarCliente_327LG(BECliente_327LG cliente)

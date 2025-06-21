@@ -17,7 +17,11 @@
     "texto": "Maestro"
   },
   "menu_prestamos": {
-    "texto": "Prestamos"
+    "texto": "Prestamos",
+    "items": 
+    {
+      "registrar_prestamo": "Registrar prestamo"
+    }
   },
   "menu_reposicion": {
     "texto": "Reposición"
