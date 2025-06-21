@@ -35,8 +35,17 @@
             txtDNICliente = new TextBox();
             lblDNICliente = new Label();
             btnSeleccionarLibro = new Button();
-            button1 = new Button();
-            button2 = new Button();
+            btnRegistrarCliente = new Button();
+            btnRegistrarPrestamo = new Button();
+            lblTituloLibro = new Label();
+            lblAutor = new Label();
+            lblEditorial = new Label();
+            lblEdicion = new Label();
+            txtTitulo = new TextBox();
+            txtAutor = new TextBox();
+            txtEditorial = new TextBox();
+            txtEdicion = new TextBox();
+            lblLibroSel = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -55,7 +64,7 @@
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Location = new Point(12, 89);
             dgvClientes.Name = "dgvClientes";
-            dgvClientes.Size = new Size(580, 195);
+            dgvClientes.Size = new Size(627, 195);
             dgvClientes.TabIndex = 1;
             // 
             // lblClientes
@@ -98,39 +107,123 @@
             btnSeleccionarLibro.Font = new Font("Segoe UI", 14F);
             btnSeleccionarLibro.Location = new Point(645, 89);
             btnSeleccionarLibro.Name = "btnSeleccionarLibro";
-            btnSeleccionarLibro.Size = new Size(160, 62);
+            btnSeleccionarLibro.Size = new Size(179, 62);
             btnSeleccionarLibro.TabIndex = 8;
             btnSeleccionarLibro.Text = "Seleccionar Libro";
             btnSeleccionarLibro.UseVisualStyleBackColor = true;
             btnSeleccionarLibro.Click += btnSeleccionarLibro_Click;
             // 
-            // button1
+            // btnRegistrarCliente
             // 
-            button1.Font = new Font("Segoe UI", 14F);
-            button1.Location = new Point(645, 157);
-            button1.Name = "button1";
-            button1.Size = new Size(160, 62);
-            button1.TabIndex = 9;
-            button1.Text = "Registrar Cliente";
-            button1.UseVisualStyleBackColor = true;
+            btnRegistrarCliente.Font = new Font("Segoe UI", 14F);
+            btnRegistrarCliente.Location = new Point(645, 157);
+            btnRegistrarCliente.Name = "btnRegistrarCliente";
+            btnRegistrarCliente.Size = new Size(179, 62);
+            btnRegistrarCliente.TabIndex = 9;
+            btnRegistrarCliente.Text = "Registrar Cliente";
+            btnRegistrarCliente.UseVisualStyleBackColor = true;
+            btnRegistrarCliente.Click += btnRegistrarCliente_Click;
             // 
-            // button2
+            // btnRegistrarPrestamo
             // 
-            button2.Font = new Font("Segoe UI", 14F);
-            button2.Location = new Point(645, 298);
-            button2.Name = "button2";
-            button2.Size = new Size(160, 62);
-            button2.TabIndex = 10;
-            button2.Text = "Registrar Préstamo";
-            button2.UseVisualStyleBackColor = true;
+            btnRegistrarPrestamo.Font = new Font("Segoe UI", 14F);
+            btnRegistrarPrestamo.Location = new Point(645, 373);
+            btnRegistrarPrestamo.Name = "btnRegistrarPrestamo";
+            btnRegistrarPrestamo.Size = new Size(179, 62);
+            btnRegistrarPrestamo.TabIndex = 10;
+            btnRegistrarPrestamo.Text = "Registrar Préstamo";
+            btnRegistrarPrestamo.UseVisualStyleBackColor = true;
+            // 
+            // lblTituloLibro
+            // 
+            lblTituloLibro.AutoSize = true;
+            lblTituloLibro.Location = new Point(12, 394);
+            lblTituloLibro.Name = "lblTituloLibro";
+            lblTituloLibro.Size = new Size(38, 15);
+            lblTituloLibro.TabIndex = 11;
+            lblTituloLibro.Text = "Titulo";
+            // 
+            // lblAutor
+            // 
+            lblAutor.AutoSize = true;
+            lblAutor.Location = new Point(118, 394);
+            lblAutor.Name = "lblAutor";
+            lblAutor.Size = new Size(37, 15);
+            lblAutor.TabIndex = 12;
+            lblAutor.Text = "Autor";
+            // 
+            // lblEditorial
+            // 
+            lblEditorial.AutoSize = true;
+            lblEditorial.Location = new Point(224, 394);
+            lblEditorial.Name = "lblEditorial";
+            lblEditorial.Size = new Size(50, 15);
+            lblEditorial.TabIndex = 13;
+            lblEditorial.Text = "Editorial";
+            // 
+            // lblEdicion
+            // 
+            lblEdicion.AutoSize = true;
+            lblEdicion.Location = new Point(330, 394);
+            lblEdicion.Name = "lblEdicion";
+            lblEdicion.Size = new Size(46, 15);
+            lblEdicion.TabIndex = 14;
+            lblEdicion.Text = "Edicion";
+            // 
+            // txtTitulo
+            // 
+            txtTitulo.Location = new Point(12, 412);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(100, 23);
+            txtTitulo.TabIndex = 15;
+            // 
+            // txtAutor
+            // 
+            txtAutor.Location = new Point(118, 412);
+            txtAutor.Name = "txtAutor";
+            txtAutor.Size = new Size(100, 23);
+            txtAutor.TabIndex = 16;
+            // 
+            // txtEditorial
+            // 
+            txtEditorial.Location = new Point(224, 412);
+            txtEditorial.Name = "txtEditorial";
+            txtEditorial.Size = new Size(100, 23);
+            txtEditorial.TabIndex = 17;
+            // 
+            // txtEdicion
+            // 
+            txtEdicion.Location = new Point(330, 412);
+            txtEdicion.Name = "txtEdicion";
+            txtEdicion.Size = new Size(100, 23);
+            txtEdicion.TabIndex = 18;
+            // 
+            // lblLibroSel
+            // 
+            lblLibroSel.AutoSize = true;
+            lblLibroSel.Font = new Font("Segoe UI", 12F);
+            lblLibroSel.Location = new Point(12, 362);
+            lblLibroSel.Name = "lblLibroSel";
+            lblLibroSel.Size = new Size(142, 21);
+            lblLibroSel.TabIndex = 19;
+            lblLibroSel.Text = "Libro seleccionado:";
             // 
             // FormRegistrarPrestamo_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(817, 402);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(836, 463);
+            Controls.Add(lblLibroSel);
+            Controls.Add(txtEdicion);
+            Controls.Add(txtEditorial);
+            Controls.Add(txtAutor);
+            Controls.Add(txtTitulo);
+            Controls.Add(lblEdicion);
+            Controls.Add(lblEditorial);
+            Controls.Add(lblAutor);
+            Controls.Add(lblTituloLibro);
+            Controls.Add(btnRegistrarPrestamo);
+            Controls.Add(btnRegistrarCliente);
             Controls.Add(btnSeleccionarLibro);
             Controls.Add(btnFiltrar);
             Controls.Add(txtDNICliente);
@@ -139,7 +232,10 @@
             Controls.Add(dgvClientes);
             Controls.Add(lblTituloForm);
             Name = "FormRegistrarPrestamo_327LG";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRegistrarPrestamo";
+            FormClosed += FormRegistrarPrestamo_327LG_FormClosed;
+            Load += FormRegistrarPrestamo_327LG_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -154,7 +250,16 @@
         private TextBox txtDNICliente;
         private Label lblDNICliente;
         private Button btnSeleccionarLibro;
-        private Button button1;
-        private Button button2;
+        private Button btnRegistrarCliente;
+        private Button btnRegistrarPrestamo;
+        private Label lblTituloLibro;
+        private Label lblAutor;
+        private Label lblEditorial;
+        private Label lblEdicion;
+        private TextBox txtTitulo;
+        private TextBox txtAutor;
+        private TextBox txtEditorial;
+        private TextBox txtEdicion;
+        private Label lblLibroSel;
     }
 }

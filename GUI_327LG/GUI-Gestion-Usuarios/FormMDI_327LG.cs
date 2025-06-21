@@ -11,6 +11,7 @@ namespace GUI_327LG
         BLLUsuario_327LG bllUsuario_327LG;
         private LanguageManager_327LG LM_327LG;
 
+
         public FormMDI_327LG()
         {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace GUI_327LG
             gestiónUsuariosMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_usuarios");
             maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
             prestamosItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
+            registrarPrestamoToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_prestamo");
             reposicionItem.Text = LM_327LG.ObtenerString("menu_reposicion.texto");
             reporteItem.Text = LM_327LG.ObtenerString("menu_reporte.texto");
             ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");

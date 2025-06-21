@@ -27,7 +27,8 @@
     "button": 
     {
       "btnBuscar": "Buscar",
-      "btnTomarPrestado": "Tomar prestado"
+      "btnTomarPrestado": "Tomar prestado",
+      "btnCancelar": "Cancelar"
     },
 
 
