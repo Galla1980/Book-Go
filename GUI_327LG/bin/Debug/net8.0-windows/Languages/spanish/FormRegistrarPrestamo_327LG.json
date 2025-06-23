@@ -1,0 +1,59 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Registrar préstamo",
+      "lblClientes": "Clientes registrados:",
+      "lblDNI": "DNI del cliente:",
+      "lblLibroSeleccionado": "Libro seleccionado:",
+      "lblSeleccionarLibro": "No seleccionó ningún libro",
+      "lblTituloLibro": "Título",
+      "lblAutor": "Autor",
+      "lblEditorial": "Editorial",
+      "lblEdicion": "Edición"
+    },
+
+     "datagridview":
+    {
+      "columna":
+      {
+        "dni": "DNI",
+        "nombre": "Nombre",
+        "apellido": "Apellido",
+        "correo": "Correo"
+      }
+    },
+
+    "button": 
+    {
+      "btnSeleccionarLibro": "Seleccionar libro",
+      "btnRegistrarCliente": "Registrar cliente",
+      "btnRegistrarPrestamo": "Registrar préstamo",
+      "btnFiltrarClientes": "Filtrar clientes",
+      "btnSeleccionarCliente": "Seleccionar cliente"
+    },
+
+
+    "exception":
+    {
+      "cliente_no_seleccionado": "Didn't select any client.",
+      "prestamo_activo": "This client has an active loan already.",
+      "sanciones_excedidas": "This client has reached the limit of sanctions."
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error"
+      },
+      "mensaje":
+      {
+        
+      },
+      "button":
+      {
+        "aceptar": "aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+}
