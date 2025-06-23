@@ -15,13 +15,18 @@ namespace GUI_327LG.GUIRF1
 {
     public partial class FormRegistrarPrestamo_327LG : Form, IObserverIdioma_327LG
     {
-        BEEjemplar_327LG ejemplarPrestamo;
-        BLLCliente_327LG bllCliente_327LG;
         LanguageManager_327LG LM_327LG;
+        BLLCliente_327LG bllCliente_327LG;
+        BLLPrestamo_327LG bllPrestamo_327LG;
+        BLLSancion_327LG bllSancion_327LG;
+        BECliente_327LG clienteSeleccionado;
+        BEEjemplar_327LG ejemplarPrestamo;
         public FormRegistrarPrestamo_327LG()
         {
             InitializeComponent();
             bllCliente_327LG = new BLLCliente_327LG();
+            bllPrestamo_327LG = new BLLPrestamo_327LG();
+            bllSancion_327LG = new BLLSancion_327LG();
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             LM_327LG = LanguageManager_327LG.Instance_327LG;
@@ -67,7 +72,7 @@ namespace GUI_327LG.GUIRF1
             txtAutor.Visible = seleccionado;
             txtEdicion.Visible = seleccionado;
             txtEditorial.Visible = seleccionado;
-            if (seleccionado) 
+            if (seleccionado)
             {
                 lblLibroSel.Text = LM_327LG.ObtenerString("label.lblLibroSeleccionado");
                 txtTitulo.Text = ejemplarPrestamo.libro_327LG.titulo_327LG;
@@ -102,7 +107,25 @@ namespace GUI_327LG.GUIRF1
             dgvClientes.Columns["Apellido_327LG"].FillWeight = 20;
             dgvClientes.Columns["Email_327LG"].FillWeight = 30;
             Actualizar_327LG();
-
+        }
+        private void btnSeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvClientes.SelectedRows.Count == 0) throw new Exception(LM_327LG.ObtenerString("exception.cliente_no_seleccionado"));
+                string dniSeleccionado = dgvClientes.SelectedRows[0].Cells["DNI_327LG"].Value.ToString();
+                if(bllPrestamo_327LG.ObtenerPrestamos_327LG(dniSeleccionado).Any(x => x.Activo_327LG == true)) throw new Exception(LM_327LG.ObtenerString("exception.prestamo_activo"));
+                if(bllSancion_327LG.ObtenerSanciones_327LG(dniSeleccionado).Count >= 3) throw new Exception(LM_327LG.ObtenerString("exception.sanciones_excedidas"));
+                clienteSeleccionado = dgvClientes.SelectedRows[0].DataBoundItem as BECliente_327LG;
+            }
+            catch(Exception ex)
+            {
+                MessageBoxPersonalizado.Show(ex.Message, LM_327LG.ObtenerString("messagebox.titulo.error"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
+            }
+        }
+        private void FormRegistrarPrestamo_327LG_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LM_327LG.EliminarObservador_327LG(this);
         }
 
         public void Actualizar_327LG()
@@ -122,17 +145,13 @@ namespace GUI_327LG.GUIRF1
             btnRegistrarCliente.Text = LM_327LG.ObtenerString("button.btnRegistrarCliente");
             btnRegistrarPrestamo.Text = LM_327LG.ObtenerString("button.btnRegistrarPrestamo");
             btnFiltrar.Text = LM_327LG.ObtenerString("button.btnFiltrarClientes");
+            btnSeleccionarCliente.Text = LM_327LG.ObtenerString("button.btnSeleccionarCliente");
             //strings libro seleccionado
             lblTituloLibro.Text = LM_327LG.ObtenerString("label.lblTituloLibro");
             lblAutor.Text = LM_327LG.ObtenerString("label.lblAutor");
             lblEdicion.Text = LM_327LG.ObtenerString("label.lblEdicion");
             lblEditorial.Text = LM_327LG.ObtenerString("label.lblEditorial");
 
-        }
-
-        private void FormRegistrarPrestamo_327LG_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            LM_327LG.EliminarObservador_327LG(this);
         }
     }
 }

@@ -46,6 +46,7 @@
             txtEditorial = new TextBox();
             txtEdicion = new TextBox();
             lblLibroSel = new Label();
+            btnSeleccionarCliente = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -208,11 +209,23 @@
             lblLibroSel.TabIndex = 19;
             lblLibroSel.Text = "Libro seleccionado:";
             // 
+            // btnSeleccionarCliente
+            // 
+            btnSeleccionarCliente.Font = new Font("Segoe UI", 14F);
+            btnSeleccionarCliente.Location = new Point(645, 225);
+            btnSeleccionarCliente.Name = "btnSeleccionarCliente";
+            btnSeleccionarCliente.Size = new Size(179, 62);
+            btnSeleccionarCliente.TabIndex = 20;
+            btnSeleccionarCliente.Text = "Seleccionar cliente";
+            btnSeleccionarCliente.UseVisualStyleBackColor = true;
+            btnSeleccionarCliente.Click += btnSeleccionarCliente_Click;
+            // 
             // FormRegistrarPrestamo_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 463);
+            Controls.Add(btnSeleccionarCliente);
             Controls.Add(lblLibroSel);
             Controls.Add(txtEdicion);
             Controls.Add(txtEditorial);
@@ -261,5 +274,6 @@
         private TextBox txtEditorial;
         private TextBox txtEdicion;
         private Label lblLibroSel;
+        private Button btnSeleccionarCliente;
     }
 }
