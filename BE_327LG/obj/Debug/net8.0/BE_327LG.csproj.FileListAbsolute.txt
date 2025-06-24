@@ -1,0 +1,13 @@
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\bin\Debug\net8.0\BE_327LG.deps.json
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\bin\Debug\net8.0\BE_327LG.dll
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\bin\Debug\net8.0\BE_327LG.pdb
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\BE_327LG.csproj.AssemblyReference.cache
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\BE_327LG.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\BE_327LG.AssemblyInfoInputs.cache
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\BE_327LG.AssemblyInfo.cs
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\BE_327LG.csproj.CoreCompileInputs.cache
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\BE_327LG.sourcelink.json
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\BE_327LG.dll
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\refint\BE_327LG.dll
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\BE_327LG.pdb
+C:\Users\lucas\Desktop\Book-Go\BE_327LG\obj\Debug\net8.0\ref\BE_327LG.dll

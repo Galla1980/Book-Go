@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="GUI-Gestion-Usuarios\FormCambiarContraseña_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-Gestion-Usuarios\FormGestionUsuarios_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-Gestion-Usuarios\FormIniciarSesion_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-Gestion-Usuarios\FormMDI_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-Gestion-Usuarios\FormMenuPrincipal_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-RF1\FormCobrarSeña_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-RF1\FormRegDevolucion_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-RF1\FormRegistrarCliente_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-RF1\FormRegistrarPrestamo_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-RF1\FormRegSancion_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI-RF1\FormSeleccionarLibro_327LG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
