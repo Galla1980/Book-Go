@@ -15,6 +15,20 @@ namespace DAL_327LG
         {
             connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
         }
+
+        public void ActualizarEjemplar_327LG(int nroEjemplar_327LG, Estado_327LG estado)
+        {
+            using (SqlConnection con_327LG = new SqlConnection(connectionString_327LG))
+            {
+                string query = "UPDATE Ejemplar_327LG SET Estado_327LG = @Estado WHERE nroEjemplar_327LG = @nroEjemplar";
+                SqlCommand cmd_327LG = new SqlCommand(query, con_327LG);
+                cmd_327LG.Parameters.AddWithValue("@Estado", estado.ToString());
+                cmd_327LG.Parameters.AddWithValue("@nroEjemplar", nroEjemplar_327LG);
+                con_327LG.Open();
+                cmd_327LG.ExecuteNonQuery();
+            }
+        }
+
         public List<BEEjemplar_327LG> ObtenerEjemplares_327LG(string iSBN)
         {
             List<BEEjemplar_327LG> listaEjemplares = new List<BEEjemplar_327LG>();

@@ -12,7 +12,25 @@ namespace DAL_327LG
         }
         public void GuardarPrestamo_327LG(BEPrestamo_327LG prestamo)
         {
-
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Prestamo_327LG (FechaADevolver_327LG, FechaDevolucion_327LG,nroEjemplar_327LG, Activo_327LG, DNI_327LG) VALUES (@FechaADevolver, @FechaDevolucion, @nroEjemplar, @Activo, @DNI)";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@FechaADevolver", prestamo.FechaADevolver_327LG);
+                if (prestamo.FechaDevolucion_327LG.HasValue)
+                {
+                    cmd.Parameters.AddWithValue("@FechaDevolucion", prestamo.FechaDevolucion_327LG.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@FechaDevolucion", DBNull.Value);
+                }   
+                cmd.Parameters.AddWithValue("@nroEjemplar", prestamo.Ejemplar_327LG.nroEjemplar_327LG);
+                cmd.Parameters.AddWithValue("@Activo", prestamo.Activo_327LG);
+                cmd.Parameters.AddWithValue("@DNI", prestamo.Cliente_327LG.DNI_327LG);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public List<BEPrestamo_327LG> ObtenerPrestamos_327LG(string dni)
@@ -21,16 +39,16 @@ namespace DAL_327LG
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = @"
-            SELECT 
-                p.nroPrestamo_327LG, p.FechaDevolucion_327LG, p.FechaADevolver_327LG, p.Activo_327LG,
-                c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG,
-                e.nroEjemplar_327LG, e.Estado_327LG, 
-                l.ISBN_327LG, l.Titulo_327LG, l.Autor_327LG, l.Edicion_327LG, l.Editorial_327LG
-            FROM Prestamo_327LG p
-            INNER JOIN Cliente_327LG c ON p.DNI_327LG = c.DNI_327LG
-            INNER JOIN Ejemplar_327LG e ON p.nroEjemplar_327LG = e.nroEjemplar_327LG
-            INNER JOIN Libro_327LG l ON e.ISBN_327LG = l.ISBN_327LG
-            WHERE p.DNI_327LG = @DNI";
+                SELECT 
+                    p.nroPrestamo_327LG, p.FechaDevolucion_327LG, p.FechaADevolver_327LG, p.Activo_327LG,
+                    c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG,
+                    e.nroEjemplar_327LG, e.Estado_327LG, 
+                    l.ISBN_327LG, l.Titulo_327LG, l.Autor_327LG, l.Edicion_327LG, l.Editorial_327LG
+                FROM Prestamo_327LG p
+                INNER JOIN Cliente_327LG c ON p.DNI_327LG = c.DNI_327LG
+                INNER JOIN Ejemplar_327LG e ON p.nroEjemplar_327LG = e.nroEjemplar_327LG
+                INNER JOIN Libro_327LG l ON e.ISBN_327LG = l.ISBN_327LG
+                WHERE p.DNI_327LG = @DNI";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@DNI", dni);
@@ -82,6 +100,5 @@ namespace DAL_327LG
             }
             return listaPrestamos;
         }
-
     }
 }

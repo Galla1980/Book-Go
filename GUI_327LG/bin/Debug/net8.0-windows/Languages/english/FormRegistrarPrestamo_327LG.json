@@ -35,25 +35,29 @@
 
     "exception":
     {
-      "cliente_no_seleccionado": "No seleccionó ningún cliente",
-      "prestamo_activo": "Este cliente ya tiene un prestamo activo.",
-      "sanciones_excedidas": "Este cliente ya llego al limite de sanciones."
+      "cliente_no_seleccionado": "Didn't select any client.",
+      "prestamo_activo": "This client has an active loan already.",
+      "sanciones_excedidas": "This client has reached the limit of sanctions.",
+      "libro_no_seleccionado": "You have to select a book."
     },
 
     "messagebox": 
     {
       "titulo": 
       {
-        "error": "Error"
+        "error": "Error",
+        "cliente_seleccionado": "Client selected succesfully",
+        "prestamo_registrado": "Loan registered."
       },
       "mensaje":
       {
-        
+        "cliente_seleccionado": "Selected client: ",
+        "prestamo_registrado": "Loan registered succesfully."
       },
       "button":
       {
-        "aceptar": "aceptar",
-        "cancelar": "Cancelar"
+        "aceptar": "Ok",
+        "cancelar": "Cancel"
       }
     }
 }

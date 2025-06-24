@@ -16,9 +16,10 @@ namespace BLL_327LG
             dalPrestamo_327LG = new DALPrestamo_327LG();
         }
 
-        public void RegistrarPrestamo_327LG(BEPrestamo_327LG prestamo_327LG, BECliente_327LG cliente_327LG)
+        public void RegistrarPrestamo_327LG( BECliente_327LG cliente_327LG, BEEjemplar_327LG ejemplar_327LG)
         {
-            
+            BEPrestamo_327LG prestamo_327LG = new BEPrestamo_327LG(ejemplar_327LG,cliente_327LG, DateTime.Now.AddDays(30), null, true);
+            dalPrestamo_327LG.GuardarPrestamo_327LG(prestamo_327LG);
         }
         public List<BEPrestamo_327LG> ObtenerPrestamos_327LG(string dni)
         {

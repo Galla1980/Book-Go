@@ -134,6 +134,7 @@
             btnRegistrarPrestamo.TabIndex = 10;
             btnRegistrarPrestamo.Text = "Registrar Préstamo";
             btnRegistrarPrestamo.UseVisualStyleBackColor = true;
+            btnRegistrarPrestamo.Click += btnRegistrarPrestamo_Click;
             // 
             // lblTituloLibro
             // 
