@@ -1,0 +1,55 @@
+{
+  "menu_usuario": {
+    "texto": "User",
+    "items": {
+      "iniciar_sesion": "Log In",
+      "cambiar_contrasena": "Change Password",
+      "cerrar_sesion": "Log Out"
+    }
+  },
+  "menu_admin": {
+    "texto": "Admin",
+    "items": 
+    {
+      "gestion_usuarios": "User management"
+    }
+  },
+  "menu_maestro": {
+    "texto": "Master"
+  },
+  "menu_prestamos": {
+    "texto": "Book Loans",
+    "items": 
+    {
+      "registrar_prestamo": "Register loan"
+    }
+  },
+  "menu_reposicion": {
+    "texto": "Replenishment"
+  },
+  "menu_reporte": {
+    "texto": "Reports"
+  },
+  "menu_ayuda": {
+    "texto": "Help"
+  },
+  "label_idioma": "Language:",
+    "messagebox": {
+    "titulo": 
+    {
+      "cierre_sesion": "Log Out"
+    },
+    "mensaje":
+    {
+      "cierre_sesion": "Are you sure you want to log out?"
+    },
+    "button":
+    {
+      "aceptar": "Ok",
+      "cancelar": "Cancel"
+    }
+  },
+  "exception": {
+    "sesion_no_iniciada": "No user is currently logged in"
+  }
+}

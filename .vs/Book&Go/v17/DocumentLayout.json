@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\lucas\\Desktop\\Book-Go\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{90F011DF-8E5B-4608-BAA7-A03AA23D4700}|GUI_327LG\\GUI_327LG.csproj|c:\\users\\lucas\\desktop\\book-go\\gui_327lg\\gui-rf1\\formregistrarprestamo_327lg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90F011DF-8E5B-4608-BAA7-A03AA23D4700}|GUI_327LG\\GUI_327LG.csproj|solutionrelative:gui_327lg\\gui-rf1\\formregistrarprestamo_327lg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90F011DF-8E5B-4608-BAA7-A03AA23D4700}|GUI_327LG\\GUI_327LG.csproj|c:\\users\\lucas\\desktop\\book-go\\gui_327lg\\gui-rf1\\formregistrarprestamo_327lg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{90F011DF-8E5B-4608-BAA7-A03AA23D4700}|GUI_327LG\\GUI_327LG.csproj|solutionrelative:gui_327lg\\gui-rf1\\formregistrarprestamo_327lg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormRegistrarPrestamo_327LG.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Book-Go\\GUI_327LG\\GUI-RF1\\FormRegistrarPrestamo_327LG.cs",
+              "RelativeDocumentMoniker": "GUI_327LG\\GUI-RF1\\FormRegistrarPrestamo_327LG.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Book-Go\\GUI_327LG\\GUI-RF1\\FormRegistrarPrestamo_327LG.cs",
+              "RelativeToolTip": "GUI_327LG\\GUI-RF1\\FormRegistrarPrestamo_327LG.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAcwJcAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T21:19:47.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormRegistrarPrestamo_327LG.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Book-Go\\GUI_327LG\\GUI-RF1\\FormRegistrarPrestamo_327LG.cs",
+              "RelativeDocumentMoniker": "GUI_327LG\\GUI-RF1\\FormRegistrarPrestamo_327LG.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Book-Go\\GUI_327LG\\GUI-RF1\\FormRegistrarPrestamo_327LG.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GUI_327LG\\GUI-RF1\\FormRegistrarPrestamo_327LG.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T21:19:43.491Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

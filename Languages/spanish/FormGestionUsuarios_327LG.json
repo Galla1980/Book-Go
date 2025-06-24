@@ -1,0 +1,111 @@
+{
+  "label": 
+  {
+    "lblUsuarios": "Usuarios",
+    "lblCantidadUsuarios": "Cantidad de usuarios: ",
+    "lblApellido": "Apellido:",
+    "lblNombre": "Nombre:",
+    "lblUsername":"Usuario",
+    "lblCorreo": "Correo"
+  },
+
+  "radio":
+  {
+    "rdoActivos": "Activos",
+    "rdoTodos": "Todos"
+  },
+
+  "button": 
+  {
+    "btnAnadir": "Añadir",
+    "btnDesbloquear": "Desbloquear",
+    "btnModificar": "Modificar",
+    "btnActivarDesactivar": "Activar/ Desactivar",
+    "btnAplicar": "Aplicar",
+    "btnCancelar": "Cancelar",
+    "btnSalir": "Salir"
+  },
+
+  "textbox":
+  {
+    "modo":
+    {
+      "consulta": "Modo Consulta",
+      "anadir": "Modo Añadir",
+      "desbloquear": "Modo Desbloquear",
+      "modificar": "Modo Modificar",
+      "desactivar": "Modo Activar/Desactivar"
+    }
+  },
+  
+  "datagridview":
+  {
+    "columna":
+    {
+      "apellido": "Apellido",
+      "nombre": "Nombre",
+      "usuario": "Usuario",
+      "correo": "Correo"
+    }
+  },
+
+  "messagebox": 
+  {
+    "usuario_anadido": 
+    {
+      "titulo": "Usuario añadido",
+      "mensaje": "El usuario fue añadido correctamente."
+    },
+    "desbloquear_usuario":
+    {
+      "titulo": "Desbloquear usuario",
+      "mensaje": "¿Está seguro que desea desbloquear al usuario?"
+    },
+    "usuario_desbloqueado":
+    {
+      "titulo": "Usuario desbloqueado",
+      "mensaje": "Usuario desbloqueado correctamente."
+    },
+    "cambiar_contrasena":
+    {
+      "titulo": "Cambio de contraseña",
+      "mensaje": "¿Desea cambiar la contraseña con los nuevos valores?"
+    },
+    "usuario_modificado":
+    {
+      "titulo": "Usuario modificado",
+      "mensaje": "El usuario fue modificado correctamente."
+    },
+    "desactivar_activar":
+    {
+      "titulo": "Confirmar operación",
+      "mensaje": "¿Está seguro que desea desactivar/activar al usuario?"
+    },
+    "usuario_desactivado":
+    {
+      "titulo": "Operacion completada",
+      "mensaje": "La operación se completó correctamente."
+    },
+
+
+    "button": 
+    {
+      "aceptar": "Aceptar",
+      "cancelar": "Cancelar"
+    }
+  },
+  "exception":
+  {
+    "campos_vacios": "Por favor complete todos los campos.",
+    "nombre_con_numeros": "El nombre no puede contener números.",
+    "apellido_con_numeros": "El apellido no puede contener números.",
+    "dni_no_valido": "El DNI no cumple el formato (8 digitos)",
+    "dni_en_uso": "El DNI está en uso.",
+    "email_en_uso": "Correo en uso.",
+    "seleccion_usuario_desbloqueo": "No hay usuarios seleccionados para desbloquear.",
+    "usuario_no_bloqueado": "El usuario no está bloqueado.",
+    "seleccion_usuario_modificar": "No hay usuarios seleccionados para modificar.",
+    "seleccion_usuario_desactivar": "No hay usuarios seleccionados.",
+    "usuario_desactivar_no_valido": "No se puede desactivar el usuario que inicio sesion."
+  }
+}

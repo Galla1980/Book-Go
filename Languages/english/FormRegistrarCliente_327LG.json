@@ -1,0 +1,48 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Register client",
+      "lblDni": "DNI",
+      "lblNombre": "Name",
+      "lblApellido": "Last name",
+      "lblEmail": "Email"
+    },
+
+
+    "button": 
+    {
+      "btnRegistrar": "Register",
+      "btnCancelar": "Cancel"
+    },
+
+
+    "exception":
+    {
+      "campos_vacios": "Please complete all fields.",
+      "nombre_con_numeros": "First name cannot contain numbers.",
+      "apellido_con_numeros": "Last name cannot contain numbers.",
+      "dni_no_valido": "The ID number does not meet the format (8 digits).",
+      "dni_en_uso": "The ID number is already in use.",
+      "email_no_valido": "Email format is not valid."
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "cliente_registrado": "client registered",
+        "confirmacion_registrar_cliente": "Confirm registration"
+      },
+      "mensaje":
+      {
+        "cliente_registrado": "Client registration completed.",
+        "confirmacion_registrar_cliente": "Are you sure you want to register this client?"
+      },
+      "button":
+      {
+        "aceptar": "Ok",
+        "cancelar": "Cancel"
+      }
+    }
+}
