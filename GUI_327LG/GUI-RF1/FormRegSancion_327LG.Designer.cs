@@ -32,8 +32,8 @@
             lblRazon = new Label();
             lblDescripcion = new Label();
             textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
             button1 = new Button();
+            txtRazon = new TextBox();
             SuspendLayout();
             // 
             // lblTituloForm
@@ -74,15 +74,6 @@
             textBox1.Size = new Size(303, 141);
             textBox1.TabIndex = 4;
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 91);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 5;
-            comboBox1.Text = "Devolución Tardía";
-            // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 14F);
@@ -93,19 +84,29 @@
             button1.Text = "Registrar sanción";
             button1.UseVisualStyleBackColor = true;
             // 
-            // FormRegSancion
+            // txtRazon
+            // 
+            txtRazon.Enabled = false;
+            txtRazon.Location = new Point(12, 91);
+            txtRazon.Name = "txtRazon";
+            txtRazon.Size = new Size(100, 23);
+            txtRazon.TabIndex = 7;
+            // 
+            // FormRegSancion_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(333, 441);
+            Controls.Add(txtRazon);
             Controls.Add(button1);
-            Controls.Add(comboBox1);
             Controls.Add(textBox1);
             Controls.Add(lblDescripcion);
             Controls.Add(lblRazon);
             Controls.Add(lblTituloForm);
-            Name = "FormRegSancion";
+            Name = "FormRegSancion_327LG";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRegSancion";
+            Load += FormRegSancion_327LG_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,7 +117,7 @@
         private Label lblRazon;
         private Label lblDescripcion;
         private TextBox textBox1;
-        private ComboBox comboBox1;
         private Button button1;
+        private TextBox txtRazon;
     }
 }

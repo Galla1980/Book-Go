@@ -63,6 +63,7 @@ namespace GUI_327LG
             maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
             prestamosItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
             registrarPrestamoToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_prestamo");
+            registrarDevoluciónItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_devolucion");
             reposicionItem.Text = LM_327LG.ObtenerString("menu_reposicion.texto");
             reporteItem.Text = LM_327LG.ObtenerString("menu_reporte.texto");
             ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");
@@ -164,6 +165,11 @@ namespace GUI_327LG
         private void registrarPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FormRegistrarPrestamo_327LG>();
+        }
+
+        private void registrarDevoluciónItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormRegDevolucion_327LG>();
         }
     }
 }

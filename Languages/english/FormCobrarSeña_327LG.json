@@ -1,0 +1,59 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Charge deposit",
+      "lblMetodo": "Pay method",
+      "lblMonto": "Amount to charge",
+      "lblNombre": "Owner's name",
+      "lblNumero": "Card's number",
+      "lblCodigoSeg": "Security code",
+      "lblVencimiento": "Expiration date"
+    },
+
+    "button": 
+    {
+      "btnCobrar": "Charge",
+      "btnTomarPrestado": "Borrow",
+      "btnCancelar": "Cancel"
+    },
+
+    "combobox":
+    {
+      "itemEfectivo": "Cash",
+      "itemTarjeta": "Card"
+    },
+
+
+    "exception":
+    {
+      "monto_no_ingresado": "You must enter an amount.",
+      "monto_invalido": "The amount must be a positive number.",
+      "campos_tarjeta_vacios": "All card fields must be completed.",
+      "nombre_titular_invalido": "The cardholder name must contain only letters.",
+      "numero_tarjeta_invalido": "The card number must contain 16 numeric digits.",
+      "codigo_seguridad_invalido": "The security code must be 3 digits long.",
+      "vencimiento_formato_invalido": "The expiration must be in MM/YY format.",
+      "tarjeta_vencida": "The entered card is expired."
+    },
+
+  
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "pago_exitoso": "Succesful payment"
+      },
+      "mensaje":
+      {
+        "pago_exitoso": "Payment accepted."
+      },
+      "button":
+      {
+        "aceptar": "Ok",
+        "cancelar": "Cancel"
+      }
+    }
+    
+}

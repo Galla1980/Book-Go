@@ -15,6 +15,12 @@ namespace BLL_327LG
         {
             dalEjemplar_327LG = new DALEjemplar_327LG();
         }
+
+        public void CambiarEstado_327LG(int nroEjemplar_327LG, Estado_327LG prestado)
+        {
+            dalEjemplar_327LG.ActualizarEjemplar_327LG(nroEjemplar_327LG, prestado);
+        }
+
         public List<BEEjemplar_327LG> ObtenerEjemplares(string ISBN)
         {
             return dalEjemplar_327LG.ObtenerEjemplares_327LG(ISBN);

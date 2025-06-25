@@ -1,0 +1,64 @@
+{
+    "label": 
+    {
+      "lblTituloForm": "Registrar Devolución",
+      "lblPrestamos": "Prestamos del cliente:",
+      "lblDNICliente": "DNI Cliente:",
+      "lblEstadoLibro": "Estado del libro"      
+    },
+
+     "datagridview":
+    {
+      "columna":
+      {
+        "nro_prestamo": "nro. Prestamo",
+        "fecha_devolucion": "Fecha de devolución",
+        "fecha_a_devolver": "Fecha a devolver",
+        "titulo_libro": "Titulo de libro"
+      }
+    },
+
+    "button": 
+    {
+      "btnFiltrar": "Filtrar préstamos",
+      "btnRegistrarDevolucion": "Registrar devolución"
+    },
+
+    "combobox":
+    {
+      "itemDisponible": "Disponible",
+      "itemDanado": "Dañado",
+      "itemDesaparecido": "Desaparecido"
+    },
+
+    "exception":
+    {
+      "filtro_vacio": "El filtro de prestamos no puede estar vacío.",
+      "prestamos_no_encontrados": "No hay prestamos registrados con este DNI.",
+      "seleccione_prestamo": "Seleccione un prestamo, por favor.",
+      "prestamo_ya_devuelto": "El prestamo seleccionado ya fue devuelto."
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "prestamo_vencido": "Prestamo vencido",
+        "libro_danado": "Libro dañado", 
+        "libro_desaparecido" : "Libro desaparecido"
+      },
+      "mensaje":
+      {
+        "prestamo_vencido": "Prestamo vencido, abriendo formulario de sanciones.",
+        "libro_danado": "Libro dañado, abriendo formulario de sanciones.", 
+        "libro_desaparecido" : "Libro desaparecido, abriendo formulario de sanciones"
+        
+      },
+      "button":
+      {
+        "aceptar": "aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+}

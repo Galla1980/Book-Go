@@ -1,0 +1,63 @@
+{
+"label": 
+{
+  "lblTituloForm": "Register Return",
+  "lblPrestamos": "Client's Loans:",
+  "lblDNICliente": "Client DNI:",
+  "lblEstadoLibro": "Book Status"
+},
+
+"datagridview":
+{
+  "columna":
+  {
+    "nro_prestamo": "Loan No.",
+    "fecha_devolucion": "Return Date",
+    "fecha_a_devolver": "Date To Return",
+    "titulo_libro": "Book title"
+  }
+},
+
+"button": 
+{
+  "btnFiltrar": "Filter Loans",
+  "btnRegistrarDevolucion": "Register Return"
+},
+"combobox":
+    {
+      "itemDisponible": "Available",
+      "itemDanado": "Damaged",
+      "itemDesaparecido": "Missing"
+    },
+
+"exception":
+{
+  "filtro_vacio": "The loan filter cannot be empty.",
+  "prestamos_no_encontrados": "No loans found for this ID.",
+  "seleccione_prestamo": "Select a loan, please.",
+  "prestamo_ya_devuelto": "Selected loan is already returned."
+},
+"messagebox": 
+{
+  "titulo": 
+  {
+    "error": "Error",
+    "prestamo_vencido": "Overdue loan",
+    "libro_danado": "Damaged book",
+    "libro_desaparecido": "Missing book"
+  },
+  "mensaje":
+  {
+   "prestamo_vencido": "Overdue loan, opening penalty form.",
+    "libro_danado": "Damaged book, opening penalty form.",
+    "libro_desaparecido": "Missing book, opening penalty form."
+
+  },
+  "button":
+  {
+    "aceptar": "Ok",
+    "cancelar": "Cancel"
+  }
+}
+    
+}

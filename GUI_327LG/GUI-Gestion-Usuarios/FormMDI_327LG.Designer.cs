@@ -37,13 +37,14 @@
             gestiónUsuariosMenuItem = new ToolStripMenuItem();
             maestroItem = new ToolStripMenuItem();
             prestamosItem = new ToolStripMenuItem();
+            registrarPrestamoToolStripMenuItem = new ToolStripMenuItem();
             reposicionItem = new ToolStripMenuItem();
             reporteItem = new ToolStripMenuItem();
             ayudaItem = new ToolStripMenuItem();
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
-            registrarPrestamoToolStripMenuItem = new ToolStripMenuItem();
+            registrarDevoluciónItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -109,10 +110,17 @@
             // 
             // prestamosItem
             // 
-            prestamosItem.DropDownItems.AddRange(new ToolStripItem[] { registrarPrestamoToolStripMenuItem });
+            prestamosItem.DropDownItems.AddRange(new ToolStripItem[] { registrarPrestamoToolStripMenuItem, registrarDevoluciónItem });
             prestamosItem.Name = "prestamosItem";
             prestamosItem.Size = new Size(74, 20);
             prestamosItem.Text = "Prestamos";
+            // 
+            // registrarPrestamoToolStripMenuItem
+            // 
+            registrarPrestamoToolStripMenuItem.Name = "registrarPrestamoToolStripMenuItem";
+            registrarPrestamoToolStripMenuItem.Size = new Size(183, 22);
+            registrarPrestamoToolStripMenuItem.Text = "Registrar Prestamo";
+            registrarPrestamoToolStripMenuItem.Click += registrarPrestamoToolStripMenuItem_Click;
             // 
             // reposicionItem
             // 
@@ -158,12 +166,12 @@
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
             // 
-            // registrarPrestamoToolStripMenuItem
+            // registrarDevoluciónItem
             // 
-            registrarPrestamoToolStripMenuItem.Name = "registrarPrestamoToolStripMenuItem";
-            registrarPrestamoToolStripMenuItem.Size = new Size(180, 22);
-            registrarPrestamoToolStripMenuItem.Text = "Registrar Prestamo";
-            registrarPrestamoToolStripMenuItem.Click += registrarPrestamoToolStripMenuItem_Click;
+            registrarDevoluciónItem.Name = "registrarDevoluciónItem";
+            registrarDevoluciónItem.Size = new Size(183, 22);
+            registrarDevoluciónItem.Text = "Registrar Devolución";
+            registrarDevoluciónItem.Click += registrarDevoluciónItem_Click;
             // 
             // FormMDI_327LG
             // 
@@ -205,5 +213,6 @@
         private ToolStripMenuItem tsmiIdioma;
         private ToolStripComboBox tscmbIdioma;
         private ToolStripMenuItem registrarPrestamoToolStripMenuItem;
+        private ToolStripMenuItem registrarDevoluciónItem;
     }
 }

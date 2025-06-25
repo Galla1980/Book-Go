@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.Json;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
+﻿using System.Text.Json;
 
 
 namespace Services_327LG.Observer_327LG
@@ -25,8 +19,8 @@ namespace Services_327LG.Observer_327LG
         }
         public void CargarFormulario_327LG(string formulario)
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Languages",$"{Idioma_327LG}",$"{formulario}.json");
-            if(!File.Exists(path)) throw new FileNotFoundException($"No se encontro el archivo de idioma{path}");
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Languages", $"{Idioma_327LG}", $"{formulario}.json");
+            if (!File.Exists(path)) throw new FileNotFoundException($"No se encontro el archivo de idioma{path}");
             string json = File.ReadAllText(path);
             traduccion_327LG = JsonSerializer.Deserialize<Dictionary<string, object>>(json);
         }
@@ -37,44 +31,26 @@ namespace Services_327LG.Observer_327LG
             object current = traduccion_327LG;
             foreach (var subclave in claves)
             {
-                if (subclave.Contains('['))
+                if (current is Dictionary<string, object> dict && dict.ContainsKey(subclave))
                 {
-                    var name = subclave.Substring(0, subclave.IndexOf('['));
-                    var indexStr = subclave.Substring(subclave.IndexOf('[') + 1);
-                    indexStr = indexStr.TrimEnd(']');
-                    int index = int.Parse(indexStr);
-
-                    if (current is Dictionary<string, object> dict && dict.ContainsKey(name))
+                    current = dict[subclave];
+                    if (current is JsonElement el)
                     {
-                        if (dict[name] is JsonElement element && element.ValueKind == JsonValueKind.Array)
+                        if (el.ValueKind == JsonValueKind.Object)
                         {
-                            var item = element[index];
-                            return item.ToString();
+                            current = JsonSerializer.Deserialize<Dictionary<string, object>>(el.GetRawText());
+                        }
+                        else
+                        {
+                            return el.ToString();
                         }
                     }
                 }
                 else
                 {
-                    if (current is Dictionary<string, object> dict && dict.ContainsKey(subclave))
-                    {
-                        current = dict[subclave];
-                        if (current is JsonElement el)
-                        {
-                            if (el.ValueKind == JsonValueKind.Object)
-                            {
-                                current = JsonSerializer.Deserialize<Dictionary<string, object>>(el.GetRawText());
-                            }
-                            else
-                            {
-                                return el.ToString();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        return clave; // clave no encontrada → devuelvo la clave original
-                    }
+                    return clave; // clave no encontrada → devuelvo la clave original
                 }
+
             }
             return current?.ToString() ?? clave;
         }
@@ -95,5 +71,5 @@ namespace Services_327LG.Observer_327LG
             }
         }
 
-    }  
+    }
 }
