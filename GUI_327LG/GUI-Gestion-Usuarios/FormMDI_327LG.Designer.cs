@@ -36,15 +36,17 @@
             adminItem = new ToolStripMenuItem();
             gestiónUsuariosMenuItem = new ToolStripMenuItem();
             maestroItem = new ToolStripMenuItem();
+            librosItem = new ToolStripMenuItem();
+            ejemplaresItem = new ToolStripMenuItem();
             prestamosItem = new ToolStripMenuItem();
             registrarPrestamoToolStripMenuItem = new ToolStripMenuItem();
+            registrarDevoluciónItem = new ToolStripMenuItem();
             reposicionItem = new ToolStripMenuItem();
             reporteItem = new ToolStripMenuItem();
             ayudaItem = new ToolStripMenuItem();
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
-            registrarDevoluciónItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -104,9 +106,24 @@
             // 
             // maestroItem
             // 
+            maestroItem.DropDownItems.AddRange(new ToolStripItem[] { librosItem, ejemplaresItem });
             maestroItem.Name = "maestroItem";
             maestroItem.Size = new Size(62, 20);
             maestroItem.Text = "Maestro";
+            // 
+            // librosItem
+            // 
+            librosItem.Name = "librosItem";
+            librosItem.Size = new Size(180, 22);
+            librosItem.Text = "Libros";
+            librosItem.Click += librosItem_Click;
+            // 
+            // ejemplaresItem
+            // 
+            ejemplaresItem.Name = "ejemplaresItem";
+            ejemplaresItem.Size = new Size(180, 22);
+            ejemplaresItem.Text = "Ejemplares";
+            ejemplaresItem.Click += ejemplaresItem_Click;
             // 
             // prestamosItem
             // 
@@ -121,6 +138,13 @@
             registrarPrestamoToolStripMenuItem.Size = new Size(183, 22);
             registrarPrestamoToolStripMenuItem.Text = "Registrar Prestamo";
             registrarPrestamoToolStripMenuItem.Click += registrarPrestamoToolStripMenuItem_Click;
+            // 
+            // registrarDevoluciónItem
+            // 
+            registrarDevoluciónItem.Name = "registrarDevoluciónItem";
+            registrarDevoluciónItem.Size = new Size(183, 22);
+            registrarDevoluciónItem.Text = "Registrar Devolución";
+            registrarDevoluciónItem.Click += registrarDevoluciónItem_Click;
             // 
             // reposicionItem
             // 
@@ -166,13 +190,6 @@
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
             // 
-            // registrarDevoluciónItem
-            // 
-            registrarDevoluciónItem.Name = "registrarDevoluciónItem";
-            registrarDevoluciónItem.Size = new Size(183, 22);
-            registrarDevoluciónItem.Text = "Registrar Devolución";
-            registrarDevoluciónItem.Click += registrarDevoluciónItem_Click;
-            // 
             // FormMDI_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -214,5 +231,7 @@
         private ToolStripComboBox tscmbIdioma;
         private ToolStripMenuItem registrarPrestamoToolStripMenuItem;
         private ToolStripMenuItem registrarDevoluciónItem;
+        private ToolStripMenuItem librosItem;
+        private ToolStripMenuItem ejemplaresItem;
     }
 }

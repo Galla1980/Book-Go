@@ -20,5 +20,10 @@ namespace BLL_327LG
         {
             return dalSancion_327LG.ObtenerSanciones_327LG(dni);
         }
+
+        public void RegistrarSancion_327LG(BESancion_327LG sancion)
+        {
+            dalSancion_327LG.GuardarSancion_327LG(sancion);
+        }
     }
 }

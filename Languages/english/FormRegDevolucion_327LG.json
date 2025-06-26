@@ -44,13 +44,18 @@
     "error": "Error",
     "prestamo_vencido": "Overdue loan",
     "libro_danado": "Damaged book",
-    "libro_desaparecido": "Missing book"
+    "libro_desaparecido": "Missing book",
+    "sancion_cargada": "Penalty charged",
+    "devolucion_cargada": "Return charged"
   },
   "mensaje":
   {
    "prestamo_vencido": "Overdue loan, opening penalty form.",
     "libro_danado": "Damaged book, opening penalty form.",
-    "libro_desaparecido": "Missing book, opening penalty form."
+    "libro_desaparecido": "Missing book, opening penalty form.",
+    "sancion_cargada": "Penalty charged succesfully",
+    "devolucion_cargada": "Return charged succesfully"
+
 
   },
   "button":

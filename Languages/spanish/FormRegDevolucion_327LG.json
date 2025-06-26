@@ -46,13 +46,17 @@
         "error": "Error",
         "prestamo_vencido": "Prestamo vencido",
         "libro_danado": "Libro dañado", 
-        "libro_desaparecido" : "Libro desaparecido"
+        "libro_desaparecido" : "Libro desaparecido",
+        "sancion_cargada": "Sancion cargada",
+        "devolucion_cargada": "Devolución cargada"
       },
       "mensaje":
       {
         "prestamo_vencido": "Prestamo vencido, abriendo formulario de sanciones.",
         "libro_danado": "Libro dañado, abriendo formulario de sanciones.", 
-        "libro_desaparecido" : "Libro desaparecido, abriendo formulario de sanciones"
+        "libro_desaparecido" : "Libro desaparecido, abriendo formulario de sanciones",
+        "sancion_cargada": "Sancion cargada correctamente",
+        "devolucion_cargada": "Devolución cargada correctamente"
         
       },
       "button":

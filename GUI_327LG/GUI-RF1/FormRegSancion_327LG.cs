@@ -14,6 +14,7 @@ namespace GUI_327LG.GUIRF1
     public partial class FormRegSancion_327LG : Form, IObserverIdioma_327LG
     {
         public string razon;
+        public string descripcion;
         LanguageManager_327LG LM_327LG;
         public FormRegSancion_327LG()
         {
@@ -23,7 +24,6 @@ namespace GUI_327LG.GUIRF1
 
         public void Actualizar_327LG()
         {
-            LM_327LG.CargarFormulario_327LG("FormRegSancion_327LG");
         }
 
         private void FormRegSancion_327LG_Load(object sender, EventArgs e)
@@ -34,6 +34,21 @@ namespace GUI_327LG.GUIRF1
             {
                 label.ForeColor = Color.White;
                 label.BackColor = Color.Transparent;
+            }
+        }
+
+        private void btnRegistrarSancion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtRazon.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))throw new Exception("Por favor, proporcione una descripción para la sanción.");
+                this.DialogResult = DialogResult.OK;
+                descripcion = txtDescripcion.Text;
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al registrar la sanción: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

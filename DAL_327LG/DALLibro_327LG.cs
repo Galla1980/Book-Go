@@ -10,6 +10,24 @@ namespace DAL_327LG
         {
             connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
         }
+
+        public void AgregarLibro_327LG(BELibro_327LG libro)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString_327LG))
+            {
+                string query = @"INSERT INTO Libro_327LG (ISBN_327LG, Titulo_327LG, Autor_327LG, Editorial_327LG, Edicion_327LG) 
+                                 VALUES (@ISBN, @Titulo, @Autor, @Editorial, @Edicion)";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ISBN", libro.ISBN_327LG);
+                cmd.Parameters.AddWithValue("@Titulo", libro.titulo_327LG);
+                cmd.Parameters.AddWithValue("@Autor", libro.autor_327LG);
+                cmd.Parameters.AddWithValue("@Editorial", libro.editorial_327LG);
+                cmd.Parameters.AddWithValue("@Edicion", libro.edicion_327LG);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public List<BELibro_327LG> BuscarLibros_327LG(string? titulo_327LG, string? autor_327LG, string? editorial_327LG, int? edicion_327LG)
         {
             List<BELibro_327LG> listaLibros = new List<BELibro_327LG>();

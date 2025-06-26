@@ -1,5 +1,6 @@
 using BLL_327LG;
 using GUI_327LG.GUIRF1;
+using GUI_327LG.Maestros;
 using Services_327LG;
 using Services_327LG.Observer_327LG;
 using Services_327LG.Singleton_327LG;
@@ -170,6 +171,16 @@ namespace GUI_327LG
         private void registrarDevoluciónItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FormRegDevolucion_327LG>();
+        }
+
+        private void librosItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormLibroMaestro_327LG>();
+        }
+
+        private void ejemplaresItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormEjemplarMaestro_327LG>();
         }
     }
 }

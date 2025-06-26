@@ -69,6 +69,13 @@ namespace GUI_327LG.GUIRF1
                     {
                         formRegistrarSancion.razon = "Devolución tardía";
                         formRegistrarSancion.ShowDialog();
+                        if (formRegistrarSancion.DialogResult == DialogResult.OK)
+                        {
+                            BESancion_327LG sancion = new BESancion_327LG(prestamo.Cliente_327LG, prestamo, formRegistrarSancion.descripcion, formRegistrarSancion.razon);
+                            bllSancion_327LG.RegistrarSancion_327LG(sancion);
+                            MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.sancion_cargada"), LM_327LG.ObtenerString("messagebox.titulo.sancion_cargada"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
+
+                        }
                     }
                 }
                 if (Estado == Estado_327LG.Dañado.ToString())
@@ -79,11 +86,18 @@ namespace GUI_327LG.GUIRF1
                         formRegistrarSancion.razon = "Libro dañado";
                         ejemplar.Estado_327LG = Estado_327LG.Dañado;
                         formRegistrarSancion.ShowDialog();
+                        if (formRegistrarSancion.DialogResult == DialogResult.OK)
+                        {
+                            BESancion_327LG sancion = new BESancion_327LG(prestamo.Cliente_327LG, prestamo, formRegistrarSancion.descripcion, formRegistrarSancion.razon);
+                            bllSancion_327LG.RegistrarSancion_327LG(sancion);
+                            MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.sancion_cargada"), LM_327LG.ObtenerString("messagebox.titulo.sancion_cargada"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
+
+                        }
                     }
                 }
                 if (Estado == Estado_327LG.Desaparecido.ToString())
                 {
-                    MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.libro_desaparecido"), LM_327LG.ObtenerString("messagebox.titulo.prestamo_vencido"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
+                    MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.libro_desaparecido"), LM_327LG.ObtenerString("messagebox.titulo.libro_desaparecido"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                     using (FormRegSancion_327LG formRegistrarSancion = new FormRegSancion_327LG())
                     {
                         formRegistrarSancion.razon = "Libro desaparecido";
@@ -91,10 +105,18 @@ namespace GUI_327LG.GUIRF1
                         ejemplar.Estado_327LG = Estado_327LG.Desaparecido;
                         prestamo.Activo_327LG = true;
                         prestamo.FechaDevolucion_327LG = null;
+                        if (formRegistrarSancion.DialogResult == DialogResult.OK)
+                        {
+                            BESancion_327LG sancion = new BESancion_327LG(prestamo.Cliente_327LG, prestamo, formRegistrarSancion.descripcion, formRegistrarSancion.razon);
+                            bllSancion_327LG.RegistrarSancion_327LG(sancion);
+                            MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.sancion_cargada"), LM_327LG.ObtenerString("messagebox.titulo.sancion_cargada"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
+                        }
+
                     }
                 }
                 bllPrestamo_327LG.RegistrarDevolucion_327LG(prestamo);
                 bLLEjemplar_327LG.CambiarEstado_327LG(ejemplar.nroEjemplar_327LG,ejemplar.Estado_327LG);
+                MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.devolucion_cargada"), LM_327LG.ObtenerString("messagebox.titulo.devolucion_cargada"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                 CargarGrillaPrestamos_327LG(dniCliente_327LG);
             }
             catch (Exception ex)

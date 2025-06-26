@@ -31,8 +31,8 @@
             lblTituloForm = new Label();
             lblRazon = new Label();
             lblDescripcion = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            txtDescripcion = new TextBox();
+            btnRegistrarSancion = new Button();
             txtRazon = new TextBox();
             SuspendLayout();
             // 
@@ -66,23 +66,24 @@
             lblDescripcion.TabIndex = 3;
             lblDescripcion.Text = "Descripción:";
             // 
-            // textBox1
+            // txtDescripcion
             // 
-            textBox1.Location = new Point(12, 188);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(303, 141);
-            textBox1.TabIndex = 4;
+            txtDescripcion.Location = new Point(12, 188);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(303, 141);
+            txtDescripcion.TabIndex = 4;
             // 
-            // button1
+            // btnRegistrarSancion
             // 
-            button1.Font = new Font("Segoe UI", 14F);
-            button1.Location = new Point(97, 363);
-            button1.Name = "button1";
-            button1.Size = new Size(141, 66);
-            button1.TabIndex = 6;
-            button1.Text = "Registrar sanción";
-            button1.UseVisualStyleBackColor = true;
+            btnRegistrarSancion.Font = new Font("Segoe UI", 14F);
+            btnRegistrarSancion.Location = new Point(97, 363);
+            btnRegistrarSancion.Name = "btnRegistrarSancion";
+            btnRegistrarSancion.Size = new Size(141, 66);
+            btnRegistrarSancion.TabIndex = 6;
+            btnRegistrarSancion.Text = "Registrar sanción";
+            btnRegistrarSancion.UseVisualStyleBackColor = true;
+            btnRegistrarSancion.Click += btnRegistrarSancion_Click;
             // 
             // txtRazon
             // 
@@ -98,8 +99,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(333, 441);
             Controls.Add(txtRazon);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(btnRegistrarSancion);
+            Controls.Add(txtDescripcion);
             Controls.Add(lblDescripcion);
             Controls.Add(lblRazon);
             Controls.Add(lblTituloForm);
@@ -116,8 +117,8 @@
         private Label lblTituloForm;
         private Label lblRazon;
         private Label lblDescripcion;
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox txtDescripcion;
+        private Button btnRegistrarSancion;
         private TextBox txtRazon;
     }
 }

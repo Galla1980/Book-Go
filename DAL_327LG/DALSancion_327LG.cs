@@ -16,6 +16,23 @@ namespace DAL_327LG
             connectionString = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
         }
 
+        public void GuardarSancion_327LG(BESancion_327LG sancion)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = @"
+                INSERT INTO Sancion_327LG (Descripcion_327LG, Razon_327LG, DNI_327LG, nroPrestamo_327LG)
+                VALUES (@Descripcion, @Razon, @DNI, @nroPrestamo)";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@DNI", sancion.Cliente.DNI_327LG);
+                cmd.Parameters.AddWithValue("@nroPrestamo", sancion.Prestamo.nroPrestamo_327LG);
+                cmd.Parameters.AddWithValue("@Descripcion", sancion.Descripcion);
+                cmd.Parameters.AddWithValue("@Razon", sancion.Razon);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public List<BESancion_327LG> ObtenerSanciones_327LG(string dni)
         {
             List<BESancion_327LG> lista = new List<BESancion_327LG>();

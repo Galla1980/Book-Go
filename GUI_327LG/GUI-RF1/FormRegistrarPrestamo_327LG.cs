@@ -7,7 +7,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -140,7 +142,7 @@ namespace GUI_327LG.GUIRF1
             try
             {
                 if (clienteSeleccionado == null) throw new Exception(LM_327LG.ObtenerString("exception.cliente_no_seleccionado"));
-                if(ejemplarPrestamo == null) throw new Exception(LM_327LG.ObtenerString("exception.libro_no_seleccionado"));
+                if (ejemplarPrestamo == null) throw new Exception(LM_327LG.ObtenerString("exception.libro_no_seleccionado"));
                 using (FormCobrarSeña_327LG formCobrarSeña_327LG = new FormCobrarSeña_327LG())
                 {
                     formCobrarSeña_327LG.libro = ejemplarPrestamo.libro_327LG;
@@ -155,7 +157,7 @@ namespace GUI_327LG.GUIRF1
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -169,7 +171,7 @@ namespace GUI_327LG.GUIRF1
             HabilitarLibroSeleccionado_327LG(ejemplarPrestamo != null);
             lblTituloForm.Text = LM_327LG.ObtenerString("label.lblTitulo");
             lblClientes.Text = LM_327LG.ObtenerString("label.lblClientes");
-            lblDNICliente.Text = LM_327LG.ObtenerString("label.lblDNI");
+            //lblDNICliente.Text = LM_327LG.ObtenerString("label.lblDNI");
             //string de datagridview
             dgvClientes.Columns["DNI_327LG"].HeaderText = LM_327LG.ObtenerString("datagridview.columna.dni");
             dgvClientes.Columns["Nombre_327LG"].HeaderText = LM_327LG.ObtenerString("datagridview.columna.nombre");
@@ -179,7 +181,7 @@ namespace GUI_327LG.GUIRF1
             btnSeleccionarLibro.Text = LM_327LG.ObtenerString("button.btnSeleccionarLibro");
             btnRegistrarCliente.Text = LM_327LG.ObtenerString("button.btnRegistrarCliente");
             btnRegistrarPrestamo.Text = LM_327LG.ObtenerString("button.btnRegistrarPrestamo");
-            btnFiltrar.Text = LM_327LG.ObtenerString("button.btnFiltrarClientes");
+            //btnFiltrar.Text = LM_327LG.ObtenerString("button.btnFiltrarClientes");
             btnSeleccionarCliente.Text = LM_327LG.ObtenerString("button.btnSeleccionarCliente");
             //strings libro seleccionado
             lblTituloLibro.Text = LM_327LG.ObtenerString("label.lblTituloLibro");
@@ -189,5 +191,6 @@ namespace GUI_327LG.GUIRF1
 
         }
 
+       
     }
 }

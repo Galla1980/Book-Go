@@ -29,6 +29,20 @@ namespace DAL_327LG
             }
         }
 
+        public void GuardarEjemplar_327LG(BEEjemplar_327LG bEEjemplar_327LG)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString_327LG))
+            {
+                string query = @"INSERT INTO Ejemplar_327LG (Estado_327LG, ISBN_327LG) 
+                                 VALUES (@Estado, @ISBN)";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Estado", bEEjemplar_327LG.Estado_327LG.ToString());
+                cmd.Parameters.AddWithValue("@ISBN", bEEjemplar_327LG.libro_327LG.ISBN_327LG);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public List<BEEjemplar_327LG> ObtenerEjemplares_327LG(string iSBN)
         {
             List<BEEjemplar_327LG> listaEjemplares = new List<BEEjemplar_327LG>();

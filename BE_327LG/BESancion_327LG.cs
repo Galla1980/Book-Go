@@ -13,6 +13,13 @@ namespace BE_327LG
         public BEPrestamo_327LG Prestamo { get; set; }
         public string Descripcion { get; set; }
         public string Razon { get; set; }
+        public BESancion_327LG(BECliente_327LG cliente, BEPrestamo_327LG prestamo, string descripcion, string razon)
+        {
+            Cliente = cliente;
+            Prestamo = prestamo;
+            Descripcion = descripcion;
+            Razon = razon;
+        }
         public BESancion_327LG(int nroSancion, BECliente_327LG cliente, BEPrestamo_327LG prestamo, string descripcion, string razon)
         {
             this.nroSancion = nroSancion;

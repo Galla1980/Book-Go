@@ -31,9 +31,6 @@
             lblTituloForm = new Label();
             dgvClientes = new DataGridView();
             lblClientes = new Label();
-            btnFiltrar = new Button();
-            txtDNICliente = new TextBox();
-            lblDNICliente = new Label();
             btnSeleccionarLibro = new Button();
             btnRegistrarCliente = new Button();
             btnRegistrarPrestamo = new Button();
@@ -77,31 +74,6 @@
             lblClientes.Size = new Size(185, 25);
             lblClientes.TabIndex = 2;
             lblClientes.Text = "Clientes Registrados:";
-            // 
-            // btnFiltrar
-            // 
-            btnFiltrar.Location = new Point(133, 322);
-            btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(121, 25);
-            btnFiltrar.TabIndex = 7;
-            btnFiltrar.Text = "Filtrar clientes";
-            btnFiltrar.UseVisualStyleBackColor = true;
-            // 
-            // txtDNICliente
-            // 
-            txtDNICliente.Location = new Point(12, 322);
-            txtDNICliente.Name = "txtDNICliente";
-            txtDNICliente.Size = new Size(115, 23);
-            txtDNICliente.TabIndex = 6;
-            // 
-            // lblDNICliente
-            // 
-            lblDNICliente.AutoSize = true;
-            lblDNICliente.Location = new Point(12, 304);
-            lblDNICliente.Name = "lblDNICliente";
-            lblDNICliente.Size = new Size(68, 15);
-            lblDNICliente.TabIndex = 5;
-            lblDNICliente.Text = "DNI cliente:";
             // 
             // btnSeleccionarLibro
             // 
@@ -239,9 +211,6 @@
             Controls.Add(btnRegistrarPrestamo);
             Controls.Add(btnRegistrarCliente);
             Controls.Add(btnSeleccionarLibro);
-            Controls.Add(btnFiltrar);
-            Controls.Add(txtDNICliente);
-            Controls.Add(lblDNICliente);
             Controls.Add(lblClientes);
             Controls.Add(dgvClientes);
             Controls.Add(lblTituloForm);
@@ -260,9 +229,6 @@
         private Label lblTituloForm;
         private DataGridView dgvClientes;
         private Label lblClientes;
-        private Button btnFiltrar;
-        private TextBox txtDNICliente;
-        private Label lblDNICliente;
         private Button btnSeleccionarLibro;
         private Button btnRegistrarCliente;
         private Button btnRegistrarPrestamo;

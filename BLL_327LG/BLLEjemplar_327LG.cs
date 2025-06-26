@@ -16,6 +16,11 @@ namespace BLL_327LG
             dalEjemplar_327LG = new DALEjemplar_327LG();
         }
 
+        public void AgregarEjemplar_327LG(BEEjemplar_327LG bEEjemplar_327LG)
+        {
+            dalEjemplar_327LG.GuardarEjemplar_327LG(bEEjemplar_327LG);
+        }
+
         public void CambiarEstado_327LG(int nroEjemplar_327LG, Estado_327LG prestado)
         {
             dalEjemplar_327LG.ActualizarEjemplar_327LG(nroEjemplar_327LG, prestado);
