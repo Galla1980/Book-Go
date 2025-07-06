@@ -30,7 +30,7 @@ namespace DAL_327LG
                     {
                         user = new Usuario_327LG(dr_327LG["dni_327LG"].ToString(), dr_327LG["apellido_327LG"].ToString(), dr_327LG["nombre_327LG"].ToString(),
                             dr_327LG["userName_327LG"].ToString(), dr_327LG["password_327LG"].ToString(), dr_327LG["rol_327LG"].ToString(), dr_327LG["email_327LG"].ToString(),
-                            Convert.ToBoolean(dr_327LG["bloqueado_327LG"]), Convert.ToBoolean(dr_327LG["activo_327LG"]), Convert.ToInt32(dr_327LG["intento_327LG"]));
+                            Convert.ToBoolean(dr_327LG["bloqueado_327LG"]), Convert.ToBoolean(dr_327LG["activo_327LG"]), Convert.ToInt32(dr_327LG["intento_327LG"]), dr_327LG["IdiomaPref_327LG"].ToString());
                     }
                 }
             }
@@ -49,7 +49,7 @@ namespace DAL_327LG
                     {
                         Usuario_327LG user = new Usuario_327LG(dr_327LG["dni_327LG"].ToString(), dr_327LG["apellido_327LG"].ToString(), dr_327LG["nombre_327LG"].ToString(),
                             dr_327LG["userName_327LG"].ToString(), dr_327LG["password_327LG"].ToString(), dr_327LG["rol_327LG"].ToString(), dr_327LG["email_327LG"].ToString(),
-                            Convert.ToBoolean(dr_327LG["bloqueado_327LG"]), Convert.ToBoolean(dr_327LG["activo_327LG"]), Convert.ToInt32(dr_327LG["intento_327LG"]));
+                            Convert.ToBoolean(dr_327LG["bloqueado_327LG"]), Convert.ToBoolean(dr_327LG["activo_327LG"]), Convert.ToInt32(dr_327LG["intento_327LG"]), dr_327LG["IdiomaPref_327LG"].ToString());
                         listaUsuarios_327LG.Add(user);
                     }
                 }
@@ -118,7 +118,7 @@ namespace DAL_327LG
             {
                 SqlCommand cmd_327LG = new SqlCommand("INSERT INTO Usuario_327LG (DNI_327LG, Apellido_327LG, Nombre_327LG, Username_327LG, Password_327LG, Rol_327LG," +
                     " Email_327LG, Bloqueado_327LG, Activo_327LG, Intento_327LG) VALUES (@dni, @apellido, @nombre, @username, @password, @rol, @email, @bloqueado," +
-                    " @activo, @intento)", con_327LG);
+                    " @activo, @intento, @idioma)", con_327LG);
                 cmd_327LG.Parameters.AddWithValue("@dni", usuario_327LG.dni_327LG);
                 cmd_327LG.Parameters.AddWithValue("@apellido", usuario_327LG.apellido_327LG);
                 cmd_327LG.Parameters.AddWithValue("@nombre", usuario_327LG.nombre_327LG);
@@ -129,6 +129,7 @@ namespace DAL_327LG
                 cmd_327LG.Parameters.AddWithValue("@bloqueado", usuario_327LG.bloqueado_327LG);
                 cmd_327LG.Parameters.AddWithValue("@activo", usuario_327LG.activo_327LG);
                 cmd_327LG.Parameters.AddWithValue("@intento", usuario_327LG.intento_327LG);
+                cmd_327LG.Parameters.AddWithValue("@idioma", usuario_327LG.IdiomaPref_327LG);
                 con_327LG.Open();
                 cmd_327LG.ExecuteNonQuery();
             }
@@ -140,6 +141,18 @@ namespace DAL_327LG
             {
                 SqlCommand cmd_327LG = new SqlCommand("UPDATE Usuario_327LG SET Activo_327LG = @Activo where DNI_327LG = @dni", con_327LG);
                 cmd_327LG.Parameters.AddWithValue("@Activo", user.activo_327LG);
+                cmd_327LG.Parameters.AddWithValue("@dni", user.dni_327LG);
+                con_327LG.Open();
+                cmd_327LG.ExecuteNonQuery();
+            }
+        }
+
+        public void CambiarIdioma_327LG(Usuario_327LG user)
+        {
+            using (SqlConnection con_327LG = new SqlConnection(connectionString_327LG))
+            {
+                SqlCommand cmd_327LG = new SqlCommand("UPDATE Usuario_327LG SET IdiomaPref_327LG = @Idioma where DNI_327LG = @dni", con_327LG);
+                cmd_327LG.Parameters.AddWithValue("@Idioma", user.IdiomaPref_327LG);
                 cmd_327LG.Parameters.AddWithValue("@dni", user.dni_327LG);
                 con_327LG.Open();
                 cmd_327LG.ExecuteNonQuery();
