@@ -3,15 +3,18 @@ using Services_327LG.Singleton_327LG;
 using DAL_327LG;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime;
+using Services_327LG.Observer_327LG;
 
 namespace BLL_327LG
 {
     public class BLLUsuario_327LG
     {
         DALUsuario_327LG dalUsuario_327LG;
+        LanguageManager_327LG LM_327LG;
         public BLLUsuario_327LG()
         {
             dalUsuario_327LG = new DALUsuario_327LG();
+            LM_327LG = LanguageManager_327LG.Instance_327LG;
         }
 
         public LoginResult_327LG IniciarSesion_327LG(string usuario, string contraseña)

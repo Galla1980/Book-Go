@@ -1,0 +1,53 @@
+{
+  "label": 
+  {
+    "lblUsuarios": "Usuarios",
+    "lblCantidadUsuarios": "Cantidad de usuarios: ",
+    "lblApellido": "Apellido:",
+    "lblNombre": "Nombre:",
+    "lblUsername":"Usuario",
+    "lblCorreo": "Correo"
+  },
+
+  "button": 
+  {
+    "btnAnadir": "Añadir",
+    "btnDesbloquear": "Desbloquear",
+    "btnModificar": "Modificar",
+    "btnActivarDesactivar": "Activar/ Desactivar",
+    "btnAplicar": "Aplicar",
+    "btnCancelar": "Cancelar",
+    "btnSalir": "Salir"
+  },
+
+  "textbox":
+  {
+    
+  },
+
+  "messagebox": 
+  {
+    
+    "button": 
+    {
+      "aceptar": "Aceptar",
+      "cancelar": "Cancelar"
+    }
+  },
+  "exception":
+  {
+    "nombre_vacio": "El nombre de la familia no puede estár vacío.",
+    "nombre_repetido":"El nombre de la familia no puede ser igual al de otra familia.",
+    "permiso_ya_asignado": "El permiso ya está asignado a la familia.",
+    "permiso_ya_asignado_en_familia": "El permiso ya esta asignado en una familia que contiene la familia",
+    "familia_ya_asignada": "La familia ya está asignada a la familia base.",
+    "familia_tiene_permiso": "La familia agregada contiene permisos que ya están asignados a la familia base.",
+    "permiso_no_seleccionado": "Debe seleccionar un permiso para asignar.",
+    "familiabase_no_seleccionada": "Debe seleccionar una familia en \"familia base\".",
+    "familiaagregada_no_seleccionada": "Debe seleccionar una familia en \"familia a agregar\".",
+    "debe_seleccionar_familia": "Debe seleccionar una familia, no un permiso.",
+    "familia_base_misma_familia_agregada": "La familia agregada no puede ser la misma que la base.",
+    "familiaagregada_tiene_familiabase": "La familia agregada no puede contener la familia base.",
+    "permiso_repetido_entre_familias": "El permiso a agregar se encuentra en otra familia que contiene la familia agregada\nFamilia: "
+  }
+}

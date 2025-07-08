@@ -1,0 +1,70 @@
+{
+  "label": 
+  {
+    "lblUsuarios": "Usuarios",
+    "lblCantidadUsuarios": "Cantidad de usuarios: ",
+    "lblApellido": "Apellido:",
+    "lblNombre": "Nombre:",
+    "lblUsername":"Usuario",
+    "lblCorreo": "Correo"
+  },
+
+  "radio":
+  {
+    "rdoActivos": "Activos",
+    "rdoTodos": "Todos"
+  },
+
+  "button": 
+  {
+    "btnAnadir": "Añadir",
+    "btnDesbloquear": "Desbloquear",
+    "btnModificar": "Modificar",
+    "btnActivarDesactivar": "Activar/ Desactivar",
+    "btnAplicar": "Aplicar",
+    "btnCancelar": "Cancelar",
+    "btnSalir": "Salir"
+  },
+
+  "textbox":
+  {
+    "modo":
+    {
+      "consulta": "Modo Consulta",
+      "anadir": "Modo Añadir",
+      "desbloquear": "Modo Desbloquear",
+      "modificar": "Modo Modificar",
+      "desactivar": "Modo Activar/Desactivar"
+    }
+  },
+  
+  "datagridview":
+  {
+    "columna":
+    {
+      "apellido": "Apellido",
+      "nombre": "Nombre",
+      "usuario": "Usuario",
+      "correo": "Correo"
+    }
+  },
+
+  "messagebox": 
+  {
+    
+    "button": 
+    {
+      "aceptar": "Aceptar",
+      "cancelar": "Cancelar"
+    }
+  },
+  "exception":
+  {
+    "nombre_vacio": "El nombre de la familia no puede estár vacío.",
+    "seleccion_usuario_desbloqueo": "No hay usuarios seleccionados para desbloquear.",
+    "usuario_no_bloqueado": "El usuario no está bloqueado.",
+    "seleccion_usuario_modificar": "No hay usuarios seleccionados para modificar.",
+    "seleccion_usuario_desactivar": "No hay usuarios seleccionados.",
+    "usuario_desactivar_no_valido": "No se puede desactivar el usuario que inicio sesion."
+  }
+}

@@ -1,4 +1,5 @@
 using BLL_327LG;
+using GUI_327LG.GUI_Gestion_Perfiles;
 using GUI_327LG.GUIRF1;
 using GUI_327LG.Maestros;
 using Services_327LG;
@@ -83,19 +84,20 @@ namespace GUI_327LG
             this.ayudaItem.Visible = logueado;
             if (menuPrincipal_327LG != null) menuPrincipal_327LG.Actualizar_327LG();
             if (!logueado) CerrarFormularios();
+            CargarIdioma_327LG();
         }
 
         private void iniciarSesiónItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormIniciarSesion_327LG>();
+            AbrirFormulario_327LG<FormIniciarSesion_327LG>();
         }
 
         private void gestiónUsuariosMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormGestionUsuarios_327LG>();
+            AbrirFormulario_327LG<FormGestionUsuarios_327LG>();
         }
 
-        private void AbrirFormulario<T>() where T : Form, new()
+        private void AbrirFormulario_327LG<T>() where T : Form, new()
         {
             Form form = Application.OpenForms.OfType<T>().FirstOrDefault();
             if (form != null)
@@ -120,7 +122,7 @@ namespace GUI_327LG
 
         private void cambiarContraseñaItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormCambiarContraseña_327LG>();
+            AbrirFormulario_327LG<FormCambiarContraseña_327LG>();
         }
 
         private void tscmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,7 +153,11 @@ namespace GUI_327LG
         }
         public void CargarIdioma_327LG()
         {
-            if (SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG == "spanish")
+            if (!SessionManager_327LG.Instancia.IsLoggedIn_327LG())
+            {
+                tscmbIdioma.Text = "Español";
+                LanguageManager_327LG.Instance_327LG.CambiarIdioma_327LG("spanish");
+            }else if (SessionManager_327LG.Instancia.Usuario.IdiomaPref_327LG == "spanish")
             {
                 LanguageManager_327LG.Instance_327LG.CambiarIdioma_327LG("spanish");
                 tscmbIdioma.Text = "Español";
@@ -165,22 +171,27 @@ namespace GUI_327LG
 
         private void registrarPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormRegistrarPrestamo_327LG>();
+            AbrirFormulario_327LG<FormRegistrarPrestamo_327LG>();
         }
 
         private void registrarDevoluciónItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormRegDevolucion_327LG>();
+            AbrirFormulario_327LG<FormRegDevolucion_327LG>();
         }
 
         private void librosItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormLibroMaestro_327LG>();
+            AbrirFormulario_327LG<FormLibroMaestro_327LG>();
         }
 
         private void ejemplaresItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormEjemplarMaestro_327LG>();
+            AbrirFormulario_327LG<FormEjemplarMaestro_327LG>();
+        }
+
+        private void gestiónDeFamiliasMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormGestionFamilia_327LG>();
         }
     }
 }
