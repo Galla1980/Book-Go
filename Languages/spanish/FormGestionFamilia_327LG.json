@@ -1,32 +1,33 @@
 {
   "label": 
   {
-    "lblUsuarios": "Usuarios",
-    "lblCantidadUsuarios": "Cantidad de usuarios: ",
-    "lblApellido": "Apellido:",
-    "lblNombre": "Nombre:",
-    "lblUsername":"Usuario",
-    "lblCorreo": "Correo"
+    "lblTitulo": "Gestión de familias",
+    "lblFamilias": "Familia base: ",
+    "lblFamAgregar": "Familia a agregar: ",
+    "lblPermisos": "Permisos:",
+    "lblNombreFam": "Nombre de familia:"
   },
 
   "button": 
   {
-    "btnAnadir": "Añadir",
-    "btnDesbloquear": "Desbloquear",
-    "btnModificar": "Modificar",
-    "btnActivarDesactivar": "Activar/ Desactivar",
-    "btnAplicar": "Aplicar",
-    "btnCancelar": "Cancelar",
-    "btnSalir": "Salir"
-  },
-
-  "textbox":
-  {
-    
+    "btnAsignarPermiso": "Asignar permiso",
+    "btnAsignarFam": "Asignar familia",
+    "btnEliminarFam": "Eliminar familia",
+    "btnEliminarComp": "Eliminar componente",
+    "btnAgregarFam": "Agregar familia"
   },
 
   "messagebox": 
   {
+    "titulo":
+    {
+      "confirmar_eliminar_familia": "Confirmar eliminar familia."
+    },
+
+    "mensaje":
+    {
+      "confirmar_eliminar_familia": "Al borrar esta familia se eliminara de todas las demas familias que la contienen ¿Confirma la operación?"
+    },
     
     "button": 
     {
@@ -48,6 +49,8 @@
     "debe_seleccionar_familia": "Debe seleccionar una familia, no un permiso.",
     "familia_base_misma_familia_agregada": "La familia agregada no puede ser la misma que la base.",
     "familiaagregada_tiene_familiabase": "La familia agregada no puede contener la familia base.",
-    "permiso_repetido_entre_familias": "El permiso a agregar se encuentra en otra familia que contiene la familia agregada\nFamilia: "
+    "permiso_repetido_entre_familias": "La operación no se puede realizar porque duplicaria componentes que ya contienen otras familias.\nFamilia/s: ",
+    "seleccionar_familia_simple": "No puede seleccionar una familia hijo para esta operación.",
+    "componentebase_no_seleccionado": "Debe seleccionar un componente de una familia en \"familia base\"."
   }
 }

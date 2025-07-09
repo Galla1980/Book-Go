@@ -1,70 +1,50 @@
 {
-  "label": 
-  {
-    "lblUsuarios": "Usuarios",
-    "lblCantidadUsuarios": "Cantidad de usuarios: ",
-    "lblApellido": "Apellido:",
-    "lblNombre": "Nombre:",
-    "lblUsername":"Usuario",
-    "lblCorreo": "Correo"
+  "label": {
+    "lblTitulo": "Family Management",
+    "lblFamilias": "Base family:",
+    "lblFamAgregar": "Family to add:",
+    "lblPermisos": "Permissions:",
+    "lblNombreFam": "Family name:"
   },
 
-  "radio":
-  {
-    "rdoActivos": "Activos",
-    "rdoTodos": "Todos"
+  "button": {
+    "btnAsignarPermiso": "Assign permission",
+    "btnAsignarFam": "Assign family",
+    "btnEliminarFam": "Delete family",
+    "btnEliminarComp": "Delete component",
+    "btnAgregarFam": "Add family"
   },
 
-  "button": 
-  {
-    "btnAnadir": "Añadir",
-    "btnDesbloquear": "Desbloquear",
-    "btnModificar": "Modificar",
-    "btnActivarDesactivar": "Activar/ Desactivar",
-    "btnAplicar": "Aplicar",
-    "btnCancelar": "Cancelar",
-    "btnSalir": "Salir"
-  },
+  "messagebox": {
+    "titulo": {
+      "confirmar_eliminar_familia": "Confirm family deletion."
+    },
 
-  "textbox":
-  {
-    "modo":
-    {
-      "consulta": "Modo Consulta",
-      "anadir": "Modo Añadir",
-      "desbloquear": "Modo Desbloquear",
-      "modificar": "Modo Modificar",
-      "desactivar": "Modo Activar/Desactivar"
-    }
-  },
-  
-  "datagridview":
-  {
-    "columna":
-    {
-      "apellido": "Apellido",
-      "nombre": "Nombre",
-      "usuario": "Usuario",
-      "correo": "Correo"
+    "mensaje": {
+      "confirmar_eliminar_familia": "Deleting this family will remove it from all other families that contain it. Do you confirm this operation?"
+    },
+
+    "button": {
+      "aceptar": "Accept",
+      "cancelar": "Cancel"
     }
   },
 
-  "messagebox": 
-  {
-    
-    "button": 
-    {
-      "aceptar": "Aceptar",
-      "cancelar": "Cancelar"
-    }
-  },
-  "exception":
-  {
-    "nombre_vacio": "El nombre de la familia no puede estár vacío.",
-    "seleccion_usuario_desbloqueo": "No hay usuarios seleccionados para desbloquear.",
-    "usuario_no_bloqueado": "El usuario no está bloqueado.",
-    "seleccion_usuario_modificar": "No hay usuarios seleccionados para modificar.",
-    "seleccion_usuario_desactivar": "No hay usuarios seleccionados.",
-    "usuario_desactivar_no_valido": "No se puede desactivar el usuario que inicio sesion."
+  "exception": {
+    "nombre_vacio": "The family name cannot be empty.",
+    "nombre_repetido": "The family name cannot be the same as another family.",
+    "permiso_ya_asignado": "The permission is already assigned to the family.",
+    "permiso_ya_asignado_en_familia": "The permission is already assigned in a family that contains this family.",
+    "familia_ya_asignada": "The family is already assigned to the base family.",
+    "familia_tiene_permiso": "The family to add contains permissions already assigned to the base family.",
+    "permiso_no_seleccionado": "You must select a permission to assign.",
+    "familiabase_no_seleccionada": "You must select a family in \"base family\".",
+    "familiaagregada_no_seleccionada": "You must select a family in \"family to add\".",
+    "debe_seleccionar_familia": "You must select a family, not a permission.",
+    "familia_base_misma_familia_agregada": "The family to add cannot be the same as the base family.",
+    "familiaagregada_tiene_familiabase": "The family to add cannot contain the base family.",
+    "permiso_repetido_entre_familias": "The operation cannot be performed because it would duplicate components already contained in other families.\nFamily/ies: ",
+    "seleccionar_familia_simple": "You cannot select a child family for this operation.",
+    "componentebase_no_seleccionado": "You must select a component of a family in \"base family\"."
   }
 }

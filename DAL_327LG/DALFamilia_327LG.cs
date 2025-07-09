@@ -125,5 +125,46 @@ namespace DAL_327LG
                 cmd_327LG.ExecuteNonQuery();
             }
         }
+
+        public void EliminarFamilia(BEFamilia_327LG familia)
+        {
+            using (SqlConnection con_327LG = new SqlConnection(connectionString_327LG))
+            {
+                string query = "DELETE FROM FamiliaFamilia_327LG WHERE CodigoFamilia_327LG = @CodigoFamilia or CodigoFamiliaRelacionado_327LG = @CodigoFamilia";
+                SqlCommand cmd_327LG = new SqlCommand(query, con_327LG);
+                cmd_327LG.Parameters.AddWithValue("@CodigoFamilia", familia.Codigo_327LG);
+                con_327LG.Open();
+                cmd_327LG.ExecuteNonQuery();
+                
+                query = "DELETE FROM PermisoFamilia_327LG WHERE CodigoFamilia_327LG = @CodigoFamilia";
+                cmd_327LG.CommandText = query;
+                cmd_327LG.ExecuteNonQuery();
+
+                query = "DELETE FROM Familia_327LG WHERE CodigoFamilia_327LG = @CodigoFamilia";
+                cmd_327LG.CommandText = query;
+                cmd_327LG.ExecuteNonQuery();
+            }
+        }
+
+        public void EliminarComponente(BEFamilia_327LG familia, BEPerfil_327LG componente)
+        {
+            using (SqlConnection con_327LG = new SqlConnection(connectionString_327LG))
+            {
+                string query;
+                if (componente is BEPermiso_327LG)
+                {
+                    query = "DELETE FROM PermisoFamilia_327LG WHERE CodigoFamilia_327LG = @CodigoFamilia AND CodigoPermiso_327LG = @CodigoComponente";
+                }
+                else
+                {
+                    query = "DELETE FROM FamiliaFamilia_327LG WHERE CodigoFamilia_327LG = @CodigoFamilia AND CodigoFamiliaRelacionado_327LG = @CodigoComponente";
+                }
+                SqlCommand cmd_327LG = new SqlCommand(query, con_327LG);
+                cmd_327LG.Parameters.AddWithValue("@CodigoFamilia", familia.Codigo_327LG);
+                cmd_327LG.Parameters.AddWithValue("@CodigoComponente", componente.Codigo_327LG);
+                con_327LG.Open();
+                cmd_327LG.ExecuteNonQuery();
+            }
+        }
     }
 }

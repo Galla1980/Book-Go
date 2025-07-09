@@ -62,6 +62,9 @@ namespace GUI_327LG
             cerrarSesiónItem.Text = LM_327LG.ObtenerString("menu_usuario.items.cerrar_sesion");
             adminItem.Text = LM_327LG.ObtenerString("menu_admin.texto");
             gestiónUsuariosMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_usuarios");
+            gestiónDeFamiliasMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.perfiles");
+            perfilesMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.perfiles");
+            gestiónDeFamiliasMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_familias");
             maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
             prestamosItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
             registrarPrestamoToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_prestamo");

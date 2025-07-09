@@ -146,6 +146,7 @@
             // 
             // txtTitulo
             // 
+            txtTitulo.Enabled = false;
             txtTitulo.Location = new Point(12, 412);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(100, 23);
@@ -153,6 +154,7 @@
             // 
             // txtAutor
             // 
+            txtAutor.Enabled = false;
             txtAutor.Location = new Point(118, 412);
             txtAutor.Name = "txtAutor";
             txtAutor.Size = new Size(100, 23);
@@ -160,6 +162,7 @@
             // 
             // txtEditorial
             // 
+            txtEditorial.Enabled = false;
             txtEditorial.Location = new Point(224, 412);
             txtEditorial.Name = "txtEditorial";
             txtEditorial.Size = new Size(100, 23);
@@ -167,6 +170,7 @@
             // 
             // txtEdicion
             // 
+            txtEdicion.Enabled = false;
             txtEdicion.Location = new Point(330, 412);
             txtEdicion.Name = "txtEdicion";
             txtEdicion.Size = new Size(100, 23);

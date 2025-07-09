@@ -50,9 +50,9 @@
             lblTitulo.Font = new Font("Segoe UI", 20F);
             lblTitulo.Location = new Point(364, 9);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(250, 37);
+            lblTitulo.Size = new Size(243, 37);
             lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "Gestión de famillias";
+            lblTitulo.Text = "Gestión de familias";
             // 
             // lstPermisos
             // 
@@ -125,6 +125,7 @@
             btnEliminarFam.TabIndex = 8;
             btnEliminarFam.Text = "Eliminar familia";
             btnEliminarFam.UseVisualStyleBackColor = true;
+            btnEliminarFam.Click += btnEliminarFam_Click;
             // 
             // btnEliminarComp
             // 
@@ -134,6 +135,7 @@
             btnEliminarComp.TabIndex = 9;
             btnEliminarComp.Text = "Eliminar componente";
             btnEliminarComp.UseVisualStyleBackColor = true;
+            btnEliminarComp.Click += btnEliminarComp_Click;
             // 
             // tvwFamSel
             // 

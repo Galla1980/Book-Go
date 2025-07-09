@@ -11,7 +11,10 @@
     "texto": "Admin",
     "items": 
     {
-      "gestion_usuarios": "User management"
+      "gestion_usuarios": "User management",
+      "perfiles": "Profiles",
+      "gestion_familias": "Family Management"
+      
     }
   },
   "menu_maestro": {

@@ -68,27 +68,71 @@ namespace BLL_327LG
             if (FamiliaContieneFamilia_327LG(familiaBase, familiaAgregada)) throw new Exception(LM_327LG.ObtenerString("exception.familia_ya_asignada"));
             if (FamiliaContieneFamilia_327LG(familiaAgregada, familiaBase)) throw new Exception(LM_327LG.ObtenerString("exception.familiaagregada_tiene_familiabase"));
             if (HayPermisosRepetidos_327LG(familiaBase,familiaAgregada)) throw new Exception(LM_327LG.ObtenerString("exception.familia_tiene_permiso"));
-            List<BEFamilia_327LG> familiasConRepetidos = PermisoRepetidoEntreFamilias(familiaBase, familiaAgregada);
+            List<BEFamilia_327LG> familiasConRepetidos = ComponentesRepetidos_327LG(familiaBase, familiaAgregada);
             if (familiasConRepetidos.Count> 0) throw new Exception(LM_327LG.ObtenerString("exception.permiso_repetido_entre_familias") + string.Join(",", familiasConRepetidos.Select(f => f.Nombre_327LG)));
             dalFamilia_327LG.AsignarFamilia_327LG(familiaBase, familiaAgregada);
         }
 
-        private List<BEFamilia_327LG> PermisoRepetidoEntreFamilias(BEFamilia_327LG familiaBase, BEFamilia_327LG familiaAgregada)
+        private List<BEFamilia_327LG> ComponentesRepetidos_327LG(BEFamilia_327LG familiaBase, BEFamilia_327LG familiaAgregada)
         {
-            List<BEPermiso_327LG> permisosAgregada = ObtenerPermisosDeFamilia_327LG(familiaAgregada);
+            List<BEPerfil_327LG> componentesBase = ObtenerTodosLosComponentes_327LG(familiaBase);
+            List<BEPerfil_327LG> componentesAgregada = ObtenerTodosLosComponentes_327LG(familiaAgregada);
+
             List<BEFamilia_327LG> familiasConRepetidos = new List<BEFamilia_327LG>();
+
+            foreach(BEPerfil_327LG compAgregado in componentesAgregada)
+            {
+                if (componentesBase.Any(compBase => compBase.Codigo_327LG == compAgregado.Codigo_327LG))
+                {
+                    BEFamilia_327LG familiaContenedora = BuscarContenedora_327LG(familiaBase, compAgregado.Codigo_327LG);
+                    if (compAgregado is BEFamilia_327LG famRepetida && !familiasConRepetidos.Any(f => f.Codigo_327LG == famRepetida.Codigo_327LG))
+                    {
+                        familiasConRepetidos.Add(familiaContenedora);
+                    }
+                }
+            }
+
             foreach (BEFamilia_327LG posibleAncestro in dalFamilia_327LG.ObtenerFamilias_327LG())
             {
                 if (FamiliaContieneFamilia_327LG(posibleAncestro, familiaBase))
                 {
-                    List<BEPermiso_327LG> permisosAncestro = ObtenerPermisosDeFamilia_327LG(posibleAncestro);
-                    if (permisosAgregada.Any(p => permisosAncestro.Any(a => a.Codigo_327LG == p.Codigo_327LG)))
+                    List<BEPerfil_327LG> componentesAncestro = ObtenerTodosLosComponentes_327LG(posibleAncestro);
+                    if (componentesAgregada.Any(compAgregada => componentesAncestro.Any(compAncestro => compAncestro.Codigo_327LG == compAgregada.Codigo_327LG)))
                     {
                         familiasConRepetidos.Add(posibleAncestro);
-                    }
+                    }   
                 }
             }
             return familiasConRepetidos;
+        }
+
+        private BEFamilia_327LG BuscarContenedora_327LG(BEFamilia_327LG familia, int codigo)
+        {
+            foreach (BEFamilia_327LG hijo in familia.ObtenerHijos_327LG())
+            {
+                if (hijo.Codigo_327LG == codigo) return familia;
+
+                if (hijo is BEFamilia_327LG f)
+                {
+                    var resultado = BuscarContenedora_327LG(f, codigo);
+                    if (resultado != null) return resultado;
+                }
+            }
+            return null;
+        }
+
+        private List<BEPerfil_327LG> ObtenerTodosLosComponentes_327LG(BEFamilia_327LG familia)
+        {
+            List<BEPerfil_327LG> listaComponentes = new List<BEPerfil_327LG>();
+            foreach (BEPerfil_327LG comp in familia.ObtenerHijos_327LG())
+            {
+                listaComponentes.Add(comp);
+                if (comp is BEFamilia_327LG f)
+                {
+                    listaComponentes.AddRange(ObtenerTodosLosComponentes_327LG(f));
+                }
+            }
+            return listaComponentes;
         }
 
         public bool FamiliaContieneFamilia_327LG(BEFamilia_327LG familiaBase, BEFamilia_327LG familiaAgregada)
@@ -133,6 +177,16 @@ namespace BLL_327LG
                 }
             }
             return listaPermisos;
+        }
+
+        public void EliminarFamilia_327LG(BEFamilia_327LG familia)
+        {
+            dalFamilia_327LG.EliminarFamilia(familia);
+        }
+
+        public void EliminarComponente(BEFamilia_327LG familia, BEPerfil_327LG componente)
+        {
+            dalFamilia_327LG.EliminarComponente(familia, componente);
         }
     }
 }

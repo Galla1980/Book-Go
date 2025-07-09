@@ -4,6 +4,7 @@ using Services_327LG.Observer_327LG;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
 
             LM_327LG = LanguageManager_327LG.Instance_327LG;
             LM_327LG.AgregarObservador_327LG(this);
-
+            Actualizar_327LG();
         }
         private void FormGestionFamilia_327LG_Load(object sender, EventArgs e)
         {
@@ -57,9 +58,11 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
         {
             try
             {
+                LM_327LG.CargarFormulario_327LG("FormGestionFamilia_327LG");
                 if (lstPermisos.SelectedItems.Count <= 0) throw new Exception(LM_327LG.ObtenerString("exception.permiso_no_seleccionado"));
-                if (nodoSeleccionadoBase == null) throw new Exception(LM_327LG.ObtenerString("exception.familia_no_seleccionada"));
+                if (nodoSeleccionadoBase == null) throw new Exception(LM_327LG.ObtenerString("exception.familiabase_no_seleccionada"));
                 if (!(nodoSeleccionadoBase.Tag is BEFamilia_327LG)) throw new Exception(LM_327LG.ObtenerString("exception.debe_seleccionar_familia"));
+                if (nodoSeleccionadoBase.Parent != null) throw new Exception(LM_327LG.ObtenerString("exception.seleccionar_familia_simple"));
                 BEFamilia_327LG familiabase = (BEFamilia_327LG)nodoSeleccionadoBase.Tag;
                 BEPermiso_327LG permiso = (BEPermiso_327LG)lstPermisos.SelectedItem;
                 bllFamilia_327LG.AsignarPermiso_327LG(permiso, familiabase);
@@ -75,15 +78,17 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
         {
             try
             {
-                if(nodoSeleccionadoBase == null)throw new Exception(LM_327LG.ObtenerString("exception.familiabase_no_seleccionada"));
-                if(nodoSeleccionadoAgregar == null)throw new Exception(LM_327LG.ObtenerString("exception.familiaagregada_no_seleccionada"));
+                LM_327LG.CargarFormulario_327LG("FormGestionFamilia_327LG");
+                if (nodoSeleccionadoBase == null) throw new Exception(LM_327LG.ObtenerString("exception.familiabase_no_seleccionada"));
+                if (nodoSeleccionadoAgregar == null) throw new Exception(LM_327LG.ObtenerString("exception.familiaagregada_no_seleccionada"));
                 if (!(nodoSeleccionadoBase.Tag is BEFamilia_327LG) || !(nodoSeleccionadoAgregar.Tag is BEFamilia_327LG)) throw new Exception(LM_327LG.ObtenerString("exception.debe_seleccionar_familia_base"));
+                if (nodoSeleccionadoBase.Parent != null || nodoSeleccionadoAgregar.Parent != null) throw new Exception(LM_327LG.ObtenerString("exception.seleccionar_familia_simple"));
                 BEFamilia_327LG familiaBase = (BEFamilia_327LG)nodoSeleccionadoBase.Tag;
                 BEFamilia_327LG familiaAgregada = (BEFamilia_327LG)nodoSeleccionadoAgregar.Tag;
                 bllFamilia_327LG.AsignarFamilia_327LG(familiaBase, familiaAgregada);
                 CargarGrillas_327LG();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBoxPersonalizado.Show(ex.Message, "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
             }
@@ -91,7 +96,19 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
 
         public void Actualizar_327LG()
         {
-            throw new NotImplementedException();
+            LM_327LG.CargarFormulario_327LG("FormGestionFamilia_327LG");
+
+            lblTitulo.Text = LM_327LG.ObtenerString("label.lblTitulo");
+            lblFamilias.Text = LM_327LG.ObtenerString("label.lblFamilias");
+            lblFamAgregar.Text = LM_327LG.ObtenerString("label.lblFamAgregar");
+            lblPermisos.Text = LM_327LG.ObtenerString("label.lblPermisos");
+            lblNombreFam.Text = LM_327LG.ObtenerString("label.lblNombreFam");
+
+            btnAsignarPermiso.Text = LM_327LG.ObtenerString("button.btnAsignarPermiso");
+            btnAsignarFam.Text = LM_327LG.ObtenerString("button.btnAsignarFam");
+            btnEliminarFam.Text = LM_327LG.ObtenerString("button.btnEliminarFam");
+            btnEliminarComp.Text = LM_327LG.ObtenerString("button.btnEliminarComp");
+            btnAgregarFam.Text = LM_327LG.ObtenerString("button.btnAgregarFam");
         }
 
         private void CargarGrillas_327LG()
@@ -136,6 +153,43 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
                 }
             }
             return nodo;
+        }
+        private void btnEliminarFam_Click(object sender, EventArgs e)
+        {
+            LM_327LG.CargarFormulario_327LG("FormGestionFamilia_327LG");
+            try
+            {
+                if (nodoSeleccionadoBase == null) throw new Exception(LM_327LG.ObtenerString("exception.familiabase_no_seleccionada"));
+                if (!(nodoSeleccionadoBase.Tag is BEFamilia_327LG)) throw new Exception(LM_327LG.ObtenerString("exception.debe_seleccionar_familia"));
+                if (nodoSeleccionadoBase.Parent != null) throw new Exception(LM_327LG.ObtenerString("exception.seleccionar_familia_simple"));
+                BEFamilia_327LG familia = (BEFamilia_327LG)nodoSeleccionadoBase.Tag;
+                if (MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.confirmar_eliminar_familia"), LM_327LG.ObtenerString("messagebox.titulo.confirmar_eliminar_familia"), LM_327LG.ObtenerString("messagebox.button.aceptar"), LM_327LG.ObtenerString("messagebox.button.cancelar"), MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    bllFamilia_327LG.EliminarFamilia_327LG(familia);
+                    CargarGrillas_327LG();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBoxPersonalizado.Show(ex.Message, "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
+            }
+        }
+        private void btnEliminarComp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LM_327LG.CargarFormulario_327LG("FormGestionFamilia_327LG");
+                if (nodoSeleccionadoBase == null || nodoSeleccionadoBase.Parent == null || nodoSeleccionadoBase.Parent.Parent != null) throw new Exception(LM_327LG.ObtenerString("exception.componentebase_no_seleccionado"));
+                BEFamilia_327LG familia = (BEFamilia_327LG)nodoSeleccionadoBase.Parent.Tag;
+                BEPerfil_327LG componente = (BEPerfil_327LG)nodoSeleccionadoBase.Tag;
+                familia.EliminarHijo_327LG(componente);
+                bllFamilia_327LG.EliminarComponente(familia, componente);
+                CargarGrillas_327LG();
+            } 
+            catch (Exception ex)
+            { 
+                MessageBoxPersonalizado.Show(ex.Message, "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
+            }
         }
 
         private void tvwFamilias_AfterSelect(object sender, TreeViewEventArgs e)

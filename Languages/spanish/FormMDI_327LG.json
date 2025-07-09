@@ -9,8 +9,12 @@
   },
   "menu_admin": {
     "texto": "Admin",
-    "items": {
-      "gestion_usuarios": "Gestión de usuarios"
+    "items": 
+    {
+      "gestion_usuarios": "Gestión de usuarios",
+      "perfiles": "Perfiles",
+      "gestion_familias": "Gestión de familias"
+      
     }
   },
   "menu_maestro": {
