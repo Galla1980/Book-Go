@@ -13,12 +13,18 @@
     {
       "gestion_usuarios": "Gestión de usuarios",
       "perfiles": "Perfiles",
-      "gestion_familias": "Gestión de familias"
+      "gestion_familias": "Gestión de familias",
+      "gestion_perfiles": "Gestión de perfiles"
       
     }
   },
   "menu_maestro": {
-    "texto": "Maestro"
+    "texto": "Maestro",
+    "items":
+    {
+      "libros":"Libros",
+      "ejemplares":"Ejemplares"
+    }    
   },
   "menu_prestamos": {
     "texto": "Prestamos",
@@ -32,7 +38,11 @@
     "texto": "Reposición"
   },
   "menu_reporte": {
-    "texto": "Reportes"
+    "texto": "Reportes",
+    "items": 
+    {
+      "factura": "Factura"
+    }
   },
   "menu_ayuda": {
     "texto": "Ayuda"

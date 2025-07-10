@@ -37,6 +37,8 @@
   },
   "exception":
   {
+    "familia_vacia":"La familia debe contener un permiso para asignarla",
+    "familia_asignada_perfil":"La familia no puede modificarse porque ya esta asignada a un perfil.",
     "nombre_vacio": "El nombre de la familia no puede estár vacío.",
     "nombre_repetido":"El nombre de la familia no puede ser igual al de otra familia.",
     "permiso_ya_asignado": "El permiso ya está asignado a la familia.",

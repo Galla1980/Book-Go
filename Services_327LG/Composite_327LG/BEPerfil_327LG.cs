@@ -11,6 +11,12 @@ namespace Services_327LG.Composite_327LG
         public int Codigo_327LG { get; set; }
         public string Nombre_327LG { get; set; }
         private List<BEPerfil_327LG> Hijos_327LG = new List<BEPerfil_327LG>();
+
+        public BEPerfil_327LG(int codigo)
+        {
+            Codigo_327LG = codigo;
+            Nombre_327LG = string.Empty;
+        }
         public BEPerfil_327LG(int codigo, string Nombre)
         {
             Codigo_327LG = codigo;

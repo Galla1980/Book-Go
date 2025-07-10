@@ -11,16 +11,18 @@ namespace BLL_327LG
     {
         DALUsuario_327LG dalUsuario_327LG;
         LanguageManager_327LG LM_327LG;
+        BLLPerfil_327LG bllPerfil_327LG;
         public BLLUsuario_327LG()
         {
             dalUsuario_327LG = new DALUsuario_327LG();
             LM_327LG = LanguageManager_327LG.Instance_327LG;
+            bllPerfil_327LG = new BLLPerfil_327LG();
         }
 
         public LoginResult_327LG IniciarSesion_327LG(string usuario, string contraseña)
         {
             
-            var user = dalUsuario_327LG.ObtenerUsuarios_327LG().Where(x => x.userName_327LG.Equals(usuario)).FirstOrDefault();
+            var user = ObtenerUsuarios_327LG().Where(x => x.userName_327LG.Equals(usuario)).FirstOrDefault();
             ValidarUsuario_327LG(user);
             string contrasena = Encriptador_327LG.Encriptar_327LG(contraseña);
             return ValidarContraseña_327LG(contraseña, user);
@@ -60,7 +62,19 @@ namespace BLL_327LG
 
         public List<Usuario_327LG> ObtenerUsuarios_327LG()
         {
-            return dalUsuario_327LG.ObtenerUsuarios_327LG();
+            List<Usuario_327LG> listaUsuarios = dalUsuario_327LG.ObtenerUsuarios_327LG();
+            foreach (var item in listaUsuarios)
+            {
+                foreach (var item2 in bllPerfil_327LG.ObtenerPerfiles_327LG())
+                {
+                    if(item2.Codigo_327LG == item.rol_327LG.Codigo_327LG)
+                    {
+                        item.rol_327LG = item2;
+                    }
+                }
+                
+            }
+            return listaUsuarios;
         }
 
         public void ModificarUsuario_327LG(Usuario_327LG user)
@@ -80,7 +94,16 @@ namespace BLL_327LG
 
         public Usuario_327LG ConsultaIndividual_327LG(string dni)
         {
-            return dalUsuario_327LG.ConsultaIndividual_327LG(dni);
+            Usuario_327LG usuario = dalUsuario_327LG.ConsultaIndividual_327LG(dni);
+            
+                foreach (var item2 in bllPerfil_327LG.ObtenerPerfiles_327LG())
+                {
+                    if (item2.Codigo_327LG == usuario.rol_327LG.Codigo_327LG)
+                    {
+                        usuario.rol_327LG = item2;
+                    }
+                }
+            return usuario;
         }
 
         public void ActualizarBloqueo_327LG(string dni, bool bloqueo)
@@ -117,6 +140,7 @@ namespace BLL_327LG
 
         public void CerrarSesion_327LG()
         {
+            CambiarIdioma_327LG(SessionManager_327LG.Instancia.Usuario);
             SessionManager_327LG.Instancia.LogOut_327LG();
         }
 

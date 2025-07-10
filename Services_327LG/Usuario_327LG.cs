@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services_327LG.Composite_327LG;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Services_327LG
         public string nombre_327LG { get; set; }
         public string userName_327LG { get; set; }
         public string password_327LG { get; set; }
-        public string rol_327LG { get; set; }
+        public BEPerfil_327LG rol_327LG { get; set; }
         public string email_327LG { get; set; }
         public bool bloqueado_327LG { get; set; }
         public bool activo_327LG { get; set; }
@@ -26,7 +27,7 @@ namespace Services_327LG
 
         }
 
-        public Usuario_327LG(string dni_327LG, string apellido_327LG, string nombre_327LG, string userName_327LG, string password_327LG, string rol_327LG, string email_327LG, bool bloqueado_327LG, bool activo_327LG, int intento_327LG, string idioma)
+        public Usuario_327LG(string dni_327LG, string apellido_327LG, string nombre_327LG, string userName_327LG, string password_327LG, BEPerfil_327LG rol_327LG, string email_327LG, bool bloqueado_327LG, bool activo_327LG, int intento_327LG, string idioma)
         {
             this.dni_327LG = dni_327LG;
             this.apellido_327LG = apellido_327LG;

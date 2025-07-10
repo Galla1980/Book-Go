@@ -8,10 +8,12 @@ namespace BLL_327LG
     public class BLLFamilia_327LG
     {
         private DALFamilia_327LG dalFamilia_327LG;
+        BLLPerfil_327LG bllPerfil_327LG;
         LanguageManager_327LG LM_327LG;
         public BLLFamilia_327LG()
         {
             dalFamilia_327LG = new DALFamilia_327LG();
+            bllPerfil_327LG = new BLLPerfil_327LG();
             LM_327LG = LanguageManager_327LG.Instance_327LG;
         }
 
@@ -31,10 +33,14 @@ namespace BLL_327LG
             if (FamiliaContienePermiso_327LG(familia, permiso)) throw new Exception(LM_327LG.ObtenerString("exception.permiso_ya_asignado"));
             foreach (BEFamilia_327LG comp in dalFamilia_327LG.ObtenerFamilias_327LG())
             {
-                if(FamiliaContieneFamilia_327LG(comp, familia))
+                if (FamiliaContieneFamilia_327LG(comp, familia))
                 {
-                    if(FamiliaContienePermiso_327LG(comp, permiso)) throw new Exception(LM_327LG.ObtenerString("exception.permiso_ya_asignado_en_familia"));
+                    if (FamiliaContienePermiso_327LG(comp, permiso)) throw new Exception(LM_327LG.ObtenerString("exception.permiso_ya_asignado_en_familia"));
                 }
+            }
+            foreach (BEPerfil_327LG perfil in bllPerfil_327LG.ObtenerPerfiles_327LG())
+            {
+                if (FamiliaContieneFamilia_327LG(perfil, familia)) throw new Exception(LM_327LG.ObtenerString("exception.familia_asignada_perfil"));
             }
             dalFamilia_327LG.AsignarPermiso_327LG(permiso, familia);
         }
@@ -64,12 +70,20 @@ namespace BLL_327LG
 
         public void AsignarFamilia_327LG(BEFamilia_327LG familiaBase, BEFamilia_327LG familiaAgregada)
         {
-            if(familiaBase == familiaAgregada) throw new Exception(LM_327LG.ObtenerString("exception.familia_base_misma_familia_agregada"));
+            if (familiaBase == familiaAgregada) throw new Exception(LM_327LG.ObtenerString("exception.familia_base_misma_familia_agregada"));
             if (FamiliaContieneFamilia_327LG(familiaBase, familiaAgregada)) throw new Exception(LM_327LG.ObtenerString("exception.familia_ya_asignada"));
             if (FamiliaContieneFamilia_327LG(familiaAgregada, familiaBase)) throw new Exception(LM_327LG.ObtenerString("exception.familiaagregada_tiene_familiabase"));
-            if (HayPermisosRepetidos_327LG(familiaBase,familiaAgregada)) throw new Exception(LM_327LG.ObtenerString("exception.familia_tiene_permiso"));
+            if (HayPermisosRepetidos_327LG(familiaBase, familiaAgregada)) throw new Exception(LM_327LG.ObtenerString("exception.familia_tiene_permiso"));
             List<BEFamilia_327LG> familiasConRepetidos = ComponentesRepetidos_327LG(familiaBase, familiaAgregada);
-            if (familiasConRepetidos.Count> 0) throw new Exception(LM_327LG.ObtenerString("exception.permiso_repetido_entre_familias") + string.Join(",", familiasConRepetidos.Select(f => f.Nombre_327LG)));
+            foreach (BEPerfil_327LG perfil in bllPerfil_327LG.ObtenerPerfiles_327LG())
+            {
+                if (FamiliaContieneFamilia_327LG(perfil, familiaBase)) throw new Exception(LM_327LG.ObtenerString("exception.familia_asignada_perfil"));
+            }
+            if (familiaAgregada.ObtenerHijos_327LG().Count() <= 0)
+            {
+                throw new Exception(LM_327LG.ObtenerString("exception.familia_vacia"));
+            }
+            if (familiasConRepetidos.Count > 0) throw new Exception(LM_327LG.ObtenerString("exception.permiso_repetido_entre_familias") + string.Join(",", familiasConRepetidos.Select(f => f.Nombre_327LG)));
             dalFamilia_327LG.AsignarFamilia_327LG(familiaBase, familiaAgregada);
         }
 
@@ -80,7 +94,7 @@ namespace BLL_327LG
 
             List<BEFamilia_327LG> familiasConRepetidos = new List<BEFamilia_327LG>();
 
-            foreach(BEPerfil_327LG compAgregado in componentesAgregada)
+            foreach (BEPerfil_327LG compAgregado in componentesAgregada)
             {
                 if (componentesBase.Any(compBase => compBase.Codigo_327LG == compAgregado.Codigo_327LG))
                 {
@@ -100,7 +114,7 @@ namespace BLL_327LG
                     if (componentesAgregada.Any(compAgregada => componentesAncestro.Any(compAncestro => compAncestro.Codigo_327LG == compAgregada.Codigo_327LG)))
                     {
                         familiasConRepetidos.Add(posibleAncestro);
-                    }   
+                    }
                 }
             }
             return familiasConRepetidos;
@@ -135,7 +149,7 @@ namespace BLL_327LG
             return listaComponentes;
         }
 
-        public bool FamiliaContieneFamilia_327LG(BEFamilia_327LG familiaBase, BEFamilia_327LG familiaAgregada)
+        public bool FamiliaContieneFamilia_327LG(BEPerfil_327LG familiaBase, BEFamilia_327LG familiaAgregada)
         {
             foreach (BEPerfil_327LG comp in familiaBase.ObtenerHijos_327LG())
             {
@@ -156,7 +170,7 @@ namespace BLL_327LG
             {
                 if (permisosFamiliaBase.Any(p => p.Codigo_327LG == permiso.Codigo_327LG))
                 {
-                    return true; 
+                    return true;
                 }
             }
             return false;

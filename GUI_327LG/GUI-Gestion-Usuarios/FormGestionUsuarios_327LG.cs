@@ -1,5 +1,7 @@
 ﻿using BLL_327LG;
+using Microsoft.Win32;
 using Services_327LG;
+using Services_327LG.Composite_327LG;
 using Services_327LG.Observer_327LG;
 using Services_327LG.Singleton_327LG;
 using System.Data;
@@ -10,12 +12,16 @@ namespace GUI_327LG
     public partial class FormGestionUsuarios_327LG : Form, IObserverIdioma_327LG
     {
         BLLUsuario_327LG bllUsuario_327LG;
+        BLLPerfil_327LG bllPerfil_327LG;
         LanguageManager_327LG LM_327LG;
         string modo = "Modo Consulta";
         public FormGestionUsuarios_327LG()
         {
             InitializeComponent();
+            
             bllUsuario_327LG = new BLLUsuario_327LG();
+            bllPerfil_327LG = new BLLPerfil_327LG();
+
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             LM_327LG = LanguageManager_327LG.Instance_327LG;
@@ -83,6 +89,12 @@ namespace GUI_327LG
             lblCanUsuarios.Text = LM_327LG.ObtenerString("label.lblCantidadUsuarios") + dgvUsuarios.Rows.Count.ToString();
             if (dgvUsuarios.Rows.Count > 0)
                 dgvUsuarios.ClearSelection();
+
+            cmbRol.Items.Clear();
+            foreach (var item in bllPerfil_327LG.ObtenerPerfiles_327LG())
+            {
+                cmbRol.Items.Add(item.Nombre_327LG);
+            }
         }
         private void rdoActivos_CheckedChanged_327LG(object sender, EventArgs e)
         {
@@ -153,7 +165,6 @@ namespace GUI_327LG
             txtApellido.Text = user.apellido_327LG;
             txtNombre.Text = user.nombre_327LG;
             txtEmail.Text = user.email_327LG;
-            cmbRol.Text = user.rol_327LG;
             txtUsername.Text = user.userName_327LG;
         }
 
@@ -171,10 +182,11 @@ namespace GUI_327LG
                         string username_327LG = dni_327LG + nombre_327LG;
                         string password_327LG = dni_327LG + apellido_327LG;
                         string email_327LG = txtEmail.Text;
-                        string rol_327LG = cmbRol.Text;
+                        BEPerfil_327LG rol_327LG = bllPerfil_327LG.ObtenerPerfiles_327LG().FirstOrDefault(x => x.Nombre_327LG == cmbRol.Text);
+
                         if (!Regex.IsMatch(dni_327LG, @"^\d{8}$")) throw new Exception(LM_327LG.ObtenerString("exception.dni_no_valido"));
                         if (bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.dni_327LG.Equals(dni_327LG))) throw new Exception(LM_327LG.ObtenerString("exception.dni_en_uso"));
-                        ValidarEntradasUsuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, email_327LG, rol_327LG);
+                        ValidarEntradasUsuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, email_327LG);
                         if (bllUsuario_327LG.ObtenerUsuarios_327LG().Any(x => x.email_327LG.Equals(email_327LG, StringComparison.OrdinalIgnoreCase))) throw new Exception(LM_327LG.ObtenerString("exception.email_en_uso"));
                         bllUsuario_327LG.AgregarUsuario_327LG(new Usuario_327LG(dni_327LG, apellido_327LG, nombre_327LG, username_327LG, Encriptador_327LG.Encriptar_327LG(password_327LG), rol_327LG, email_327LG, false, true, 0, "spanish"));
                         MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.usuario_anadido.mensaje"), LM_327LG.ObtenerString("messagebox.usuario_anadido.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
@@ -197,12 +209,13 @@ namespace GUI_327LG
 
                     case "Modo Modificar":
                         if (dgvUsuarios.SelectedRows.Count <= 0) throw new Exception(LM_327LG.ObtenerString("exception.seleccion_usuario_modificar"));
-                        ValidarEntradasUsuario_327LG(txtDNI.Text, txtApellido.Text, txtNombre.Text, txtEmail.Text, cmbRol.Text);
+                        ValidarEntradasUsuario_327LG(txtDNI.Text, txtApellido.Text, txtNombre.Text, txtEmail.Text);
                         Usuario_327LG user = bllUsuario_327LG.ConsultaIndividual_327LG(txtDNI.Text);
+                        if (SessionManager_327LG.Instancia.Usuario == user) throw new Exception(LM_327LG.ObtenerString("exception.mismo_usuario"));
                         user.nombre_327LG = txtNombre.Text;
                         user.apellido_327LG = txtApellido.Text;
                         user.email_327LG = txtEmail.Text;
-                        user.rol_327LG = cmbRol.Text;
+                        user.rol_327LG = bllPerfil_327LG.ObtenerPerfiles_327LG().FirstOrDefault(x => x.Nombre_327LG == cmbRol.Text);
                         user.userName_327LG = txtDNI.Text + txtNombre.Text;
                         if (MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.cambiar_contrasena.mensaje"), LM_327LG.ObtenerString("messagebox.cambiar_contrasena.titulo"), LM_327LG.ObtenerString("messagebox.button.aceptar"), "No", MessageBoxIcon.Question) == DialogResult.Yes) user.password_327LG = Encriptador_327LG.Encriptar_327LG(txtDNI.Text + txtApellido.Text);
                         bllUsuario_327LG.ModificarUsuario_327LG(user);
@@ -232,9 +245,9 @@ namespace GUI_327LG
             }
         }
 
-        private void ValidarEntradasUsuario_327LG(string dni_327LG, string apellido_327LG, string nombre_327LG, string email_327LG, string rol_327LG)
+        private void ValidarEntradasUsuario_327LG(string dni_327LG, string apellido_327LG, string nombre_327LG, string email_327LG)
         {
-            if (dni_327LG == string.Empty || apellido_327LG == string.Empty || nombre_327LG == string.Empty || email_327LG == string.Empty || rol_327LG == string.Empty)
+            if (dni_327LG == string.Empty || apellido_327LG == string.Empty || nombre_327LG == string.Empty || email_327LG == string.Empty || cmbRol.Text == string.Empty)
                 throw new Exception(LM_327LG.ObtenerString("exception.campos_vacios"));
             if (nombre_327LG.Any(char.IsDigit)) throw new Exception(LM_327LG.ObtenerString("exception.nombre_con_numeros"));
             if (apellido_327LG.Any(char.IsDigit)) throw new Exception(LM_327LG.ObtenerString("exception.apellido_con_numeros"));
@@ -273,7 +286,7 @@ namespace GUI_327LG
                     c.Text = string.Empty;
                 }
             }
-            cmbRol.SelectedIndex = -1;
+            
         }
 
         private void dgvUsuarios_SelectionChanged_327LG(object sender, EventArgs e)

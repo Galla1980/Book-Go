@@ -197,6 +197,7 @@
             Name = "FormGestionFamilia_327LG";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormGestionFamilia_327LG";
+            FormClosed += FormGestionFamilia_327LG_FormClosed;
             Load += FormGestionFamilia_327LG_Load;
             ResumeLayout(false);
             PerformLayout();

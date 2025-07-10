@@ -31,6 +31,8 @@
   },
 
   "exception": {
+    "familia_vacia": "Family must contain a permission to be assigned",
+    "familia_asignada_perfil":"Family can't be changed because it's already assigned to a profile.",
     "nombre_vacio": "The family name cannot be empty.",
     "nombre_repetido": "The family name cannot be the same as another family.",
     "permiso_ya_asignado": "The permission is already assigned to the family.",

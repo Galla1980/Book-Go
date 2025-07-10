@@ -36,6 +36,12 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
         private void FormGestionFamilia_327LG_Load(object sender, EventArgs e)
         {
             LM_327LG.CargarFormulario_327LG("FormGestionFamilia_327LG");
+            this.BackColor = ColorTranslator.FromHtml("#055b6b");
+            foreach (Label label in this.Controls.OfType<Label>())
+            {
+                label.ForeColor = Color.White;
+                label.BackColor = Color.Transparent;
+            }
             CargarGrillas_327LG();
         }
 
@@ -66,11 +72,24 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
                 BEFamilia_327LG familiabase = (BEFamilia_327LG)nodoSeleccionadoBase.Tag;
                 BEPermiso_327LG permiso = (BEPermiso_327LG)lstPermisos.SelectedItem;
                 bllFamilia_327LG.AsignarPermiso_327LG(permiso, familiabase);
+                
                 CargarGrillas_327LG();
             }
             catch (Exception ex)
             {
                 MessageBoxPersonalizado.Show(ex.Message, "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
+            }
+        }
+
+        private void ActualizarFormGestionPerfiles_327LG()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is FormGestionPerfiles_327LG gestionPerfilesForm)
+                {
+                    gestionPerfilesForm.CargarGrillas_327LG();
+                    break;
+                }
             }
         }
 
@@ -113,6 +132,7 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
 
         private void CargarGrillas_327LG()
         {
+            ActualizarFormGestionPerfiles_327LG();
             lstPermisos.Items.Clear();
             foreach (BEPermiso_327LG item in bllPermiso_327LG.ObtenerPermisos_327LG())
             {
@@ -185,9 +205,9 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
                 familia.EliminarHijo_327LG(componente);
                 bllFamilia_327LG.EliminarComponente(familia, componente);
                 CargarGrillas_327LG();
-            } 
+            }
             catch (Exception ex)
-            { 
+            {
                 MessageBoxPersonalizado.Show(ex.Message, "Error", LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
             }
         }
@@ -216,5 +236,9 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
             nodoSeleccionadoAgregar.ForeColor = SystemColors.HighlightText;
         }
 
+        private void FormGestionFamilia_327LG_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LM_327LG.EliminarObservador_327LG(this);
+        }
     }
 }

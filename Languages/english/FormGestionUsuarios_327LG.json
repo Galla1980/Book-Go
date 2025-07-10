@@ -95,6 +95,7 @@
     }
   },
   "exception": {
+    "mismo_usuario": "Current session user can't be modified.",
     "campos_vacios": "Please complete all fields.",
     "nombre_con_numeros": "First name cannot contain numbers.",
     "apellido_con_numeros": "Last name cannot contain numbers.",

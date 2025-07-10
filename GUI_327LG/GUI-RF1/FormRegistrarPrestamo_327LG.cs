@@ -1,5 +1,6 @@
 ﻿using BE_327LG;
 using BLL_327LG;
+using Services_327LG;
 using Services_327LG.Observer_327LG;
 using System;
 using System.Collections.Generic;
@@ -115,6 +116,13 @@ namespace GUI_327LG.GUIRF1
             dgvClientes.Columns["Nombre_327LG"].FillWeight = 20;
             dgvClientes.Columns["Apellido_327LG"].FillWeight = 20;
             dgvClientes.Columns["Email_327LG"].FillWeight = 30;
+            if (chkVerMail.Checked)
+            {
+                foreach (DataGridViewRow cliente in dgvClientes.Rows)
+                {
+                    cliente.Cells["Email_327LG"].Value = Encriptador_327LG.DesencriptarReversible_327LG(cliente.Cells["Email_327LG"].Value.ToString());
+                }
+            }
             Actualizar_327LG();
         }
         private void btnSeleccionarCliente_Click(object sender, EventArgs e)
@@ -155,6 +163,7 @@ namespace GUI_327LG.GUIRF1
                         LM_327LG.CargarFormulario_327LG("FormRegistrarPrestamo_327LG");
                         MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.prestamo_registrado"), LM_327LG.ObtenerString("messagebox.titulo.prestamo_registrado"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
+
                         this.Close();
                     }
                 }
@@ -188,9 +197,14 @@ namespace GUI_327LG.GUIRF1
             lblAutor.Text = LM_327LG.ObtenerString("label.lblAutor");
             lblEdicion.Text = LM_327LG.ObtenerString("label.lblEdicion");
             lblEditorial.Text = LM_327LG.ObtenerString("label.lblEditorial");
+            //Checkbox
+            chkVerMail.Text = LM_327LG.ObtenerString("checkbox.chkVerMail");
 
         }
 
-       
+        private void chkVerMail_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarGrillaClientes_327LG();
+        }
     }
 }
