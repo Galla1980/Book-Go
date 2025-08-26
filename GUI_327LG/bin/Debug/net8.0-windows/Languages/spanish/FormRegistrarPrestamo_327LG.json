@@ -1,0 +1,67 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Registrar préstamo",
+      "lblClientes": "Clientes registrados:",
+      "lblDNI": "DNI del cliente:",
+      "lblLibroSeleccionado": "Libro seleccionado:",
+      "lblSeleccionarLibro": "No seleccionó ningún libro",
+      "lblTituloLibro": "Título",
+      "lblAutor": "Autor",
+      "lblEditorial": "Editorial",
+      "lblEdicion": "Edición"
+    },
+
+     "datagridview":
+    {
+      "columna":
+      {
+        "dni": "DNI",
+        "nombre": "Nombre",
+        "apellido": "Apellido",
+        "correo": "Correo"
+      }
+    },
+    "checkbox":
+    {
+      "chkVerMail": "Ver mail"
+    },
+
+    "button": 
+    {
+      "btnSeleccionarLibro": "Seleccionar libro",
+      "btnRegistrarCliente": "Registrar cliente",
+      "btnRegistrarPrestamo": "Registrar préstamo",
+      "btnFiltrarClientes": "Filtrar clientes",
+      "btnSeleccionarCliente": "Seleccionar cliente"
+    },
+
+
+    "exception":
+    {
+      "cliente_no_seleccionado": "No seleccionó ningún cliente",
+      "prestamo_activo": "Este cliente ya tiene un prestamo activo.",
+      "sanciones_excedidas": "Este cliente ya llego al limite de sanciones.",
+      "libro_no_seleccionado": "Debe seleccionar un libro."
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "cliente_seleccionado": "Cliente seleccionado correctamente",
+        "prestamo_registrado": "Prestamo registrado"
+      },
+      "mensaje":  
+      {
+        "cliente_seleccionado": "Cliente seleccionado",
+        "prestamo_registrado": "Prestamo registrado correctamente."
+      },
+      "button":
+      {
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+}
