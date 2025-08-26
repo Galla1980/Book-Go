@@ -1,5 +1,6 @@
 using BLL_327LG;
 using GUI_327LG.GUI_Gestion_Perfiles;
+using GUI_327LG.GUI_Gestion_Usuarios;
 using GUI_327LG.GUIRF1;
 using GUI_327LG.Maestros;
 using GUI_327LG.Reportes;
@@ -239,6 +240,11 @@ namespace GUI_327LG
         private void facturaMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario_327LG<FormReporteFactura_327LG>();
+        }
+
+        private void backUpRestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormBackupRestore_327LG>();
         }
     }
 }

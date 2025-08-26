@@ -38,8 +38,8 @@
   },
   "exception":
   {
-    "perfil_actual": "You can't modify the actual profile",
-    "familia_vacia": "Family must contain a permission to be assigned",
+    "perfil_actual": "No puede modificar el perfil actual.",
+    "familia_vacia": "La familia debe tener un permiso para asignarse",
     "nombre_vacio": "El nombre del perfil no puede estár vacío.",
     "nombre_repetido":"El nombre de la familia no puede ser igual al de otra familia.",
     "permiso_ya_asignado": "El permiso ya está asignado al perfil.",
