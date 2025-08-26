@@ -44,6 +44,7 @@
             txtEdicion = new TextBox();
             lblLibroSel = new Label();
             btnSeleccionarCliente = new Button();
+            chkVerMail = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -146,6 +147,7 @@
             // 
             // txtTitulo
             // 
+            txtTitulo.Enabled = false;
             txtTitulo.Location = new Point(12, 412);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(100, 23);
@@ -153,6 +155,7 @@
             // 
             // txtAutor
             // 
+            txtAutor.Enabled = false;
             txtAutor.Location = new Point(118, 412);
             txtAutor.Name = "txtAutor";
             txtAutor.Size = new Size(100, 23);
@@ -160,6 +163,7 @@
             // 
             // txtEditorial
             // 
+            txtEditorial.Enabled = false;
             txtEditorial.Location = new Point(224, 412);
             txtEditorial.Name = "txtEditorial";
             txtEditorial.Size = new Size(100, 23);
@@ -167,6 +171,7 @@
             // 
             // txtEdicion
             // 
+            txtEdicion.Enabled = false;
             txtEdicion.Location = new Point(330, 412);
             txtEdicion.Name = "txtEdicion";
             txtEdicion.Size = new Size(100, 23);
@@ -193,11 +198,24 @@
             btnSeleccionarCliente.UseVisualStyleBackColor = true;
             btnSeleccionarCliente.Click += btnSeleccionarCliente_Click;
             // 
+            // chkVerMail
+            // 
+            chkVerMail.AutoSize = true;
+            chkVerMail.ForeColor = SystemColors.ControlLightLight;
+            chkVerMail.Location = new Point(557, 68);
+            chkVerMail.Name = "chkVerMail";
+            chkVerMail.Size = new Size(82, 19);
+            chkVerMail.TabIndex = 21;
+            chkVerMail.Text = "checkBox1";
+            chkVerMail.UseVisualStyleBackColor = true;
+            chkVerMail.CheckedChanged += chkVerMail_CheckedChanged;
+            // 
             // FormRegistrarPrestamo_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 463);
+            Controls.Add(chkVerMail);
             Controls.Add(btnSeleccionarCliente);
             Controls.Add(lblLibroSel);
             Controls.Add(txtEdicion);
@@ -242,5 +260,6 @@
         private TextBox txtEdicion;
         private Label lblLibroSel;
         private Button btnSeleccionarCliente;
+        private CheckBox chkVerMail;
     }
 }

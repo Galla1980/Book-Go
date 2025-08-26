@@ -11,11 +11,20 @@
     "texto": "Admin",
     "items": 
     {
-      "gestion_usuarios": "User management"
+      "gestion_usuarios": "User management",
+      "perfiles": "Profiles",
+      "gestion_familias": "Family Management",
+      "gestion_perfiles": "Profiles Management"
     }
   },
   "menu_maestro": {
-    "texto": "Master"
+    "texto": "Master",
+    "items":
+    {
+      "libros":"Books",
+      "ejemplares":"Copies"
+    }
+    
   },
   "menu_prestamos": {
     "texto": "Book Loans",
@@ -29,7 +38,11 @@
     "texto": "Replenishment"
   },
   "menu_reporte": {
-    "texto": "Reports"
+    "texto": "Reports",
+    "items": 
+    {
+      "factura": "Bill"
+    }
   },
   "menu_ayuda": {
     "texto": "Help"

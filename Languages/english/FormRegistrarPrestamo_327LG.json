@@ -22,6 +22,10 @@
         "correo": "Email"
       }
     },
+    "checkbox":
+    {
+      "chkVerMail": "See mail"
+    },
 
     "button": 
     {

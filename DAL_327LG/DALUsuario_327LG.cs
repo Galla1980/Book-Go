@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Services_327LG;
+using Services_327LG.Composite_327LG;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace DAL_327LG
                     if (dr_327LG.Read())
                     {
                         user = new Usuario_327LG(dr_327LG["dni_327LG"].ToString(), dr_327LG["apellido_327LG"].ToString(), dr_327LG["nombre_327LG"].ToString(),
-                            dr_327LG["userName_327LG"].ToString(), dr_327LG["password_327LG"].ToString(), dr_327LG["rol_327LG"].ToString(), dr_327LG["email_327LG"].ToString(),
+                            dr_327LG["userName_327LG"].ToString(), dr_327LG["password_327LG"].ToString(),new BEPerfil_327LG(Convert.ToInt32(dr_327LG["rol_327LG"])), dr_327LG["email_327LG"].ToString(),
                             Convert.ToBoolean(dr_327LG["bloqueado_327LG"]), Convert.ToBoolean(dr_327LG["activo_327LG"]), Convert.ToInt32(dr_327LG["intento_327LG"]), dr_327LG["IdiomaPref_327LG"].ToString());
                     }
                 }
@@ -48,7 +49,7 @@ namespace DAL_327LG
                     while (dr_327LG.Read())
                     {
                         Usuario_327LG user = new Usuario_327LG(dr_327LG["dni_327LG"].ToString(), dr_327LG["apellido_327LG"].ToString(), dr_327LG["nombre_327LG"].ToString(),
-                            dr_327LG["userName_327LG"].ToString(), dr_327LG["password_327LG"].ToString(), dr_327LG["rol_327LG"].ToString(), dr_327LG["email_327LG"].ToString(),
+                            dr_327LG["userName_327LG"].ToString(), dr_327LG["password_327LG"].ToString(), new BEPerfil_327LG(Convert.ToInt32(dr_327LG["rol_327LG"])), dr_327LG["email_327LG"].ToString(),
                             Convert.ToBoolean(dr_327LG["bloqueado_327LG"]), Convert.ToBoolean(dr_327LG["activo_327LG"]), Convert.ToInt32(dr_327LG["intento_327LG"]), dr_327LG["IdiomaPref_327LG"].ToString());
                         listaUsuarios_327LG.Add(user);
                     }
@@ -104,7 +105,7 @@ namespace DAL_327LG
                 cmd_327LG.Parameters.AddWithValue("@Apellido", user.apellido_327LG);
                 cmd_327LG.Parameters.AddWithValue("@Nombre", user.nombre_327LG);
                 cmd_327LG.Parameters.AddWithValue("@Username", user.userName_327LG);
-                cmd_327LG.Parameters.AddWithValue("@Rol", user.rol_327LG);
+                cmd_327LG.Parameters.AddWithValue("@Rol", user.rol_327LG.Codigo_327LG);
                 cmd_327LG.Parameters.AddWithValue("@Email", user.email_327LG);
                 cmd_327LG.Parameters.AddWithValue("@Password", user.password_327LG);
                 con_327LG.Open();
@@ -117,14 +118,14 @@ namespace DAL_327LG
             using (SqlConnection con_327LG = new SqlConnection(connectionString_327LG))
             {
                 SqlCommand cmd_327LG = new SqlCommand("INSERT INTO Usuario_327LG (DNI_327LG, Apellido_327LG, Nombre_327LG, Username_327LG, Password_327LG, Rol_327LG," +
-                    " Email_327LG, Bloqueado_327LG, Activo_327LG, Intento_327LG) VALUES (@dni, @apellido, @nombre, @username, @password, @rol, @email, @bloqueado," +
+                    " Email_327LG, Bloqueado_327LG, Activo_327LG, Intento_327LG, IdiomaPref_327LG) VALUES (@dni, @apellido, @nombre, @username, @password, @rol, @email, @bloqueado," +
                     " @activo, @intento, @idioma)", con_327LG);
                 cmd_327LG.Parameters.AddWithValue("@dni", usuario_327LG.dni_327LG);
                 cmd_327LG.Parameters.AddWithValue("@apellido", usuario_327LG.apellido_327LG);
                 cmd_327LG.Parameters.AddWithValue("@nombre", usuario_327LG.nombre_327LG);
                 cmd_327LG.Parameters.AddWithValue("@username", usuario_327LG.userName_327LG);
                 cmd_327LG.Parameters.AddWithValue("@password", usuario_327LG.password_327LG);
-                cmd_327LG.Parameters.AddWithValue("@rol", usuario_327LG.rol_327LG);
+                cmd_327LG.Parameters.AddWithValue("@rol", usuario_327LG.rol_327LG.Codigo_327LG);
                 cmd_327LG.Parameters.AddWithValue("@email", usuario_327LG.email_327LG);
                 cmd_327LG.Parameters.AddWithValue("@bloqueado", usuario_327LG.bloqueado_327LG);
                 cmd_327LG.Parameters.AddWithValue("@activo", usuario_327LG.activo_327LG);
