@@ -1,0 +1,41 @@
+## Ignorar carpetas de compilación
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+## Ignorar configuraciones de VS/VSCode
+.vs/
+.vscode/
+*.user
+*.suo
+*.cache
+*.pdb
+*.dbmdl
+*.opendb
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+
+## Paquetes NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+packages/
+
+## Archivos de publicación
+publish/
+*.publishsettings
+
+## Archivos de sistema
+*.DS_Store
+Thumbs.db
+
+## Excepción: incluir la carpeta Languages dentro de bin
+!Book-Go/GUI_327LG/bin/Debug/net8.0-windows/Languages/
