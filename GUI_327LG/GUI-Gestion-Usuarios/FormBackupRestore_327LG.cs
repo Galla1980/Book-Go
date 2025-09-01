@@ -50,6 +50,13 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             try
             {
                 if (txtBackup.Text.IsNullOrEmpty()) throw new Exception("Debe seleccionar una ruta.");
+                if(bllBackUpRestore_327LG.ExisteBackUp_327LG(txtBackup.Text)) 
+                {
+                    if(MessageBox.Show("Ya existe un BackUp creado en esta ruta. ¿Desea sobrescribirlo?", "BackUp Existente", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
                 bllBackUpRestore_327LG.HacerBackUp_327LG(txtBackup.Text);
                 MessageBox.Show($"BackUp creado exitosamente en la ruta {txtBackup.Text}", "BackUp Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -65,7 +72,9 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             {
                 if (txtRestore.Text.IsNullOrEmpty()) throw new Exception("Debe seleccionar un archivo para restaurar.");
                 bllBackUpRestore_327LG.HacerRestore_327LG(txtRestore.Text);
-
+                MessageBox.Show("Restauración realizada con éxito.", "Restauración Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FormMDI_327LG form = (FormMDI_327LG)this.MdiParent;
+                form.CerrarFormularios();
             }
             catch (Exception ex)
             {
@@ -77,16 +86,18 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
         {
             try
             {
-                using (OpenFileDialog folderBrowser = new OpenFileDialog())
+                using (OpenFileDialog fileDialog = new OpenFileDialog())
                 {
-                    folderBrowser.Filter = "SQL";
-                    if (folderBrowser.ShowDialog() == DialogResult.OK) 
+                    fileDialog.Filter = "SQL Backup File (*.bak)|*.bak";
+                    if (fileDialog.ShowDialog() == DialogResult.OK)
                     {
+                        txtRestore.Text = fileDialog.FileName;
                     }
                 }
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, "Error al elegir el archivo de backup.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }

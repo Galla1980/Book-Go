@@ -106,7 +106,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(409, 405);
+            ClientSize = new Size(405, 332);
             Controls.Add(btnRestore);
             Controls.Add(btnElegirArchivo);
             Controls.Add(txtRestore);

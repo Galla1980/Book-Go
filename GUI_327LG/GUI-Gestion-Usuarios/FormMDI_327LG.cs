@@ -89,7 +89,7 @@ namespace GUI_327LG
             Usuario_327LG usuario = SessionManager_327LG.Instancia.Usuario;
             bool logueado = SessionManager_327LG.Instancia.IsLoggedIn_327LG();
 
-            if (logueado)
+           if (logueado)
             {
                 if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(1, "Usuario")))
                 {
@@ -111,6 +111,7 @@ namespace GUI_327LG
                 {
                     reporteItem.Enabled = true;
                 }
+                
             }
             else
             {
@@ -150,7 +151,7 @@ namespace GUI_327LG
                 form.Show();
             }
         }
-        private void CerrarFormularios()
+        public void CerrarFormularios()
         {
             foreach (Form form in this.MdiChildren)
             {

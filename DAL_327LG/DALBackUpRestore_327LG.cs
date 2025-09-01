@@ -26,7 +26,30 @@ namespace DAL_327LG
 
         public void HacerRestore_327LG(string ruta)
         {
-            throw new NotImplementedException();
+            if(!File.Exists(ruta))
+            {
+                throw new Exception("El archivo de restauración no existe en la ruta especificada.");
+            }
+            using(SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand setMaster = new SqlCommand("USE master", con))
+                {
+                    setMaster.ExecuteNonQuery();
+                }
+                using (SqlCommand setSingleUser = new SqlCommand("ALTER DATABASE SistemaBiblioteca SET SINGLE_USER WITH ROLLBACK IMMEDIATE", con))
+                {
+                    setSingleUser.ExecuteNonQuery();
+                }
+                using(SqlCommand cmd = new SqlCommand($"RESTORE DATABASE SistemaBiblioteca FROM DISK='{ruta}' WITH REPLACE", con))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                using(SqlCommand setMultiUser = new SqlCommand("ALTER DATABASE SistemaBiblioteca SET MULTI_USER", con))
+                {
+                    setMultiUser.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
