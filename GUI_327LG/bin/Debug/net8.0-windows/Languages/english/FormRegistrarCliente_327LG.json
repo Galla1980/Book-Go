@@ -1,23 +1,45 @@
 {
-    "label": 
-    {
-      "lblTitulo": "Register client",
-      "lblDni": "DNI",
-      "lblNombre": "Name",
-      "lblApellido": "Last name",
-      "lblEmail": "Email"
-    },
+  "label": {
+    "lblTitulo": "Register client",
+    "lblDni": "ID",
+    "lblNombre": "First name",
+    "lblApellido": "Last name",
+    "lblEmail": "Email",
+    "lblDesencriptar": "Decrypt",
+    "lblModoConsulta": "Mode: View",
+    "lblModoRegistrar": "Mode: Register",
+    "lblModoEliminar": "Mode: Delete",
+    "lblModoModificar": "Mode: Edit",
+    "lblModoSerializacion":"Mode: Serialization"
+  },
 
+  "button": {
+    "btnRegistrar": "Register",
+    "btnEliminar": "Delete",
+    "btnModificar": "Edit",
+    "btnAplicar": "Apply",
+    "btnSerializar": "Serialize",
+    "btnDeserializar": "Deserialize",
+    "btnActualizar": "Update grid",
+      "btnLimpiar": "Clear",
+    "btnCancelar": "Cancel"
 
-    "button": 
+  },
+    "datagridview":
     {
-      "btnRegistrar": "Register",
-      "btnCancelar": "Cancel"
+      "columna":
+      {
+        "dni": "DNI",
+        "nombre": "Name",
+        "apellido": "Last name",
+        "correo": "Email"
+      }
     },
 
 
     "exception":
     {
+      "seleccionar_fila": "Must select a client from the grid.",
       "campos_vacios": "Please complete all fields.",
       "nombre_con_numeros": "First name cannot contain numbers.",
       "apellido_con_numeros": "Last name cannot contain numbers.",
@@ -26,18 +48,22 @@
       "email_no_valido": "Email format is not valid."
     },
 
-    "messagebox": 
-    {
-      "titulo": 
-      {
+   "messagebox": {
+      "titulo": {
         "error": "Error",
-        "cliente_registrado": "client registered",
-        "confirmacion_registrar_cliente": "Confirm registration"
+        "cliente_registrado": "Client registered",
+        "confirmacion_registrar_cliente": "Confirm registration",
+        "cliente_eliminado": "Client deleted",
+        "cliente_modificado": "Client edited.",
+        "confirmacion_eliminar_cliente": "Confirm deletion"
       },
-      "mensaje":
-      {
-        "cliente_registrado": "Client registration completed.",
-        "confirmacion_registrar_cliente": "Are you sure you want to register this client?"
+      "mensaje": {
+        "cliente_registrado": "The client was registered successfully.",
+        "confirmacion_registrar_cliente": "Are you sure you want to register the client?",
+        "cliente_eliminado": "The client was deleted successfully.",
+        "confirmacion_eliminar_cliente": "Are you sure you want to delete the client?",
+        "cliente_modificado": "The client was edited successfully."
+
       },
       "button":
       {

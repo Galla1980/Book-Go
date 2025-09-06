@@ -22,7 +22,8 @@
     "items":
     {
       "libros":"Books",
-      "ejemplares":"Copies"
+      "ejemplares":"Copies",
+      "clientes": "Clients"
     }
     
   },

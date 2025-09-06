@@ -23,7 +23,8 @@
     "items":
     {
       "libros":"Libros",
-      "ejemplares":"Ejemplares"
+      "ejemplares":"Ejemplares",
+      "clientes" : "Clientes"
     }    
   },
   "menu_prestamos": {

@@ -73,6 +73,7 @@ namespace GUI_327LG
             maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
             librosItem.Text = LM_327LG.ObtenerString("menu_maestro.items.libros");
             ejemplaresItem.Text = LM_327LG.ObtenerString("menu_maestro.items.ejemplares");
+            clientesToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.items.clientes");
             prestamosItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
             registrarPrestamoToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_prestamo");
             registrarDevoluciónItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_devolucion");
@@ -89,7 +90,7 @@ namespace GUI_327LG
             Usuario_327LG usuario = SessionManager_327LG.Instancia.Usuario;
             bool logueado = SessionManager_327LG.Instancia.IsLoggedIn_327LG();
 
-           if (logueado)
+            if (logueado)
             {
                 if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(1, "Usuario")))
                 {
@@ -111,7 +112,7 @@ namespace GUI_327LG
                 {
                     reporteItem.Enabled = true;
                 }
-                
+
             }
             else
             {
@@ -246,6 +247,11 @@ namespace GUI_327LG
         private void backUpRestoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario_327LG<FormBackupRestore_327LG>();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormRegistrarCliente_327LG>();
         }
     }
 }

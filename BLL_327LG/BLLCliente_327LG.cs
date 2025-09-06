@@ -17,6 +17,18 @@ namespace BLL_327LG
             dalCliente_327LG = new DALCliente_327LG();
         }
 
+        public void EliminarCliente_327LG(BECliente_327LG cliente)
+        {
+            cliente.Activo = false;
+            dalCliente_327LG.EliminarCliente_327LG(cliente);
+        }
+
+        public void ModificarCliente_327LG(BECliente_327LG clienteModificar)
+        {
+            clienteModificar.Email_327LG = Encriptador_327LG.EncriptarReversible_327LG(clienteModificar.Email_327LG);
+            dalCliente_327LG.ModificarCliente_327LG(clienteModificar);
+        }
+
         public List<BECliente_327LG> ObtenerClientes_327LG()
         {
             List<BECliente_327LG> listaCLientes = dalCliente_327LG.ObtenerTodos_327LG();

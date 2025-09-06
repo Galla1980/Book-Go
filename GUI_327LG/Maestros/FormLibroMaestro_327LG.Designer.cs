@@ -55,7 +55,7 @@
             // lblISBN
             // 
             lblISBN.AutoSize = true;
-            lblISBN.Location = new Point(12, 135);
+            lblISBN.Location = new Point(37, 57);
             lblISBN.Name = "lblISBN";
             lblISBN.Size = new Size(32, 15);
             lblISBN.TabIndex = 1;
@@ -64,7 +64,7 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(118, 135);
+            lblTitulo.Location = new Point(143, 57);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(38, 15);
             lblTitulo.TabIndex = 2;
@@ -73,7 +73,7 @@
             // lblAutor
             // 
             lblAutor.AutoSize = true;
-            lblAutor.Location = new Point(224, 135);
+            lblAutor.Location = new Point(249, 57);
             lblAutor.Name = "lblAutor";
             lblAutor.Size = new Size(37, 15);
             lblAutor.TabIndex = 3;
@@ -82,7 +82,7 @@
             // lblEditorial
             // 
             lblEditorial.AutoSize = true;
-            lblEditorial.Location = new Point(330, 135);
+            lblEditorial.Location = new Point(355, 57);
             lblEditorial.Name = "lblEditorial";
             lblEditorial.Size = new Size(50, 15);
             lblEditorial.TabIndex = 4;
@@ -91,7 +91,7 @@
             // lblEdicion
             // 
             lblEdicion.AutoSize = true;
-            lblEdicion.Location = new Point(436, 135);
+            lblEdicion.Location = new Point(461, 57);
             lblEdicion.Name = "lblEdicion";
             lblEdicion.Size = new Size(46, 15);
             lblEdicion.TabIndex = 5;
@@ -99,35 +99,35 @@
             // 
             // txtISBN
             // 
-            txtISBN.Location = new Point(12, 153);
+            txtISBN.Location = new Point(37, 75);
             txtISBN.Name = "txtISBN";
             txtISBN.Size = new Size(100, 23);
             txtISBN.TabIndex = 6;
             // 
             // txtTitulo
             // 
-            txtTitulo.Location = new Point(118, 153);
+            txtTitulo.Location = new Point(143, 75);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(100, 23);
             txtTitulo.TabIndex = 7;
             // 
             // txtAutor
             // 
-            txtAutor.Location = new Point(224, 153);
+            txtAutor.Location = new Point(249, 75);
             txtAutor.Name = "txtAutor";
             txtAutor.Size = new Size(100, 23);
             txtAutor.TabIndex = 8;
             // 
             // txtEditorial
             // 
-            txtEditorial.Location = new Point(330, 153);
+            txtEditorial.Location = new Point(355, 75);
             txtEditorial.Name = "txtEditorial";
             txtEditorial.Size = new Size(100, 23);
             txtEditorial.TabIndex = 9;
             // 
             // txtEdicion
             // 
-            txtEdicion.Location = new Point(436, 153);
+            txtEdicion.Location = new Point(461, 75);
             txtEdicion.Name = "txtEdicion";
             txtEdicion.Size = new Size(100, 23);
             txtEdicion.TabIndex = 10;
@@ -135,7 +135,7 @@
             // btnCargarLibro
             // 
             btnCargarLibro.Font = new Font("Segoe UI", 15F);
-            btnCargarLibro.Location = new Point(197, 242);
+            btnCargarLibro.Location = new Point(208, 146);
             btnCargarLibro.Name = "btnCargarLibro";
             btnCargarLibro.Size = new Size(152, 55);
             btnCargarLibro.TabIndex = 11;
@@ -147,7 +147,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(550, 349);
+            ClientSize = new Size(582, 237);
             Controls.Add(btnCargarLibro);
             Controls.Add(txtEdicion);
             Controls.Add(txtEditorial);
