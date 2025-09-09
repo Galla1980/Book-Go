@@ -40,6 +40,5 @@ namespace BLL_327LG
             cliente.Email_327LG = Encriptador_327LG.EncriptarReversible_327LG(cliente.Email_327LG);
             dalCliente_327LG.CargarCliente_327LG(cliente);
         }
-            
     }
 }

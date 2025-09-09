@@ -11,12 +11,14 @@ namespace GUI_327LG.GUIRF1
     {
         LanguageManager_327LG LM_327LG;
         BLLCliente_327LG bllCliente_327LG;
+        BLLSerializacion_327LG bllSerializacion_327LG;
         string modo = "Consultar";
         public FormRegistrarCliente_327LG()
         {
             InitializeComponent();
             LM_327LG = LanguageManager_327LG.Instance_327LG;
             bllCliente_327LG = new BLLCliente_327LG();
+            bllSerializacion_327LG = new BLLSerializacion_327LG();
             LM_327LG.AgregarObservador_327LG(this);
             dgvClientes.MultiSelect = false;
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -69,6 +71,9 @@ namespace GUI_327LG.GUIRF1
             btnCancelar.Enabled = false;
             chkDesencriptar.Enabled = true;
             txtDNI.Enabled = true;
+            txtNombre.Enabled = true;
+            txtApellido.Enabled = true;
+            txtEmail.Enabled = true;
             txtDNI.Text = string.Empty;
             txtNombre.Text = string.Empty;
             txtApellido.Text = string.Empty;
@@ -185,6 +190,7 @@ namespace GUI_327LG.GUIRF1
             if (modo == "Registrar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoRegistrar");
             if (modo == "Modificar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoModificar");
             if (modo == "Eliminar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoEliminar");
+            if(modo == "Deserializar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoDeserializar");
             btnAplicar.Text = LM_327LG.ObtenerString("button.btnAplicar");
             btnModificar.Text = LM_327LG.ObtenerString("button.btnModificar");
             btnEliminar.Text = LM_327LG.ObtenerString("button.btnEliminar");
@@ -198,7 +204,6 @@ namespace GUI_327LG.GUIRF1
         private void chkDesencriptar_CheckedChanged(object sender, EventArgs e)
         {
             CargarGrilla();
-
         }
 
         private void dgvClientes_SelectionChanged(object sender, EventArgs e)
@@ -216,13 +221,26 @@ namespace GUI_327LG.GUIRF1
         {
             try
             {
-                if(dgvClientes.Rows.Count == 0) throw new Exception(LM_327LG.ObtenerString("exception.grilla_vacia"));
+                if (dgvClientes.Rows.Count == 0) throw new Exception(LM_327LG.ObtenerString("exception.grilla_vacia"));
                 List<BECliente_327LG> listaCLientes = new List<BECliente_327LG>();
                 foreach (DataGridViewRow row in dgvClientes.Rows)
                 {
                     string dni = row.Cells["DNI"].Value.ToString();
-                    BECliente_327LG cliente = bllCliente_327LG.ObtenerClientes_327LG().First(x => x.DNI_327LG == dni);
+                    string nombre = row.Cells["Nombre"].Value.ToString();
+                    string apellido = row.Cells["Apellido"].Value.ToString();
+                    string email = row.Cells["Email"].Value.ToString();
+                    BECliente_327LG cliente = new BECliente_327LG(dni,nombre,apellido,email);
                     listaCLientes.Add(cliente);
+                }
+                using(SaveFileDialog savefile = new SaveFileDialog())
+                {
+                    savefile.Filter = "XML Files|*.xml";
+                    if(savefile.ShowDialog() == DialogResult.OK)
+                    {
+                        string ruta = savefile.FileName;
+                        bllSerializacion_327LG.SerializarClientes_327LG(listaCLientes,ruta);
+                        MessageBoxPersonalizado.Show($"{LM_327LG.ObtenerString("messagebox.mensaje.clientes_serializados") + ruta}", LM_327LG.ObtenerString("messagebox.titulo.clientes_serializados"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)
@@ -233,7 +251,39 @@ namespace GUI_327LG.GUIRF1
 
         private void btnDeserializar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                List<BECliente_327LG> listaCLientes = new List<BECliente_327LG>();
+                using (OpenFileDialog openFile = new OpenFileDialog())
+                {
+                    openFile.Filter = "XML Files|*.xml";
+                    if (openFile.ShowDialog() == DialogResult.OK)
+                    {
+                        chkDesencriptar.Checked = false;
+                        listaCLientes = bllSerializacion_327LG.DeserializarClientes_327LG(openFile.FileName);
+                        dgvClientes.DataSource = null;
+                        var linq = from x in listaCLientes
+                                   select new { DNI = x.DNI_327LG, Nombre = x.Nombre_327LG, Apellido = x.Apellido_327LG, Email = chkDesencriptar.Checked ? Encriptador_327LG.DesencriptarReversible_327LG(x.Email_327LG) : x.Email_327LG };
+                        dgvClientes.DataSource = linq.ToList();
+                        modo = "Deserializar";
+                        chkDesencriptar.Enabled = false;
+                        btnAplicar.Enabled = false;
+                        btnEliminar.Enabled = false;
+                        btnModificar.Enabled = false;
+                        btnRegistrar.Enabled = false;
+                        btnCancelar.Enabled = false;
+                        txtDNI.Enabled = false;
+                        txtNombre.Enabled = false;
+                        txtApellido.Enabled = false;
+                        txtEmail.Enabled = false;
+                    }
+                    Actualizar_327LG();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBoxPersonalizado.Show(ex.Message, LM_327LG.ObtenerString("messagebox.titulo.error"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

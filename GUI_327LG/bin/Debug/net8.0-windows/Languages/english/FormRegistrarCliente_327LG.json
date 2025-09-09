@@ -10,7 +10,7 @@
     "lblModoRegistrar": "Mode: Register",
     "lblModoEliminar": "Mode: Delete",
     "lblModoModificar": "Mode: Edit",
-    "lblModoSerializacion":"Mode: Serialization"
+    "lblModoDeserializar":"Mode: Deserialization"
   },
 
   "button": {
@@ -54,13 +54,15 @@
         "cliente_registrado": "Client registered",
         "confirmacion_registrar_cliente": "Confirm registration",
         "cliente_eliminado": "Client deleted",
-        "cliente_modificado": "Client edited.",
+        "cliente_modificado": "Client edited",
+        "clientes_serializados" : "clients serialized",
         "confirmacion_eliminar_cliente": "Confirm deletion"
       },
       "mensaje": {
         "cliente_registrado": "The client was registered successfully.",
         "confirmacion_registrar_cliente": "Are you sure you want to register the client?",
         "cliente_eliminado": "The client was deleted successfully.",
+        "clientes_serializados" : "Clients serialized at: ",
         "confirmacion_eliminar_cliente": "Are you sure you want to delete the client?",
         "cliente_modificado": "The client was edited successfully."
 

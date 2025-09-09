@@ -11,7 +11,8 @@
       "lblModoRegistrar": "Modo: Registrar",
       "lblModoEliminar": "Modo: Eliminar",
       "lblModoModificar": "Modo: Modificar",
-      "lblModoSerializacion":"Modo: Serialización"
+      "lblModoDeserializar":"Mode: Deserializacion"
+
     },
 
 
@@ -60,6 +61,7 @@
         "cliente_registrado": "cliente registrado",
         "confirmacion_registrar_cliente": "Confirmar registro",
         "cliente_eliminado": "cliente eliminado",
+        "clientes_serializados" : "clientes serializados",
         "cliente_modificado": "cliente modificado",
         "confirmacion_eliminar_cliente" : "Confirmar eliminación"
       },
@@ -69,6 +71,7 @@
         "confirmacion_registrar_cliente": "¿Está seguro de registrar el cliente?",
         "cliente_eliminado": "El cliente fue eliminado correctamente",
         "confirmacion_eliminar_cliente" : "¿Está seguro de eliminar el cliente?",
+        "clientes_serializados" : "Los clientes fueron serializados en: ",
         "cliente_modificado": "El cliente fue modificado correctamente."
       },
       "button":
