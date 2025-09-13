@@ -1,5 +1,6 @@
 using BLL_327LG;
 using GUI_327LG.GUI_Gestion_Perfiles;
+using GUI_327LG.GUI_Gestion_Usuarios;
 using GUI_327LG.GUIRF1;
 using GUI_327LG.Maestros;
 using GUI_327LG.Reportes;
@@ -72,6 +73,7 @@ namespace GUI_327LG
             maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
             librosItem.Text = LM_327LG.ObtenerString("menu_maestro.items.libros");
             ejemplaresItem.Text = LM_327LG.ObtenerString("menu_maestro.items.ejemplares");
+            clientesToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.items.clientes");
             prestamosItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
             registrarPrestamoToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_prestamo");
             registrarDevoluciónItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_devolucion");
@@ -110,6 +112,7 @@ namespace GUI_327LG
                 {
                     reporteItem.Enabled = true;
                 }
+
             }
             else
             {
@@ -149,7 +152,7 @@ namespace GUI_327LG
                 form.Show();
             }
         }
-        private void CerrarFormularios()
+        public void CerrarFormularios()
         {
             foreach (Form form in this.MdiChildren)
             {
@@ -239,6 +242,16 @@ namespace GUI_327LG
         private void facturaMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario_327LG<FormReporteFactura_327LG>();
+        }
+
+        private void backUpRestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormBackupRestore_327LG>();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormRegistrarCliente_327LG>();
         }
     }
 }

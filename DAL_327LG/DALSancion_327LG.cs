@@ -94,7 +94,9 @@ namespace DAL_327LG
                             dni_327LG: dr["DNI_327LG"].ToString(),
                             nombre_327LG: dr["Nombre_327LG"].ToString(),
                             apellido_327LG: dr["Apellido_327LG"].ToString(),
-                            email_327LG: dr["Email_327LG"].ToString()
+                            email_327LG: dr["Email_327LG"].ToString(),
+                            activo: Convert.ToBoolean(dr["Activo_327LG"])
+
                         );
 
                         // Prestamo

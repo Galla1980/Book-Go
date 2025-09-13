@@ -38,6 +38,7 @@
             perfilesMenuItem = new ToolStripMenuItem();
             gestiónDeFamiliasMenuItem = new ToolStripMenuItem();
             gestionDePerfilesMenuItem = new ToolStripMenuItem();
+            backUpRestoreToolStripMenuItem = new ToolStripMenuItem();
             maestroItem = new ToolStripMenuItem();
             librosItem = new ToolStripMenuItem();
             ejemplaresItem = new ToolStripMenuItem();
@@ -46,11 +47,12 @@
             registrarDevoluciónItem = new ToolStripMenuItem();
             reposicionItem = new ToolStripMenuItem();
             reporteItem = new ToolStripMenuItem();
+            facturaMenuItem = new ToolStripMenuItem();
             ayudaItem = new ToolStripMenuItem();
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
-            facturaMenuItem = new ToolStripMenuItem();
+            clientesToolStripMenuItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -96,7 +98,7 @@
             // 
             // adminItem
             // 
-            adminItem.DropDownItems.AddRange(new ToolStripItem[] { gestiónUsuariosMenuItem, perfilesMenuItem });
+            adminItem.DropDownItems.AddRange(new ToolStripItem[] { gestiónUsuariosMenuItem, perfilesMenuItem, backUpRestoreToolStripMenuItem });
             adminItem.Name = "adminItem";
             adminItem.Size = new Size(55, 20);
             adminItem.Text = "Admin";
@@ -129,9 +131,16 @@
             gestionDePerfilesMenuItem.Text = "Gestion de perfiles";
             gestionDePerfilesMenuItem.Click += gestionDePerfilesMenuItem_Click;
             // 
+            // backUpRestoreToolStripMenuItem
+            // 
+            backUpRestoreToolStripMenuItem.Name = "backUpRestoreToolStripMenuItem";
+            backUpRestoreToolStripMenuItem.Size = new Size(177, 22);
+            backUpRestoreToolStripMenuItem.Text = "BackUp/Restore";
+            backUpRestoreToolStripMenuItem.Click += backUpRestoreToolStripMenuItem_Click;
+            // 
             // maestroItem
             // 
-            maestroItem.DropDownItems.AddRange(new ToolStripItem[] { librosItem, ejemplaresItem });
+            maestroItem.DropDownItems.AddRange(new ToolStripItem[] { librosItem, ejemplaresItem, clientesToolStripMenuItem });
             maestroItem.Name = "maestroItem";
             maestroItem.Size = new Size(62, 20);
             maestroItem.Text = "Maestro";
@@ -139,14 +148,14 @@
             // librosItem
             // 
             librosItem.Name = "librosItem";
-            librosItem.Size = new Size(131, 22);
+            librosItem.Size = new Size(180, 22);
             librosItem.Text = "Libros";
             librosItem.Click += librosItem_Click;
             // 
             // ejemplaresItem
             // 
             ejemplaresItem.Name = "ejemplaresItem";
-            ejemplaresItem.Size = new Size(131, 22);
+            ejemplaresItem.Size = new Size(180, 22);
             ejemplaresItem.Text = "Ejemplares";
             ejemplaresItem.Click += ejemplaresItem_Click;
             // 
@@ -184,6 +193,13 @@
             reporteItem.Size = new Size(60, 20);
             reporteItem.Text = "Reporte";
             // 
+            // facturaMenuItem
+            // 
+            facturaMenuItem.Name = "facturaMenuItem";
+            facturaMenuItem.Size = new Size(113, 22);
+            facturaMenuItem.Text = "Factura";
+            facturaMenuItem.Click += facturaMenuItem_Click;
+            // 
             // ayudaItem
             // 
             ayudaItem.Name = "ayudaItem";
@@ -216,12 +232,12 @@
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
             // 
-            // facturaMenuItem
+            // clientesToolStripMenuItem
             // 
-            facturaMenuItem.Name = "facturaMenuItem";
-            facturaMenuItem.Size = new Size(180, 22);
-            facturaMenuItem.Text = "Factura";
-            facturaMenuItem.Click += facturaMenuItem_Click;
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new Size(180, 22);
+            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // FormMDI_327LG
             // 
@@ -270,5 +286,7 @@
         private ToolStripMenuItem gestiónDeFamiliasMenuItem;
         private ToolStripMenuItem gestionDePerfilesMenuItem;
         private ToolStripMenuItem facturaMenuItem;
+        private ToolStripMenuItem backUpRestoreToolStripMenuItem;
+        private ToolStripMenuItem clientesToolStripMenuItem;
     }
 }

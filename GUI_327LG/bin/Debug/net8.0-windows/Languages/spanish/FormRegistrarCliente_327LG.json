@@ -1,0 +1,83 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Registrar cliente",
+      "lblDni": "DNI",
+      "lblNombre": "Nombre",
+      "lblApellido": "Apellido",
+      "lblEmail": "Correo",
+      "lblDesencriptar": "Desencriptar",
+      "lblModoConsulta": "Modo: Consulta",
+      "lblModoRegistrar": "Modo: Registrar",
+      "lblModoEliminar": "Modo: Eliminar",
+      "lblModoModificar": "Modo: Modificar",
+      "lblModoDeserializar":"Modd: Deserializacion",
+      "lblArchivo": "Archivo Deserializado"
+    },
+
+
+    "button": 
+    {
+      "btnRegistrar": "Registrar",
+      "btnEliminar": "Eliminar",
+      "btnModificar": "Modificar",
+      "btnAplicar": "Aplicar",
+      "btnSerializar": "Serializar",
+      "btnDeserializar": "Deserializar",
+      "btnActualizar": "Actualizar grilla",
+      "btnLimpiar": "Limpiar",
+      "btnCancelar": "Cancelar"
+      
+    },
+    "datagridview":
+    {
+      "columna":
+      {
+        "dni": "DNI",
+        "nombre": "Nombre",
+        "apellido": "Apellido",
+        "correo": "Correo"
+      }
+    },
+
+    "exception":
+    {
+      "seleccionar_fila": "Debe seleccionar un cliente en la grilla.",
+      "grilla_vacia": "La grilla no puede estar vacía.",
+      "campos_vacios": "Por favor complete todos los campos.",
+      "nombre_con_numeros": "El nombre no puede contener números.",
+      "apellido_con_numeros": "El apellido no puede contener números.",
+      "dni_no_valido": "El DNI no cumple el formato (8 digitos)",
+      "dni_en_uso": "El DNI está en uso.",
+      "email_no_valido": "El formato del correo no es valido."
+      
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "cliente_registrado": "cliente registrado",
+        "confirmacion_registrar_cliente": "Confirmar registro",
+        "cliente_eliminado": "cliente eliminado",
+        "clientes_serializados" : "clientes serializados",
+        "cliente_modificado": "cliente modificado",
+        "confirmacion_eliminar_cliente" : "Confirmar eliminación"
+      },
+      "mensaje":
+      {
+        "cliente_registrado": "El cliente fue registrado correctamente.",
+        "confirmacion_registrar_cliente": "¿Está seguro de registrar el cliente?",
+        "cliente_eliminado": "El cliente fue eliminado correctamente",
+        "confirmacion_eliminar_cliente" : "¿Está seguro de eliminar el cliente?",
+        "clientes_serializados" : "Los clientes fueron serializados en: ",
+        "cliente_modificado": "El cliente fue modificado correctamente."
+      },
+      "button":
+      {
+        "aceptar": "aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+}
