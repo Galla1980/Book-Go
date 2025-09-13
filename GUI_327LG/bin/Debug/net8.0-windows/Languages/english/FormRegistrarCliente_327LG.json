@@ -10,7 +10,8 @@
     "lblModoRegistrar": "Mode: Register",
     "lblModoEliminar": "Mode: Delete",
     "lblModoModificar": "Mode: Edit",
-    "lblModoDeserializar":"Mode: Deserialization"
+    "lblModoDeserializar":"Mode: Deserialization",
+    "lblArchivo": "Deserialized file"
   },
 
   "button": {
@@ -45,7 +46,8 @@
       "apellido_con_numeros": "Last name cannot contain numbers.",
       "dni_no_valido": "The ID number does not meet the format (8 digits).",
       "dni_en_uso": "The ID number is already in use.",
-      "email_no_valido": "Email format is not valid."
+      "email_no_valido": "Email format is not valid.",
+      "grilla_vacia": "The grid is empty"
     },
 
    "messagebox": {

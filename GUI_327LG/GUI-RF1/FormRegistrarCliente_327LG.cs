@@ -79,6 +79,7 @@ namespace GUI_327LG.GUIRF1
             txtApellido.Text = string.Empty;
             txtEmail.Text = string.Empty;
             lblModo.Text = LM_327LG.ObtenerString("label.lblModoConsulta");
+            listBox1.Items.Clear();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -185,7 +186,8 @@ namespace GUI_327LG.GUIRF1
             grpSerializacion.Text = btnSerializar.Text = LM_327LG.ObtenerString("button.btnSerializar");
             btnDeserializar.Text = LM_327LG.ObtenerString("button.btnDeserializar");
             btnActualizar.Text = LM_327LG.ObtenerString("button.btnActualizar");
-            btnLimpiar.Text = LM_327LG.ObtenerString("button.btnLimpiar");
+            lblArchivo.Text = LM_327LG.ObtenerString("label.lblArchivo");
+
             if (modo == "Consultar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoConsulta");
             if (modo == "Registrar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoRegistrar");
             if (modo == "Modificar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoModificar");
@@ -276,6 +278,11 @@ namespace GUI_327LG.GUIRF1
                         txtNombre.Enabled = false;
                         txtApellido.Enabled = false;
                         txtEmail.Enabled = false;
+                        listBox1.Items.Clear();
+                        foreach (string linea in bllSerializacion_327LG.ObtenerArchivo_327LG(openFile.FileName))
+                        {
+                            listBox1.Items.Add(linea);
+                        }
                     }
                     Actualizar_327LG();
                 }
@@ -290,11 +297,6 @@ namespace GUI_327LG.GUIRF1
         {
             ModoConsulta();
             CargarGrilla();
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

@@ -46,7 +46,8 @@
             lblModo = new Label();
             btnAplicar = new Button();
             grpSerializacion = new GroupBox();
-            btnLimpiar = new Button();
+            listBox1 = new ListBox();
+            lblArchivo = new Label();
             btnActualizar = new Button();
             btnDeserializar = new Button();
             btnSerializar = new Button();
@@ -133,7 +134,7 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 20F);
-            lblTitulo.Location = new Point(248, 9);
+            lblTitulo.Location = new Point(322, 9);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(206, 37);
             lblTitulo.TabIndex = 9;
@@ -215,32 +216,40 @@
             // 
             // grpSerializacion
             // 
-            grpSerializacion.Controls.Add(btnLimpiar);
+            grpSerializacion.Controls.Add(listBox1);
+            grpSerializacion.Controls.Add(lblArchivo);
             grpSerializacion.Controls.Add(btnActualizar);
             grpSerializacion.Controls.Add(btnDeserializar);
             grpSerializacion.Controls.Add(btnSerializar);
             grpSerializacion.Location = new Point(12, 350);
             grpSerializacion.Name = "grpSerializacion";
-            grpSerializacion.Size = new Size(872, 239);
+            grpSerializacion.Size = new Size(872, 219);
             grpSerializacion.TabIndex = 17;
             grpSerializacion.TabStop = false;
             grpSerializacion.Text = "Serialización";
             // 
-            // btnLimpiar
+            // listBox1
             // 
-            btnLimpiar.Font = new Font("Segoe UI", 12F);
-            btnLimpiar.Location = new Point(583, 49);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(139, 41);
-            btnLimpiar.TabIndex = 3;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            btnLimpiar.Click += btnLimpiar_Click;
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(6, 37);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(475, 169);
+            listBox1.TabIndex = 4;
+            // 
+            // lblArchivo
+            // 
+            lblArchivo.AutoSize = true;
+            lblArchivo.Location = new Point(6, 19);
+            lblArchivo.Name = "lblArchivo";
+            lblArchivo.Size = new Size(106, 15);
+            lblArchivo.TabIndex = 3;
+            lblArchivo.Text = "Archivo serializado";
             // 
             // btnActualizar
             // 
             btnActualizar.Font = new Font("Segoe UI", 12F);
-            btnActualizar.Location = new Point(397, 49);
+            btnActualizar.Location = new Point(637, 131);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(157, 41);
             btnActualizar.TabIndex = 2;
@@ -251,7 +260,7 @@
             // btnDeserializar
             // 
             btnDeserializar.Font = new Font("Segoe UI", 12F);
-            btnDeserializar.Location = new Point(201, 49);
+            btnDeserializar.Location = new Point(637, 84);
             btnDeserializar.Name = "btnDeserializar";
             btnDeserializar.Size = new Size(157, 41);
             btnDeserializar.TabIndex = 1;
@@ -262,7 +271,7 @@
             // btnSerializar
             // 
             btnSerializar.Font = new Font("Segoe UI", 12F);
-            btnSerializar.Location = new Point(22, 49);
+            btnSerializar.Location = new Point(637, 37);
             btnSerializar.Name = "btnSerializar";
             btnSerializar.Size = new Size(157, 41);
             btnSerializar.TabIndex = 0;
@@ -274,7 +283,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(896, 601);
+            ClientSize = new Size(896, 578);
             Controls.Add(grpSerializacion);
             Controls.Add(btnAplicar);
             Controls.Add(lblModo);
@@ -299,6 +308,7 @@
             Load += FormRegistrarCliente_327LG_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             grpSerializacion.ResumeLayout(false);
+            grpSerializacion.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -325,7 +335,8 @@
         private GroupBox grpSerializacion;
         private Button btnDeserializar;
         private Button btnSerializar;
-        private Button btnLimpiar;
         private Button btnActualizar;
+        private ListBox listBox1;
+        private Label lblArchivo;
     }
 }

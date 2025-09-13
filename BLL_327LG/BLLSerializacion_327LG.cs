@@ -21,6 +21,12 @@ namespace BLL_327LG
             return listaClientes;
         }
 
+        public string[] ObtenerArchivo_327LG(string ruta)
+        {
+            string[] lineas = File.ReadAllLines(ruta);
+            return lineas;
+        }
+
         public void SerializarClientes_327LG(List<BECliente_327LG> listaCLientes, string ruta)
         {
             using (FileStream fs = new FileStream(ruta, FileMode.Create))

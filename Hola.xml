@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfBECliente_327LG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BECliente_327LG>
+    <DNI_327LG>12345678</DNI_327LG>
+    <Nombre_327LG>Santino</Nombre_327LG>
+    <Apellido_327LG>Olivola</Apellido_327LG>
+    <Email_327LG>Kz5cqwfVmw+tNrz9WpLmodbcbVtagxQkfLvord2Wwgw=</Email_327LG>
+  </BECliente_327LG>
+  <BECliente_327LG>
+    <DNI_327LG>45823327</DNI_327LG>
+    <Nombre_327LG>Lucas</Nombre_327LG>
+    <Apellido_327LG>Gallardo</Apellido_327LG>
+    <Email_327LG>j/sXlV4+oEcFXRgpPMb2PxjR0x/amIJ2flEc0i96z4c=</Email_327LG>
+  </BECliente_327LG>
+</ArrayOfBECliente_327LG>
