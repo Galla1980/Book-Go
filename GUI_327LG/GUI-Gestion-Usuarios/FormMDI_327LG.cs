@@ -70,6 +70,7 @@ namespace GUI_327LG
             perfilesMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.perfiles");
             gestiónDeFamiliasMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_familias");
             gestionDePerfilesMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_perfiles");
+            bitacoraMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.bitacora");
             maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
             librosItem.Text = LM_327LG.ObtenerString("menu_maestro.items.libros");
             ejemplaresItem.Text = LM_327LG.ObtenerString("menu_maestro.items.ejemplares");
@@ -82,6 +83,7 @@ namespace GUI_327LG
             facturaMenuItem.Text = LM_327LG.ObtenerString("menu_reporte.items.factura");
             ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");
             tsmiIdioma.Text = LM_327LG.ObtenerString("label_idioma.texto");
+
         }
 
         public void ActualizarFormulario_327LG()
@@ -252,6 +254,11 @@ namespace GUI_327LG
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario_327LG<FormRegistrarCliente_327LG>();
+        }
+
+        private void bitacoraMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormBitacoraEventos_327LG>();
         }
     }
 }

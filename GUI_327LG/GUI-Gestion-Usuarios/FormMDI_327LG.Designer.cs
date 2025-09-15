@@ -42,6 +42,7 @@
             maestroItem = new ToolStripMenuItem();
             librosItem = new ToolStripMenuItem();
             ejemplaresItem = new ToolStripMenuItem();
+            clientesToolStripMenuItem = new ToolStripMenuItem();
             prestamosItem = new ToolStripMenuItem();
             registrarPrestamoToolStripMenuItem = new ToolStripMenuItem();
             registrarDevoluciónItem = new ToolStripMenuItem();
@@ -52,7 +53,7 @@
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
-            clientesToolStripMenuItem = new ToolStripMenuItem();
+            bitacoraMenuItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -98,7 +99,7 @@
             // 
             // adminItem
             // 
-            adminItem.DropDownItems.AddRange(new ToolStripItem[] { gestiónUsuariosMenuItem, perfilesMenuItem, backUpRestoreToolStripMenuItem });
+            adminItem.DropDownItems.AddRange(new ToolStripItem[] { gestiónUsuariosMenuItem, perfilesMenuItem, backUpRestoreToolStripMenuItem, bitacoraMenuItem });
             adminItem.Name = "adminItem";
             adminItem.Size = new Size(55, 20);
             adminItem.Text = "Admin";
@@ -106,7 +107,7 @@
             // gestiónUsuariosMenuItem
             // 
             gestiónUsuariosMenuItem.Name = "gestiónUsuariosMenuItem";
-            gestiónUsuariosMenuItem.Size = new Size(177, 22);
+            gestiónUsuariosMenuItem.Size = new Size(180, 22);
             gestiónUsuariosMenuItem.Text = "Gestión de usuarios";
             gestiónUsuariosMenuItem.Click += gestiónUsuariosMenuItem_Click;
             // 
@@ -114,7 +115,7 @@
             // 
             perfilesMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestiónDeFamiliasMenuItem, gestionDePerfilesMenuItem });
             perfilesMenuItem.Name = "perfilesMenuItem";
-            perfilesMenuItem.Size = new Size(177, 22);
+            perfilesMenuItem.Size = new Size(180, 22);
             perfilesMenuItem.Text = "Perfiles";
             // 
             // gestiónDeFamiliasMenuItem
@@ -134,7 +135,7 @@
             // backUpRestoreToolStripMenuItem
             // 
             backUpRestoreToolStripMenuItem.Name = "backUpRestoreToolStripMenuItem";
-            backUpRestoreToolStripMenuItem.Size = new Size(177, 22);
+            backUpRestoreToolStripMenuItem.Size = new Size(180, 22);
             backUpRestoreToolStripMenuItem.Text = "BackUp/Restore";
             backUpRestoreToolStripMenuItem.Click += backUpRestoreToolStripMenuItem_Click;
             // 
@@ -148,16 +149,23 @@
             // librosItem
             // 
             librosItem.Name = "librosItem";
-            librosItem.Size = new Size(180, 22);
+            librosItem.Size = new Size(131, 22);
             librosItem.Text = "Libros";
             librosItem.Click += librosItem_Click;
             // 
             // ejemplaresItem
             // 
             ejemplaresItem.Name = "ejemplaresItem";
-            ejemplaresItem.Size = new Size(180, 22);
+            ejemplaresItem.Size = new Size(131, 22);
             ejemplaresItem.Text = "Ejemplares";
             ejemplaresItem.Click += ejemplaresItem_Click;
+            // 
+            // clientesToolStripMenuItem
+            // 
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new Size(131, 22);
+            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // prestamosItem
             // 
@@ -232,12 +240,12 @@
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
             // 
-            // clientesToolStripMenuItem
+            // bitacoraMenuItem
             // 
-            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(180, 22);
-            clientesToolStripMenuItem.Text = "Clientes";
-            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
+            bitacoraMenuItem.Name = "bitacoraMenuItem";
+            bitacoraMenuItem.Size = new Size(180, 22);
+            bitacoraMenuItem.Text = "Bitácora";
+            bitacoraMenuItem.Click += bitacoraMenuItem_Click;
             // 
             // FormMDI_327LG
             // 
@@ -288,5 +296,6 @@
         private ToolStripMenuItem facturaMenuItem;
         private ToolStripMenuItem backUpRestoreToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
+        private ToolStripMenuItem bitacoraMenuItem;
     }
 }
