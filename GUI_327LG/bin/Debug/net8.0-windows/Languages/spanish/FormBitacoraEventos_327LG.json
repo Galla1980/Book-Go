@@ -1,0 +1,51 @@
+{
+    "label": 
+    {
+        "lblTitulo": "Bitácora de eventos",
+        "lblNombre": "Nombre: ",
+        "lblApellido": "Apellido: ",
+        "lblFechaInicio": "Fecha inicio",
+        "lblFechaFin": "Fecha fin",
+        "lblModulo" : "Módulo",
+        "lblEvento": "Evento",
+        "lblCriticidad": "Criticidad"
+    },
+
+
+    "button": 
+    {
+      "btnLimpiar": "Limpiar",
+      "btnAplicar": "Aplicar",
+      "btnImprimir": "Imprimir"
+    },
+
+    "combobox":
+    {
+      
+    },
+
+
+    "exception":
+    {
+        "fechasInvalidas": "La fecha de inicio no puede ser mayor a la final."
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error"
+       
+      },
+      "mensaje":
+      {
+        "pago_exitoso": "El pago fue aceptado."
+      },
+      "button":
+      {
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+    
+}
