@@ -120,6 +120,7 @@
             cmbModulo.Name = "cmbModulo";
             cmbModulo.Size = new Size(121, 23);
             cmbModulo.TabIndex = 9;
+            cmbModulo.SelectedIndexChanged += cmbModulo_SelectedIndexChanged;
             // 
             // cmbEvento
             // 

@@ -36,7 +36,7 @@ namespace DAL_327LG
                       AND (e.Fecha_327LG >= @FechaInicio)
                       AND (e.Fecha_327LG <= @FechaFin)
                       AND (@Modulo IS NULL OR e.Modulo_327LG = @Modulo)
-                      AND (@Evento IS NULL OR e.Evento_327LG LIKE '%' + @Evento + '%')
+                      AND (@Evento IS NULL OR e.Evento_327LG LIKE @Evento + '%')
                       AND (@Criticidad IS NULL OR e.Criticidad_327LG = @Criticidad);";
 
                     cmd.Parameters.AddWithValue("@Username", (object?)login ?? DBNull.Value);

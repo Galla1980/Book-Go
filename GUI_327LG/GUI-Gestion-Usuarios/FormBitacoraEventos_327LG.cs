@@ -38,6 +38,7 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             }
             dgvEventos.MultiSelect = false;
             dgvEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtpFechaInicio.Value = DateTime.Now.AddDays(-3);
             var linq = from x in bLLEvento_327LG.ObtenerEventos_327LG(null, DateTime.Now.AddDays(-3), DateTime.Now, null, null, null)
                        orderby x.IdEvento_327LG descending
                        select new
@@ -79,19 +80,29 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
         private void CargarcmbEvento()
         {
             cmbEvento.Items.Clear();
+            //Modulo gestion de usuarios
             cmbEvento.Items.Add("Inicio de sesión exitoso");
-            cmbEvento.Items.Add("Cierre de sesión");
             cmbEvento.Items.Add("Creación de usuario");
             cmbEvento.Items.Add("Modificación de usuario");
-            cmbEvento.Items.Add("Eliminación de usuario");
+            cmbEvento.Items.Add("Bloqueo de usuario");
+            cmbEvento.Items.Add("Reseteo de contraseña");
+            cmbEvento.Items.Add("Desbloqueo de usuario");
+            cmbEvento.Items.Add("Activación de usuario");
+            cmbEvento.Items.Add("Desactivación de usuario");
+            cmbEvento.Items.Add("Cambio de contraseña");
+            cmbEvento.Items.Add("Cierre de sesión");
+
+            //Modulo gestión de perfiles
             cmbEvento.Items.Add("Creación de perfil");
             cmbEvento.Items.Add("Modificación de perfil");
             cmbEvento.Items.Add("Eliminación de perfil");
+            //Modulo préstamos y devoluciones
             cmbEvento.Items.Add("Préstamo realizado");
             cmbEvento.Items.Add("Devolución realizada");
             cmbEvento.Items.Add("Registro de nuevo stock");
             cmbEvento.Items.Add("Modificación de stock");
             cmbEvento.Items.Add("Eliminación de stock");
+            //Modulo gestión de Backup/Restore
             cmbEvento.Items.Add("Backup realizado");
             cmbEvento.Items.Add("Restore realizado");
         }
@@ -113,6 +124,7 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             cmbCriticidad.SelectedIndex = -1;
             dtpFechaInicio.Value = DateTime.Now.AddDays(-3);
             dtpFechaFin.Value = DateTime.Now;
+            CargarcmbEvento();
         }
         private void btnAplicar_Click(object sender, EventArgs e)
         {
@@ -127,6 +139,7 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                 DateTime fechaFin = dtpFechaFin.Value.Date;
                 bLLEvento_327LG.ObtenerEventos_327LG(login, fechaInicio, fechaFin, modulo, evento, criticidad);
                 var linq = from x in bLLEvento_327LG.ObtenerEventos_327LG(login, fechaInicio, fechaFin, modulo, evento, criticidad)
+                           orderby x.IdEvento_327LG descending
                            select new
                            {
                                x.IdEvento_327LG,
@@ -173,9 +186,9 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
 
         private void dgvEventos_SelectionChanged(object sender, EventArgs e)
         {
-            if(dgvEventos.SelectedRows.Count > 0)
+            if (dgvEventos.SelectedRows.Count > 0)
             {
-                string username = dgvEventos.SelectedRows[0].Cells["Login_327LG"].Value.ToString(); 
+                string username = dgvEventos.SelectedRows[0].Cells["Login_327LG"].Value.ToString();
                 Usuario_327LG usuario = bllUsuario_327LG.ObtenerUsuarios_327LG().FirstOrDefault(x => x.userName_327LG == username);
                 txtNombre.Text = usuario.nombre_327LG;
                 txtApellido.Text = usuario.apellido_327LG;
@@ -184,6 +197,46 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             {
                 txtNombre.Text = string.Empty;
                 txtApellido.Text = string.Empty;
+            }
+        }
+
+        private void cmbModulo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbEvento.Items.Clear();
+            cmbEvento.SelectedIndex = -1;
+            cmbEvento.Text = string.Empty;
+            switch (cmbModulo.SelectedIndex) 
+            {
+                case 0: //Gestión de usuarios
+                    cmbEvento.Items.Add("Inicio de sesión exitoso");
+                    cmbEvento.Items.Add("Creación de usuario");
+                    cmbEvento.Items.Add("Modificación de usuario");
+                    cmbEvento.Items.Add("Bloqueo de usuario");
+                    cmbEvento.Items.Add("Reseteo de contraseña");
+                    cmbEvento.Items.Add("Desbloqueo de usuario");
+                    cmbEvento.Items.Add("Activación de usuario");
+                    cmbEvento.Items.Add("Desactivación de usuario");
+                    cmbEvento.Items.Add("Cambio de contraseña");
+                    cmbEvento.Items.Add("Cierre de sesión");
+                    break;
+                case 1: //Gestión de perfiles
+                    cmbEvento.Items.Add("Creación de perfil");
+                    cmbEvento.Items.Add("Modificación de perfil");
+                    cmbEvento.Items.Add("Eliminación de perfil");
+                    break;
+                case 2: //Préstamos y devoluciones
+                    cmbEvento.Items.Add("Préstamo realizado");
+                    cmbEvento.Items.Add("Devolución realizada");
+                    break;
+                case 3: //Gestión de stock
+                    cmbEvento.Items.Add("Registro de nuevo stock");
+                    cmbEvento.Items.Add("Modificación de stock");
+                    cmbEvento.Items.Add("Eliminación de stock");
+                    break;
+                case 4: //Gestión de Backup/Restore
+                    cmbEvento.Items.Add("Backup realizado");
+                    cmbEvento.Items.Add("Restore realizado");
+                    break;
             }
         }
     }

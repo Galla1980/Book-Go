@@ -75,7 +75,6 @@ namespace BLL_327LG
                         item.rol_327LG = item2;
                     }
                 }
-                
             }
             return listaUsuarios;
         }
@@ -83,6 +82,7 @@ namespace BLL_327LG
         public void ModificarUsuario_327LG(Usuario_327LG user)
         {
             dalUsuario_327LG.ActualizarUsuario_327LG(user);
+            bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de usuarios", "Modificación de usuario", 1);
         }
 
         public void CambiarIdioma_327LG(Usuario_327LG user)
@@ -117,6 +117,7 @@ namespace BLL_327LG
             {
                 user.bloqueado_327LG = true;
                 dalUsuario_327LG.ActualizarBloqueo_327LG(user);
+                bllEvento_327LG.RegistrarEvento_327LG(user.dni_327LG, "Gestión de usuarios", "Bloqueo de usuario", 2);
             }
             else
             {
@@ -126,24 +127,36 @@ namespace BLL_327LG
                 user.password_327LG = Encriptador_327LG.Encriptar_327LG(contraseña);
                 dalUsuario_327LG.ActualizarContraseña_327LG(user);
                 dalUsuario_327LG.ActualizarBloqueo_327LG(user);
+                bllEvento_327LG.RegistrarEvento_327LG(user.dni_327LG, "Gestión de usuarios", "Reseteo de contraseña", 1);
+                bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de usuarios", "Desbloqueo de usuario", 1);
             }
-           
         }
+
         public void ActualizarActivo_327LG(Usuario_327LG user)
         {
             
             if (user == null) throw new Exception("No se encontró el usuario");
             user.activo_327LG = !user.activo_327LG;
             dalUsuario_327LG.ActualizarActivo_327LG(user);
+            if(user.activo_327LG)
+            {
+                bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de usuarios", "Activación de usuario", 1);
+            }
+            else
+            {
+                bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de usuarios", "Desactivación de usuario", 2);
+            }
         }
         public void AgregarUsuario_327LG(Usuario_327LG usuario_327LG)
         {
             dalUsuario_327LG.AgregarUsuario_327LG(usuario_327LG);
+            bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de usuarios", "Creación de usuario", 1);
         }
 
         public void CerrarSesion_327LG()
         {
             CambiarIdioma_327LG(SessionManager_327LG.Instancia.Usuario);
+            bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de usuarios", "Cierre de sesión", 2);
             SessionManager_327LG.Instancia.LogOut_327LG();
         }
 
@@ -151,6 +164,7 @@ namespace BLL_327LG
         {
             user.password_327LG = Encriptador_327LG.Encriptar_327LG(nuevaContraseña);
             dalUsuario_327LG.ActualizarContraseña_327LG(user);
+            bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de usuarios", "Cambio de contraseña", 2);
         }
     }
 }
