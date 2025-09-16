@@ -28,7 +28,7 @@ namespace DAL_327LG
                     cmd.Connection = con;
                     cmd.CommandText = @"
                     SELECT 
-                        e.Fecha_327LG, e.Hora_327LG, e.Modulo_327LG, e.Evento_327LG, e.Criticidad_327LG, 
+                        e.idEvento_327LG, e.Fecha_327LG, e.Hora_327LG, e.Modulo_327LG, e.Evento_327LG, e.Criticidad_327LG, 
                         u.Username_327LG
                     FROM Evento_327LG e
                     INNER JOIN Usuario_327LG u ON e.DNI_327LG = u.DNI_327LG
@@ -51,15 +51,9 @@ namespace DAL_327LG
                     {
                         while (reader.Read())
                         {
-                            Evento_327LG evento_327LG = new Evento_327LG
-                            {
-                                Fecha_327LG = reader.GetDateTime(reader.GetOrdinal("Fecha_327LG")),
-                                Hora_327LG = reader.GetTimeSpan(reader.GetOrdinal("Hora_327LG")),
-                                Modulo_327LG = reader.GetString(reader.GetOrdinal("Modulo_327LG")),
-                                evento_327LG = reader.GetString(reader.GetOrdinal("Evento_327LG")),
-                                Criticidad_327LG = reader.GetInt32(reader.GetOrdinal("Criticidad_327LG")),
-                                Login_327LG = reader.GetString(reader.GetOrdinal("Username_327LG"))
-                            };
+                            Evento_327LG evento_327LG = new Evento_327LG(reader.GetString(reader.GetOrdinal("idEvento_327LG")), reader.GetString(reader.GetOrdinal("Username_327LG")), reader.GetDateTime(reader.GetOrdinal("Fecha_327LG")),
+                                reader.GetTimeSpan(reader.GetOrdinal("Hora_327LG")), reader.GetString(reader.GetOrdinal("Modulo_327LG")), reader.GetString(reader.GetOrdinal("Evento_327LG")), reader.GetInt32(reader.GetOrdinal("Criticidad_327LG")));
+                            
                             eventos.Add(evento_327LG);
                         }
                     }
@@ -69,6 +63,58 @@ namespace DAL_327LG
             }
 
             return eventos;
+        }
+
+        public Evento_327LG ObtenerUltimoEvento_327LG()
+        {
+            Evento_327LG evento = null;
+            using (SqlConnection con = new SqlConnection(connectionString_327LG))
+            {
+                using(SqlCommand cmd = new SqlCommand()) 
+                {
+                    cmd.Connection = con;
+                    cmd.CommandText = @"SELECT TOP 1 * 
+                                        FROM Evento_327LG 
+                                        ORDER BY idEvento_327LG DESC;
+                                        ";
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            evento = new Evento_327LG(reader.GetString(reader.GetOrdinal("idEvento_327LG")), reader.GetString(reader.GetOrdinal("DNI_327LG")), reader.GetDateTime(reader.GetOrdinal("Fecha_327LG")),
+                                reader.GetTimeSpan(reader.GetOrdinal("Hora_327LG")), reader.GetString(reader.GetOrdinal("Modulo_327LG")), reader.GetString(reader.GetOrdinal("Evento_327LG")), reader.GetInt32(reader.GetOrdinal("Criticidad_327LG")));
+                            
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            return evento;
+        }
+
+        public void RegistrarEvento_327LG(Evento_327LG evento)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString_327LG))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandText = @"
+                    INSERT INTO Evento_327LG (idEvento_327LG, DNI_327LG, Fecha_327LG, Hora_327LG, Modulo_327LG, Evento_327LG, Criticidad_327LG) 
+                    VALUES (@IdEvento, @DNI, @Fecha, @Hora, @Modulo, @Evento, @Criticidad);";
+                    cmd.Parameters.AddWithValue("@IdEvento", evento.IdEvento_327LG);
+                    cmd.Parameters.AddWithValue("@DNI", evento.DNI_327LG);
+                    cmd.Parameters.AddWithValue("@Fecha", evento.Fecha_327LG);
+                    cmd.Parameters.AddWithValue("@Hora", evento.Hora_327LG);
+                    cmd.Parameters.AddWithValue("@Modulo", evento.Modulo_327LG);
+                    cmd.Parameters.AddWithValue("@Evento", evento.evento_327LG);
+                    cmd.Parameters.AddWithValue("@Criticidad", evento.Criticidad_327LG);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
         }
     }
 }

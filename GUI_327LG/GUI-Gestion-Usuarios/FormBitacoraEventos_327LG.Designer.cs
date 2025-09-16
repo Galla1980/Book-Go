@@ -59,6 +59,7 @@
             dgvEventos.Name = "dgvEventos";
             dgvEventos.Size = new Size(728, 223);
             dgvEventos.TabIndex = 0;
+            dgvEventos.SelectionChanged += dgvEventos_SelectionChanged;
             // 
             // lblTitulo
             // 

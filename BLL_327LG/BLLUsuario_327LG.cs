@@ -12,11 +12,13 @@ namespace BLL_327LG
         DALUsuario_327LG dalUsuario_327LG;
         LanguageManager_327LG LM_327LG;
         BLLPerfil_327LG bllPerfil_327LG;
+        BLLEvento_327LG bllEvento_327LG;
         public BLLUsuario_327LG()
         {
             dalUsuario_327LG = new DALUsuario_327LG();
             LM_327LG = LanguageManager_327LG.Instance_327LG;
             bllPerfil_327LG = new BLLPerfil_327LG();
+            bllEvento_327LG = new BLLEvento_327LG();
         }
 
         public LoginResult_327LG IniciarSesion_327LG(string usuario, string contraseña)
@@ -46,6 +48,7 @@ namespace BLL_327LG
                 SessionManager_327LG.Instancia.LogIn_327LG(user);
                 user.intento_327LG = 0;
                 ActualizarIntentos_327LG(user);
+                bllEvento_327LG.RegistrarEvento_327LG(user.dni_327LG, "Gestión de usuarios", "Inicio de sesión exitoso", 1);
                 return LoginResult_327LG.ValidUser;
             }
         }
