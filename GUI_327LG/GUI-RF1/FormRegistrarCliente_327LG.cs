@@ -34,7 +34,7 @@ namespace GUI_327LG.GUIRF1
         private void CargarGrilla()
         {
             var linq = from x in bllCliente_327LG.ObtenerClientes_327LG()
-                       where x.Activo == true
+                       where x.Activo_327LG == true
                        select new { DNI = x.DNI_327LG, Nombre = x.Nombre_327LG, Apellido = x.Apellido_327LG, Email = chkDesencriptar.Checked ? Encriptador_327LG.DesencriptarReversible_327LG(x.Email_327LG) : x.Email_327LG };
             dgvClientes.DataSource = linq.ToList();
             dgvClientes.Columns["DNI"].FillWeight = 20;

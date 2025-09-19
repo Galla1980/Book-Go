@@ -41,6 +41,8 @@ namespace GUI_327LG.GUIRF1
             LM_327LG = LanguageManager_327LG.Instance_327LG;
             LM_327LG.AgregarObservador_327LG(this);
             HabilitarLibroSeleccionado_327LG(false);
+
+            
         }
 
         private void FormRegistrarPrestamo_327LG_Load(object sender, EventArgs e)
@@ -116,6 +118,7 @@ namespace GUI_327LG.GUIRF1
             dgvClientes.Columns["Nombre_327LG"].FillWeight = 20;
             dgvClientes.Columns["Apellido_327LG"].FillWeight = 20;
             dgvClientes.Columns["Email_327LG"].FillWeight = 30;
+            dgvClientes.Columns["Activo_327LG"].Visible = false;
             if (chkVerMail.Checked)
             {
                 foreach (DataGridViewRow cliente in dgvClientes.Rows)

@@ -39,7 +39,7 @@ namespace DAL_327LG
                 string query = "UPDATE Cliente_327LG SET Activo_327LG = @Activo WHERE DNI_327LG = @DNI";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@DNI", cliente.DNI_327LG);
-                cmd.Parameters.AddWithValue("@Activo", cliente.Activo);
+                cmd.Parameters.AddWithValue("@Activo", cliente.Activo_327LG);
                 con.Open();
                 cmd.ExecuteNonQuery();
             }

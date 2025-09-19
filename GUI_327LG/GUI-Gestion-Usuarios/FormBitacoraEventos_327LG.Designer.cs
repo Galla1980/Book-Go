@@ -74,7 +74,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(127, 301);
+            lblNombre.Location = new Point(109, 301);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(54, 15);
             lblNombre.TabIndex = 2;
@@ -92,7 +92,7 @@
             // txtNombre
             // 
             txtNombre.Enabled = false;
-            txtNombre.Location = new Point(127, 319);
+            txtNombre.Location = new Point(109, 319);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(121, 23);
             txtNombre.TabIndex = 4;
@@ -102,23 +102,23 @@
             txtApellido.Enabled = false;
             txtApellido.Location = new Point(492, 319);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(121, 23);
+            txtApellido.Size = new Size(139, 23);
             txtApellido.TabIndex = 5;
             // 
             // cmbLogin
             // 
             cmbLogin.FormattingEnabled = true;
-            cmbLogin.Location = new Point(127, 379);
+            cmbLogin.Location = new Point(109, 379);
             cmbLogin.Name = "cmbLogin";
-            cmbLogin.Size = new Size(121, 23);
+            cmbLogin.Size = new Size(139, 23);
             cmbLogin.TabIndex = 6;
             // 
             // cmbModulo
             // 
             cmbModulo.FormattingEnabled = true;
-            cmbModulo.Location = new Point(127, 439);
+            cmbModulo.Location = new Point(109, 439);
             cmbModulo.Name = "cmbModulo";
-            cmbModulo.Size = new Size(121, 23);
+            cmbModulo.Size = new Size(139, 23);
             cmbModulo.TabIndex = 9;
             cmbModulo.SelectedIndexChanged += cmbModulo_SelectedIndexChanged;
             // 
@@ -127,7 +127,7 @@
             cmbEvento.FormattingEnabled = true;
             cmbEvento.Location = new Point(313, 439);
             cmbEvento.Name = "cmbEvento";
-            cmbEvento.Size = new Size(121, 23);
+            cmbEvento.Size = new Size(139, 23);
             cmbEvento.TabIndex = 10;
             // 
             // cmbCriticidad
@@ -135,13 +135,13 @@
             cmbCriticidad.FormattingEnabled = true;
             cmbCriticidad.Location = new Point(492, 439);
             cmbCriticidad.Name = "cmbCriticidad";
-            cmbCriticidad.Size = new Size(121, 23);
+            cmbCriticidad.Size = new Size(139, 23);
             cmbCriticidad.TabIndex = 11;
             // 
             // lblLogin
             // 
             lblLogin.AutoSize = true;
-            lblLogin.Location = new Point(127, 361);
+            lblLogin.Location = new Point(109, 361);
             lblLogin.Name = "lblLogin";
             lblLogin.Size = new Size(37, 15);
             lblLogin.TabIndex = 12;
@@ -150,7 +150,7 @@
             // lblModulo
             // 
             lblModulo.AutoSize = true;
-            lblModulo.Location = new Point(127, 421);
+            lblModulo.Location = new Point(109, 421);
             lblModulo.Name = "lblModulo";
             lblModulo.Size = new Size(49, 15);
             lblModulo.TabIndex = 13;
@@ -197,7 +197,7 @@
             dtpFechaInicio.Format = DateTimePickerFormat.Short;
             dtpFechaInicio.Location = new Point(313, 379);
             dtpFechaInicio.Name = "dtpFechaInicio";
-            dtpFechaInicio.Size = new Size(121, 23);
+            dtpFechaInicio.Size = new Size(139, 23);
             dtpFechaInicio.TabIndex = 18;
             // 
             // dtpFechaFin
@@ -205,7 +205,7 @@
             dtpFechaFin.Format = DateTimePickerFormat.Short;
             dtpFechaFin.Location = new Point(492, 379);
             dtpFechaFin.Name = "dtpFechaFin";
-            dtpFechaFin.Size = new Size(121, 23);
+            dtpFechaFin.Size = new Size(139, 23);
             dtpFechaFin.TabIndex = 19;
             // 
             // btnLimpiar

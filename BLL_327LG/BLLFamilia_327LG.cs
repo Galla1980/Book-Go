@@ -1,6 +1,7 @@
 ﻿using DAL_327LG;
 using Services_327LG.Composite_327LG;
 using Services_327LG.Observer_327LG;
+using Services_327LG.Singleton_327LG;
 using System.Net;
 
 namespace BLL_327LG
@@ -10,11 +11,13 @@ namespace BLL_327LG
         private DALFamilia_327LG dalFamilia_327LG;
         BLLPerfil_327LG bllPerfil_327LG;
         LanguageManager_327LG LM_327LG;
+        BLLEvento_327LG bllEvento_327LG;
         public BLLFamilia_327LG()
         {
             dalFamilia_327LG = new DALFamilia_327LG();
             bllPerfil_327LG = new BLLPerfil_327LG();
             LM_327LG = LanguageManager_327LG.Instance_327LG;
+            bllEvento_327LG = new BLLEvento_327LG();
         }
 
         public List<BEFamilia_327LG> ObtenerFamilias_327LG()
@@ -26,6 +29,8 @@ namespace BLL_327LG
         {
             if ((dalFamilia_327LG.ObtenerFamilias_327LG().Any(x => x.Nombre_327LG == nombre))) throw new Exception(LM_327LG.ObtenerString("exception.nombre_repetido"));
             dalFamilia_327LG.CrearFamilia_327LG(nombre);
+            bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de perfiles", "Creación de familia", 2);
+
         }
 
         public void AsignarPermiso_327LG(BEPermiso_327LG permiso, BEFamilia_327LG familia)
@@ -43,6 +48,8 @@ namespace BLL_327LG
                 if (FamiliaContieneFamilia_327LG(perfil, familia)) throw new Exception(LM_327LG.ObtenerString("exception.familia_asignada_perfil"));
             }
             dalFamilia_327LG.AsignarPermiso_327LG(permiso, familia);
+            bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de perfiles", "Modificación de familia", 1);
+
         }
 
         public bool FamiliaContienePermiso_327LG(BEFamilia_327LG familia, BEPermiso_327LG permiso)
@@ -85,6 +92,7 @@ namespace BLL_327LG
             }
             if (familiasConRepetidos.Count > 0) throw new Exception(LM_327LG.ObtenerString("exception.permiso_repetido_entre_familias") + string.Join(",", familiasConRepetidos.Select(f => f.Nombre_327LG)));
             dalFamilia_327LG.AsignarFamilia_327LG(familiaBase, familiaAgregada);
+            bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de perfiles", "Modificación de familia", 1);
         }
 
         private List<BEFamilia_327LG> ComponentesRepetidos_327LG(BEFamilia_327LG familiaBase, BEFamilia_327LG familiaAgregada)
@@ -196,11 +204,14 @@ namespace BLL_327LG
         public void EliminarFamilia_327LG(BEFamilia_327LG familia)
         {
             dalFamilia_327LG.EliminarFamilia(familia);
+            bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de perfiles", "Eliminación de familia", 1);
+
         }
 
         public void EliminarComponente(BEFamilia_327LG familia, BEPerfil_327LG componente)
         {
             dalFamilia_327LG.EliminarComponente(familia, componente);
+            bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de perfiles", "Modificación de familia", 1);
         }
     }
 }

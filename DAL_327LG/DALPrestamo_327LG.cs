@@ -58,7 +58,7 @@ namespace DAL_327LG
             }
         }
 
-        public List<BEPrestamo_327LG> ObtenerPrestamos_327LG(string dni)
+        public List<BEPrestamo_327LG> ObtenerPrestamos_327LG(string? dni)
         {
             List<BEPrestamo_327LG> listaPrestamos = new List<BEPrestamo_327LG>();
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -73,10 +73,10 @@ namespace DAL_327LG
                 INNER JOIN Cliente_327LG c ON p.DNI_327LG = c.DNI_327LG
                 INNER JOIN Ejemplar_327LG e ON p.nroEjemplar_327LG = e.nroEjemplar_327LG
                 INNER JOIN Libro_327LG l ON e.ISBN_327LG = l.ISBN_327LG
-                WHERE p.DNI_327LG = @DNI";
+                WHERE  (@DNI IS NULL OR p.DNI_327LG = @DNI)";
 
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@DNI", dni);
+                cmd.Parameters.AddWithValue("@DNI", (object)dni ?? DBNull.Value);
                 con.Open();
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {

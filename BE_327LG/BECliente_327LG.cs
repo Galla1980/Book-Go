@@ -16,7 +16,7 @@ namespace BE_327LG
         public string Apellido_327LG { get; set; }
         public string Email_327LG { get; set; }
         [XmlIgnore]
-        public bool Activo { get; set; }
+        public bool Activo_327LG { get; set; }
         public BECliente_327LG()
         {
         }
@@ -29,7 +29,7 @@ namespace BE_327LG
         }
         public BECliente_327LG(string dni_327LG, string nombre_327LG, string apellido_327LG, string email_327LG, bool activo) : this(dni_327LG, nombre_327LG, apellido_327LG, email_327LG)
         {
-            Activo = activo;
+            Activo_327LG = activo;
         }
 
     }

@@ -96,15 +96,18 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             cmbEvento.Items.Add("Creación de perfil");
             cmbEvento.Items.Add("Modificación de perfil");
             cmbEvento.Items.Add("Eliminación de perfil");
+            cmbEvento.Items.Add("Creación de familia");
+            cmbEvento.Items.Add("Modificación de familia");
+            cmbEvento.Items.Add("Eliminación de familia");
             //Modulo préstamos y devoluciones
-            cmbEvento.Items.Add("Préstamo realizado");
-            cmbEvento.Items.Add("Devolución realizada");
+            cmbEvento.Items.Add("Registro de préstamo");
+            cmbEvento.Items.Add("Registro de sanción");
+            cmbEvento.Items.Add("Registro de devolución");
+            //Modulo gestión de stock
             cmbEvento.Items.Add("Registro de nuevo stock");
-            cmbEvento.Items.Add("Modificación de stock");
-            cmbEvento.Items.Add("Eliminación de stock");
             //Modulo gestión de Backup/Restore
-            cmbEvento.Items.Add("Backup realizado");
-            cmbEvento.Items.Add("Restore realizado");
+            cmbEvento.Items.Add("Creación de backup");
+            cmbEvento.Items.Add("Restauración desde backup");
         }
         private void CargarcmbCriticidad()
         {
@@ -223,19 +226,21 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                     cmbEvento.Items.Add("Creación de perfil");
                     cmbEvento.Items.Add("Modificación de perfil");
                     cmbEvento.Items.Add("Eliminación de perfil");
+                    cmbEvento.Items.Add("Creación de familia");
+                    cmbEvento.Items.Add("Modificación de familia");
+                    cmbEvento.Items.Add("Eliminación de familia");
                     break;
                 case 2: //Préstamos y devoluciones
-                    cmbEvento.Items.Add("Préstamo realizado");
-                    cmbEvento.Items.Add("Devolución realizada");
+                    cmbEvento.Items.Add("Registro de préstamo");
+                    cmbEvento.Items.Add("Registro de sanción");
+                    cmbEvento.Items.Add("Registro de devolución");
                     break;
                 case 3: //Gestión de stock
                     cmbEvento.Items.Add("Registro de nuevo stock");
-                    cmbEvento.Items.Add("Modificación de stock");
-                    cmbEvento.Items.Add("Eliminación de stock");
                     break;
                 case 4: //Gestión de Backup/Restore
-                    cmbEvento.Items.Add("Backup realizado");
-                    cmbEvento.Items.Add("Restore realizado");
+                    cmbEvento.Items.Add("Creación de backup");
+                    cmbEvento.Items.Add("Restauración desde backup");
                     break;
             }
         }
