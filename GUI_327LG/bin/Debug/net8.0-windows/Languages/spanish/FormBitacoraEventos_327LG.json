@@ -9,6 +9,23 @@
     "lblModulo" : "Módulo",
     "lblEvento": "Evento",
     "lblCriticidad": "Criticidad"
+    
+  },
+  "datagridview":
+    {
+      "column":
+      {
+        "idEvento": "IdEvento",
+        "fecha": "Fecha",
+        "hora": "Hora",
+        "evento": "Evento",
+        "modulo": "Módulo",
+        "criticidad": "Criticidad"
+      }
+    },
+   "checkbox":
+   {
+    "chkFiltrarFecha": "Filtrar fecha"
   },
 
   "button": 
@@ -38,6 +55,8 @@
   },
   "exception":
   {
+    "sinDatosParaExportar": "La grilla no puede estar vacía.",
+
     "fechasInvalidas":"La fecha de inicio no puede ser mayor a la final."
   }
 }

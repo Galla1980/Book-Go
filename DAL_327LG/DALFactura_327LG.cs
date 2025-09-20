@@ -52,15 +52,31 @@ namespace DAL_327LG
                 {
                     while (reader.Read())
                     {
-                        BEFactura_327LG factura = new BEFactura_327LG(reader.GetInt32(reader.GetOrdinal("nroFactura_327LG")), reader.GetDateTime(reader.GetOrdinal("Fecha_327LG")),
-                            new BECliente_327LG(reader.GetString(reader.GetOrdinal("DNI_327LG")), reader.GetString(reader.GetOrdinal("Nombre_327LG")), reader.GetString(reader.GetOrdinal("Apellido_327LG")),
-                            reader.GetString(reader.GetOrdinal("Email_327LG"))), reader.GetDecimal(reader.GetOrdinal("Monto_327LG")), new BELibro_327LG(reader.GetString(reader.GetOrdinal("ISBN_327LG")),
-                            reader.GetString(reader.GetOrdinal("Titulo_327LG")), reader.GetString(reader.GetOrdinal("Autor_327LG")), reader.GetString(reader.GetOrdinal("Editorial_327LG")), reader.GetInt32(reader.GetOrdinal("Edicion_327LG"))));
-                        
+                        BEFactura_327LG factura = new BEFactura_327LG(
+                            reader.GetInt32(reader.GetOrdinal("nroFactura_327LG")),
+                            reader.GetDateTime(reader.GetOrdinal("Fecha_327LG")),
+                            new BECliente_327LG(
+                                reader.GetString(reader.GetOrdinal("DNI_327LG")),
+                                reader.GetString(reader.GetOrdinal("Nombre_327LG")),
+                                reader.GetString(reader.GetOrdinal("Apellido_327LG")),
+                                reader.GetString(reader.GetOrdinal("Email_327LG")),
+                                reader.GetString(reader.GetOrdinal("Direccion_327LG")),
+                                reader.GetString(reader.GetOrdinal("Telefono_327LG"))
+                            ),
+                            reader.GetDecimal(reader.GetOrdinal("Monto_327LG")),
+                            new BELibro_327LG(
+                                reader.GetString(reader.GetOrdinal("ISBN_327LG")),
+                                reader.GetString(reader.GetOrdinal("Titulo_327LG")),
+                                reader.GetString(reader.GetOrdinal("Autor_327LG")),
+                                reader.GetString(reader.GetOrdinal("Editorial_327LG")),
+                                reader.GetInt32(reader.GetOrdinal("Edicion_327LG"))
+                            )
+                        );
 
                         listaFacturas.Add(factura);
                     }
                 }
+
             }
             return listaFacturas;
         }

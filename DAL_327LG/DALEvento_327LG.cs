@@ -17,7 +17,7 @@ namespace DAL_327LG
         {
             connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
         }
-        public List<Evento_327LG> ObtenerEventos_327LG(string? login, DateTime fechaInicio, DateTime fechaFin, string? modulo, string? evento, int? criticidad)
+        public List<Evento_327LG> ObtenerEventos_327LG(string? login, DateTime? fechaInicio, DateTime? fechaFin, string? modulo, string? evento, int? criticidad)
         {
             List<Evento_327LG> eventos = new List<Evento_327LG>();
 
@@ -33,15 +33,15 @@ namespace DAL_327LG
                     FROM Evento_327LG e
                     INNER JOIN Usuario_327LG u ON e.DNI_327LG = u.DNI_327LG
                     WHERE (@Username IS NULL OR u.Username_327LG = @Username)
-                      AND (e.Fecha_327LG >= @FechaInicio)
-                      AND (e.Fecha_327LG <= @FechaFin)
+                      AND (@FechaInicio IS NULL OR e.Fecha_327LG >= @FechaInicio)
+                      AND (@FechaFin IS NULL OR e.Fecha_327LG <= @FechaFin)
                       AND (@Modulo IS NULL OR e.Modulo_327LG = @Modulo)
                       AND (@Evento IS NULL OR e.Evento_327LG LIKE @Evento + '%')
                       AND (@Criticidad IS NULL OR e.Criticidad_327LG = @Criticidad);";
 
                     cmd.Parameters.AddWithValue("@Username", (object?)login ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
-                    cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
+                    cmd.Parameters.AddWithValue("@FechaInicio", (object?)fechaInicio ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@FechaFin", (object?)fechaFin ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Modulo", (object?)modulo ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Evento", (object?)evento ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Criticidad", (object?)criticidad ?? DBNull.Value);

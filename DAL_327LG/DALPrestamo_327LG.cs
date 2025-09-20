@@ -108,6 +108,8 @@ namespace DAL_327LG
                             nombre_327LG: dr["Nombre_327LG"].ToString(),
                             apellido_327LG: dr["Apellido_327LG"].ToString(),
                             email_327LG: dr["Email_327LG"].ToString(),
+                            direccion_327LG: dr["Direccion_327LG"].ToString(),
+                            telefono_327LG: dr["Telefono_327LG"].ToString(),
                             activo:Convert.ToBoolean( dr["Activo_327LG"])
                         );
 

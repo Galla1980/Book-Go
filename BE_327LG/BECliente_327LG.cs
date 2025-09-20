@@ -15,19 +15,24 @@ namespace BE_327LG
         public string Nombre_327LG { get; set; }
         public string Apellido_327LG { get; set; }
         public string Email_327LG { get; set; }
+        public string Direccion_327LG { get; set; }
+        public string Telefono_327LG { get; set; }
+
         [XmlIgnore]
         public bool Activo_327LG { get; set; }
         public BECliente_327LG()
         {
         }
-        public BECliente_327LG(string dni_327LG, string nombre_327LG, string apellido_327LG, string email_327LG)
+        public BECliente_327LG(string dni_327LG, string nombre_327LG, string apellido_327LG, string email_327LG, string direccion_327LG, string telefono_327LG)
         {
             DNI_327LG = dni_327LG;
             Nombre_327LG = nombre_327LG;
             Apellido_327LG = apellido_327LG;
             Email_327LG = email_327LG;
+            Direccion_327LG = direccion_327LG;
+            Telefono_327LG = telefono_327LG;
         }
-        public BECliente_327LG(string dni_327LG, string nombre_327LG, string apellido_327LG, string email_327LG, bool activo) : this(dni_327LG, nombre_327LG, apellido_327LG, email_327LG)
+        public BECliente_327LG(string dni_327LG, string nombre_327LG, string apellido_327LG, string email_327LG, string direccion_327LG, string telefono_327LG, bool activo) : this(dni_327LG, nombre_327LG, apellido_327LG, email_327LG, direccion_327LG, telefono_327LG)
         {
             Activo_327LG = activo;
         }

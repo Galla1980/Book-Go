@@ -45,7 +45,6 @@ namespace BLL_327LG
             cliente.Email_327LG = Encriptador_327LG.EncriptarReversible_327LG(cliente.Email_327LG);
             dalCliente_327LG.CargarCliente_327LG(cliente);
             bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Préstamos y devoluciones", "Registro de cliente", 4);
-
         }
     }
 }

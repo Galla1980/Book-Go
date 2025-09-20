@@ -9,6 +9,22 @@
     "lblEvento": "Event",
     "lblCriticidad": "Criticality"
   },
+  "datagridview":
+    {
+      "column":
+      {
+        "idEvento": "IdEvent",
+        "fecha": "Date",
+        "hora": "Hour",
+        "evento": "Event",
+        "modulo": "Module",
+        "criticidad": "Criticality"
+      }
+    },
+  "checkbox":
+  {
+    "chkFiltrarFecha": "Filter date"
+  },
 
   "button": {
     "btnLimpiar": "Clear",
@@ -22,6 +38,7 @@
 
   "exception": 
   {
+    "sinDatosParaExportar": "The datagrid can't be empty.",
     "fechasInvalidas": "The start date cannot be after the end date. Please adjust your selection."
   },
 

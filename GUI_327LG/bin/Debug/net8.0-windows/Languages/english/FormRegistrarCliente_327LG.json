@@ -5,6 +5,8 @@
     "lblNombre": "First name",
     "lblApellido": "Last name",
     "lblEmail": "Email",
+    "lblDireccion": "Address",
+    "lblTelefono": "Telephone",
     "lblDesencriptar": "Decrypt",
     "lblModoConsulta": "Mode: View",
     "lblModoRegistrar": "Mode: Register",
@@ -33,7 +35,9 @@
         "dni": "DNI",
         "nombre": "Name",
         "apellido": "Last name",
-        "correo": "Email"
+        "correo": "Email",
+        "direccion": "Address",
+        "telefono": "Telephone"
       }
     },
 
@@ -47,7 +51,8 @@
       "dni_no_valido": "The ID number does not meet the format (8 digits).",
       "dni_en_uso": "The ID number is already in use.",
       "email_no_valido": "Email format is not valid.",
-      "grilla_vacia": "The grid is empty"
+      "grilla_vacia": "The grid is empty",
+      "telefono_no_valido": "Telephone format is not valid.\n Expected format: 011 1234-5678"
     },
 
    "messagebox": {

@@ -49,6 +49,7 @@
             btnLimpiar = new Button();
             btnAplicar = new Button();
             btnImprimir = new Button();
+            chkFiltrarFecha = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dgvEventos).BeginInit();
             SuspendLayout();
             // 
@@ -241,11 +242,24 @@
             btnImprimir.UseVisualStyleBackColor = true;
             btnImprimir.Click += btnImprimir_Click;
             // 
+            // chkFiltrarFecha
+            // 
+            chkFiltrarFecha.AutoSize = true;
+            chkFiltrarFecha.Checked = true;
+            chkFiltrarFecha.CheckState = CheckState.Checked;
+            chkFiltrarFecha.Location = new Point(637, 383);
+            chkFiltrarFecha.Name = "chkFiltrarFecha";
+            chkFiltrarFecha.Size = new Size(88, 19);
+            chkFiltrarFecha.TabIndex = 23;
+            chkFiltrarFecha.Text = "Filtrar fecha";
+            chkFiltrarFecha.UseVisualStyleBackColor = true;
+            // 
             // FormBitacoraEventos_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(758, 556);
+            Controls.Add(chkFiltrarFecha);
             Controls.Add(btnImprimir);
             Controls.Add(btnAplicar);
             Controls.Add(btnLimpiar);
@@ -299,5 +313,6 @@
         private Button btnLimpiar;
         private Button btnAplicar;
         private Button btnImprimir;
+        private CheckBox chkFiltrarFecha;
     }
 }
