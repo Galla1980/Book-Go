@@ -260,5 +260,10 @@ namespace GUI_327LG
         {
             AbrirFormulario_327LG<FormBitacoraEventos_327LG>();
         }
+
+        private void FormMDI_327LG_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(SessionManager_327LG.Instancia.IsLoggedIn_327LG()) bllUsuario_327LG.CerrarSesion_327LG();
+        }
     }
 }

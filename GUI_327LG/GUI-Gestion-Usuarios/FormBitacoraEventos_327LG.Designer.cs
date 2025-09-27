@@ -284,6 +284,7 @@
             Name = "FormBitacoraEventos_327LG";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormBitacoraEventos_327LG";
+            FormClosed += FormBitacoraEventos_327LG_FormClosed;
             Load += FormBitacoraEventos_327LG_Load;
             ((System.ComponentModel.ISupportInitialize)dgvEventos).EndInit();
             ResumeLayout(false);

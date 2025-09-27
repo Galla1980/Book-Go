@@ -29,8 +29,6 @@ namespace BLL_327LG
         {
             string id = string.Empty;
             int numero = 1;
-
-            //Generar ID del evento con codigo de fecha y numero de evento del dia
             Evento_327LG ultimoEvento = ObtenerUltimoEvento_327LG();
             if (ultimoEvento != null)
             {
@@ -39,8 +37,6 @@ namespace BLL_327LG
                 if (Fecha.Date == DateTime.Now.Date) numero = int.Parse(partes[1]) + 1;
             }
             id = DateTime.Now.ToString("yyyyMMdd") + "-" + numero.ToString("D3");
-
-            //Registrar evento
             Evento_327LG evento_327LG = new Evento_327LG(id, dni, DateTime.Now, modulo, evento, criticidad);
             dalEvento.RegistrarEvento_327LG(evento_327LG);
         }

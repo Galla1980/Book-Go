@@ -39,6 +39,7 @@
             gestiónDeFamiliasMenuItem = new ToolStripMenuItem();
             gestionDePerfilesMenuItem = new ToolStripMenuItem();
             backUpRestoreToolStripMenuItem = new ToolStripMenuItem();
+            bitacoraMenuItem = new ToolStripMenuItem();
             maestroItem = new ToolStripMenuItem();
             librosItem = new ToolStripMenuItem();
             ejemplaresItem = new ToolStripMenuItem();
@@ -53,7 +54,6 @@
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
-            bitacoraMenuItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -107,7 +107,7 @@
             // gestiónUsuariosMenuItem
             // 
             gestiónUsuariosMenuItem.Name = "gestiónUsuariosMenuItem";
-            gestiónUsuariosMenuItem.Size = new Size(180, 22);
+            gestiónUsuariosMenuItem.Size = new Size(177, 22);
             gestiónUsuariosMenuItem.Text = "Gestión de usuarios";
             gestiónUsuariosMenuItem.Click += gestiónUsuariosMenuItem_Click;
             // 
@@ -115,7 +115,7 @@
             // 
             perfilesMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestiónDeFamiliasMenuItem, gestionDePerfilesMenuItem });
             perfilesMenuItem.Name = "perfilesMenuItem";
-            perfilesMenuItem.Size = new Size(180, 22);
+            perfilesMenuItem.Size = new Size(177, 22);
             perfilesMenuItem.Text = "Perfiles";
             // 
             // gestiónDeFamiliasMenuItem
@@ -135,9 +135,16 @@
             // backUpRestoreToolStripMenuItem
             // 
             backUpRestoreToolStripMenuItem.Name = "backUpRestoreToolStripMenuItem";
-            backUpRestoreToolStripMenuItem.Size = new Size(180, 22);
+            backUpRestoreToolStripMenuItem.Size = new Size(177, 22);
             backUpRestoreToolStripMenuItem.Text = "BackUp/Restore";
             backUpRestoreToolStripMenuItem.Click += backUpRestoreToolStripMenuItem_Click;
+            // 
+            // bitacoraMenuItem
+            // 
+            bitacoraMenuItem.Name = "bitacoraMenuItem";
+            bitacoraMenuItem.Size = new Size(177, 22);
+            bitacoraMenuItem.Text = "Bitácora";
+            bitacoraMenuItem.Click += bitacoraMenuItem_Click;
             // 
             // maestroItem
             // 
@@ -240,13 +247,6 @@
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
             // 
-            // bitacoraMenuItem
-            // 
-            bitacoraMenuItem.Name = "bitacoraMenuItem";
-            bitacoraMenuItem.Size = new Size(180, 22);
-            bitacoraMenuItem.Text = "Bitácora";
-            bitacoraMenuItem.Click += bitacoraMenuItem_Click;
-            // 
             // FormMDI_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -260,6 +260,7 @@
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de gestion de biblioteca";
+            FormClosing += FormMDI_327LG_FormClosing;
             Load += FormMDI_Load;
             mnsPestañas.ResumeLayout(false);
             mnsPestañas.PerformLayout();

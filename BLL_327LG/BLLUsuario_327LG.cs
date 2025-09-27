@@ -127,7 +127,6 @@ namespace BLL_327LG
                 user.password_327LG = Encriptador_327LG.Encriptar_327LG(contraseña);
                 dalUsuario_327LG.ActualizarContraseña_327LG(user);
                 dalUsuario_327LG.ActualizarBloqueo_327LG(user);
-                bllEvento_327LG.RegistrarEvento_327LG(user.dni_327LG, "Gestión de usuarios", "Reseteo de contraseña", 1);
                 bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de usuarios", "Desbloqueo de usuario", 1);
             }
         }

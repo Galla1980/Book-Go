@@ -39,6 +39,7 @@
   "exception": 
   {
     "sinDatosParaExportar": "The datagrid can't be empty.",
+    "NoHayEventos": "There are not events matching the filters",
     "fechasInvalidas": "The start date cannot be after the end date. Please adjust your selection."
   },
 

@@ -67,7 +67,6 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             cmbEvento.Items.Add("Creación de usuario");
             cmbEvento.Items.Add("Modificación de usuario");
             cmbEvento.Items.Add("Bloqueo de usuario");
-            cmbEvento.Items.Add("Reseteo de contraseña");
             cmbEvento.Items.Add("Desbloqueo de usuario");
             cmbEvento.Items.Add("Activación de usuario");
             cmbEvento.Items.Add("Desactivación de usuario");
@@ -130,6 +129,7 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                     fechaFin = dtpFechaFin.Value.Date;
                 }
                 CargarGrilla_327LG(login, modulo, evento, criticidad, fechaInicio, fechaFin);
+                if (bLLEvento_327LG.ObtenerEventos_327LG(login, fechaInicio, fechaFin, modulo, evento, criticidad).Count == 0) throw new Exception(LM_327LG.ObtenerString("exception.NoHayEventos"));
             }
             catch (Exception ex)
             {
@@ -185,15 +185,15 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                     string even = row.Cells["evento_327LG"].Value.ToString();
                     int criticidad = Convert.ToInt32(row.Cells["Criticidad_327LG"].Value);
 
-                    Evento_327LG evento = new Evento_327LG(idEvento,login,fecha.Date,hora,modulo,even,criticidad);
+                    Evento_327LG evento = new Evento_327LG(idEvento, login, fecha.Date, hora, modulo, even, criticidad);
                     listaEventos.Add(evento);
 
                 }
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string ruta = saveFileDialog.FileName;
-                    bLLEvento_327LG.ImprimirEventos_327LG(listaEventos,ruta);
-                    
+                    bLLEvento_327LG.ImprimirEventos_327LG(listaEventos, ruta);
+
                 }
             }
             catch (Exception ex)
@@ -261,7 +261,6 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                     cmbEvento.Items.Add("Creación de usuario");
                     cmbEvento.Items.Add("Modificación de usuario");
                     cmbEvento.Items.Add("Bloqueo de usuario");
-                    cmbEvento.Items.Add("Reseteo de contraseña");
                     cmbEvento.Items.Add("Desbloqueo de usuario");
                     cmbEvento.Items.Add("Activación de usuario");
                     cmbEvento.Items.Add("Desactivación de usuario");
@@ -289,6 +288,11 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                     cmbEvento.Items.Add("Restauración desde backup");
                     break;
             }
+        }
+
+        private void FormBitacoraEventos_327LG_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LM_327LG.EliminarObservador_327LG(this);
         }
     }
 }
