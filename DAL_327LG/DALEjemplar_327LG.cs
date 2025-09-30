@@ -29,7 +29,7 @@ namespace DAL_327LG
             }
         }
 
-        public void GuardarEjemplar_327LG(BEEjemplar_327LG bEEjemplar_327LG, int cantidad)
+        public void RegistrarEjemplar_327LG(BEEjemplar_327LG bEEjemplar_327LG, int cantidad)
         {
             using (SqlConnection con = new SqlConnection(connectionString_327LG))
             {

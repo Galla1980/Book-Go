@@ -21,7 +21,7 @@ namespace BLL_327LG
 
         public void AgregarEjemplar_327LG(BEEjemplar_327LG bEEjemplar_327LG, int cantidad)
         {
-            dalEjemplar_327LG.GuardarEjemplar_327LG(bEEjemplar_327LG, cantidad);
+            dalEjemplar_327LG.RegistrarEjemplar_327LG(bEEjemplar_327LG, cantidad);
             bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Registro de nuevo stock", 5);
         }
 

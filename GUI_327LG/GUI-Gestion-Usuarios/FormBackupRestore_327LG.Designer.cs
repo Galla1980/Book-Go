@@ -77,6 +77,7 @@
             // 
             // txtRestore
             // 
+            txtRestore.Enabled = false;
             txtRestore.Location = new Point(25, 214);
             txtRestore.Name = "txtRestore";
             txtRestore.Size = new Size(254, 23);
