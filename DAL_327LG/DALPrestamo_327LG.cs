@@ -66,7 +66,7 @@ namespace DAL_327LG
                 string query = @"
                 SELECT 
                     p.nroPrestamo_327LG, p.FechaDevolucion_327LG, p.FechaADevolver_327LG, p.Activo_327LG,
-                    c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG,
+                    c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG, c.Direccion_327LG, c.Telefono_327LG, c.Activo_327LG,
                     e.nroEjemplar_327LG, e.Estado_327LG, 
                     l.ISBN_327LG, l.Titulo_327LG, l.Autor_327LG, l.Edicion_327LG, l.Editorial_327LG
                 FROM Prestamo_327LG p

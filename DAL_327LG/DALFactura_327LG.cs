@@ -38,7 +38,7 @@ namespace DAL_327LG
                 string query = @"
                 SELECT 
                     f.nroFactura_327LG, f.Fecha_327LG, f.Monto_327LG,
-                    c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG,
+                    c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG, c.Direccion_327LG, c.Telefono_327LG,
                     l.ISBN_327LG, l.Titulo_327LG, l.Autor_327LG, l.Edicion_327LG, l.Editorial_327LG
                 FROM Factura_327LG f
                 INNER JOIN Cliente_327LG c ON f.DNI_327LG = c.DNI_327LG

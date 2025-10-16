@@ -50,6 +50,8 @@ namespace BLL_327LG
             documento.Add(new Paragraph($"DNI: {factura.Cliente_327LG.DNI_327LG}", fontTexto));
             documento.Add(new Paragraph($"Nombre: {factura.Cliente_327LG.Nombre_327LG} {factura.Cliente_327LG.Apellido_327LG}", fontTexto));
             documento.Add(new Paragraph($"Email: {Encriptador_327LG.DesencriptarReversible_327LG(factura.Cliente_327LG.Email_327LG)}", fontTexto));
+            documento.Add(new Paragraph($"Dirección: {factura.Cliente_327LG.Direccion_327LG}", fontTexto));
+            documento.Add(new Paragraph($"Teléfono: {factura.Cliente_327LG.Telefono_327LG}", fontTexto));
             documento.Add(new Paragraph("\n", fontTexto));
             documento.Add(new Paragraph("Datos del Libro:", fontSubTitulo));
             documento.Add(new Paragraph($"ISBN: {factura.Libro_327LG.ISBN_327LG}", fontTexto));

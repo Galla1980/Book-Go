@@ -43,7 +43,7 @@ namespace DAL_327LG
             SELECT 
                 s.nroSancion_327LG, s.Descripcion_327LG, s.Razon_327LG,
                 
-                c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG,
+                c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG, c.Direccion_327LG, c.Telefono_327LG, c.Activo_327LG,
                 
                 p.nroPrestamo_327LG, p.FechaDevolucion_327LG, p.FechaADevolver_327LG, p.Activo_327LG,
 
