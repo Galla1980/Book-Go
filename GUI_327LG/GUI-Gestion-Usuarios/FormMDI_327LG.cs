@@ -1,5 +1,6 @@
 using BLL_327LG;
 using GUI_327LG.GUI_Gestion_Perfiles;
+using GUI_327LG.GUI_Gestion_Usuarios;
 using GUI_327LG.GUIRF1;
 using GUI_327LG.Maestros;
 using GUI_327LG.Reportes;
@@ -69,9 +70,11 @@ namespace GUI_327LG
             perfilesMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.perfiles");
             gestiónDeFamiliasMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_familias");
             gestionDePerfilesMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_perfiles");
+            bitacoraMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.bitacora");
             maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
             librosItem.Text = LM_327LG.ObtenerString("menu_maestro.items.libros");
             ejemplaresItem.Text = LM_327LG.ObtenerString("menu_maestro.items.ejemplares");
+            clientesToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.items.clientes");
             prestamosItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
             registrarPrestamoToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_prestamo");
             registrarDevoluciónItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_devolucion");
@@ -80,6 +83,7 @@ namespace GUI_327LG
             facturaMenuItem.Text = LM_327LG.ObtenerString("menu_reporte.items.factura");
             ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");
             tsmiIdioma.Text = LM_327LG.ObtenerString("label_idioma.texto");
+
         }
 
         public void ActualizarFormulario_327LG()
@@ -110,6 +114,7 @@ namespace GUI_327LG
                 {
                     reporteItem.Enabled = true;
                 }
+
             }
             else
             {
@@ -149,7 +154,7 @@ namespace GUI_327LG
                 form.Show();
             }
         }
-        private void CerrarFormularios()
+        public void CerrarFormularios()
         {
             foreach (Form form in this.MdiChildren)
             {
@@ -239,6 +244,26 @@ namespace GUI_327LG
         private void facturaMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario_327LG<FormReporteFactura_327LG>();
+        }
+
+        private void backUpRestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormBackupRestore_327LG>();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormRegistrarCliente_327LG>();
+        }
+
+        private void bitacoraMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormBitacoraEventos_327LG>();
+        }
+
+        private void FormMDI_327LG_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(SessionManager_327LG.Instancia.IsLoggedIn_327LG()) bllUsuario_327LG.CerrarSesion_327LG();
         }
     }
 }

@@ -31,6 +31,7 @@ namespace GUI_327LG.GUIRF1
             dgvPrestamos.MultiSelect = false;
             Actualizar_327LG();
         }
+        
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
@@ -110,6 +111,7 @@ namespace GUI_327LG.GUIRF1
                             BESancion_327LG sancion = new BESancion_327LG(prestamo.Cliente_327LG, prestamo, formRegistrarSancion.descripcion, formRegistrarSancion.razon);
                             bllSancion_327LG.RegistrarSancion_327LG(sancion);
                             MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.sancion_cargada"), LM_327LG.ObtenerString("messagebox.titulo.sancion_cargada"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
+                            
                         }
 
                     }
@@ -161,7 +163,7 @@ namespace GUI_327LG.GUIRF1
                 label.ForeColor = Color.White;
                 label.BackColor = Color.Transparent;
             }
-            CargarGrillaPrestamos_327LG(string.Empty);
+            CargarGrillaPrestamos_327LG(null);
         }
         public void Actualizar_327LG()
         {

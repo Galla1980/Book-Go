@@ -58,7 +58,7 @@ namespace DAL_327LG
             }
         }
 
-        public List<BEPrestamo_327LG> ObtenerPrestamos_327LG(string dni)
+        public List<BEPrestamo_327LG> ObtenerPrestamos_327LG(string? dni)
         {
             List<BEPrestamo_327LG> listaPrestamos = new List<BEPrestamo_327LG>();
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -66,17 +66,17 @@ namespace DAL_327LG
                 string query = @"
                 SELECT 
                     p.nroPrestamo_327LG, p.FechaDevolucion_327LG, p.FechaADevolver_327LG, p.Activo_327LG,
-                    c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG,
+                    c.DNI_327LG, c.Nombre_327LG, c.Apellido_327LG, c.Email_327LG, c.Direccion_327LG, c.Telefono_327LG, c.Activo_327LG,
                     e.nroEjemplar_327LG, e.Estado_327LG, 
                     l.ISBN_327LG, l.Titulo_327LG, l.Autor_327LG, l.Edicion_327LG, l.Editorial_327LG
                 FROM Prestamo_327LG p
                 INNER JOIN Cliente_327LG c ON p.DNI_327LG = c.DNI_327LG
                 INNER JOIN Ejemplar_327LG e ON p.nroEjemplar_327LG = e.nroEjemplar_327LG
                 INNER JOIN Libro_327LG l ON e.ISBN_327LG = l.ISBN_327LG
-                WHERE p.DNI_327LG = @DNI";
+                WHERE  (@DNI IS NULL OR p.DNI_327LG = @DNI)";
 
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@DNI", dni);
+                cmd.Parameters.AddWithValue("@DNI", (object)dni ?? DBNull.Value);
                 con.Open();
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
@@ -107,7 +107,10 @@ namespace DAL_327LG
                             dni_327LG: dr["DNI_327LG"].ToString(),
                             nombre_327LG: dr["Nombre_327LG"].ToString(),
                             apellido_327LG: dr["Apellido_327LG"].ToString(),
-                            email_327LG: dr["Email_327LG"].ToString()
+                            email_327LG: dr["Email_327LG"].ToString(),
+                            direccion_327LG: dr["Direccion_327LG"].ToString(),
+                            telefono_327LG: dr["Telefono_327LG"].ToString(),
+                            activo:Convert.ToBoolean( dr["Activo_327LG"])
                         );
 
                         // Prestamo

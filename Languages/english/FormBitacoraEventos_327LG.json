@@ -1,0 +1,58 @@
+{
+  "label": {
+    "lblTitulo": "Event log",
+    "lblNombre": "First name: ",
+    "lblApellido": "Last name: ",
+    "lblFechaInicio": "Start date",
+    "lblFechaFin": "End date",
+    "lblModulo": "Module",
+    "lblEvento": "Event",
+    "lblCriticidad": "Criticality"
+  },
+  "datagridview":
+    {
+      "column":
+      {
+        "idEvento": "IdEvent",
+        "fecha": "Date",
+        "hora": "Hour",
+        "evento": "Event",
+        "modulo": "Module",
+        "criticidad": "Criticality"
+      }
+    },
+  "checkbox":
+  {
+    "chkFiltrarFecha": "Filter date"
+  },
+
+  "button": {
+    "btnLimpiar": "Clear",
+    "btnAplicar": "Apply",
+    "btnImprimir": "Print"
+  },
+
+  "combobox": {
+    
+  },
+
+  "exception": 
+  {
+    "sinDatosParaExportar": "The datagrid can't be empty.",
+    "NoHayEventos": "There are not events matching the filters",
+    "fechasInvalidas": "The start date cannot be after the end date. Please adjust your selection."
+  },
+
+  "messagebox": {
+    "titulo": {
+      "error": "Error"
+    },
+    "mensaje": {
+      "pago_exitoso": "The payment was accepted."
+    },
+    "button": {
+      "aceptar": "OK",
+      "cancelar": "Cancel"
+    }
+  }
+}

@@ -29,7 +29,7 @@ namespace DAL_327LG
             }
         }
 
-        public void GuardarEjemplar_327LG(BEEjemplar_327LG bEEjemplar_327LG)
+        public void RegistrarEjemplar_327LG(BEEjemplar_327LG bEEjemplar_327LG, int cantidad)
         {
             using (SqlConnection con = new SqlConnection(connectionString_327LG))
             {
@@ -39,7 +39,11 @@ namespace DAL_327LG
                 cmd.Parameters.AddWithValue("@Estado", bEEjemplar_327LG.Estado_327LG.ToString());
                 cmd.Parameters.AddWithValue("@ISBN", bEEjemplar_327LG.libro_327LG.ISBN_327LG);
                 con.Open();
-                cmd.ExecuteNonQuery();
+                for (int i = 0; i < cantidad; i++)
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
             }
         }
 

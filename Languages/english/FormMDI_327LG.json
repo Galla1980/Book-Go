@@ -14,7 +14,8 @@
       "gestion_usuarios": "User management",
       "perfiles": "Profiles",
       "gestion_familias": "Family Management",
-      "gestion_perfiles": "Profiles Management"
+      "gestion_perfiles": "Profiles Management",
+      "bitacora": "Event log"
     }
   },
   "menu_maestro": {
@@ -22,7 +23,8 @@
     "items":
     {
       "libros":"Books",
-      "ejemplares":"Copies"
+      "ejemplares":"Copies",
+      "clientes": "Clients"
     }
     
   },

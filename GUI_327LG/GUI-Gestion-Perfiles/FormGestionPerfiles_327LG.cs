@@ -104,7 +104,7 @@ namespace GUI_327LG.GUI_Gestion_Perfiles
                 if (nodoSeleccionadoPerfil_327LG.Parent != null) throw new Exception(LM_327LG.ObtenerString("exception.debe_seleccionar_perfil"));
                 BEPerfil_327LG perfil = (BEPerfil_327LG)nodoSeleccionadoPerfil_327LG.Tag;
                 BEPermiso_327LG permiso = (BEPermiso_327LG)lstPermisos.SelectedItem;
-                if (perfil.Codigo_327LG == SessionManager_327LG.Instancia.Usuario.rol_327LG.Codigo_327LG) throw new Exception(LM_327LG.ObtenerString("exception.perfil_actual"));
+                //if (perfil.Codigo_327LG == SessionManager_327LG.Instancia.Usuario.rol_327LG.Codigo_327LG) throw new Exception(LM_327LG.ObtenerString("exception.perfil_actual"));
                 bllPerfil_327LG.AsignarPermiso_327LG(perfil, permiso); 
                 CargarGrillas_327LG();
             }

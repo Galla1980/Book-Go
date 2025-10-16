@@ -32,7 +32,10 @@
             lblTituloForm = new Label();
             btnAgregarEjemplar = new Button();
             lblLibros = new Label();
+            nudCant = new NumericUpDown();
+            lblCantidad = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvLibros).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudCant).BeginInit();
             SuspendLayout();
             // 
             // dgvLibros
@@ -58,12 +61,12 @@
             // 
             // btnAgregarEjemplar
             // 
-            btnAgregarEjemplar.Font = new Font("Segoe UI", 15F);
-            btnAgregarEjemplar.Location = new Point(186, 346);
+            btnAgregarEjemplar.Font = new Font("Segoe UI", 12F);
+            btnAgregarEjemplar.Location = new Point(203, 379);
             btnAgregarEjemplar.Name = "btnAgregarEjemplar";
-            btnAgregarEjemplar.Size = new Size(193, 48);
+            btnAgregarEjemplar.Size = new Size(156, 39);
             btnAgregarEjemplar.TabIndex = 2;
-            btnAgregarEjemplar.Text = "Agregar ejemplar";
+            btnAgregarEjemplar.Text = "Agregar ejemplares";
             btnAgregarEjemplar.UseVisualStyleBackColor = true;
             btnAgregarEjemplar.Click += btnAgregarEjemplar_Click;
             // 
@@ -77,11 +80,32 @@
             lblLibros.TabIndex = 3;
             lblLibros.Text = "Libros:";
             // 
+            // nudCant
+            // 
+            nudCant.Location = new Point(203, 341);
+            nudCant.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudCant.Name = "nudCant";
+            nudCant.ReadOnly = true;
+            nudCant.Size = new Size(156, 23);
+            nudCant.TabIndex = 4;
+            nudCant.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // lblCantidad
+            // 
+            lblCantidad.AutoSize = true;
+            lblCantidad.Location = new Point(203, 323);
+            lblCantidad.Name = "lblCantidad";
+            lblCantidad.Size = new Size(55, 15);
+            lblCantidad.TabIndex = 5;
+            lblCantidad.Text = "Cantidad";
+            // 
             // FormEjemplarMaestro_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(582, 450);
+            Controls.Add(lblCantidad);
+            Controls.Add(nudCant);
             Controls.Add(lblLibros);
             Controls.Add(btnAgregarEjemplar);
             Controls.Add(lblTituloForm);
@@ -90,6 +114,7 @@
             Text = "FormEjemplarMaestro_327LG";
             Load += FormEjemplarMaestro_327LG_Load;
             ((System.ComponentModel.ISupportInitialize)dgvLibros).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudCant).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -100,5 +125,7 @@
         private Label lblTituloForm;
         private Button btnAgregarEjemplar;
         private Label lblLibros;
+        private NumericUpDown nudCant;
+        private Label lblCantidad;
     }
 }

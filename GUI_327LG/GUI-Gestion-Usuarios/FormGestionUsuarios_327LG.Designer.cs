@@ -163,7 +163,7 @@
             rdoActivos.CheckAlign = ContentAlignment.TopCenter;
             rdoActivos.Checked = true;
             rdoActivos.Font = new Font("Segoe UI", 9F);
-            rdoActivos.Location = new Point(318, 12);
+            rdoActivos.Location = new Point(319, 12);
             rdoActivos.Name = "rdoActivos";
             rdoActivos.Size = new Size(50, 32);
             rdoActivos.TabIndex = 9;
