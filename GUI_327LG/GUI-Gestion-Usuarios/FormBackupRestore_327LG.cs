@@ -1,5 +1,6 @@
 ﻿using BLL_327LG;
 using Microsoft.IdentityModel.Tokens;
+using Services_327LG.Observer_327LG;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace GUI_327LG.GUI_Gestion_Usuarios
 {
-    public partial class FormBackupRestore_327LG : Form
+    public partial class FormBackupRestore_327LG : Form, IObserverIdioma_327LG
     {
         BLLBackUpRestore_327LG bllBackUpRestore_327LG = new BLLBackUpRestore_327LG();
 
@@ -100,6 +101,11 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                 MessageBox.Show(ex.Message, "Error al elegir el archivo de backup.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        public void Actualizar_327LG()
+        {
+            
         }
     }
 }

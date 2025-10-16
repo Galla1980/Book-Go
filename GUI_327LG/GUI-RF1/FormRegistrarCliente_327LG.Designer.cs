@@ -51,6 +51,10 @@
             btnActualizar = new Button();
             btnDeserializar = new Button();
             btnSerializar = new Button();
+            lblDireccion = new Label();
+            lblTelefono = new Label();
+            txtDireccion = new TextBox();
+            txtTelefono = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             grpSerializacion.SuspendLayout();
             SuspendLayout();
@@ -58,7 +62,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(634, 138);
+            lblNombre.Location = new Point(861, 109);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(51, 15);
             lblNombre.TabIndex = 0;
@@ -67,7 +71,7 @@
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(634, 185);
+            lblApellido.Location = new Point(861, 156);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(51, 15);
             lblApellido.TabIndex = 1;
@@ -76,7 +80,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(634, 243);
+            lblEmail.Location = new Point(861, 204);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(36, 15);
             lblEmail.TabIndex = 2;
@@ -85,7 +89,7 @@
             // lblDNI
             // 
             lblDNI.AutoSize = true;
-            lblDNI.Location = new Point(634, 84);
+            lblDNI.Location = new Point(861, 66);
             lblDNI.Name = "lblDNI";
             lblDNI.Size = new Size(27, 15);
             lblDNI.TabIndex = 3;
@@ -93,28 +97,28 @@
             // 
             // txtDNI
             // 
-            txtDNI.Location = new Point(634, 102);
+            txtDNI.Location = new Point(861, 84);
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(100, 23);
             txtDNI.TabIndex = 4;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(634, 156);
+            txtNombre.Location = new Point(861, 127);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 5;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(634, 203);
+            txtApellido.Location = new Point(861, 174);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(100, 23);
             txtApellido.TabIndex = 6;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(634, 261);
+            txtEmail.Location = new Point(861, 222);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(100, 23);
             txtEmail.TabIndex = 7;
@@ -122,7 +126,7 @@
             // btnRegistrar
             // 
             btnRegistrar.Font = new Font("Segoe UI", 12F);
-            btnRegistrar.Location = new Point(767, 84);
+            btnRegistrar.Location = new Point(994, 84);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(117, 41);
             btnRegistrar.TabIndex = 8;
@@ -143,7 +147,7 @@
             // btnCancelar
             // 
             btnCancelar.Font = new Font("Segoe UI", 12F);
-            btnCancelar.Location = new Point(767, 237);
+            btnCancelar.Location = new Point(994, 237);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(117, 41);
             btnCancelar.TabIndex = 10;
@@ -156,7 +160,7 @@
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Location = new Point(12, 84);
             dgvClientes.Name = "dgvClientes";
-            dgvClientes.Size = new Size(616, 200);
+            dgvClientes.Size = new Size(843, 200);
             dgvClientes.TabIndex = 11;
             dgvClientes.SelectionChanged += dgvClientes_SelectionChanged;
             // 
@@ -174,7 +178,7 @@
             // btnEliminar
             // 
             btnEliminar.Font = new Font("Segoe UI", 12F);
-            btnEliminar.Location = new Point(767, 132);
+            btnEliminar.Location = new Point(994, 132);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(117, 41);
             btnEliminar.TabIndex = 13;
@@ -185,7 +189,7 @@
             // btnModificar
             // 
             btnModificar.Font = new Font("Segoe UI", 12F);
-            btnModificar.Location = new Point(767, 185);
+            btnModificar.Location = new Point(994, 185);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(117, 41);
             btnModificar.TabIndex = 14;
@@ -206,7 +210,7 @@
             // btnAplicar
             // 
             btnAplicar.Font = new Font("Segoe UI", 12F);
-            btnAplicar.Location = new Point(767, 291);
+            btnAplicar.Location = new Point(994, 291);
             btnAplicar.Name = "btnAplicar";
             btnAplicar.Size = new Size(117, 41);
             btnAplicar.TabIndex = 16;
@@ -223,7 +227,7 @@
             grpSerializacion.Controls.Add(btnSerializar);
             grpSerializacion.Location = new Point(12, 350);
             grpSerializacion.Name = "grpSerializacion";
-            grpSerializacion.Size = new Size(872, 219);
+            grpSerializacion.Size = new Size(1099, 219);
             grpSerializacion.TabIndex = 17;
             grpSerializacion.TabStop = false;
             grpSerializacion.Text = "Serialización";
@@ -249,7 +253,7 @@
             // btnActualizar
             // 
             btnActualizar.Font = new Font("Segoe UI", 12F);
-            btnActualizar.Location = new Point(637, 131);
+            btnActualizar.Location = new Point(862, 37);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(157, 41);
             btnActualizar.TabIndex = 2;
@@ -260,7 +264,7 @@
             // btnDeserializar
             // 
             btnDeserializar.Font = new Font("Segoe UI", 12F);
-            btnDeserializar.Location = new Point(637, 84);
+            btnDeserializar.Location = new Point(686, 37);
             btnDeserializar.Name = "btnDeserializar";
             btnDeserializar.Size = new Size(157, 41);
             btnDeserializar.TabIndex = 1;
@@ -271,7 +275,7 @@
             // btnSerializar
             // 
             btnSerializar.Font = new Font("Segoe UI", 12F);
-            btnSerializar.Location = new Point(637, 37);
+            btnSerializar.Location = new Point(511, 37);
             btnSerializar.Name = "btnSerializar";
             btnSerializar.Size = new Size(157, 41);
             btnSerializar.TabIndex = 0;
@@ -279,11 +283,47 @@
             btnSerializar.UseVisualStyleBackColor = true;
             btnSerializar.Click += btnSerializar_Click;
             // 
+            // lblDireccion
+            // 
+            lblDireccion.AutoSize = true;
+            lblDireccion.Location = new Point(861, 251);
+            lblDireccion.Name = "lblDireccion";
+            lblDireccion.Size = new Size(57, 15);
+            lblDireccion.TabIndex = 18;
+            lblDireccion.Text = "Direccion";
+            // 
+            // lblTelefono
+            // 
+            lblTelefono.AutoSize = true;
+            lblTelefono.Location = new Point(861, 303);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(53, 15);
+            lblTelefono.TabIndex = 19;
+            lblTelefono.Text = "Telefono";
+            // 
+            // txtDireccion
+            // 
+            txtDireccion.Location = new Point(861, 269);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(100, 23);
+            txtDireccion.TabIndex = 20;
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.Location = new Point(861, 321);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(100, 23);
+            txtTelefono.TabIndex = 21;
+            // 
             // FormRegistrarCliente_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(896, 578);
+            ClientSize = new Size(1123, 578);
+            Controls.Add(txtTelefono);
+            Controls.Add(txtDireccion);
+            Controls.Add(lblTelefono);
+            Controls.Add(lblDireccion);
             Controls.Add(grpSerializacion);
             Controls.Add(btnAplicar);
             Controls.Add(lblModo);
@@ -338,5 +378,9 @@
         private Button btnActualizar;
         private ListBox listBox1;
         private Label lblArchivo;
+        private Label lblDireccion;
+        private Label lblTelefono;
+        private TextBox txtDireccion;
+        private TextBox txtTelefono;
     }
 }

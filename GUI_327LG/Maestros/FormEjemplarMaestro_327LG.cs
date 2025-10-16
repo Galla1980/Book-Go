@@ -31,9 +31,10 @@ namespace GUI_327LG.Maestros
             try
             {
                 if (dgvLibros.SelectedRows.Count == 0) throw new Exception("Debe seleccionar un libro para agregar un ejemplar.");
+                int cantidad = (int)nudCant.Value;
                 BELibro_327LG libro = (BELibro_327LG)dgvLibros.SelectedRows[0].DataBoundItem;
                 BEEjemplar_327LG bEEjemplar_327LG = new BEEjemplar_327LG(Estado_327LG.Disponible, libro);
-                bllEjemplar_327.AgregarEjemplar_327LG(bEEjemplar_327LG);
+                bllEjemplar_327.AgregarEjemplar_327LG(bEEjemplar_327LG, cantidad);
                 MessageBox.Show("Ejemplar agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

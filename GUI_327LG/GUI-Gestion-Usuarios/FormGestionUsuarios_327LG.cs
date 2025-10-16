@@ -40,6 +40,7 @@ namespace GUI_327LG
         }
         private void CargarGrillaUsuarios_327LG()
         {
+            LM_327LG.CargarFormulario_327LG("FormGestionUsuarios_327LG");
             List<Usuario_327LG> listaUsuarios = bllUsuario_327LG.ObtenerUsuarios_327LG();
             dgvUsuarios.DataSource = null;
             if (rdoActivos.Checked)

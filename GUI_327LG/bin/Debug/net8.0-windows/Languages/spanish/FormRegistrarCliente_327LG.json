@@ -6,6 +6,8 @@
       "lblNombre": "Nombre",
       "lblApellido": "Apellido",
       "lblEmail": "Correo",
+      "lblDireccion": "Dirección",
+      "lblTelefono": "Teléfono",
       "lblDesencriptar": "Desencriptar",
       "lblModoConsulta": "Modo: Consulta",
       "lblModoRegistrar": "Modo: Registrar",
@@ -36,7 +38,9 @@
         "dni": "DNI",
         "nombre": "Nombre",
         "apellido": "Apellido",
-        "correo": "Correo"
+        "correo": "Correo",
+        "direccion": "Dirección",
+        "telefono": "Teléfono"
       }
     },
 
@@ -49,7 +53,8 @@
       "apellido_con_numeros": "El apellido no puede contener números.",
       "dni_no_valido": "El DNI no cumple el formato (8 digitos)",
       "dni_en_uso": "El DNI está en uso.",
-      "email_no_valido": "El formato del correo no es valido."
+      "email_no_valido": "El formato del correo no es valido.",
+      "telefono_no_valido": "El formato del telefono no es valido.\n Formato esperado: 011 1234-5678"
       
     },
 
@@ -76,7 +81,7 @@
       },
       "button":
       {
-        "aceptar": "aceptar",
+        "aceptar": "Aceptar",
         "cancelar": "Cancelar"
       }
     }

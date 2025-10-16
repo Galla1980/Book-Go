@@ -39,9 +39,11 @@
             gestiónDeFamiliasMenuItem = new ToolStripMenuItem();
             gestionDePerfilesMenuItem = new ToolStripMenuItem();
             backUpRestoreToolStripMenuItem = new ToolStripMenuItem();
+            bitacoraMenuItem = new ToolStripMenuItem();
             maestroItem = new ToolStripMenuItem();
             librosItem = new ToolStripMenuItem();
             ejemplaresItem = new ToolStripMenuItem();
+            clientesToolStripMenuItem = new ToolStripMenuItem();
             prestamosItem = new ToolStripMenuItem();
             registrarPrestamoToolStripMenuItem = new ToolStripMenuItem();
             registrarDevoluciónItem = new ToolStripMenuItem();
@@ -52,7 +54,6 @@
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
-            clientesToolStripMenuItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -98,7 +99,7 @@
             // 
             // adminItem
             // 
-            adminItem.DropDownItems.AddRange(new ToolStripItem[] { gestiónUsuariosMenuItem, perfilesMenuItem, backUpRestoreToolStripMenuItem });
+            adminItem.DropDownItems.AddRange(new ToolStripItem[] { gestiónUsuariosMenuItem, perfilesMenuItem, backUpRestoreToolStripMenuItem, bitacoraMenuItem });
             adminItem.Name = "adminItem";
             adminItem.Size = new Size(55, 20);
             adminItem.Text = "Admin";
@@ -138,6 +139,13 @@
             backUpRestoreToolStripMenuItem.Text = "BackUp/Restore";
             backUpRestoreToolStripMenuItem.Click += backUpRestoreToolStripMenuItem_Click;
             // 
+            // bitacoraMenuItem
+            // 
+            bitacoraMenuItem.Name = "bitacoraMenuItem";
+            bitacoraMenuItem.Size = new Size(177, 22);
+            bitacoraMenuItem.Text = "Bitácora";
+            bitacoraMenuItem.Click += bitacoraMenuItem_Click;
+            // 
             // maestroItem
             // 
             maestroItem.DropDownItems.AddRange(new ToolStripItem[] { librosItem, ejemplaresItem, clientesToolStripMenuItem });
@@ -148,16 +156,23 @@
             // librosItem
             // 
             librosItem.Name = "librosItem";
-            librosItem.Size = new Size(180, 22);
+            librosItem.Size = new Size(131, 22);
             librosItem.Text = "Libros";
             librosItem.Click += librosItem_Click;
             // 
             // ejemplaresItem
             // 
             ejemplaresItem.Name = "ejemplaresItem";
-            ejemplaresItem.Size = new Size(180, 22);
+            ejemplaresItem.Size = new Size(131, 22);
             ejemplaresItem.Text = "Ejemplares";
             ejemplaresItem.Click += ejemplaresItem_Click;
+            // 
+            // clientesToolStripMenuItem
+            // 
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new Size(131, 22);
+            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // prestamosItem
             // 
@@ -232,13 +247,6 @@
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
             // 
-            // clientesToolStripMenuItem
-            // 
-            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(180, 22);
-            clientesToolStripMenuItem.Text = "Clientes";
-            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
-            // 
             // FormMDI_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -252,6 +260,7 @@
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de gestion de biblioteca";
+            FormClosing += FormMDI_327LG_FormClosing;
             Load += FormMDI_Load;
             mnsPestañas.ResumeLayout(false);
             mnsPestañas.PerformLayout();
@@ -288,5 +297,6 @@
         private ToolStripMenuItem facturaMenuItem;
         private ToolStripMenuItem backUpRestoreToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
+        private ToolStripMenuItem bitacoraMenuItem;
     }
 }
