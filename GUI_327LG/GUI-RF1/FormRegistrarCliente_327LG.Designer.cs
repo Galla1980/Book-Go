@@ -345,6 +345,7 @@
             Name = "FormRegistrarCliente_327LG";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRegistrarCliente";
+            FormClosed += FormRegistrarCliente_327LG_FormClosed;
             Load += FormRegistrarCliente_327LG_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             grpSerializacion.ResumeLayout(false);

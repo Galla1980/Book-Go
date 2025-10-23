@@ -54,6 +54,7 @@
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
+            registrarDistribuidorToolStripMenuItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -197,6 +198,7 @@
             // 
             // reposicionItem
             // 
+            reposicionItem.DropDownItems.AddRange(new ToolStripItem[] { registrarDistribuidorToolStripMenuItem });
             reposicionItem.Name = "reposicionItem";
             reposicionItem.Size = new Size(77, 20);
             reposicionItem.Text = "Reposición";
@@ -246,6 +248,13 @@
             tscmbIdioma.Size = new Size(121, 23);
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
+            // 
+            // registrarDistribuidorToolStripMenuItem
+            // 
+            registrarDistribuidorToolStripMenuItem.Name = "registrarDistribuidorToolStripMenuItem";
+            registrarDistribuidorToolStripMenuItem.Size = new Size(184, 22);
+            registrarDistribuidorToolStripMenuItem.Text = "Registrar distribuidor";
+            registrarDistribuidorToolStripMenuItem.Click += registrarDistribuidorToolStripMenuItem_Click;
             // 
             // FormMDI_327LG
             // 
@@ -298,5 +307,6 @@
         private ToolStripMenuItem backUpRestoreToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem bitacoraMenuItem;
+        private ToolStripMenuItem registrarDistribuidorToolStripMenuItem;
     }
 }

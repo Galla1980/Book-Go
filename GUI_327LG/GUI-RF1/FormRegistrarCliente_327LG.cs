@@ -35,7 +35,7 @@ namespace GUI_327LG.GUIRF1
         {
             var linq = from x in bllCliente_327LG.ObtenerClientes_327LG()
                        where x.Activo_327LG == true
-                       select new { DNI = x.DNI_327LG, Nombre = x.Nombre_327LG, Apellido = x.Apellido_327LG, Email = chkDesencriptar.Checked ? Encriptador_327LG.DesencriptarReversible_327LG(x.Email_327LG) : x.Email_327LG, Direccion = x.Direccion_327LG, Telefono = x.Telefono_327LG};
+                       select new { DNI = x.DNI_327LG, Nombre = x.Nombre_327LG, Apellido = x.Apellido_327LG, Email = chkDesencriptar.Checked ? Encriptador_327LG.DesencriptarReversible_327LG(x.Email_327LG) : x.Email_327LG, Direccion = x.Direccion_327LG, Telefono = x.Telefono_327LG };
             dgvClientes.DataSource = linq.ToList();
             dgvClientes.Columns["DNI"].FillWeight = 20;
             dgvClientes.Columns["Nombre"].FillWeight = 20;
@@ -140,8 +140,8 @@ namespace GUI_327LG.GUIRF1
                         if (nombre.Any(char.IsDigit)) throw new Exception(LM_327LG.ObtenerString("exception.nombre_con_numeros"));
                         if (apellido.Any(char.IsDigit)) throw new Exception(LM_327LG.ObtenerString("exception.apellido_con_numeros"));
                         if (!Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")) throw new Exception(LM_327LG.ObtenerString("exception.email_no_valido"));
-                        if (!Regex.IsMatch(telefono, @"^\d{2,4}\s\d{4}-\d{4}$"))throw new Exception(LM_327LG.ObtenerString("exception.telefono_no_valido"));
-                         
+                        if (!Regex.IsMatch(telefono, @"^\d{2,4}\s\d{4}-\d{4}$")) throw new Exception(LM_327LG.ObtenerString("exception.telefono_no_valido"));
+
                         if (bllCliente_327LG.ObtenerClientes_327LG().Any(x => x.DNI_327LG == dni)) throw new Exception(LM_327LG.ObtenerString("exception.dni_en_uso"));
                         if (MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.confirmacion_registrar_cliente"), LM_327LG.ObtenerString("messagebox.titulo.confirmacion"), LM_327LG.ObtenerString("messagebox.button.aceptar"), LM_327LG.ObtenerString("messagebox.button.cancelar"), MessageBoxIcon.Question) == DialogResult.Yes)
                         {
@@ -171,7 +171,7 @@ namespace GUI_327LG.GUIRF1
                         if (txtNombre.Text == string.Empty || txtApellido.Text == string.Empty || txtEmail.Text == string.Empty || txtDireccion.Text == string.Empty || txtTelefono.Text == string.Empty) throw new Exception(LM_327LG.ObtenerString("exception.campos_vacios"));
                         if (txtNombre.Text.Any(char.IsDigit)) throw new Exception(LM_327LG.ObtenerString("exception.nombre_con_numeros"));
                         if (txtApellido.Text.Any(char.IsDigit)) throw new Exception(LM_327LG.ObtenerString("exception.apellido_con_numeros"));
-                        if (!Regex.IsMatch(txtTelefono.Text, @"^\d{2,4}\s\d{4}-\d{4}$"))throw new Exception(LM_327LG.ObtenerString("exception.telefono_no_valido"));
+                        if (!Regex.IsMatch(txtTelefono.Text, @"^\d{2,4}\s\d{4}-\d{4}$")) throw new Exception(LM_327LG.ObtenerString("exception.telefono_no_valido"));
 
                         clienteModificar.Nombre_327LG = txtNombre.Text;
                         clienteModificar.Apellido_327LG = txtApellido.Text;
@@ -213,7 +213,7 @@ namespace GUI_327LG.GUIRF1
             if (modo == "Registrar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoRegistrar");
             if (modo == "Modificar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoModificar");
             if (modo == "Eliminar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoEliminar");
-            if(modo == "Deserializar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoDeserializar");
+            if (modo == "Deserializar") lblModo.Text = LM_327LG.ObtenerString("label.lblModoDeserializar");
             btnAplicar.Text = LM_327LG.ObtenerString("button.btnAplicar");
             btnModificar.Text = LM_327LG.ObtenerString("button.btnModificar");
             btnEliminar.Text = LM_327LG.ObtenerString("button.btnEliminar");
@@ -258,17 +258,17 @@ namespace GUI_327LG.GUIRF1
                     string email = row.Cells["Email"].Value.ToString();
                     string direccion = row.Cells["Direccion"].Value.ToString();
                     string telefono = row.Cells["Telefono"].Value.ToString();
-                    
-                    BECliente_327LG cliente = new BECliente_327LG(dni,nombre,apellido,email,direccion, telefono);
+
+                    BECliente_327LG cliente = new BECliente_327LG(dni, nombre, apellido, email, direccion, telefono);
                     listaCLientes.Add(cliente);
                 }
-                using(SaveFileDialog savefile = new SaveFileDialog())
+                using (SaveFileDialog savefile = new SaveFileDialog())
                 {
                     savefile.Filter = "XML Files|*.xml";
-                    if(savefile.ShowDialog() == DialogResult.OK)
+                    if (savefile.ShowDialog() == DialogResult.OK)
                     {
                         string ruta = savefile.FileName;
-                        bllSerializacion_327LG.SerializarClientes_327LG(listaCLientes,ruta);
+                        bllSerializacion_327LG.SerializarClientes_327LG(listaCLientes, ruta);
                         MessageBoxPersonalizado.Show($"{LM_327LG.ObtenerString("messagebox.mensaje.clientes_serializados") + ruta}", LM_327LG.ObtenerString("messagebox.titulo.clientes_serializados"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                     }
                 }
@@ -327,6 +327,11 @@ namespace GUI_327LG.GUIRF1
         {
             ModoConsulta();
             CargarGrilla();
+        }
+
+        private void FormRegistrarCliente_327LG_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LM_327LG.EliminarObservador_327LG(this);
         }
     }
 }

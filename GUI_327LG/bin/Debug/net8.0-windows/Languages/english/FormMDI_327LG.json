@@ -37,7 +37,11 @@
     }
   },
   "menu_reposicion": {
-    "texto": "Replenishment"
+    "texto": "Replenishment",
+    "items": 
+    {
+      "registrar_distribuidor": "Register distributor"
+    }
   },
   "menu_reporte": {
     "texto": "Reports",

@@ -1,6 +1,7 @@
 using BLL_327LG;
 using GUI_327LG.GUI_Gestion_Perfiles;
 using GUI_327LG.GUI_Gestion_Usuarios;
+using GUI_327LG.GUI_RF2;
 using GUI_327LG.GUIRF1;
 using GUI_327LG.Maestros;
 using GUI_327LG.Reportes;
@@ -60,10 +61,13 @@ namespace GUI_327LG
         public void Actualizar_327LG()
         {
             LM_327LG.CargarFormulario_327LG("FormMDI_327LG");
+            //usuario
             usuarioItem.Text = LM_327LG.ObtenerString("menu_usuario.texto");
             iniciarSesiónItem.Text = LM_327LG.ObtenerString("menu_usuario.items.iniciar_sesion");
             cambiarContraseñaItem.Text = LM_327LG.ObtenerString("menu_usuario.items.cambiar_contrasena");
             cerrarSesiónItem.Text = LM_327LG.ObtenerString("menu_usuario.items.cerrar_sesion");
+            
+            //admin
             adminItem.Text = LM_327LG.ObtenerString("menu_admin.texto");
             gestiónUsuariosMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_usuarios");
             gestiónDeFamiliasMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.perfiles");
@@ -71,16 +75,26 @@ namespace GUI_327LG
             gestiónDeFamiliasMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_familias");
             gestionDePerfilesMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_perfiles");
             bitacoraMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.bitacora");
+            
+            //maestros
             maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
             librosItem.Text = LM_327LG.ObtenerString("menu_maestro.items.libros");
             ejemplaresItem.Text = LM_327LG.ObtenerString("menu_maestro.items.ejemplares");
             clientesToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.items.clientes");
+            
+            //prestamos
             prestamosItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
             registrarPrestamoToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_prestamo");
             registrarDevoluciónItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_devolucion");
+            //reposicion
             reposicionItem.Text = LM_327LG.ObtenerString("menu_reposicion.texto");
+            registrarDistribuidorToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_reposicion.items.registrar_distribuidor");
+
+            //reportes
             reporteItem.Text = LM_327LG.ObtenerString("menu_reporte.texto");
             facturaMenuItem.Text = LM_327LG.ObtenerString("menu_reporte.items.factura");
+           
+            //ayuda 
             ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");
             tsmiIdioma.Text = LM_327LG.ObtenerString("label_idioma.texto");
 
@@ -98,19 +112,23 @@ namespace GUI_327LG
                 {
                     cambiarContraseñaItem.Enabled = true;
                 }
-                if ((bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(2, "Admin"))))
+                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(2, "Admin")))
                 {
                     adminItem.Enabled = true;
                 }
-                if ((bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(3, "Maestro"))))
+                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(3, "Maestro")))
                 {
                     maestroItem.Enabled = true;
                 }
-                if ((bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(4, "Prestamos"))))
+                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(4, "Prestamos")))
                 {
                     prestamosItem.Enabled = true;
                 }
-                if ((bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(5, "Reporte"))))
+                if(bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")))
+                {
+                    reposicionItem.Enabled = true;
+                }
+                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(5, "Reporte")))
                 {
                     reporteItem.Enabled = true;
                 }
@@ -123,8 +141,8 @@ namespace GUI_327LG
                 maestroItem.Enabled = false;
                 prestamosItem.Enabled = false;
                 reporteItem.Enabled = false;
-                reposicionItem.Visible = false;
-                ayudaItem.Visible = false;
+                reposicionItem.Enabled = false;
+                ayudaItem.Enabled = false;
                 CerrarFormularios();
             }
             CargarIdioma_327LG();
@@ -263,7 +281,12 @@ namespace GUI_327LG
 
         private void FormMDI_327LG_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(SessionManager_327LG.Instancia.IsLoggedIn_327LG()) bllUsuario_327LG.CerrarSesion_327LG();
+            if (SessionManager_327LG.Instancia.IsLoggedIn_327LG()) bllUsuario_327LG.CerrarSesion_327LG();
+        }
+
+        private void registrarDistribuidorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormRegistrarDistribuidor_327LG>();
         }
     }
 }

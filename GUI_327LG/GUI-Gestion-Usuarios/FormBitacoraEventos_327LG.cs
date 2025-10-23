@@ -86,6 +86,7 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             cmbEvento.Items.Add("Registro de devolución");
             //Modulo gestión de stock
             cmbEvento.Items.Add("Registro de nuevo stock");
+            cmbEvento.Items.Add("Registro de distribuidor");
             //Modulo gestión de Backup/Restore
             cmbEvento.Items.Add("Creación de backup");
             cmbEvento.Items.Add("Restauración desde backup");

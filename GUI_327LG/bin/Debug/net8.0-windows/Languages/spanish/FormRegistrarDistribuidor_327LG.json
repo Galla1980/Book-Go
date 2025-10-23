@@ -1,20 +1,16 @@
 {
     "label": 
     {
-      "lblTitulo": "Registrar cliente",
-      "lblDni": "DNI",
-      "lblNombre": "Nombre",
-      "lblApellido": "Apellido",
-      "lblEmail": "Correo",
-      "lblDireccion": "Dirección",
-      "lblTelefono": "Teléfono",
-      "lblDesencriptar": "Desencriptar",
+      "lblTitulo": "Registrar distribuidor",
       "lblModoConsulta": "Modo: Consulta",
       "lblModoRegistrar": "Modo: Registrar",
       "lblModoEliminar": "Modo: Eliminar",
       "lblModoModificar": "Modo: Modificar",
-      "lblModoDeserializar":"Modo: Deserializacion",
-      "lblArchivo": "Archivo Deserializado"
+      "lblCUIT": "CUIT",
+      "lblEmpresa": "Empresa",
+      "lblDireccion": "Dirección",
+      "lblCorreo": "Correo",
+      "lblTelefono": "Teléfono"
     },
 
 
@@ -35,9 +31,8 @@
     {
       "columna":
       {
-        "dni": "DNI",
-        "nombre": "Nombre",
-        "apellido": "Apellido",
+        "CUIT": "CUIT",
+        "Empresa": "Empresa",
         "correo": "Correo",
         "direccion": "Dirección",
         "telefono": "Teléfono"
