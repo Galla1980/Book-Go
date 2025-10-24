@@ -1,11 +1,6 @@
 ﻿using BE_327LG;
 using DAL_327LG;
 using Services_327LG.Singleton_327LG;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL_327LG
 {
@@ -16,17 +11,30 @@ namespace BLL_327LG
         public BLLDistribuidor_327LG()
         {
             dalDistribuidor = new DALDistribuidor_327LG();
+            bllEvento = new BLLEvento_327LG();
         }
 
         public void RegistrarDistribuidor_327LG(BEDistribuidor_327LG distribuidor)
         {
             dalDistribuidor.RegistrarDistribuidor_327LG(distribuidor);
-            bllEvento.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Registro de distribuidor", 4);
+            bllEvento.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Registro de distribuidor", 5);
         }
         public List<BEDistribuidor_327LG> ObtenerDistribuidores_327LG()
         {
             List<BEDistribuidor_327LG> listaDistribuidores = dalDistribuidor.ObtenerDistribuidores_327LG();
             return listaDistribuidores;
+        }
+
+        public void ModificarDistribuidor_327LG(BEDistribuidor_327LG distribuidor)
+        {
+            dalDistribuidor.ModificarDistribuidor_327LG(distribuidor);
+            bllEvento.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Modificación de distribuidor", 4);
+        }
+
+        public void EliminarDistribuidor_327LG(BEDistribuidor_327LG distribuidor)
+        {
+            dalDistribuidor.EliminarDistribuidor_327LG(distribuidor);
+            bllEvento.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Eliminacion de distribuidor", 3);
         }
     }
 }

@@ -215,7 +215,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1093, 586);
+            ClientSize = new Size(1093, 447);
             Controls.Add(lblModo);
             Controls.Add(btnCancelar);
             Controls.Add(btnAplicar);
@@ -238,6 +238,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRegistrarDistribuidor_327LG";
             FormClosing += FormRegistrarDistribuidor_327LG_FormClosing;
+            Load += FormRegistrarDistribuidor_327LG_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDistribuidores).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -24,7 +24,8 @@
     {
       "libros":"Libros",
       "ejemplares":"Ejemplares",
-      "clientes" : "Clientes"
+      "clientes" : "Clientes",
+      "distribuidores": "Distribuidores"
     }    
   },
   "menu_prestamos": {

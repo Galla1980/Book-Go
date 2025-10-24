@@ -66,7 +66,7 @@ namespace GUI_327LG
             iniciarSesiónItem.Text = LM_327LG.ObtenerString("menu_usuario.items.iniciar_sesion");
             cambiarContraseñaItem.Text = LM_327LG.ObtenerString("menu_usuario.items.cambiar_contrasena");
             cerrarSesiónItem.Text = LM_327LG.ObtenerString("menu_usuario.items.cerrar_sesion");
-            
+
             //admin
             adminItem.Text = LM_327LG.ObtenerString("menu_admin.texto");
             gestiónUsuariosMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_usuarios");
@@ -75,13 +75,14 @@ namespace GUI_327LG
             gestiónDeFamiliasMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_familias");
             gestionDePerfilesMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_perfiles");
             bitacoraMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.bitacora");
-            
+
             //maestros
             maestroItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
             librosItem.Text = LM_327LG.ObtenerString("menu_maestro.items.libros");
             ejemplaresItem.Text = LM_327LG.ObtenerString("menu_maestro.items.ejemplares");
             clientesToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.items.clientes");
-            
+            distribuidoresToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.items.distribuidores");
+
             //prestamos
             prestamosItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
             registrarPrestamoToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_prestamo");
@@ -93,7 +94,7 @@ namespace GUI_327LG
             //reportes
             reporteItem.Text = LM_327LG.ObtenerString("menu_reporte.texto");
             facturaMenuItem.Text = LM_327LG.ObtenerString("menu_reporte.items.factura");
-           
+
             //ayuda 
             ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");
             tsmiIdioma.Text = LM_327LG.ObtenerString("label_idioma.texto");
@@ -124,7 +125,7 @@ namespace GUI_327LG
                 {
                     prestamosItem.Enabled = true;
                 }
-                if(bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")))
+                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")))
                 {
                     reposicionItem.Enabled = true;
                 }
@@ -288,5 +289,7 @@ namespace GUI_327LG
         {
             AbrirFormulario_327LG<FormRegistrarDistribuidor_327LG>();
         }
+
+        
     }
 }

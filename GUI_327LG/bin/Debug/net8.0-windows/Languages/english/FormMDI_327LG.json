@@ -24,7 +24,8 @@
     {
       "libros":"Books",
       "ejemplares":"Copies",
-      "clientes": "Clients"
+      "clientes": "Clients",
+      "distribuidores": "Distributors"
     }
     
   },
