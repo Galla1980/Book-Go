@@ -13,6 +13,11 @@ namespace BE_327LG
         public string autor_327LG { get; set; }
         public string editorial_327LG { get; set; }
         public int edicion_327LG { get; set; }
+
+        public BELibro_327LG()
+        {
+            
+        }
         public BELibro_327LG(string iSBN_327LG, string titulo_327LG, string autor_327LG, string editorial_327LG, int edicion_327LG)
         {
             ISBN_327LG = iSBN_327LG;

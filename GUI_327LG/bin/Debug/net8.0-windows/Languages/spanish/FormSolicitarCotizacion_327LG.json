@@ -1,0 +1,103 @@
+{
+    "label": 
+    {
+      "lblTituloForm": "Solicitar cotización",
+      "lblEjemplares": "Lista de libros disponibles",
+      "lblLibroSeleccionado": "Libros seleccionados",
+      "lblISBN": "ISBN",
+      "lblTitulo": "Titulo",
+      "lblAutor": "Autor",
+      "lblEditorial": "Editorial",
+      "lblEdicion": "Edicion",
+      "lblDistribuidores": "Lista de distribuidores",
+      "lblDistribuidorSeleccionado": "Distribuidores seleccionados",
+      "lblCUIT": "CUIT",
+      "lblEmpresa": "Empresa",
+
+      "lblDireccion": "Dirección",
+      "lblCorreo": "Correo",
+      "lblTelefono": "Teléfono"
+    },
+
+
+    "button": 
+    {
+
+
+      "btnAgregarLibro": "Agregar libro a solicitud \n ------->",
+      "btnQuitarLibro": "Quitar libro de la solicitud \n <-------",
+      "btnFiltrar": "Filtrar",
+      "btnAgregarDistribuidor": "Agregar distribuidor a solicitud \n ------->",
+      "btnQuitarDistribuidor": "Quitar distribuidor de la solicitud \n <-------",
+      "btnGenerarSolicitud": "Generar solicitud",
+      "btnCancelar": "Cancelar"
+      
+    },
+    "datagridview":
+    {
+      "columna":
+      {
+        "isbn": "ISBN",
+        "titulo": "Titulo",
+        "autor": "Autor",
+        "editorial": "Editorial",
+        "edicion": "Edicion",
+        "disponibles": "Disponibles",
+        "prestados": "Prestados",
+        "cuit": "CUIT",
+        "empresa": "Empresa",
+        "correo": "Correo",
+        "direccion": "Dirección",
+        "telefono": "Teléfono"
+      }
+    },
+
+    "exception":
+    {
+      "libro_no_encontrado":"No se encontró ningún libro que coincida con los filtros.",
+      "libro_ya_agregado": "El libro ya fue agregado a la solicitud.",
+      "seleccionar_libro_lista": "Debe seleccionar un libro en la lista.",
+      "seleccionar_libro": "Debe seleccionar un libro en la grilla.",
+      "seleccionar_fila": "Debe seleccionar un distribuidor en la grilla.",
+      "seleccionar_distribuidor_lista": "Debe seleccionar un distribuidor en la lista.",
+      "distribuidor_ya_agregado": "El distribuidor ya fue seleccionado para la solicitud.",
+      "lista_libros_vacia":"Debe agregar un libro a la lista para solicitar una cotización.",
+      "lista_distribuidores_vacia": "Debe seleccionar un distribuidor para solicitar la cotización.",
+      "distribuidor_no_encontrado": "No se encontro ningún distribuidor en la base de datos con ese CUIT.",
+      "solicitud_repetida":"La solicitud contiene libros que ya se solicitaron cotizar el dia de la fecha. \nLibros:" ,
+      "grilla_vacia": "La grilla no puede estar vacía.",
+      "campos_vacios": "Por favor complete todos los campos.",
+      "cuit_invalido": "El CUIT ingresado no es válido, el formato debe ser: xx-xxxxxxxx-x .",
+      "cuit_ya_registrado": "El CUIT ingresado ya esta asignado a otro distribuidor.",
+      "nombre_con_numeros": "El nombre no puede contener números.",
+      "apellido_con_numeros": "El apellido no puede contener números.",
+      "dni_no_valido": "El DNI no cumple el formato (8 digitos)",
+      "dni_en_uso": "El DNI está en uso.",
+      "email_no_valido": "El formato del correo no es valido.",
+      "telefono_no_valido": "El formato del telefono no es valido.\n Formato esperado: 011 1234-5678",
+      "sin_cambios": "No se puede modificar el distribuidor, no hay ningún cambio en los datos ingresados."
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "solicitud_generada_exito": "Solicitud generada", 
+        "error": "Error",
+        "confirmacion": "Confirmar operación",
+        "registro_exito": "Distribuidor registrado",
+        "modificacion_exito": "Distribuidor modificado",
+        "eliminacion_exito": "Distribuidor eliminado"
+      },
+      "mensaje":
+      {
+        "solicitud_generada_exito":"La solicitud fue generada correctamente.",
+        "solicitud_ya_generada": "Ya se generó una solicitud al distribuidor el dia de la fecha ¿Quiere continuar?"
+      },
+      "button":
+      {
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+}

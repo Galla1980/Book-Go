@@ -21,9 +21,9 @@ namespace BLL_327LG
             dalLibro_327LG.AgregarLibro_327LG(libro);
         }
 
-        public List<BELibro_327LG> FiltrarLibros_327LG(string? titulo_327LG, string? autor_327LG, string? editorial_327LG, int? edicion_327LG)
+        public List<BELibro_327LG> FiltrarLibros_327LG(string? isbn, string? titulo_327LG, string? autor_327LG, string? editorial_327LG, int? edicion_327LG)
         {
-            return dalLibro_327LG.BuscarLibros_327LG(titulo_327LG, autor_327LG, editorial_327LG, edicion_327LG);
+            return dalLibro_327LG.BuscarLibros_327LG(isbn, titulo_327LG, autor_327LG, editorial_327LG, edicion_327LG);
         }
 
         public List<BELibro_327LG> ObtenerLibros_327LG()

@@ -41,7 +41,9 @@
     "texto": "Replenishment",
     "items": 
     {
-      "registrar_distribuidor": "Register distributor"
+      "registrar_distribuidor": "Register distributor",
+      "solicitar_cotizacion": "Request quote"
+
     }
   },
   "menu_reporte": {

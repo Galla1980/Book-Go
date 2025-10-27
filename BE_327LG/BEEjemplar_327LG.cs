@@ -11,11 +11,20 @@ namespace BE_327LG
         public int nroEjemplar_327LG { get; set; }
         public Estado_327LG Estado_327LG { get; set; }
         public BELibro_327LG libro_327LG { get; set; }
+
+        public string ISBN_327LG { get; set; }
         public BEEjemplar_327LG(Estado_327LG estado_327LG, BELibro_327LG libro_327LG)
         {
             this.nroEjemplar_327LG = nroEjemplar_327LG;
             Estado_327LG = estado_327LG;
             this.libro_327LG = libro_327LG;
+        }
+
+        public BEEjemplar_327LG(int nroEjemplar_327LG, Estado_327LG estado_327LG, string isbn_327LG)
+        {
+            this.nroEjemplar_327LG = nroEjemplar_327LG;
+            Estado_327LG = estado_327LG;
+            ISBN_327LG = isbn_327LG;
         }
         public BEEjemplar_327LG(int nroEjemplar_327LG, Estado_327LG estado_327LG, BELibro_327LG libro_327LG)
         {

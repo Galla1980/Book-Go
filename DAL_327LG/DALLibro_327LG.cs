@@ -28,7 +28,7 @@ namespace DAL_327LG
             }
         }
 
-        public List<BELibro_327LG> BuscarLibros_327LG(string? titulo_327LG, string? autor_327LG, string? editorial_327LG, int? edicion_327LG)
+        public List<BELibro_327LG> BuscarLibros_327LG(string? isbn, string? titulo_327LG, string? autor_327LG, string? editorial_327LG, int? edicion_327LG)
         {
             List<BELibro_327LG> listaLibros = new List<BELibro_327LG>();
 
@@ -38,12 +38,14 @@ namespace DAL_327LG
                          WHERE (@Titulo IS NULL OR Titulo_327LG LIKE '%' + @Titulo + '%')
                            AND (@Autor IS NULL OR Autor_327LG LIKE '%' + @Autor + '%')
                            AND (@Editorial IS NULL OR Editorial_327LG LIKE '%' + @Editorial + '%')
+                           AND (@isbn IS NULL OR ISBN_327LG LIKE @isbn + '%')
                            AND (@Edicion IS NULL OR Edicion_327LG = @Edicion)";
                 SqlCommand cmd_327LG = new SqlCommand(query, con_327LG);
                 cmd_327LG.Parameters.AddWithValue("@Titulo", string.IsNullOrEmpty(titulo_327LG) ? DBNull.Value : titulo_327LG);
                 cmd_327LG.Parameters.AddWithValue("@Autor", string.IsNullOrEmpty(autor_327LG) ? DBNull.Value : autor_327LG);
                 cmd_327LG.Parameters.AddWithValue("@Editorial", string.IsNullOrEmpty(editorial_327LG) ? DBNull.Value : editorial_327LG);
                 cmd_327LG.Parameters.AddWithValue("@Edicion", edicion_327LG.HasValue ? edicion_327LG.Value : DBNull.Value);
+                cmd_327LG.Parameters.AddWithValue("@isbn", string.IsNullOrEmpty(isbn) ? DBNull.Value : isbn);
 
                 con_327LG.Open();
                 using (SqlDataReader dr_327LG = cmd_327LG.ExecuteReader())

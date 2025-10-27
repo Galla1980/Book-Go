@@ -36,5 +36,12 @@ namespace BLL_327LG
             dalDistribuidor.EliminarDistribuidor_327LG(distribuidor);
             bllEvento.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Eliminacion de distribuidor", 3);
         }
+
+        public List<BEDistribuidor_327LG> FiltrarDistribuidores_327LG(string? CUIT, string? Empresa)
+        {
+            return dalDistribuidor.FiltrarDistribuidores_327LG(CUIT, Empresa);
+        }
+
+        
     }
 }

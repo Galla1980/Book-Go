@@ -90,6 +90,7 @@ namespace GUI_327LG
             //reposicion
             reposicionItem.Text = LM_327LG.ObtenerString("menu_reposicion.texto");
             registrarDistribuidorToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_reposicion.items.registrar_distribuidor");
+            solicitarCotizaciónToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_reposicion.items.solicitar_cotizacion");
 
             //reportes
             reporteItem.Text = LM_327LG.ObtenerString("menu_reporte.texto");
@@ -290,6 +291,9 @@ namespace GUI_327LG
             AbrirFormulario_327LG<FormRegistrarDistribuidor_327LG>();
         }
 
-        
+        private void solicitarCotizaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormSolicitarCotizacion_327LG>();
+        }
     }
 }

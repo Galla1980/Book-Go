@@ -92,5 +92,35 @@ namespace DAL_327LG
             }
             return listaEjemplares;
         }
+
+        public List<BEEjemplar_327LG> ObtenerTodosEjemplares()
+        {
+            List<BEEjemplar_327LG> listaEjemplares = new List<BEEjemplar_327LG>();
+            using (SqlConnection con_327LG = new SqlConnection(connectionString_327LG))
+            {
+                string query = @" SELECT *
+                FROM Ejemplar_327LG";
+                SqlCommand cmd_327LG = new SqlCommand(query, con_327LG);
+                con_327LG.Open();
+
+                using (SqlDataReader dr = cmd_327LG.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Estado_327LG estado;
+                        if (!Enum.TryParse(dr["Estado_327LG"].ToString(), out estado))
+                            estado = Estado_327LG.Disponible;
+
+                        BEEjemplar_327LG ejemplar = new BEEjemplar_327LG(
+                            Convert.ToInt32(dr["nroEjemplar_327LG"]),
+                            estado,
+                            Convert.ToString(dr["ISBN_327LG"])
+                        );
+                        listaEjemplares.Add(ejemplar);
+                    }
+                }
+            }
+            return listaEjemplares;
+        }
     }
 }

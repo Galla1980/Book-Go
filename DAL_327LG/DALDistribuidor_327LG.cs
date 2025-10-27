@@ -11,6 +11,34 @@ namespace DAL_327LG
             connectionString = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
         }
 
+        public BEDistribuidor_327LG ObtenerDistribuidorPorCUIT(string cuit)
+        {
+            BEDistribuidor_327LG distribuidor = null;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from Distribuidor_327LG WHERE CUIT_327LG = @CUIT", con))
+                {
+                    cmd.Parameters.AddWithValue("@CUIT", cuit);
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            distribuidor = new(
+                                reader["CUIT_327LG"].ToString(),
+                                reader["Empresa_327LG"].ToString(),
+                                reader["Telefono_327LG"].ToString(),
+                                reader["Direccion_327LG"].ToString(),
+                                reader["Correo_327LG"].ToString(),
+                                Convert.ToBoolean(reader["Activo_327LG"]));
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            return distribuidor;
+        }
+
         public void EliminarDistribuidor_327LG(BEDistribuidor_327LG distribuidor)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -23,6 +51,37 @@ namespace DAL_327LG
                     con.Close();
                 }
             }
+        }
+
+        public List<BEDistribuidor_327LG> FiltrarDistribuidores_327LG(string? CUIT, string? empresa)
+        {
+            List<BEDistribuidor_327LG> listaDistribuidores = new List<BEDistribuidor_327LG>();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from Distribuidor_327LG WHERE (@CUIT IS NULL OR CUIT_327LG = @CUIT) " +
+                    "AND (@Empresa IS NULL OR Empresa_327LG LIKE '%' + @Empresa + '%')", con))
+                {
+                    cmd.Parameters.AddWithValue("@CUIT", (object?)CUIT ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Empresa", (object?)empresa ?? DBNull.Value);
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            BEDistribuidor_327LG distribuidor = new(
+                                reader["CUIT_327LG"].ToString(),
+                                reader["Empresa_327LG"].ToString(),
+                                reader["Telefono_327LG"].ToString(),
+                                reader["Direccion_327LG"].ToString(),
+                                reader["Correo_327LG"].ToString(),
+                                Convert.ToBoolean(reader["Activo_327LG"]));
+                            listaDistribuidores.Add(distribuidor);
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            return listaDistribuidores;
         }
 
         public void ModificarDistribuidor_327LG(BEDistribuidor_327LG distribuidor)

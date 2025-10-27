@@ -40,7 +40,9 @@
     "texto": "Reposición",
     "items": 
     {
-      "registrar_distribuidor": "Registrar distribuidor"
+      "registrar_distribuidor": "Registrar distribuidor",
+      "solicitar_cotizacion": "Solicitar cotización"
+
     }
   },
   "menu_reporte": {
