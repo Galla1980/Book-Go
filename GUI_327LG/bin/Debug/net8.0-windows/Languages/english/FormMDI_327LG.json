@@ -42,7 +42,8 @@
     "items": 
     {
       "registrar_distribuidor": "Register distributor",
-      "solicitar_cotizacion": "Request quote"
+      "solicitar_cotizacion": "Request quote",
+      "generar_orden_compra": "Generate buy order"
 
     }
   },

@@ -65,5 +65,32 @@ namespace BLL_327LG
             }
             return librosRepetidos;
         }
+
+        public List<BESolicitudCotizacion_327LG> ObtenerSolicitudesPendientes_327LG()
+        {
+            return dalSolicitudCotizacion_327LG.ObtenerTodasSolicitudesActivas_327LG();
+        }
+
+        public List<BEOrdenCompraDetalle_327LG> ObtenerDetallesSolicitud_327LG(string? nroSolicitud)
+        {
+            List<BEOrdenCompraDetalle_327LG> detalles = new List<BEOrdenCompraDetalle_327LG>();
+            List<BELibro_327LG> libros = dalSolicitudCotizacion_327LG.ObtenerLibrosPorSolicitud(nroSolicitud);
+            foreach (var libro in libros)
+            {
+                BEOrdenCompraDetalle_327LG detalle = new BEOrdenCompraDetalle_327LG
+                {
+                    libro_327LG = libro,
+                    Cantidad_327LG = 0,
+                    PrecioUnitario_327LG = 0
+                };
+                detalles.Add(detalle);
+            }
+            return detalles;
+        }
+
+        public void ActualizarEstadoSolicitud_327LG(string nroSolicitud)
+        {
+            dalSolicitudCotizacion_327LG.ActualizarEstadoSolicitud_327LG(nroSolicitud);
+        }
     }
 }

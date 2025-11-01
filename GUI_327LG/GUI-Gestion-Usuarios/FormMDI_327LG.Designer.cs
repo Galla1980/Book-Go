@@ -57,6 +57,7 @@
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
+            generarOrdenCompraToolStripMenuItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -207,7 +208,7 @@
             // 
             // reposicionItem
             // 
-            reposicionItem.DropDownItems.AddRange(new ToolStripItem[] { registrarDistribuidorToolStripMenuItem, solicitarCotizaciónToolStripMenuItem });
+            reposicionItem.DropDownItems.AddRange(new ToolStripItem[] { registrarDistribuidorToolStripMenuItem, solicitarCotizaciónToolStripMenuItem, generarOrdenCompraToolStripMenuItem });
             reposicionItem.Name = "reposicionItem";
             reposicionItem.Size = new Size(77, 20);
             reposicionItem.Text = "Reposición";
@@ -215,14 +216,14 @@
             // registrarDistribuidorToolStripMenuItem
             // 
             registrarDistribuidorToolStripMenuItem.Name = "registrarDistribuidorToolStripMenuItem";
-            registrarDistribuidorToolStripMenuItem.Size = new Size(184, 22);
+            registrarDistribuidorToolStripMenuItem.Size = new Size(193, 22);
             registrarDistribuidorToolStripMenuItem.Text = "Registrar distribuidor";
             registrarDistribuidorToolStripMenuItem.Click += registrarDistribuidorToolStripMenuItem_Click;
             // 
             // solicitarCotizaciónToolStripMenuItem
             // 
             solicitarCotizaciónToolStripMenuItem.Name = "solicitarCotizaciónToolStripMenuItem";
-            solicitarCotizaciónToolStripMenuItem.Size = new Size(184, 22);
+            solicitarCotizaciónToolStripMenuItem.Size = new Size(193, 22);
             solicitarCotizaciónToolStripMenuItem.Text = "Solicitar cotización";
             solicitarCotizaciónToolStripMenuItem.Click += solicitarCotizaciónToolStripMenuItem_Click;
             // 
@@ -271,6 +272,13 @@
             tscmbIdioma.Size = new Size(121, 23);
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
+            // 
+            // generarOrdenCompraToolStripMenuItem
+            // 
+            generarOrdenCompraToolStripMenuItem.Name = "generarOrdenCompraToolStripMenuItem";
+            generarOrdenCompraToolStripMenuItem.Size = new Size(193, 22);
+            generarOrdenCompraToolStripMenuItem.Text = "Generar orden compra";
+            generarOrdenCompraToolStripMenuItem.Click += generarOrdenCompraToolStripMenuItem_Click;
             // 
             // FormMDI_327LG
             // 
@@ -327,5 +335,6 @@
         private ToolStripMenuItem registrarDistribuidorToolStripMenuItem;
         private ToolStripMenuItem distribuidoresToolStripMenuItem;
         private ToolStripMenuItem solicitarCotizaciónToolStripMenuItem;
+        private ToolStripMenuItem generarOrdenCompraToolStripMenuItem;
     }
 }

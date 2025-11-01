@@ -148,5 +148,24 @@ namespace DAL_327LG
             }
             return ultimaSolicitud;
         }
+
+        public void ActualizarEstadoSolicitud_327LG(string nroSolicitud)
+        {
+            using(SqlConnection con = new SqlConnection(connectionString_327LG))
+            {
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandText = @"
+                    UPDATE SolicitudCotizacion_327LG
+                    SET Activo_327LG = 0
+                    WHERE NroSolicitud_327LG = @nroSolicitud;";
+                    cmd.Parameters.AddWithValue("@nroSolicitud", nroSolicitud);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
     }
 }

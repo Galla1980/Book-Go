@@ -41,8 +41,8 @@
     "items": 
     {
       "registrar_distribuidor": "Registrar distribuidor",
-      "solicitar_cotizacion": "Solicitar cotización"
-
+      "solicitar_cotizacion": "Solicitar cotización",
+      "generar_orden_compra": "Generar orden compra"
     }
   },
   "menu_reporte": {
