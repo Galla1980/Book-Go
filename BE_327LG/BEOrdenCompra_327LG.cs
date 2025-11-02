@@ -13,7 +13,7 @@ namespace BE_327LG
         public DateTime Fecha_327LG { get; set; }
         public BEDistribuidor_327LG Distribuidor_327LG { get; set; }
         public decimal Total_327LG { get; set; }
-        public List<BEOrdenCompraDetalle_327LG> LibrosSolcitados_327LGs = new List<BEOrdenCompraDetalle_327LG>();
+        public List<BEOrdenCompraDetalle_327LG> LibrosSolcitados_327LG = new List<BEOrdenCompraDetalle_327LG>();
         public string Banco_327LG { get; set; }
         public string CBU_327LG { get; set; }
         public string NombreTitular_327LG { get; set; }
@@ -27,7 +27,7 @@ namespace BE_327LG
             Fecha_327LG = fecha_327LG;
             Distribuidor_327LG = distribuidor_327LG;
             Total_327LG = total_327LG;
-            LibrosSolcitados_327LGs = librosSolcitados_327LGs;
+            LibrosSolcitados_327LG = librosSolcitados_327LGs;
             Banco_327LG = banco_327LG;
             CBU_327LG = cbu_327LG;
             NombreTitular_327LG = nombreTitular_327LG;

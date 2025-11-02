@@ -88,6 +88,9 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             cmbEvento.Items.Add("Registro de nuevo stock");
             cmbEvento.Items.Add("Registro de distribuidor");
             cmbEvento.Items.Add("Generación de solicitud de  cotización");
+            cmbEvento.Items.Add("Registro de recepción");
+            cmbEvento.Items.Add("Generación de orden de compra");
+
             //Modulo gestión de Backup/Restore
             cmbEvento.Items.Add("Creación de backup");
             cmbEvento.Items.Add("Restauración desde backup");
@@ -286,6 +289,8 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                     cmbEvento.Items.Add("Registro de nuevo stock");
                     cmbEvento.Items.Add("Registro de distribuidor");
                     cmbEvento.Items.Add("Generación de solicitud de  cotización");
+                    cmbEvento.Items.Add("Registro de recepción");
+                    cmbEvento.Items.Add("Generación de orden de compra");
                     break;
                 case 4: //Gestión de Backup/Restore
                     cmbEvento.Items.Add("Creación de backup");

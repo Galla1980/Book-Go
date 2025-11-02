@@ -13,6 +13,12 @@ namespace BLL_327LG
     {
         private readonly DALOrdenCompra_327LG dalOrdenCompra_327LG = new DALOrdenCompra_327LG();
         private readonly BLLEvento_327LG bllEvento_327LG = new BLLEvento_327LG();
+
+        public void ActualizarEstadoOrden(BEOrdenCompra_327LG orden)
+        {
+            dalOrdenCompra_327LG.ActualizarEstadoOrden(orden);
+        }
+
         public void GenerarOrdenCompra_327LG(BEOrdenCompra_327LG ordenCompra)
         {
             string nroOrden = string.Empty;
@@ -28,6 +34,16 @@ namespace BLL_327LG
             ordenCompra.nroOrden_327LG = nroOrden;
             dalOrdenCompra_327LG.GenerarOrdenCompra_327LG(ordenCompra);
             bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Generación de orden de compra", 3);
+        }
+
+        public List<BEOrdenCompraDetalle_327LG> ObtenerDetalles_327LG(string nroOrdenSeleccionada)
+        {
+            return dalOrdenCompra_327LG.ObtenerDetalles_327LG(nroOrdenSeleccionada);
+        }
+
+        public List<BEOrdenCompra_327LG> ObtenerOrdenesCompra_327LG()
+        {
+            return dalOrdenCompra_327LG.ObtenerOrdenesCompra_327LG();
         }
 
         private BEOrdenCompra_327LG ObtenerUltimaOrden_327LG()

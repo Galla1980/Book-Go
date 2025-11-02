@@ -43,7 +43,8 @@
     {
       "registrar_distribuidor": "Register distributor",
       "solicitar_cotizacion": "Request quote",
-      "generar_orden_compra": "Generate buy order"
+      "generar_orden_compra": "Generate buy order",
+      "registrar_recepcion": "Register reception"
 
     }
   },
