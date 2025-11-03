@@ -51,6 +51,7 @@ namespace GUI_327LG.Maestros
             dgvLibros.Columns["Edicion_327LG"].FillWeight = 15;
             dgvLibros.Columns["Titulo_327LG"].FillWeight = 50;
             dgvLibros.Columns["Autor_327LG"].FillWeight = 20;
+            dgvLibros.Columns["Eliminado_327LG"].Visible = false;
         }
     }
 }

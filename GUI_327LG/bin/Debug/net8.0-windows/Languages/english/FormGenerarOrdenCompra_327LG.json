@@ -1,0 +1,85 @@
+{
+  "label": 
+  {
+    "lblTitulo": "Generate purchase order",
+    "lblSolicitudes": "List of requests:",
+    "lblLibros": "Books in the request:",
+    "lblCantidad": "Quantity",
+    "lblPrecio": "Unit price"
+  },
+
+  "button": 
+  {
+    "btnSeleccionar": "Select",
+    "btnEliminar": "Delete",
+    "btnActualizar": "Update",
+    "btnCancelar": "Cancel",
+    "btnGenerarOrden": "Generate order"
+  },
+
+  "datagridview":
+  {
+    "solicitudes": {
+      "columna": {
+        "nrosolicitud": "Request No.",
+        "distribuidor": "Distributor",
+        "fecha": "Date",
+        "articulos": "Items"
+      }
+    },
+    "libros": {
+      "columna": {
+        "isbn": "ISBN",
+        "titulo": "Title",
+        "autor": "Author",
+        "editorial": "Publisher",
+        "edicion": "Edition",
+        "cantidad": "Quantity",
+        "preciounitario": "Unit Price",
+        "subtotal": "Subtotal"
+      }
+    }
+  },
+
+  "exception":
+  {
+    "seleccionar_libro": "You must select a book in the grid.",
+    "campos_vacios": "Please fill in all fields.",
+    "cantidad_vacia": "The number of books cannot be blank.",
+    "precio_vacio": "The unit price cannot be blank.",
+    "cantidad_invalida": "The number of books must be an integer greater than 0.",
+    "precio_invalido": "The unit price must be a decimal greater than 0.",
+    "seleccionar_solicitud": "You must select a request in the grid.",
+    "campos_vacios_libro": "All books in the grid must have quantity and unit price filled in.",
+    "cantidad_invalida_libro": "All books in the order must have a valid quantity of units entered.",
+    "precio_invalido_libro": "All books in the order must have a valid unit price entered.",
+    "sin_libros_orden_compra": "The order must have at least one book loaded.",
+    "pago_no_completado": "The payment could not be completed; the purchase order was not generated."
+  },
+
+  "messagebox": 
+  {
+    "titulo": 
+    {
+      "error": "Error",
+      "cancelar": "Do you want to cancel?",
+      "eliminar": "Do you want to delete?",
+      "orden_compra_generada": "Purchase order generated",
+      "confirmacion": "Confirm operation",
+      "registro_exito": "Distributor registered",
+      "modificacion_exito": "Distributor updated",
+      "eliminacion_exito": "Distributor deleted"
+    },
+    "mensaje":
+    {
+      "cancelar": "Are you sure you want to cancel the operation? The entered quantities and prices will be lost.",
+      "eliminar": "Do you want to delete the book from the order?",
+      "orden_compra_generada": "The purchase order was successfully generated."
+    },
+    "button":
+    {
+      "aceptar": "OK",
+      "cancelar": "Cancel"
+    }
+  }
+}

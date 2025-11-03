@@ -24,7 +24,8 @@
     {
       "libros":"Libros",
       "ejemplares":"Ejemplares",
-      "clientes" : "Clientes"
+      "clientes" : "Clientes",
+      "distribuidores": "Distribuidores"
     }    
   },
   "menu_prestamos": {
@@ -36,13 +37,21 @@
     }
   },
   "menu_reposicion": {
-    "texto": "Reposición"
+    "texto": "Reposición",
+    "items": 
+    {
+      "registrar_distribuidor": "Registrar distribuidor",
+      "solicitar_cotizacion": "Solicitar cotización",
+      "generar_orden_compra": "Generar orden compra",
+      "registrar_recepcion": "Registrar recepción"
+    }
   },
   "menu_reporte": {
     "texto": "Reportes",
     "items": 
     {
-      "factura": "Factura"
+      "factura": "Factura",
+      "orden": "Orden de compra"
     }
   },
   "menu_ayuda": {

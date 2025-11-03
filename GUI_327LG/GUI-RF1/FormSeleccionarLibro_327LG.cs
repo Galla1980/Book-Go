@@ -62,8 +62,8 @@ namespace GUI_327LG.GUIRF1
                 string? editorial = string.IsNullOrWhiteSpace(txtEditorial.Text) ? null : txtEditorial.Text;
                 int? edicion = null;
                 if (int.TryParse(txtEdicion.Text, out int edicionParsed)) edicion = edicionParsed;
-                if (bllLibro_327LG.FiltrarLibros_327LG(titulo, autor, editorial, edicion).IsNullOrEmpty()) throw new Exception(LM_327LG.ObtenerString("exception.libro_no_encontrado"));
-                dgvLibro.DataSource = bllLibro_327LG.FiltrarLibros_327LG(titulo, autor, editorial, edicion);
+                if (bllLibro_327LG.FiltrarLibros_327LG(null, titulo, autor, editorial, edicion).IsNullOrEmpty()) throw new Exception(LM_327LG.ObtenerString("exception.libro_no_encontrado"));
+                dgvLibro.DataSource = bllLibro_327LG.FiltrarLibros_327LG(null, titulo, autor, editorial, edicion);
                 Actualizar_327LG();
             }
             catch (Exception ex)

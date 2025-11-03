@@ -1,0 +1,58 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Pagar orden de compra",
+      "lblBanco": "Banco",
+      "lblMonto": "Monto a pagar",
+      "lblNombre": "Nombre del titular",
+      "lblNumero": "Número de la tarjeta",
+      "lblCodigoSeg": "Código de seguridad",
+      "lblVencimiento": "Vencimiento"
+    },
+
+
+    "button": 
+    {
+      "btnCobrar": "Cobrar"
+    },
+
+    "combobox":
+    {
+      "itemEfectivo": "Efectivo",
+      "itemTarjeta": "Tarjeta"
+    },
+
+
+    "exception":
+    {
+      "monto_no_ingresado": "Debe ingresar un monto.",
+      "cbu_invalido": "El CBU debe tener 22 dígitos numéricos.",
+      "campos_vacios": "Todos los campos deben estar completos.",
+      "nombre_titular_invalido":"El nombre del titular solo debe contener letras.",
+      "numero_tarjeta_invalido": "El número de tarjeta debe tener 16 dígitos numéricos.",
+      "codigo_seguridad_invalido": "El código de seguridad debe tener 3 dígitos.",
+      "vencimiento_formato_invalido": "El vencimiento debe estar en formato MM/AA",
+      "tarjeta_vencida": "La tarjeta ingresada está vencida.",
+      "pago_no_completado": "El pago no se pudo completar, la orden de compra no se generó."
+
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "pago_exitoso": "Pago exitoso"
+      },
+      "mensaje":
+      {
+        "pago_exitoso": "El pago fue aceptado."
+      },
+      "button":
+      {
+        "aceptar": "Ok",
+        "cancelar": "Cancel"
+      }
+    }
+    
+}

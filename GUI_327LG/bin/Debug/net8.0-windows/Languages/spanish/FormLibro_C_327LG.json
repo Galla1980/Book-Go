@@ -1,0 +1,65 @@
+{
+    "label": 
+    {
+      "lblTituloForm": "Bitácora de cambios",
+      "lblTituloLibro": "Título",
+      "lblAutor": "Autor",
+      "lblEditorial": "Editorial",
+      "lblEdicion": "Edición",
+      "lblFechaInicio": "Fecha inicio",
+      "lblFechaFin": "Fecha fin"
+    },
+
+
+
+    "button": 
+    {
+      "btnFiltrar": "Filtrar",
+      "btnLimpiar": "Limpiar",
+      "btnActivar": "Activar"
+    },
+
+    "dataGridView": 
+    {
+      "idCambio": "IdCambio",
+      "Fecha": "Fecha",
+      "Hora": "Hora",
+      "Titulo": "Titulo",
+      "Autor": "Autor",
+      "Editorial": "Editorial",
+      "Edicion": "Edicion",
+      "Eliminado": "Eliminado",
+      "Activo": "Activo"
+    },
+    "exception":
+    {
+      "fecha_inicio_menor_fin":"La fecha de incio debe ser menor a la de fin.",
+      "fechas_futuras": "Las fechas filtradas no pueden ser mayores al dia de hoy.",
+      "edicion_numerica":"La edicion debe ser un numero entero.",
+      "sin_resultados":"No hay ningún cambio que coincida con los filtros buscados.",
+      "seleccionar_fila": "Debe seleccionar un cambio de la bitacora para activar.",
+      "cambio_activo": "El cambio seleccionado ya se encuentra activo.",
+      "cambio_no_encontrado": "No se pudo encontrar el cambio en la base de datos."
+
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "libro_cargado": "Libro cargado",
+        "cambio_activado": "Cambio activado"
+      },
+      "mensaje":  
+      {
+        "libro_cargado": "Libro cargado correctamente",
+        "cambio_activado": "El cambio fue activado correctamente."
+      },
+      "button":
+      {
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+}

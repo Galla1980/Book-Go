@@ -34,5 +34,10 @@ namespace BLL_327LG
         {
             return dalEjemplar_327LG.ObtenerEjemplares_327LG(ISBN);
         }
+
+        public List<BEEjemplar_327LG> ObtenerTodosEjemplares()
+        {
+            return dalEjemplar_327LG.ObtenerTodosEjemplares();
+        }
     }
 }

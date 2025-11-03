@@ -1,0 +1,92 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Registrar recepción",
+      "lblOrdenesCompra": "Ordenes de compra:",
+      "lblLibros": "Libros de la orden:",
+      "lblCantidad": "Cantidad a ingresar"
+    },
+
+    "radiobutton": 
+    {
+      "rdoPendientes":"Pendientes",
+      "rdoTodas": "Todas"
+    },
+    "button": 
+    {
+      "btnSeleccionar": "Seleccionar",
+      "btnActualizar": "Actualizar",
+      "btnCancelar": "Cancelar",
+      "btnRegistrar": "Registrar recepción"
+    },
+    "datagridview":
+    {
+      "columna":
+      {
+        "nroOrden":"Nro Orden",
+        "fecha":"Fecha",
+        "distribuidor":"Distribuidor",
+        "total":"Total",
+        "estado":"Estado",
+
+        "isbn": "ISBN",
+        "titulo": "Titulo",
+        "cantPedida": "Cant. Pedida",
+        "cantRecibida": "Cant. Recibida",
+        "cantIngresar": "Cant. Ingresar"
+      }
+      
+    },
+
+    "exception":
+    {
+      "seleccionar_libro": "Debe seleccionar un libro en la grilla.",
+      "seleccionar_orden": "Debe seleccionar una orden en la grilla.",
+      "sin_cantidades_a_ingresar": "No hay ninguna recepción cargada para registrar.",
+      "orden_ya_entregada": "La orden seleccionada ya fue entregada por completo",
+      "cantidad_excede_pedida": "La cantidad ingresada no puede exceder a la cantidad que fue ordenada.",
+      "campos_vacios": "Por favor complete todos los campos.",
+      "cantidad_vacia": "La cantidad de libros no puede estar en blanco.",
+      "precio_vacio": "El precio unitario no puede estar en blanco.",
+      "cantidad_invalida": "La cantidad de libros debe ser un entero mayor a 0.",
+      "precio_invalido": "El precio unitario debe ser un decimal mayor a 0.",
+      "seleccionar_solicitud": "Debe seleccionar una solicitud en la grilla.",
+      "campos_vacios_libro": "Todos los libros en la grilla deben tener una cantidad y precio unitario cargado.",
+      "cantidad_invalida_libro": "Todos los libros de la orden deben tener una cantidad validad de unidades cargada.",
+      "precio_invalido_libro": "Todos los libros de la orden deben tener un precio unitario valido cargado.",
+      "sin_libros_orden_compra": "La orden debe tener al menos un libro cargado.",
+      "pago_no_completado": "El pago no se pudo completar, la orden de compra no se generó."
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "recepcion_registrada":"Recepción registrada",
+        "cancelar":"¿Desea cancelar?",
+        "eliminar":"¿Desea eliminar?",
+        "orden_compra_generada":"Orden de compra generada",
+        "confirmar_recepcion": "Confirmar recepción",
+        "confirmacion": "Confirmar operación",
+        "registro_exito": "Distribuidor registrado",
+        "modificacion_exito": "Distribuidor modificado",
+        "eliminacion_exito": "Distribuidor eliminado"
+        
+      },
+      "mensaje":
+      {
+        "recepcion_registrada": "La recepeción se registró correctamente.",
+        "cancelar":"¿Está seguro de cancelar la operación? Las cantidades y precios establecidos se perderán.",
+        "eliminar":"¿Desea eliminar el libro de la orden?",
+        "confirmar_recepcion": "¿Confirma el registro de recepción?"
+
+
+      },
+      "button":
+      {
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+}

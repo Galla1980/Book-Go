@@ -44,16 +44,23 @@
             librosItem = new ToolStripMenuItem();
             ejemplaresItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
+            distribuidoresToolStripMenuItem = new ToolStripMenuItem();
+            libroCToolStripMenuItem = new ToolStripMenuItem();
             prestamosItem = new ToolStripMenuItem();
             registrarPrestamoToolStripMenuItem = new ToolStripMenuItem();
             registrarDevoluciónItem = new ToolStripMenuItem();
             reposicionItem = new ToolStripMenuItem();
+            registrarDistribuidorToolStripMenuItem = new ToolStripMenuItem();
+            solicitarCotizaciónToolStripMenuItem = new ToolStripMenuItem();
+            generarOrdenCompraToolStripMenuItem = new ToolStripMenuItem();
+            registrarRecepcionToolStripMenuItem = new ToolStripMenuItem();
             reporteItem = new ToolStripMenuItem();
             facturaMenuItem = new ToolStripMenuItem();
             ayudaItem = new ToolStripMenuItem();
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
+            ordenesDeCompraToolStripMenuItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -148,7 +155,7 @@
             // 
             // maestroItem
             // 
-            maestroItem.DropDownItems.AddRange(new ToolStripItem[] { librosItem, ejemplaresItem, clientesToolStripMenuItem });
+            maestroItem.DropDownItems.AddRange(new ToolStripItem[] { librosItem, ejemplaresItem, clientesToolStripMenuItem, distribuidoresToolStripMenuItem, libroCToolStripMenuItem });
             maestroItem.Name = "maestroItem";
             maestroItem.Size = new Size(62, 20);
             maestroItem.Text = "Maestro";
@@ -156,23 +163,37 @@
             // librosItem
             // 
             librosItem.Name = "librosItem";
-            librosItem.Size = new Size(131, 22);
+            librosItem.Size = new Size(147, 22);
             librosItem.Text = "Libros";
             librosItem.Click += librosItem_Click;
             // 
             // ejemplaresItem
             // 
             ejemplaresItem.Name = "ejemplaresItem";
-            ejemplaresItem.Size = new Size(131, 22);
+            ejemplaresItem.Size = new Size(147, 22);
             ejemplaresItem.Text = "Ejemplares";
             ejemplaresItem.Click += ejemplaresItem_Click;
             // 
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(131, 22);
+            clientesToolStripMenuItem.Size = new Size(147, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
+            // 
+            // distribuidoresToolStripMenuItem
+            // 
+            distribuidoresToolStripMenuItem.Name = "distribuidoresToolStripMenuItem";
+            distribuidoresToolStripMenuItem.Size = new Size(147, 22);
+            distribuidoresToolStripMenuItem.Text = "Distribuidores";
+            distribuidoresToolStripMenuItem.Click += registrarDistribuidorToolStripMenuItem_Click;
+            // 
+            // libroCToolStripMenuItem
+            // 
+            libroCToolStripMenuItem.Name = "libroCToolStripMenuItem";
+            libroCToolStripMenuItem.Size = new Size(147, 22);
+            libroCToolStripMenuItem.Text = "Libro_C";
+            libroCToolStripMenuItem.Click += libroCToolStripMenuItem_Click;
             // 
             // prestamosItem
             // 
@@ -197,13 +218,42 @@
             // 
             // reposicionItem
             // 
+            reposicionItem.DropDownItems.AddRange(new ToolStripItem[] { registrarDistribuidorToolStripMenuItem, solicitarCotizaciónToolStripMenuItem, generarOrdenCompraToolStripMenuItem, registrarRecepcionToolStripMenuItem });
             reposicionItem.Name = "reposicionItem";
             reposicionItem.Size = new Size(77, 20);
             reposicionItem.Text = "Reposición";
             // 
+            // registrarDistribuidorToolStripMenuItem
+            // 
+            registrarDistribuidorToolStripMenuItem.Name = "registrarDistribuidorToolStripMenuItem";
+            registrarDistribuidorToolStripMenuItem.Size = new Size(193, 22);
+            registrarDistribuidorToolStripMenuItem.Text = "Registrar distribuidor";
+            registrarDistribuidorToolStripMenuItem.Click += registrarDistribuidorToolStripMenuItem_Click;
+            // 
+            // solicitarCotizaciónToolStripMenuItem
+            // 
+            solicitarCotizaciónToolStripMenuItem.Name = "solicitarCotizaciónToolStripMenuItem";
+            solicitarCotizaciónToolStripMenuItem.Size = new Size(193, 22);
+            solicitarCotizaciónToolStripMenuItem.Text = "Solicitar cotización";
+            solicitarCotizaciónToolStripMenuItem.Click += solicitarCotizaciónToolStripMenuItem_Click;
+            // 
+            // generarOrdenCompraToolStripMenuItem
+            // 
+            generarOrdenCompraToolStripMenuItem.Name = "generarOrdenCompraToolStripMenuItem";
+            generarOrdenCompraToolStripMenuItem.Size = new Size(193, 22);
+            generarOrdenCompraToolStripMenuItem.Text = "Generar orden compra";
+            generarOrdenCompraToolStripMenuItem.Click += generarOrdenCompraToolStripMenuItem_Click;
+            // 
+            // registrarRecepcionToolStripMenuItem
+            // 
+            registrarRecepcionToolStripMenuItem.Name = "registrarRecepcionToolStripMenuItem";
+            registrarRecepcionToolStripMenuItem.Size = new Size(193, 22);
+            registrarRecepcionToolStripMenuItem.Text = "Registrar recepción";
+            registrarRecepcionToolStripMenuItem.Click += registrarRecepcionToolStripMenuItem_Click;
+            // 
             // reporteItem
             // 
-            reporteItem.DropDownItems.AddRange(new ToolStripItem[] { facturaMenuItem });
+            reporteItem.DropDownItems.AddRange(new ToolStripItem[] { facturaMenuItem, ordenesDeCompraToolStripMenuItem });
             reporteItem.Name = "reporteItem";
             reporteItem.Size = new Size(60, 20);
             reporteItem.Text = "Reporte";
@@ -211,7 +261,7 @@
             // facturaMenuItem
             // 
             facturaMenuItem.Name = "facturaMenuItem";
-            facturaMenuItem.Size = new Size(113, 22);
+            facturaMenuItem.Size = new Size(180, 22);
             facturaMenuItem.Text = "Factura";
             facturaMenuItem.Click += facturaMenuItem_Click;
             // 
@@ -247,6 +297,13 @@
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
             // 
+            // ordenesDeCompraToolStripMenuItem
+            // 
+            ordenesDeCompraToolStripMenuItem.Name = "ordenesDeCompraToolStripMenuItem";
+            ordenesDeCompraToolStripMenuItem.Size = new Size(180, 22);
+            ordenesDeCompraToolStripMenuItem.Text = "Ordenes de compra";
+            ordenesDeCompraToolStripMenuItem.Click += ordenesDeCompraToolStripMenuItem_Click;
+            // 
             // FormMDI_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -260,6 +317,7 @@
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de gestion de biblioteca";
+            WindowState = FormWindowState.Maximized;
             FormClosing += FormMDI_327LG_FormClosing;
             Load += FormMDI_Load;
             mnsPestañas.ResumeLayout(false);
@@ -298,5 +356,12 @@
         private ToolStripMenuItem backUpRestoreToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem bitacoraMenuItem;
+        private ToolStripMenuItem registrarDistribuidorToolStripMenuItem;
+        private ToolStripMenuItem distribuidoresToolStripMenuItem;
+        private ToolStripMenuItem solicitarCotizaciónToolStripMenuItem;
+        private ToolStripMenuItem generarOrdenCompraToolStripMenuItem;
+        private ToolStripMenuItem registrarRecepcionToolStripMenuItem;
+        private ToolStripMenuItem libroCToolStripMenuItem;
+        private ToolStripMenuItem ordenesDeCompraToolStripMenuItem;
     }
 }

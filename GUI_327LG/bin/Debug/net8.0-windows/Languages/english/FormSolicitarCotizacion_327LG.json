@@ -1,0 +1,99 @@
+{
+  "label": 
+  {
+    "lblTituloForm": "Request Quotation",
+    "lblEjemplares": "Available Books List",
+    "lblLibroSeleccionado": "Selected Books",
+    "lblISBN": "ISBN",
+    "lblTitulo": "Title",
+    "lblAutor": "Author",
+    "lblEditorial": "Publisher",
+    "lblEdicion": "Edition",
+    "lblDistribuidores": "Distributors List",
+    "lblDistribuidorSeleccionado": "Selected Distributors",
+    "lblCUIT": "CUIT",
+    "lblEmpresa": "Company",
+    "lblDireccion": "Address",
+    "lblCorreo": "Email",
+    "lblTelefono": "Phone"
+  },
+
+  "button": 
+  {
+    "btnAgregarLibro": "Add Book to Request \n ------->",
+    "btnQuitarLibro": "Remove Book from Request \n <-------",
+    "btnFiltrar": "Filter",
+    "btnAgregarDistribuidor": "Add Distributor to Request \n ------->",
+    "btnQuitarDistribuidor": "Remove Distributor from Request \n <-------",
+    "btnGenerarSolicitud": "Generate Request",
+    "btnCancelar": "Cancel"
+  },
+
+  "datagridview":
+  {
+    "columna":
+    {
+      "isbn": "ISBN",
+      "titulo": "Title",
+      "autor": "Author",
+      "editorial": "Publisher",
+      "edicion": "Edition",
+      "disponibles": "Available",
+      "prestados": "Borrowed",
+      "cuit": "CUIT",
+      "empresa": "Company",
+      "correo": "Email",
+      "direccion": "Address",
+      "telefono": "Phone"
+    }
+  },
+
+  "exception":
+  {
+    "libro_no_encontrado":"No book matching the filters was found.",
+    "libro_ya_agregado": "The book has already been added to the request.",
+    "seleccionar_libro_lista": "You must select a book from the list.",
+    "seleccionar_libro": "You must select a book from the grid.",
+    "seleccionar_fila": "You must select a distributor from the grid.",
+    "seleccionar_distribuidor_lista": "You must select a distributor from the list.",
+    "distribuidor_ya_agregado": "The distributor has already been selected for the request.",
+    "lista_libros_vacia":"You must add a book to the list to request a quotation.",
+    "lista_distribuidores_vacia": "You must select a distributor to request a quotation.",
+    "distribuidor_no_encontrado": "No distributor was found in the database with that CUIT.",
+    "solicitud_repetida":"The request contains books that have already been requested for quotation today. \nBooks:",
+    "grilla_vacia": "The grid cannot be empty.",
+    "campos_vacios": "Please fill in all fields.",
+    "cuit_invalido": "The entered CUIT is invalid. The format must be: xx-xxxxxxxx-x.",
+    "cuit_ya_registrado": "The entered CUIT is already assigned to another distributor.",
+    "nombre_con_numeros": "The name cannot contain numbers.",
+    "apellido_con_numeros": "The surname cannot contain numbers.",
+    "dni_no_valido": "The DNI does not meet the format (8 digits).",
+    "dni_en_uso": "The DNI is already in use.",
+    "email_no_valido": "The email format is not valid.",
+    "telefono_no_valido": "The phone format is not valid.\n Expected format: 011 1234-5678",
+    "sin_cambios": "The distributor cannot be modified, there are no changes in the entered data."
+  },
+
+  "messagebox": 
+  {
+    "titulo": 
+    {
+      "solicitud_generada_exito": "Request Generated",
+      "error": "Error",
+      "confirmacion": "Confirm Operation",
+      "registro_exito": "Distributor Registered",
+      "modificacion_exito": "Distributor Modified",
+      "eliminacion_exito": "Distributor Deleted"
+    },
+    "mensaje":
+    {
+      "solicitud_generada_exito":"The request was generated successfully.",
+      "solicitud_ya_generada": "A request has already been generated to the distributor today. Do you want to continue?"
+    },
+    "button":
+    {
+      "aceptar": "Accept",
+      "cancelar": "Cancel"
+    }
+  }
+}
