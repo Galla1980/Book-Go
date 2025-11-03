@@ -122,7 +122,16 @@ namespace GUI_327LG.GUI_RF2
                 string? autor = string.IsNullOrWhiteSpace(txtAutor.Text) ? null : txtAutor.Text.Trim();
                 string? titulo = string.IsNullOrWhiteSpace(txtTitulo.Text) ? null : txtTitulo.Text.Trim();
                 string? editorial = string.IsNullOrWhiteSpace(txtEditorial.Text) ? null : txtEditorial.Text.Trim();
-                int? edicion = string.IsNullOrWhiteSpace(txtEdicion.Text) ? null : int.Parse(txtEdicion.Text.Trim());
+                string edicionTexto = txtEdicion.Text.Trim();
+                int? edicion = null;
+
+                if (!string.IsNullOrWhiteSpace(edicionTexto))
+                {
+                    if (edicionTexto.All(char.IsDigit))
+                        edicion = int.Parse(edicionTexto);
+                    else
+                        throw new Exception("La edición debe contener solo números.");
+                }
                 List<BELibro_327LG> librosFiltrados = bllLibro_327LG.FiltrarLibros_327LG(isbn, titulo, autor, editorial, edicion);
                 if (librosFiltrados.Count == 0) throw new Exception(LM_327LG.ObtenerString("exception.libro_no_encontrado"));
                 CargarGrillaLibros(librosFiltrados);

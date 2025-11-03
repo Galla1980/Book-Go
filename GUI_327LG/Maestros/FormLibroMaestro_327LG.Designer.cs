@@ -40,13 +40,20 @@
             txtEditorial = new TextBox();
             txtEdicion = new TextBox();
             btnCargarLibro = new Button();
+            dgvLibros = new DataGridView();
+            btnModificar = new Button();
+            btnEliminar = new Button();
+            btnAplicar = new Button();
+            btnCancelar = new Button();
+            btnRefrescar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvLibros).BeginInit();
             SuspendLayout();
             // 
             // lblTituloForm
             // 
             lblTituloForm.AutoSize = true;
             lblTituloForm.Font = new Font("Segoe UI", 20F);
-            lblTituloForm.Location = new Point(193, 9);
+            lblTituloForm.Location = new Point(393, 9);
             lblTituloForm.Name = "lblTituloForm";
             lblTituloForm.Size = new Size(187, 37);
             lblTituloForm.TabIndex = 0;
@@ -55,7 +62,7 @@
             // lblISBN
             // 
             lblISBN.AutoSize = true;
-            lblISBN.Location = new Point(37, 57);
+            lblISBN.Location = new Point(12, 261);
             lblISBN.Name = "lblISBN";
             lblISBN.Size = new Size(32, 15);
             lblISBN.TabIndex = 1;
@@ -64,7 +71,7 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(143, 57);
+            lblTitulo.Location = new Point(118, 261);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(38, 15);
             lblTitulo.TabIndex = 2;
@@ -73,7 +80,7 @@
             // lblAutor
             // 
             lblAutor.AutoSize = true;
-            lblAutor.Location = new Point(249, 57);
+            lblAutor.Location = new Point(224, 261);
             lblAutor.Name = "lblAutor";
             lblAutor.Size = new Size(37, 15);
             lblAutor.TabIndex = 3;
@@ -82,7 +89,7 @@
             // lblEditorial
             // 
             lblEditorial.AutoSize = true;
-            lblEditorial.Location = new Point(355, 57);
+            lblEditorial.Location = new Point(330, 261);
             lblEditorial.Name = "lblEditorial";
             lblEditorial.Size = new Size(50, 15);
             lblEditorial.TabIndex = 4;
@@ -91,7 +98,7 @@
             // lblEdicion
             // 
             lblEdicion.AutoSize = true;
-            lblEdicion.Location = new Point(461, 57);
+            lblEdicion.Location = new Point(436, 261);
             lblEdicion.Name = "lblEdicion";
             lblEdicion.Size = new Size(46, 15);
             lblEdicion.TabIndex = 5;
@@ -99,35 +106,35 @@
             // 
             // txtISBN
             // 
-            txtISBN.Location = new Point(37, 75);
+            txtISBN.Location = new Point(12, 279);
             txtISBN.Name = "txtISBN";
             txtISBN.Size = new Size(100, 23);
             txtISBN.TabIndex = 6;
             // 
             // txtTitulo
             // 
-            txtTitulo.Location = new Point(143, 75);
+            txtTitulo.Location = new Point(118, 279);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(100, 23);
             txtTitulo.TabIndex = 7;
             // 
             // txtAutor
             // 
-            txtAutor.Location = new Point(249, 75);
+            txtAutor.Location = new Point(224, 279);
             txtAutor.Name = "txtAutor";
             txtAutor.Size = new Size(100, 23);
             txtAutor.TabIndex = 8;
             // 
             // txtEditorial
             // 
-            txtEditorial.Location = new Point(355, 75);
+            txtEditorial.Location = new Point(330, 279);
             txtEditorial.Name = "txtEditorial";
             txtEditorial.Size = new Size(100, 23);
             txtEditorial.TabIndex = 9;
             // 
             // txtEdicion
             // 
-            txtEdicion.Location = new Point(461, 75);
+            txtEdicion.Location = new Point(436, 279);
             txtEdicion.Name = "txtEdicion";
             txtEdicion.Size = new Size(100, 23);
             txtEdicion.TabIndex = 10;
@@ -135,7 +142,7 @@
             // btnCargarLibro
             // 
             btnCargarLibro.Font = new Font("Segoe UI", 15F);
-            btnCargarLibro.Location = new Point(208, 146);
+            btnCargarLibro.Location = new Point(750, 71);
             btnCargarLibro.Name = "btnCargarLibro";
             btnCargarLibro.Size = new Size(152, 55);
             btnCargarLibro.TabIndex = 11;
@@ -143,11 +150,81 @@
             btnCargarLibro.UseVisualStyleBackColor = true;
             btnCargarLibro.Click += btnCargarLibro_Click;
             // 
+            // dgvLibros
+            // 
+            dgvLibros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLibros.Location = new Point(12, 71);
+            dgvLibros.Name = "dgvLibros";
+            dgvLibros.Size = new Size(699, 172);
+            dgvLibros.TabIndex = 12;
+            dgvLibros.SelectionChanged += dgvLibros_SelectionChanged;
+            // 
+            // btnModificar
+            // 
+            btnModificar.Font = new Font("Segoe UI", 15F);
+            btnModificar.Location = new Point(750, 132);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(152, 55);
+            btnModificar.TabIndex = 13;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Font = new Font("Segoe UI", 15F);
+            btnEliminar.Location = new Point(750, 193);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(152, 55);
+            btnEliminar.TabIndex = 14;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnAplicar
+            // 
+            btnAplicar.Font = new Font("Segoe UI", 15F);
+            btnAplicar.Location = new Point(750, 252);
+            btnAplicar.Name = "btnAplicar";
+            btnAplicar.Size = new Size(152, 50);
+            btnAplicar.TabIndex = 15;
+            btnAplicar.Text = "Aplicar";
+            btnAplicar.UseVisualStyleBackColor = true;
+            btnAplicar.Click += btnAplicar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Font = new Font("Segoe UI", 15F);
+            btnCancelar.Location = new Point(750, 308);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(152, 50);
+            btnCancelar.TabIndex = 16;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnRefrescar
+            // 
+            btnRefrescar.Font = new Font("Segoe UI", 15F);
+            btnRefrescar.Location = new Point(559, 260);
+            btnRefrescar.Name = "btnRefrescar";
+            btnRefrescar.Size = new Size(152, 50);
+            btnRefrescar.TabIndex = 17;
+            btnRefrescar.Text = "Refrescar";
+            btnRefrescar.UseVisualStyleBackColor = true;
+            btnRefrescar.Click += btnRefrescar_Click;
+            // 
             // FormLibroMaestro_327LG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(582, 237);
+            ClientSize = new Size(941, 377);
+            Controls.Add(btnRefrescar);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnAplicar);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnModificar);
+            Controls.Add(dgvLibros);
             Controls.Add(btnCargarLibro);
             Controls.Add(txtEdicion);
             Controls.Add(txtEditorial);
@@ -161,7 +238,10 @@
             Controls.Add(lblISBN);
             Controls.Add(lblTituloForm);
             Name = "FormLibroMaestro_327LG";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLibroMaestro_327LG";
+            Load += FormLibroMaestro_327LG_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvLibros).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -180,5 +260,11 @@
         private TextBox txtEditorial;
         private TextBox txtEdicion;
         private Button btnCargarLibro;
+        private DataGridView dgvLibros;
+        private Button btnModificar;
+        private Button btnEliminar;
+        private Button btnAplicar;
+        private Button btnCancelar;
+        private Button btnRefrescar;
     }
 }

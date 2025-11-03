@@ -45,6 +45,7 @@
             ejemplaresItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             distribuidoresToolStripMenuItem = new ToolStripMenuItem();
+            libroCToolStripMenuItem = new ToolStripMenuItem();
             prestamosItem = new ToolStripMenuItem();
             registrarPrestamoToolStripMenuItem = new ToolStripMenuItem();
             registrarDevoluciónItem = new ToolStripMenuItem();
@@ -52,13 +53,14 @@
             registrarDistribuidorToolStripMenuItem = new ToolStripMenuItem();
             solicitarCotizaciónToolStripMenuItem = new ToolStripMenuItem();
             generarOrdenCompraToolStripMenuItem = new ToolStripMenuItem();
+            registrarRecepcionToolStripMenuItem = new ToolStripMenuItem();
             reporteItem = new ToolStripMenuItem();
             facturaMenuItem = new ToolStripMenuItem();
             ayudaItem = new ToolStripMenuItem();
             mnsIdioma = new MenuStrip();
             tsmiIdioma = new ToolStripMenuItem();
             tscmbIdioma = new ToolStripComboBox();
-            registrarRecepcionToolStripMenuItem = new ToolStripMenuItem();
+            ordenesDeCompraToolStripMenuItem = new ToolStripMenuItem();
             mnsPestañas.SuspendLayout();
             mnsIdioma.SuspendLayout();
             SuspendLayout();
@@ -153,7 +155,7 @@
             // 
             // maestroItem
             // 
-            maestroItem.DropDownItems.AddRange(new ToolStripItem[] { librosItem, ejemplaresItem, clientesToolStripMenuItem, distribuidoresToolStripMenuItem });
+            maestroItem.DropDownItems.AddRange(new ToolStripItem[] { librosItem, ejemplaresItem, clientesToolStripMenuItem, distribuidoresToolStripMenuItem, libroCToolStripMenuItem });
             maestroItem.Name = "maestroItem";
             maestroItem.Size = new Size(62, 20);
             maestroItem.Text = "Maestro";
@@ -185,6 +187,13 @@
             distribuidoresToolStripMenuItem.Size = new Size(147, 22);
             distribuidoresToolStripMenuItem.Text = "Distribuidores";
             distribuidoresToolStripMenuItem.Click += registrarDistribuidorToolStripMenuItem_Click;
+            // 
+            // libroCToolStripMenuItem
+            // 
+            libroCToolStripMenuItem.Name = "libroCToolStripMenuItem";
+            libroCToolStripMenuItem.Size = new Size(147, 22);
+            libroCToolStripMenuItem.Text = "Libro_C";
+            libroCToolStripMenuItem.Click += libroCToolStripMenuItem_Click;
             // 
             // prestamosItem
             // 
@@ -235,9 +244,16 @@
             generarOrdenCompraToolStripMenuItem.Text = "Generar orden compra";
             generarOrdenCompraToolStripMenuItem.Click += generarOrdenCompraToolStripMenuItem_Click;
             // 
+            // registrarRecepcionToolStripMenuItem
+            // 
+            registrarRecepcionToolStripMenuItem.Name = "registrarRecepcionToolStripMenuItem";
+            registrarRecepcionToolStripMenuItem.Size = new Size(193, 22);
+            registrarRecepcionToolStripMenuItem.Text = "Registrar recepción";
+            registrarRecepcionToolStripMenuItem.Click += registrarRecepcionToolStripMenuItem_Click;
+            // 
             // reporteItem
             // 
-            reporteItem.DropDownItems.AddRange(new ToolStripItem[] { facturaMenuItem });
+            reporteItem.DropDownItems.AddRange(new ToolStripItem[] { facturaMenuItem, ordenesDeCompraToolStripMenuItem });
             reporteItem.Name = "reporteItem";
             reporteItem.Size = new Size(60, 20);
             reporteItem.Text = "Reporte";
@@ -245,7 +261,7 @@
             // facturaMenuItem
             // 
             facturaMenuItem.Name = "facturaMenuItem";
-            facturaMenuItem.Size = new Size(113, 22);
+            facturaMenuItem.Size = new Size(180, 22);
             facturaMenuItem.Text = "Factura";
             facturaMenuItem.Click += facturaMenuItem_Click;
             // 
@@ -281,12 +297,12 @@
             tscmbIdioma.Text = "Español";
             tscmbIdioma.SelectedIndexChanged += tscmbIdioma_SelectedIndexChanged;
             // 
-            // registrarRecepcionToolStripMenuItem
+            // ordenesDeCompraToolStripMenuItem
             // 
-            registrarRecepcionToolStripMenuItem.Name = "registrarRecepcionToolStripMenuItem";
-            registrarRecepcionToolStripMenuItem.Size = new Size(193, 22);
-            registrarRecepcionToolStripMenuItem.Text = "Registrar recepción";
-            registrarRecepcionToolStripMenuItem.Click += registrarRecepcionToolStripMenuItem_Click;
+            ordenesDeCompraToolStripMenuItem.Name = "ordenesDeCompraToolStripMenuItem";
+            ordenesDeCompraToolStripMenuItem.Size = new Size(180, 22);
+            ordenesDeCompraToolStripMenuItem.Text = "Ordenes de compra";
+            ordenesDeCompraToolStripMenuItem.Click += ordenesDeCompraToolStripMenuItem_Click;
             // 
             // FormMDI_327LG
             // 
@@ -345,5 +361,7 @@
         private ToolStripMenuItem solicitarCotizaciónToolStripMenuItem;
         private ToolStripMenuItem generarOrdenCompraToolStripMenuItem;
         private ToolStripMenuItem registrarRecepcionToolStripMenuItem;
+        private ToolStripMenuItem libroCToolStripMenuItem;
+        private ToolStripMenuItem ordenesDeCompraToolStripMenuItem;
     }
 }

@@ -97,6 +97,7 @@ namespace GUI_327LG
             //reportes
             reporteItem.Text = LM_327LG.ObtenerString("menu_reporte.texto");
             facturaMenuItem.Text = LM_327LG.ObtenerString("menu_reporte.items.factura");
+            ordenesDeCompraToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_reporte.items.orden");
 
             //ayuda 
             ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");
@@ -128,9 +129,20 @@ namespace GUI_327LG
                 {
                     prestamosItem.Enabled = true;
                 }
-                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")))
+                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")) || bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(7, "Encargado")))
                 {
                     reposicionItem.Enabled = true;
+                    if(bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")))
+                    {
+                        registrarRecepcionToolStripMenuItem.Enabled = true;
+                    }
+                    if(bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(7, "Encargado")))
+                    {
+                        registrarDistribuidorToolStripMenuItem.Enabled = true;
+                        solicitarCotizaciónToolStripMenuItem.Enabled = true;
+                        generarOrdenCompraToolStripMenuItem.Enabled = true;
+                    }
+
                 }
                 if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(5, "Reporte")))
                 {
@@ -147,6 +159,11 @@ namespace GUI_327LG
                 reporteItem.Enabled = false;
                 reposicionItem.Enabled = false;
                 ayudaItem.Enabled = false;
+                registrarRecepcionToolStripMenuItem.Enabled = false;
+
+                registrarDistribuidorToolStripMenuItem.Enabled = false;
+                solicitarCotizaciónToolStripMenuItem.Enabled = false;
+                generarOrdenCompraToolStripMenuItem.Enabled = false;
                 CerrarFormularios();
             }
             CargarIdioma_327LG();
@@ -306,6 +323,16 @@ namespace GUI_327LG
         private void registrarRecepcionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario_327LG<FormRegistrarRecepcion_327LG>();
+        }
+
+        private void libroCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormLibro_C_327LG>();
+        }
+
+        private void ordenesDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormReporteOrdenCompra_327LG>();
         }
     }
 }

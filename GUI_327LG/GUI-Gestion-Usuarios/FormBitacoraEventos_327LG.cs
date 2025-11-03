@@ -57,6 +57,9 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             cmbModulo.Items.Add("Préstamos y devoluciones");
             cmbModulo.Items.Add("Gestión de stock");
             cmbModulo.Items.Add("Gestión de Backup/Restore");
+            cmbModulo.Items.Add("Maestro libros");
+            cmbModulo.Items.Add("Bitacora cambios");
+
         }
 
         private void CargarcmbEvento()
@@ -94,6 +97,15 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             //Modulo gestión de Backup/Restore
             cmbEvento.Items.Add("Creación de backup");
             cmbEvento.Items.Add("Restauración desde backup");
+
+            //modulo maestro libros
+            cmbEvento.Items.Add("Agregado nuevo libro");
+            cmbEvento.Items.Add("Eliminado libro");
+            cmbEvento.Items.Add("Modificación libro");
+
+            //modulo bitacora cambios
+            cmbEvento.Items.Add("Activación estado historico");
+
         }
         private void CargarcmbCriticidad()
         {
@@ -115,6 +127,7 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
             dtpFechaFin.Value = DateTime.Now;
             chkFiltrarFecha.Checked = false;
             CargarcmbEvento();
+            CargarGrilla_327LG(null, null, null, null, DateTime.Now.AddDays(-3), DateTime.Now);
         }
         private void btnAplicar_Click(object sender, EventArgs e)
         {
@@ -133,8 +146,8 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                     fechaInicio = dtpFechaInicio.Value.Date;
                     fechaFin = dtpFechaFin.Value.Date;
                 }
-                CargarGrilla_327LG(login, modulo, evento, criticidad, fechaInicio, fechaFin);
                 if (bLLEvento_327LG.ObtenerEventos_327LG(login, fechaInicio, fechaFin, modulo, evento, criticidad).Count == 0) throw new Exception(LM_327LG.ObtenerString("exception.NoHayEventos"));
+                CargarGrilla_327LG(login, modulo, evento, criticidad, fechaInicio, fechaFin);
             }
             catch (Exception ex)
             {
@@ -295,6 +308,14 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                 case 4: //Gestión de Backup/Restore
                     cmbEvento.Items.Add("Creación de backup");
                     cmbEvento.Items.Add("Restauración desde backup");
+                    break;
+                case 5: //Maestro libros
+                    cmbEvento.Items.Add("Agregado nuevo libro");
+                    cmbEvento.Items.Add("Eliminado libro");
+                    cmbEvento.Items.Add("Modificación libro");
+                    break;
+                case 6: //Bitacora cambios
+                    cmbEvento.Items.Add("Activación estado historico");
                     break;
             }
         }

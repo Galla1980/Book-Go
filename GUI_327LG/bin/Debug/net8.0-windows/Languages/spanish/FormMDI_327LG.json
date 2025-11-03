@@ -50,7 +50,8 @@
     "texto": "Reportes",
     "items": 
     {
-      "factura": "Factura"
+      "factura": "Factura",
+      "orden": "Orden de compra"
     }
   },
   "menu_ayuda": {

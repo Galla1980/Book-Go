@@ -15,8 +15,8 @@ namespace DAL_327LG
         {
             using (SqlConnection con = new SqlConnection(connectionString_327LG))
             {
-                string query = @"INSERT INTO Libro_327LG (ISBN_327LG, Titulo_327LG, Autor_327LG, Editorial_327LG, Edicion_327LG) 
-                                 VALUES (@ISBN, @Titulo, @Autor, @Editorial, @Edicion)";
+                string query = @"INSERT INTO Libro_327LG (ISBN_327LG, Titulo_327LG, Autor_327LG, Editorial_327LG, Edicion_327LG, Eliminado_327LG) 
+                                 VALUES (@ISBN, @Titulo, @Autor, @Editorial, @Edicion, 0)";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ISBN", libro.ISBN_327LG);
                 cmd.Parameters.AddWithValue("@Titulo", libro.titulo_327LG);
@@ -68,7 +68,67 @@ namespace DAL_327LG
             return listaLibros;
         }
 
+        public void EliminarLibro_327LG(BELibro_327LG libroEliminar)
+        {
+            using(SqlConnection con = new SqlConnection(connectionString_327LG))
+            {
+                string query = "UPDATE Libro_327LG SET Eliminado_327LG = 1 WHERE ISBN_327LG = @ISBN";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ISBN", libroEliminar.ISBN_327LG);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public List<BELibro_327LG> ListarLibros_327LG()
+        {
+            List<BELibro_327LG> listaLibros = new List<BELibro_327LG>();
+            using (SqlConnection con_327LG = new SqlConnection(connectionString_327LG))
+            {
+                SqlCommand cmd_327LG = new SqlCommand("SELECT * FROM Libro_327LG WHERE Eliminado_327LG = 0", con_327LG);
+                con_327LG.Open();
+                using (SqlDataReader dr_327LG = cmd_327LG.ExecuteReader())
+                {
+                    if (dr_327LG != null)
+                    {
+                        while (dr_327LG.Read())
+                        {
+                            BELibro_327LG libro = new BELibro_327LG(dr_327LG["ISBN_327LG"].ToString(), dr_327LG["Titulo_327LG"].ToString(), dr_327LG["Autor_327LG"].ToString(),
+                                                  dr_327LG["Editorial_327LG"].ToString(), Convert.ToInt32(dr_327LG["Edicion_327LG"]));
+                            listaLibros.Add(libro);
+                        }
+                    }
+                }
+            }
+            return listaLibros;
+        }
+
+        public void ModificarLibro_327LG(BELibro_327LG libroModificado)
+        {
+            using(SqlConnection con =  new SqlConnection(connectionString_327LG))
+            {
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandText = @"UPDATE Libro_327LG 
+                                        SET Titulo_327LG = @Titulo, 
+                                            Autor_327LG = @Autor, 
+                                            Editorial_327LG = @Editorial, 
+                                            Edicion_327LG = @Edicion 
+                                        WHERE ISBN_327LG = @ISBN";
+                    cmd.Parameters.AddWithValue("@Titulo", libroModificado.titulo_327LG);
+                    cmd.Parameters.AddWithValue("@Autor", libroModificado.autor_327LG);
+                    cmd.Parameters.AddWithValue("@Editorial", libroModificado.editorial_327LG);
+                    cmd.Parameters.AddWithValue("@Edicion", libroModificado.edicion_327LG);
+                    cmd.Parameters.AddWithValue("@ISBN", libroModificado.ISBN_327LG);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+        public List<BELibro_327LG> ObtenerTodosLibros_327LG()
         {
             List<BELibro_327LG> listaLibros = new List<BELibro_327LG>();
             using (SqlConnection con_327LG = new SqlConnection(connectionString_327LG))
@@ -86,7 +146,6 @@ namespace DAL_327LG
                             listaLibros.Add(libro);
                         }
                     }
-
                 }
             }
             return listaLibros;

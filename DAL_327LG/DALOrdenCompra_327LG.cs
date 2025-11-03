@@ -124,7 +124,7 @@ namespace DAL_327LG
                     SELECT 
                         oc.NroOrden_327LG, oc.Fecha_327LG, oc.Total_327LG, oc.Banco_327LG, oc.CBU_327LG, 
                         oc.NombreTitular_327LG, oc.NumeroTarjeta_327LG, oc.Estado_327LG,
-                        d.CUIT_327LG, d.Empresa_327LG
+                        d.CUIT_327LG, d.Empresa_327LG, d.Correo_327LG, d.Telefono_327LG
                     FROM OrdenCompra_327LG oc
                     JOIN Distribuidor_327LG d ON oc.CUIT_327LG = d.CUIT_327LG;";
                     con.Open();
@@ -145,7 +145,10 @@ namespace DAL_327LG
                                 Distribuidor_327LG = new BEDistribuidor_327LG
                                 {
                                     CUIT_327LG = reader["CUIT_327LG"].ToString(),
-                                    Empresa_327LG = reader["Empresa_327LG"].ToString()
+                                    Empresa_327LG = reader["Empresa_327LG"].ToString(),
+                                    Correo_327LG = reader["Correo_327LG"].ToString(),
+                                    Telefono_327LG = reader["Telefono_327LG"].ToString()
+
                                 }
                             };
                             listaOrdenes.Add(orden);

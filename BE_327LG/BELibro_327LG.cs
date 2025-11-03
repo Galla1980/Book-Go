@@ -13,6 +13,7 @@ namespace BE_327LG
         public string autor_327LG { get; set; }
         public string editorial_327LG { get; set; }
         public int edicion_327LG { get; set; }
+        public bool Eliminado_327LG { get; set; }
 
         public BELibro_327LG()
         {
