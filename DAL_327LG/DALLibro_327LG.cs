@@ -3,14 +3,9 @@ using Microsoft.Data.SqlClient;
 
 namespace DAL_327LG
 {
-    public class DALLibro_327LG
+    public class DALLibro_327LG : DALAbstracta_327LG
     {
-        private string connectionString_327LG;
-        public DALLibro_327LG()
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
-
+       
         public void AgregarLibro_327LG(BELibro_327LG libro)
         {
             using (SqlConnection con = new SqlConnection(connectionString_327LG))

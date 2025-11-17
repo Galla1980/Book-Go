@@ -3,14 +3,11 @@ using Microsoft.Data.SqlClient;
 
 namespace DAL_327LG
 {
-    public class DALSolicitudCotizacion_327LG
+    public class DALSolicitudCotizacion_327LG : DALAbstracta_327LG
     {
-        string connectionString_327LG;
+       
         DALDistribuidor_327LG dalDistribuidor_327LG = new DALDistribuidor_327LG();
-        public DALSolicitudCotizacion_327LG()
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+  
         public void GuardarSolicitudCotizacion_327LG(BESolicitudCotizacion_327LG nuevaSolicitud)
         {
             using (SqlConnection con = new SqlConnection(connectionString_327LG))

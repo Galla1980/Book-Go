@@ -17,6 +17,8 @@ namespace BLL_327LG
     {
         private readonly DALSolicitudCotizacion_327LG dalSolicitudCotizacion_327LG;
         private readonly BLLEvento_327LG bllEvento_327LG = new BLLEvento_327LG();
+        private readonly BLLDigitoVerificador_327LG bllDigitoVerificador_327LG = new BLLDigitoVerificador_327LG();
+
 
         public BLLSolicitudCotizacion_327LG()
         {
@@ -39,6 +41,9 @@ namespace BLL_327LG
             BESolicitudCotizacion_327LG nuevaSolicitud = new BESolicitudCotizacion_327LG(nroSolicitud, librosSolicitados, distribuidor_327LG, DateTime.Now);
             dalSolicitudCotizacion_327LG.GuardarSolicitudCotizacion_327LG(nuevaSolicitud);
             bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Generación de solicitud de  cotización", 4);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("SolicitudCotizacion_327LG"));
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("SolicitudLibro_327LG"));
+
         }
 
         private BESolicitudCotizacion_327LG ObtenerUltimaSolicitud_327LG()
@@ -91,6 +96,7 @@ namespace BLL_327LG
         public void ActualizarEstadoSolicitud_327LG(string nroSolicitud)
         {
             dalSolicitudCotizacion_327LG.ActualizarEstadoSolicitud_327LG(nroSolicitud);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("SolicitudCotizacion_327LG"));
         }
     }
 }

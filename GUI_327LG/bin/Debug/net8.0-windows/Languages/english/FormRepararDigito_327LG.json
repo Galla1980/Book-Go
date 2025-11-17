@@ -1,0 +1,41 @@
+{
+  "label": 
+  {
+    "lblTitulo": "Data inconsistencies",
+    "lblInconsistencias": "Inconsistencies in the tables: "
+  },
+
+  "button": 
+  {
+    "btnRecalcular": "Recalculate digit",
+    "btnRestaurar": "Restore database",
+    "btnSalir": "Exit"
+  },
+
+  "exception":
+  {
+
+  },
+
+  "messagebox": 
+  {
+    "titulo": 
+    {
+      "error": "Error",
+      "reparado": "Digit repaired.",
+      "restaurada": "Database restored",
+      "inconsistencias": "Inconsistencies."
+    },
+    "mensaje":
+    {
+      "reparado": "The check digit was successfully repaired. The session will be closed...",
+      "restaurada": "The database was successfully restored. The session will be closed...",
+      "inconsistencias": "Inconsistencies were found in the database."
+    },
+    "button":
+    {
+      "aceptar": "Accept",
+      "cancelar": "Cancel"
+    }
+  }
+}

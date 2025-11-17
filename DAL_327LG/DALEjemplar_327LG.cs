@@ -8,13 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAL_327LG
 {
-    public class DALEjemplar_327LG
+    public class DALEjemplar_327LG: DALAbstracta_327LG
     {
-        private string connectionString_327LG;
-        public DALEjemplar_327LG() 
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+    
 
         public void ActualizarEjemplar_327LG(int nroEjemplar_327LG, Estado_327LG estado)
         {

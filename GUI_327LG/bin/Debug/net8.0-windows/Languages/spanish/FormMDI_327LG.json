@@ -62,10 +62,12 @@
   "messagebox": {
     "titulo": 
     {
-      "cierre_sesion": "Cerrar sesión"
+      "cierre_sesion": "Cerrar sesión",
+      "inconsistencias":"Inconsistencias"
     },
     "mensaje":
     {
+      "inconsistencias":"Hay incosistencias en la base de datos. Por favor llame a un administrador.",
       "cierre_sesion": "¿Desea cerrar la sesión?"
     },
     "button":

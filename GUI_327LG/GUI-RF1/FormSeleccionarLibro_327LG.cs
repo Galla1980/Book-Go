@@ -42,6 +42,7 @@ namespace GUI_327LG.GUIRF1
             dgvLibro.Columns["Autor_327LG"].FillWeight = 20;
             dgvLibro.Columns["Editorial_327LG"].FillWeight = 15;
             dgvLibro.Columns["Edicion_327LG"].FillWeight = 15;
+            dgvLibro.Columns["Eliminado_327LG"].Visible = false;
         }
 
         private void CambiarIdiomaGrillaLibros_327LG()

@@ -3,15 +3,8 @@ using Microsoft.Data.SqlClient;
 
 namespace DAL_327LG
 {
-    public class DALRecepcion_327LG
+    public class DALRecepcion_327LG : DALAbstracta_327LG
     {
-        private string connectionString_327LG;
-
-        public DALRecepcion_327LG()
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-
-        }
         public int ObtenerCantidadRecibida_327LG(string nroOrdenSeleccionada, string iSBN_327LG)
         {
             using (SqlConnection con = new SqlConnection(connectionString_327LG))
@@ -83,7 +76,6 @@ namespace DAL_327LG
                         }
                     }
 
-                    // 3️⃣ Confirmar
                     transaction.Commit();
                 }
                 catch (Exception)

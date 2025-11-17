@@ -71,5 +71,6 @@ namespace Services_327LG.Observer_327LG
             }
         }
 
+       
     }
 }

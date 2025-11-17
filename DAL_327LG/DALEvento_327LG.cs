@@ -10,13 +10,9 @@ using System.Threading.Tasks;
 
 namespace DAL_327LG
 {
-    public class DALEvento_327LG
+    public class DALEvento_327LG : DALAbstracta_327LG
     {
-        string connectionString_327LG;
-        public DALEvento_327LG()
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+        
         public List<Evento_327LG> ObtenerEventos_327LG(string? login, DateTime? fechaInicio, DateTime? fechaFin, string? modulo, string? evento, int? criticidad)
         {
             List<Evento_327LG> eventos = new List<Evento_327LG>();

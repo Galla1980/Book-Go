@@ -3,17 +3,12 @@ using Microsoft.Data.SqlClient;
 
 namespace DAL_327LG
 {
-    public class DALPrestamo_327LG
+    public class DALPrestamo_327LG : DALAbstracta_327LG
     {
-        string connectionString;
-        public DALPrestamo_327LG()
-        {
-            connectionString = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
 
         public void ActualizarPrestamo_327LG(BEPrestamo_327LG prestamo)
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString_327LG))
             {
                 string query = "UPDATE Prestamo_327LG SET FechaDevolucion_327LG = @FechaDevolucion, Activo_327LG = @Activo WHERE nroPrestamo_327LG = @nroPrestamo";
 
@@ -37,7 +32,7 @@ namespace DAL_327LG
 
         public void GuardarPrestamo_327LG(BEPrestamo_327LG prestamo)
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString_327LG))
             {
                 string query = "INSERT INTO Prestamo_327LG (FechaADevolver_327LG, FechaDevolucion_327LG,nroEjemplar_327LG, Activo_327LG, DNI_327LG) VALUES (@FechaADevolver, @FechaDevolucion, @nroEjemplar, @Activo, @DNI)";
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -61,7 +56,7 @@ namespace DAL_327LG
         public List<BEPrestamo_327LG> ObtenerPrestamos_327LG(string? dni)
         {
             List<BEPrestamo_327LG> listaPrestamos = new List<BEPrestamo_327LG>();
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString_327LG))
             {
                 string query = @"
                 SELECT 

@@ -14,6 +14,7 @@ namespace GUI_327LG
     public partial class FormMDI_327LG : Form, IObserverIdioma_327LG
     {
         private FormMenuPrincipal_327LG menuPrincipal_327LG;
+        BLLDigitoVerificador_327LG bllDigitoVerificador_327LG;
         BLLUsuario_327LG bllUsuario_327LG;
         private LanguageManager_327LG LM_327LG;
         BLLPerfil_327LG bllPerfil_327LG;
@@ -24,6 +25,7 @@ namespace GUI_327LG
             mnsPestañas.BackColor = ColorTranslator.FromHtml("#EAEAEA");
             mnsPestañas.ForeColor = ColorTranslator.FromHtml("#055b6b");
             bllUsuario_327LG = new BLLUsuario_327LG();
+            bllDigitoVerificador_327LG = new BLLDigitoVerificador_327LG();
             bllPerfil_327LG = new BLLPerfil_327LG();
             LM_327LG = LanguageManager_327LG.Instance_327LG;
             LM_327LG.AgregarObservador_327LG(this);
@@ -113,41 +115,65 @@ namespace GUI_327LG
 
             if (logueado)
             {
-                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(1, "Usuario")))
-                {
-                    cambiarContraseñaItem.Enabled = true;
-                }
-                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(2, "Admin")))
-                {
-                    adminItem.Enabled = true;
-                }
-                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(3, "Maestro")))
-                {
-                    maestroItem.Enabled = true;
-                }
-                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(4, "Prestamos")))
-                {
-                    prestamosItem.Enabled = true;
-                }
-                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")) || bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(7, "Encargado")))
-                {
-                    reposicionItem.Enabled = true;
-                    if(bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")))
-                    {
-                        registrarRecepcionToolStripMenuItem.Enabled = true;
-                    }
-                    if(bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(7, "Encargado")))
-                    {
-                        registrarDistribuidorToolStripMenuItem.Enabled = true;
-                        solicitarCotizaciónToolStripMenuItem.Enabled = true;
-                        generarOrdenCompraToolStripMenuItem.Enabled = true;
-                    }
+                CargarIdioma_327LG();
 
-                }
-                if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(5, "Reporte")))
+                if (bllDigitoVerificador_327LG.CompararDigito_327LG().Count > 0)
                 {
-                    reporteItem.Enabled = true;
+                   if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(2, "Admin")))
+                   {
+                        using (FormRepararDigito_327LG form = new FormRepararDigito_327LG())
+                        {
+                            form.formPadre = this;
+                            form.ShowDialog();
+                        }
+                   }
+                   else
+                   {
+                        LM_327LG.CargarFormulario_327LG("FormMDI_327LG");
+                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.inconsistencias"), LM_327LG.ObtenerString("messagebox.titulo.inconsistencias"),LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
+                        bllUsuario_327LG.CerrarSesion_327LG();
+                        ActualizarFormulario_327LG();
+
+                   }
                 }
+                else
+                {
+                    if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(1, "Usuario")))
+                    {
+                        cambiarContraseñaItem.Enabled = true;
+                    }
+                    if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(2, "Admin")))
+                    {
+                        adminItem.Enabled = true;
+                    }
+                    if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(3, "Maestro")))
+                    {
+                        maestroItem.Enabled = true;
+                    }
+                    if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(4, "Prestamos")))
+                    {
+                        prestamosItem.Enabled = true;
+                    }
+                    if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")) || bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(7, "Encargado")))
+                    {
+                        reposicionItem.Enabled = true;
+                        if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(6, "Reposición")))
+                        {
+                            registrarRecepcionToolStripMenuItem.Enabled = true;
+                        }
+                        if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(7, "Encargado")))
+                        {
+                            registrarDistribuidorToolStripMenuItem.Enabled = true;
+                            solicitarCotizaciónToolStripMenuItem.Enabled = true;
+                            generarOrdenCompraToolStripMenuItem.Enabled = true;
+                        }
+                    }
+                    if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(5, "Reporte")))
+                    {
+                        reporteItem.Enabled = true;
+                    }
+                }
+               
 
             }
             else
@@ -165,8 +191,10 @@ namespace GUI_327LG
                 solicitarCotizaciónToolStripMenuItem.Enabled = false;
                 generarOrdenCompraToolStripMenuItem.Enabled = false;
                 CerrarFormularios();
+                CargarIdioma_327LG();
+
             }
-            CargarIdioma_327LG();
+
         }
 
         private void iniciarSesiónItem_Click(object sender, EventArgs e)

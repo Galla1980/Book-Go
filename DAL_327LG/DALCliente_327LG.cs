@@ -9,17 +9,12 @@ using System.Xml.Serialization;
 
 namespace DAL_327LG
 {
-    public class DALCliente_327LG
+    public class DALCliente_327LG : DALAbstracta_327LG
     {
-        private string connectionString;
-        public DALCliente_327LG()
-        {
-            connectionString = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
-
+  
         public void CargarCliente_327LG(BECliente_327LG cliente)
         {
-            using(SqlConnection con = new SqlConnection(connectionString)) 
+            using(SqlConnection con = new SqlConnection(connectionString_327LG)) 
             {
                 string query = "INSERT INTO Cliente_327LG (DNI_327LG, Nombre_327LG, Apellido_327LG, Email_327LG, Direccion_327LG, Telefono_327LG, Activo_327LG) VALUES (@DNI, @Nombre, @Apellido, @Email, @Direccion, @Telefono, @Activo)";
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -37,7 +32,7 @@ namespace DAL_327LG
 
         public void EliminarCliente_327LG(BECliente_327LG cliente)
         {
-            using(SqlConnection con = new SqlConnection(connectionString)) 
+            using(SqlConnection con = new SqlConnection(connectionString_327LG)) 
             {
                 string query = "UPDATE Cliente_327LG SET Activo_327LG = @Activo WHERE DNI_327LG = @DNI";
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -50,7 +45,7 @@ namespace DAL_327LG
 
         public void ModificarCliente_327LG(BECliente_327LG clienteModificar)
         {
-            using(SqlConnection con = new SqlConnection(connectionString)) 
+            using(SqlConnection con = new SqlConnection(connectionString_327LG)) 
             {
                 string query = "UPDATE Cliente_327LG SET Nombre_327LG = @Nombre, Apellido_327LG = @Apellido, Email_327LG = @Email, Direccion_327LG = @Direccion, Telefono_327LG = @Telefono" +
                     " WHERE DNI_327LG = @DNI";
@@ -70,7 +65,7 @@ namespace DAL_327LG
         public List<BECliente_327LG> ObtenerTodos_327LG()
         {
             List<BECliente_327LG> listaClientes = new List<BECliente_327LG>();
-            using (SqlConnection con = new SqlConnection(connectionString)) 
+            using (SqlConnection con = new SqlConnection(connectionString_327LG)) 
             {
                 string query = "SELECT * FROM Cliente_327LG";
                 SqlCommand cmd = new SqlCommand(query, con);

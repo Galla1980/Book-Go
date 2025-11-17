@@ -18,10 +18,13 @@ namespace BLL_327LG
     {
         private readonly DALOrdenCompra_327LG dalOrdenCompra_327LG = new DALOrdenCompra_327LG();
         private readonly BLLEvento_327LG bllEvento_327LG = new BLLEvento_327LG();
+        private readonly BLLDigitoVerificador_327LG bllDigitoVerificador_327LG = new BLLDigitoVerificador_327LG();
+
 
         public void ActualizarEstadoOrden(BEOrdenCompra_327LG orden)
         {
             dalOrdenCompra_327LG.ActualizarEstadoOrden(orden);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("OrdenCompra_327LG"));
         }
 
         public void GenerarOrdenCompra_327LG(BEOrdenCompra_327LG ordenCompra)
@@ -39,6 +42,8 @@ namespace BLL_327LG
             ordenCompra.nroOrden_327LG = nroOrden;
             dalOrdenCompra_327LG.GenerarOrdenCompra_327LG(ordenCompra);
             bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Generación de orden de compra", 3);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("OrdenCompra_327LG"));
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("OrdenCompraDetalle_327LG"));
         }
 
         public void GenerarReporte_327LG(BEOrdenCompra_327LG ordenCompra)
