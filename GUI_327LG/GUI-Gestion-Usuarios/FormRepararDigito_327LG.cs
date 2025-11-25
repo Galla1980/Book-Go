@@ -53,19 +53,29 @@ namespace GUI_327LG.GUI_Gestion_Usuarios
                 label.ForeColor = Color.White;
                 label.BackColor = Color.Transparent;
             }
-            if (bllDigitoVerificador.CompararDigito_327LG().Count > 0)
+
+            var inconsistencias = bllDigitoVerificador.CompararDigito_327LG();
+
+            if (inconsistencias.Count > 0)
             {
-                string lista = string.Empty;
-                foreach (string item in bllDigitoVerificador.CompararDigito_327LG())
-                {
-                    lista += item + ", ";
-                }
-                MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.inconsistencias"), LM_327LG.ObtenerString("messagebox.titulo.inconsistencias"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
+     
+                string lista = string.Join(", ", inconsistencias);
+
+              
+
+                MessageBoxPersonalizado.Show(
+                    LM_327LG.ObtenerString("messagebox.mensaje.inconsistencias"),
+                    LM_327LG.ObtenerString("messagebox.titulo.inconsistencias"),
+                    LM_327LG.ObtenerString("messagebox.button.aceptar"),
+                    MessageBoxIcon.Information
+                );
+
+      
                 Actualizar_327LG();
+
                 lblInconsistencias.Text += lista;
             }
         }
-
         private void btnRecalcular_Click(object sender, EventArgs e)
         {
             foreach (var item in bllDigitoVerificador.CompararDigito_327LG())

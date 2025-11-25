@@ -13,11 +13,15 @@ namespace BLL_327LG
     {
         private readonly DALLibro_C_327LG dalLibro_C_327LG = new DALLibro_C_327LG();
         private readonly BLLEvento_327LG bllEvento_327LG = new BLLEvento_327LG();
+        private readonly BLLDigitoVerificador_327LG bllDigitoVerificador_327LG = new BLLDigitoVerificador_327LG();
+
 
         public void ActivarCambio_327LG(BELibro_C_327LG cambio)
         {
             dalLibro_C_327LG.ActivarCambio_327LG(cambio);
             bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Bitacora cambios", "Activación estado historico", 5);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("Libro_327LG"));
+            
         }
 
         public List<BELibro_C_327LG> FiltrarCambios_327LG(string? isbn, string? titulo, string? autor, string? editorial, int? edicion, DateTime? fechaInicio, DateTime? fechaFin)

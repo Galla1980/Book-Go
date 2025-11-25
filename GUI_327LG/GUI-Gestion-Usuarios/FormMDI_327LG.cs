@@ -9,6 +9,7 @@ using Services_327LG;
 using Services_327LG.Composite_327LG;
 using Services_327LG.Observer_327LG;
 using Services_327LG.Singleton_327LG;
+using System.Diagnostics;
 namespace GUI_327LG
 {
     public partial class FormMDI_327LG : Form, IObserverIdioma_327LG
@@ -105,6 +106,36 @@ namespace GUI_327LG
             ayudaItem.Text = LM_327LG.ObtenerString("menu_ayuda.texto");
             tsmiIdioma.Text = LM_327LG.ObtenerString("label_idioma.texto");
 
+
+            usuarioToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_usuario.texto");
+            inicioDeSesiónToolStripMenuItem.Text =  LM_327LG.ObtenerString("menu_usuario.items.iniciar_sesion");
+            cambiarContraseñaToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_usuario.items.cambiar_contrasena");
+            cerrarSesiónToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_usuario.items.cerrar_sesion");
+
+            adminToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_admin.texto");
+            gestionDeUsuariosToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.gestion_usuarios");
+            perfilesToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.perfiles");
+            bitacoraToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_admin.items.bitacora");
+
+            maestrosToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.texto");
+            librosToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.items.libros");
+            ejemplaresToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.items.ejemplares");
+            clienteToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_maestro.items.clientes");
+            distribuidoresToolStripMenuItem1.Text = LM_327LG.ObtenerString("menu_maestro.items.distribuidores");
+
+            prestamosToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.texto");
+            registrarPrestamoToolStripMenuItem1.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_prestamo");
+            registrarDevolicionToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_prestamos.items.registrar_devolucion");
+
+            reposiciónToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_reposicion.texto");
+            registrarToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_reposicion.items.registrar_distribuidor");
+            solicitarCotizacionToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_reposicion.items.solicitar_cotizacion");
+            generarOrdenDeCompraToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_reposicion.items.generar_orden_compra");
+            registrarRecepcionToolStripMenuItem1.Text = LM_327LG.ObtenerString("menu_reposicion.items.registrar_recepcion");
+
+            reporteToolStripMenuItem.Text = LM_327LG.ObtenerString("menu_reporte.texto");
+            
+
         }
 
         public void ActualizarFormulario_327LG()
@@ -119,22 +150,22 @@ namespace GUI_327LG
 
                 if (bllDigitoVerificador_327LG.CompararDigito_327LG().Count > 0)
                 {
-                   if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(2, "Admin")))
-                   {
+                    if (bllPerfil_327LG.FamiliaContienePermiso_327LG(usuario.rol_327LG, new BEPermiso_327LG(2, "Admin")))
+                    {
                         using (FormRepararDigito_327LG form = new FormRepararDigito_327LG())
                         {
                             form.formPadre = this;
                             form.ShowDialog();
                         }
-                   }
-                   else
-                   {
+                    }
+                    else
+                    {
                         LM_327LG.CargarFormulario_327LG("FormMDI_327LG");
-                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.inconsistencias"), LM_327LG.ObtenerString("messagebox.titulo.inconsistencias"),LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
+                        MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.inconsistencias"), LM_327LG.ObtenerString("messagebox.titulo.inconsistencias"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
                         bllUsuario_327LG.CerrarSesion_327LG();
                         ActualizarFormulario_327LG();
 
-                   }
+                    }
                 }
                 else
                 {
@@ -173,7 +204,7 @@ namespace GUI_327LG
                         reporteItem.Enabled = true;
                     }
                 }
-               
+
 
             }
             else
@@ -184,7 +215,7 @@ namespace GUI_327LG
                 prestamosItem.Enabled = false;
                 reporteItem.Enabled = false;
                 reposicionItem.Enabled = false;
-                ayudaItem.Enabled = false;
+                ayudaItem.Enabled = true;
                 registrarRecepcionToolStripMenuItem.Enabled = false;
 
                 registrarDistribuidorToolStripMenuItem.Enabled = false;
@@ -361,6 +392,150 @@ namespace GUI_327LG
         private void ordenesDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario_327LG<FormReporteOrdenCompra_327LG>();
+        }
+
+        private void reporteInteligenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario_327LG<FormReporteInteligente_327LG>();
+        }
+
+        private void inicioDeSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("InicioSesion");
+
+        }
+
+        private void cambioDeIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("CambioIdioma");
+
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("CambiarContraseña");
+
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("CerrarSesion");
+
+        }
+
+        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("GestionUsuarios");
+
+        }
+
+        private void perfilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("Perfiles");
+
+        }
+
+        private void backupRestoreToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("BackupRestore");
+
+        }
+
+        private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("Bitacora");
+
+        }
+
+        private void librosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("Libros");
+        }
+
+        private static void AbrirAyudaPDF(string pantalla)
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Manuales", $"{LanguageManager_327LG.Instance_327LG.Idioma_327LG}", $"{pantalla}.pdf");
+            try
+            {
+                if (File.Exists(path))
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = path,
+                        UseShellExecute = true
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void ejemplaresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("Ejemplares");
+
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("Cliente");
+
+        }
+
+        private void distribuidoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("Distribuidores");
+
+        }
+
+        private void libroCToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("Libro_C");
+
+        }
+
+        private void registrarPrestamoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("RegistrarPrestamo");
+
+        }
+
+        private void registrarDevolicionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("RegistrarDevolucion");
+
+        }
+
+        private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("Distribuidores");
+
+        }
+
+        private void solicitarCotizacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("SolicitarCotizacion");
+
+        }
+
+        private void generarOrdenDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("GenerarOrdenCompra");
+
+        }
+
+        private void registrarRecepcionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("RegistrarRecepcion");
+
+        }
+
+        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirAyudaPDF("Reporte");
+
         }
     }
 }
