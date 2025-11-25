@@ -82,30 +82,39 @@ namespace GUI_327LG.GUI_RF2
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            LM_327LG.CargarFormulario_327LG("FormRegistrarRecepcion_327LG");
-            if (dgvOrdenesCompra.Rows.Count == 0) throw new Exception(LM_327LG.ObtenerString("exception.seleccionar_orden"));
-
-            SetEnabled(btnCancelar, true);
-            SetEnabled(btnActualizar, true);
-            SetEnabled(btnRegistrar, true);
-            SetEnabled(btnSeleccionar, false);
-            SetEnabled(txtCantRecibida, true);
-            SetEnabled(dgvOrdenesCompra, false);
-            rdoTodas.Enabled = false;
-            rdoPendientes.Enabled = false;
-            dgvLibros.Rows.Clear();
-            string nroOrdenSeleccionada = dgvOrdenesCompra.SelectedRows[0].Cells["NroOrden"].Value.ToString();
-            List<BEOrdenCompraDetalle_327LG> detallesOrden = bllOrdenCompra_327LG.ObtenerDetalles_327LG(nroOrdenSeleccionada);
-            foreach (var detalle in detallesOrden)
+            try
             {
-                int cantidadRecibida = bllRecepcion_327LG.ObtenerCantidadRecibida_327LG(nroOrdenSeleccionada, detalle.libro_327LG.ISBN_327LG);
-                dgvLibros.Rows.Add(detalle.libro_327LG.ISBN_327LG, detalle.libro_327LG.titulo_327LG, detalle.Cantidad_327LG, cantidadRecibida, 0);
+                LM_327LG.CargarFormulario_327LG("FormRegistrarRecepcion_327LG");
+                if (dgvOrdenesCompra.Rows.Count == 0) throw new Exception(LM_327LG.ObtenerString("exception.seleccionar_orden"));
+
+                SetEnabled(btnCancelar, true);
+                SetEnabled(btnActualizar, true);
+                SetEnabled(btnRegistrar, true);
+                SetEnabled(btnSeleccionar, false);
+                SetEnabled(txtCantRecibida, true);
+                SetEnabled(dgvOrdenesCompra, false);
+                rdoTodas.Enabled = false;
+                rdoPendientes.Enabled = false;
+                dgvLibros.Rows.Clear();
+                string nroOrdenSeleccionada = dgvOrdenesCompra.SelectedRows[0].Cells["NroOrden"].Value.ToString();
+                List<BEOrdenCompraDetalle_327LG> detallesOrden = bllOrdenCompra_327LG.ObtenerDetalles_327LG(nroOrdenSeleccionada);
+                foreach (var detalle in detallesOrden)
+                {
+                    int cantidadRecibida = bllRecepcion_327LG.ObtenerCantidadRecibida_327LG(nroOrdenSeleccionada, detalle.libro_327LG.ISBN_327LG);
+                    dgvLibros.Rows.Add(detalle.libro_327LG.ISBN_327LG, detalle.libro_327LG.titulo_327LG, detalle.Cantidad_327LG, cantidadRecibida, 0);
+                }
+                dgvLibros.Columns["ISBN"].FillWeight = 80;
+                dgvLibros.Columns["Titulo"].FillWeight = 220;
+                dgvLibros.Columns["CantPedida"].FillWeight = 90;
+                dgvLibros.Columns["CantRecibida"].FillWeight = 90;
+                dgvLibros.Columns["CantIngresar"].FillWeight = 100;
             }
-            dgvLibros.Columns["ISBN"].FillWeight = 80;
-            dgvLibros.Columns["Titulo"].FillWeight = 220;
-            dgvLibros.Columns["CantPedida"].FillWeight = 90;
-            dgvLibros.Columns["CantRecibida"].FillWeight = 90;
-            dgvLibros.Columns["CantIngresar"].FillWeight = 100;
+            catch (Exception ex)
+            {
+                MessageBoxPersonalizado.Show(ex.Message, LM_327LG.ObtenerString("messagebox.titulo.error"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Error);
+
+            }
+
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {

@@ -56,10 +56,12 @@
 
   "messagebox": {
     "titulo": {
-      "cierre_sesion": "Log out"
+      "cierre_sesion": "Log out",
+      "inconsistencias":"Inconsistencies."
     },
     "mensaje": {
-      "cierre_sesion": "Do you want to log out?"
+      "cierre_sesion": "Do you want to log out?",
+      "inconsistencias":"There are inconsistencies in the database. Please call an administrator."
     },
     "button": {
       "aceptar": "Accept",

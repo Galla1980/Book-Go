@@ -9,13 +9,9 @@ using System.Threading.Tasks;
 
 namespace DAL_327LG
 {
-    public class DALUsuario_327LG
+    public class DALUsuario_327LG : DALAbstracta_327LG
     {
-        private string connectionString_327LG;
-        public DALUsuario_327LG()
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+     
 
         public Usuario_327LG ConsultaIndividual_327LG(string dni)
         {

@@ -1,4 +1,6 @@
 ﻿using BLL_327LG;
+using GUI_327LG.GUI_Gestion_Usuarios;
+using Services_327LG.Composite_327LG;
 using Services_327LG.Observer_327LG;
 using Services_327LG.Singleton_327LG;
 
@@ -7,12 +9,16 @@ namespace GUI_327LG
     public partial class FormIniciarSesion_327LG : Form, IObserverIdioma_327LG
     {
         BLLUsuario_327LG bllUsuario_327LG;
+        BLLPerfil_327LG bllPerfil_327;
+        BLLDigitoVerificador_327LG bllDigitoVerificador;
         LanguageManager_327LG LM_327LG;
         public FormIniciarSesion_327LG()
         {
             InitializeComponent();
             bllUsuario_327LG = new BLLUsuario_327LG();
+            bllDigitoVerificador = new BLLDigitoVerificador_327LG();
             LM_327LG = LanguageManager_327LG.Instance_327LG;
+            bllPerfil_327 = new BLLPerfil_327LG();
             LM_327LG.AgregarObservador_327LG(this);
             Actualizar_327LG();
         }

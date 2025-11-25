@@ -1,0 +1,46 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Inconsistencias de datos",
+      "lblInconsistencias": "Inconsistencias en las tablas: "
+
+    },
+
+    "button": 
+    {
+        "btnRecalcular": "Recalcular digito",
+        "btnRestaurar": "Restaurar base de datos",
+        "btnSalir": "Salir"
+    },
+
+
+    "exception":
+    {
+
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "reparado": "Digito reparado.",
+        "restaurada": "Base de datos restaurada",
+        "inconsistencias": "Inconsistencias."
+
+
+      },
+      "mensaje":
+      {
+        "reparado": "El digito verificador fue reparado correctamente. Se cerrará la sesión...",
+        "restaurada": "Se restauró la base de datos correctamente. Se cerrará la sesión...",
+        "inconsistencias": "Se encontraron inconsistencias en la base de datos."     
+
+      },
+      "button":
+      {
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+}

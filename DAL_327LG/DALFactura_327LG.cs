@@ -8,13 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAL_327LG
 {
-    public class DALFactura_327LG
+    public class DALFactura_327LG : DALAbstracta_327LG
     {
-        string connectionString_327LG;
-        public DALFactura_327LG()
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+       
         public void GuardarFactura_327LG(BEFactura_327LG factura)
         {
             using (SqlConnection con = new SqlConnection(connectionString_327LG))

@@ -14,16 +14,19 @@ namespace BLL_327LG
     {
         DALCliente_327LG dalCliente_327LG;
         BLLEvento_327LG bllEvento_327LG;
+        BLLDigitoVerificador_327LG bllDigitoVerificador_327LG;
         public BLLCliente_327LG()
         {
             dalCliente_327LG = new DALCliente_327LG();
             bllEvento_327LG = new BLLEvento_327LG();
+            bllDigitoVerificador_327LG = new BLLDigitoVerificador_327LG();
         }
 
         public void EliminarCliente_327LG(BECliente_327LG cliente)
         {
             cliente.Activo_327LG = false;
             dalCliente_327LG.EliminarCliente_327LG(cliente);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("Cliente_327LG"));
         }
 
         public void ModificarCliente_327LG(BECliente_327LG clienteModificar)
@@ -31,6 +34,8 @@ namespace BLL_327LG
             clienteModificar.Email_327LG = Encriptador_327LG.EncriptarReversible_327LG(clienteModificar.Email_327LG);
             dalCliente_327LG.ModificarCliente_327LG(clienteModificar);
             bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Préstamos y devoluciones", "Modificación de cliente", 3);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("Cliente_327LG"));
+
 
         }
 
@@ -45,6 +50,8 @@ namespace BLL_327LG
             cliente.Email_327LG = Encriptador_327LG.EncriptarReversible_327LG(cliente.Email_327LG);
             dalCliente_327LG.CargarCliente_327LG(cliente);
             bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Préstamos y devoluciones", "Registro de cliente", 4);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("Cliente_327LG"));
+
         }
     }
 }

@@ -13,6 +13,8 @@ namespace BLL_327LG
     {
         DALEjemplar_327LG dalEjemplar_327LG;
         BLLEvento_327LG bllEvento_327LG = new BLLEvento_327LG();
+        private readonly BLLDigitoVerificador_327LG bllDigitoVerificador_327LG = new BLLDigitoVerificador_327LG();
+
         public BLLEjemplar_327LG()
         {
             dalEjemplar_327LG = new DALEjemplar_327LG();
@@ -23,11 +25,15 @@ namespace BLL_327LG
         {
             dalEjemplar_327LG.RegistrarEjemplar_327LG(bEEjemplar_327LG, cantidad);
             bllEvento_327LG.RegistrarEvento_327LG(SessionManager_327LG.Instancia.Usuario.dni_327LG, "Gestión de stock", "Registro de nuevo stock", 5);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("Ejemplar_327LG"));
+
         }
 
         public void CambiarEstado_327LG(int nroEjemplar_327LG, Estado_327LG prestado)
         {
             dalEjemplar_327LG.ActualizarEjemplar_327LG(nroEjemplar_327LG, prestado);
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("Ejemplar_327LG"));
+
         }
 
         public List<BEEjemplar_327LG> ObtenerEjemplares(string ISBN)

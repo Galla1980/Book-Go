@@ -38,7 +38,7 @@ namespace GUI_327LG.GUIRF1
             try
             {
                 LM_327LG.CargarFormulario_327LG("FormRegDevolucion_327LG");
-                if (string.IsNullOrWhiteSpace(txtDNICliente.Text)) throw new Exception(LM_327LG.ObtenerString("exception.filtro_vacio"));
+                
                 if (bllPrestamo_327LG.ObtenerPrestamos_327LG(txtDNICliente.Text).Count == 0) throw new Exception(LM_327LG.ObtenerString("exception.prestamos_no_encontrados"));
                 dniCliente_327LG = txtDNICliente.Text;
                 CargarGrillaPrestamos_327LG(dniCliente_327LG);
@@ -57,7 +57,8 @@ namespace GUI_327LG.GUIRF1
                 if (dgvPrestamos.SelectedRows[0].Cells[4].Value.ToString() == "False") throw new Exception(LM_327LG.ObtenerString("exception.prestamo_ya_devuelto"));
 
                 int nroPrestamo_327LG = Convert.ToInt32(dgvPrestamos.SelectedRows[0].Cells[0].Value);
-                BEPrestamo_327LG prestamo = bllPrestamo_327LG.ObtenerPrestamos_327LG(dniCliente_327LG).FirstOrDefault(x => x.nroPrestamo_327LG == nroPrestamo_327LG);
+                BEPrestamo_327LG prestamo = bllPrestamo_327LG.ObtenerPrestamos_327LG(null).FirstOrDefault(x => x.nroPrestamo_327LG == nroPrestamo_327LG);
+                if(prestamo.FechaDevolucion_327LG != Convert.ToDateTime("1/1/0001 00:00:00")) throw new Exception("El prestamo ya fue devuelto.");
                 BEEjemplar_327LG ejemplar = prestamo.Ejemplar_327LG;
                 ejemplar.Estado_327LG = Estado_327LG.Disponible;
                 prestamo.FechaDevolucion_327LG = DateTime.Today;
@@ -104,8 +105,6 @@ namespace GUI_327LG.GUIRF1
                         formRegistrarSancion.razon = "Libro desaparecido";
                         formRegistrarSancion.ShowDialog();
                         ejemplar.Estado_327LG = Estado_327LG.Desaparecido;
-                        prestamo.Activo_327LG = true;
-                        prestamo.FechaDevolucion_327LG = null;
                         if (formRegistrarSancion.DialogResult == DialogResult.OK)
                         {
                             BESancion_327LG sancion = new BESancion_327LG(prestamo.Cliente_327LG, prestamo, formRegistrarSancion.descripcion, formRegistrarSancion.razon);
@@ -119,7 +118,7 @@ namespace GUI_327LG.GUIRF1
                 bllPrestamo_327LG.RegistrarDevolucion_327LG(prestamo);
                 bLLEjemplar_327LG.CambiarEstado_327LG(ejemplar.nroEjemplar_327LG,ejemplar.Estado_327LG);
                 MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.devolucion_cargada"), LM_327LG.ObtenerString("messagebox.titulo.devolucion_cargada"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
-                CargarGrillaPrestamos_327LG(dniCliente_327LG);
+                CargarGrillaPrestamos_327LG(null);
             }
             catch (Exception ex)
             {

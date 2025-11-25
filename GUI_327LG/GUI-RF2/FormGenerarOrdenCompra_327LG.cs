@@ -59,6 +59,7 @@ namespace GUI_327LG.GUI_RF2
             SetEnabled(btnEliminar, false);
             SetEnabled(btnCancelar, false);
             SetEnabled(btnGenerarOrden, false);
+            Actualizar_327LG();
         }
 
         private void CargarGrillaSolicitudes()
@@ -81,33 +82,33 @@ namespace GUI_327LG.GUI_RF2
             LM_327LG.CargarFormulario_327LG("FormGenerarOrdenCompra_327LG");
 
             //labels
-            lblTitulo.Text = LM_327LG.ObtenerString("formgenerarordencompra.label.lblTitulo");
-            lblSolicitudes.Text = LM_327LG.ObtenerString("formgenerarordencompra.label.lblSolicitudes");
-            lblLibros.Text = LM_327LG.ObtenerString("formgenerarordencompra.label.lblLibros");
-            lblCantidad.Text = LM_327LG.ObtenerString("formgenerarordencompra.label.lblCantidad");
-            lblPrecioUnit.Text = LM_327LG.ObtenerString("formgenerarordencompra.label.lblPrecio");
+            lblTitulo.Text = LM_327LG.ObtenerString("label.lblTitulo");
+            lblSolicitudes.Text = LM_327LG.ObtenerString("label.lblSolicitudes");
+            lblLibros.Text = LM_327LG.ObtenerString("label.lblLibros");
+            lblCantidad.Text = LM_327LG.ObtenerString("label.lblCantidad");
+            lblPrecioUnit.Text = LM_327LG.ObtenerString("label.lblPrecio");
 
             //buttons
-            btnSeleccionar.Text = LM_327LG.ObtenerString("formgenerarordencompra.button.btnSeleccionar");
-            btnActualizar.Text = LM_327LG.ObtenerString("formgenerarordencompra.button.btnActualizar");
-            btnEliminar.Text = LM_327LG.ObtenerString("formgenerarordencompra.button.btnEliminar");
-            btnCancelar.Text = LM_327LG.ObtenerString("formgenerarordencompra.button.btnCancelar");
-            btnGenerarOrden.Text = LM_327LG.ObtenerString("formgenerarordencompra.button.btnGenerarOrden");
+            btnSeleccionar.Text = LM_327LG.ObtenerString("button.btnSeleccionar");
+            btnActualizar.Text = LM_327LG.ObtenerString("button.btnActualizar");
+            btnEliminar.Text = LM_327LG.ObtenerString("button.btnEliminar");
+            btnCancelar.Text = LM_327LG.ObtenerString("button.btnCancelar");
+            btnGenerarOrden.Text = LM_327LG.ObtenerString("button.btnGenerarOrden");
 
             //dataGridView columns
-            dgvSolicitudes.Columns[0].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.solicitudes.column.nrosolicitud");
-            dgvSolicitudes.Columns[1].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.solicitudes.column.distribuidor");
-            dgvSolicitudes.Columns[2].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.solicitudes.column.fecha");
-            dgvSolicitudes.Columns[3].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.solicitudes.column.articulos");
+            dgvSolicitudes.Columns[0].HeaderText = LM_327LG.ObtenerString("datagridview.solicitudes.columna.nrosolicitud");
+            dgvSolicitudes.Columns[1].HeaderText = LM_327LG.ObtenerString("datagridview.solicitudes.columna.distribuidor");
+            dgvSolicitudes.Columns[2].HeaderText = LM_327LG.ObtenerString("datagridview.solicitudes.columna.fecha");
+            dgvSolicitudes.Columns[3].HeaderText = LM_327LG.ObtenerString("datagridview.solicitudes.columna.articulos");
 
-            dgvLibros.Columns[0].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.libros.column.isbn");
-            dgvLibros.Columns[1].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.libros.column.titulo");
-            dgvLibros.Columns[2].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.libros.column.autor");
-            dgvLibros.Columns[3].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.libros.column.editorial");
-            dgvLibros.Columns[4].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.libros.column.edicion");
-            dgvLibros.Columns[5].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.libros.column.cantidad");
-            dgvLibros.Columns[6].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.libros.column.preciounitario");
-            dgvLibros.Columns[7].HeaderText = LM_327LG.ObtenerString("formgenerarordencompra.datagridview.libros.column.subtotal");
+            dgvLibros.Columns[0].HeaderText = LM_327LG.ObtenerString("datagridview.libros.columna.isbn");
+            dgvLibros.Columns[1].HeaderText = LM_327LG.ObtenerString("datagridview.libros.columna.titulo");
+            dgvLibros.Columns[2].HeaderText = LM_327LG.ObtenerString("datagridview.libros.columna.autor");
+            dgvLibros.Columns[3].HeaderText = LM_327LG.ObtenerString("datagridview.libros.columna.editorial");
+            dgvLibros.Columns[4].HeaderText = LM_327LG.ObtenerString("datagridview.libros.columna.edicion");
+            dgvLibros.Columns[5].HeaderText = LM_327LG.ObtenerString("datagridview.libros.columna.cantidad");
+            dgvLibros.Columns[6].HeaderText = LM_327LG.ObtenerString("datagridview.libros.columna.preciounitario");
+            dgvLibros.Columns[7].HeaderText = LM_327LG.ObtenerString("datagridview.libros.columna.subtotal");
 
         }
 

@@ -3,15 +3,9 @@ using Microsoft.Data.SqlClient;
 
 namespace DAL_327LG
 {
-    public class DALOrdenCompra_327LG
+    public class DALOrdenCompra_327LG : DALAbstracta_327LG
     {
-        private string connectionString_327LG;
-
-        public DALOrdenCompra_327LG()
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-
-        }
+       
 
         public void ActualizarEstadoOrden(BEOrdenCompra_327LG orden)
         {

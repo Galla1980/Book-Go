@@ -8,17 +8,13 @@ using System.Threading.Tasks;
 
 namespace DAL_327LG
 {
-    public class DALSancion_327LG
+    public class DALSancion_327LG : DALAbstracta_327LG
     {
-        string connectionString;
-        public DALSancion_327LG()
-        {
-            connectionString = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+ 
 
         public void GuardarSancion_327LG(BESancion_327LG sancion)
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString_327LG))
             {
                 string query = @"
                 INSERT INTO Sancion_327LG (Descripcion_327LG, Razon_327LG, DNI_327LG, nroPrestamo_327LG)
@@ -37,7 +33,7 @@ namespace DAL_327LG
         {
             List<BESancion_327LG> lista = new List<BESancion_327LG>();
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString_327LG))
             {
                 string query = @"
             SELECT 
