@@ -1,0 +1,63 @@
+{
+    "label": 
+    {
+      "lblTituloForm": "Change Log",
+      "lblTituloLibro": "Title",
+      "lblAutor": "Author",
+      "lblEditorial": "Publisher",
+      "lblEdicion": "Edition",
+      "lblFechaInicio": "Start Date",
+      "lblFechaFin": "End Date"
+    },
+
+    "button": 
+    {
+      "btnFiltrar": "Filter",
+      "btnLimpiar": "Clear",
+      "btnActivar": "Activate"
+    },
+
+    "dataGridView": 
+    {
+      "idCambio": "ChangeId",
+      "Fecha": "Date",
+      "Hora": "Time",
+      "Titulo": "Title",
+      "Autor": "Author",
+      "Editorial": "Publisher",
+      "Edicion": "Edition",
+      "Eliminado": "Deleted",
+      "Activo": "Active"
+    },
+
+    "exception":
+    {
+      "fecha_inicio_menor_fin": "Start date must be earlier than end date.",
+      "fechas_futuras": "Filtered dates cannot be later than today.",
+      "edicion_numerica": "Edition must be an integer.",
+      "sin_resultados": "No changes match the applied filters.",
+      "seleccionar_fila": "You must select a change from the log to activate.",
+      "cambio_activo": "The selected change is already active.",
+      "cambio_no_encontrado": "The change could not be found in the database."
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "libro_cargado": "Book Loaded",
+        "cambio_activado": "Change Activated"
+      },
+      "mensaje":  
+      {
+        "libro_cargado": "Book loaded successfully.",
+        "cambio_activado": "The change was activated successfully."
+      },
+      "button":
+      {
+        "aceptar": "OK",
+        "cancelar": "Cancel"
+      }
+    }
+}

@@ -166,7 +166,6 @@ namespace GUI_327LG.GUIRF1
                         LM_327LG.CargarFormulario_327LG("FormRegistrarPrestamo_327LG");
                         MessageBoxPersonalizado.Show(LM_327LG.ObtenerString("messagebox.mensaje.prestamo_registrado"), LM_327LG.ObtenerString("messagebox.titulo.prestamo_registrado"), LM_327LG.ObtenerString("messagebox.button.aceptar"), MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
-
                         this.Close();
                     }
                 }

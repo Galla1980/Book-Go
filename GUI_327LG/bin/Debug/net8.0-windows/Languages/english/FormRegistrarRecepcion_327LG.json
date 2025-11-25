@@ -1,0 +1,90 @@
+{
+  "label": 
+  {
+    "lblTitulo": "Register Reception",
+    "lblOrdenesCompra": "Purchase Orders:",
+    "lblLibros": "Books in the Order:",
+    "lblCantidad": "Quantity to Enter"
+  },
+
+  "radiobutton": 
+  {
+    "rdoPendientes": "Pending",
+    "rdoTodas": "All"
+  },
+
+  "button": 
+  {
+    "btnSeleccionar": "Select",
+    "btnActualizar": "Update",
+    "btnCancelar": "Cancel",
+    "btnRegistrar": "Register Reception"
+  },
+
+  "datagridview":
+  {
+    "columna":
+    {
+      "nroOrden": "Order No.",
+      "fecha": "Date",
+      "distribuidor": "Distributor",
+      "total": "Total",
+      "estado": "Status",
+
+      "isbn": "ISBN",
+      "titulo": "Title",
+      "cantPedida": "Ordered Qty",
+      "cantRecibida": "Received Qty",
+      "cantIngresar": "Qty to Enter"
+    }
+  },
+
+  "exception":
+  {
+    "seleccionar_libro": "You must select a book in the grid.",
+    "seleccionar_orden": "You must select an order in the grid.",
+    "sin_cantidades_a_ingresar": "There are no receptions loaded to register.",
+    "orden_ya_entregada": "The selected order has already been fully delivered.",
+    "cantidad_excede_pedida": "The entered quantity cannot exceed the ordered quantity.",
+    "campos_vacios": "Please fill in all fields.",
+    "cantidad_vacia": "The number of books cannot be blank.",
+    "precio_vacio": "The unit price cannot be blank.",
+    "cantidad_invalida": "The number of books must be an integer greater than 0.",
+    "precio_invalido": "The unit price must be a decimal greater than 0.",
+    "seleccionar_solicitud": "You must select a request in the grid.",
+    "campos_vacios_libro": "All books in the grid must have both quantity and unit price filled in.",
+    "cantidad_invalida_libro": "All books in the order must have a valid quantity entered.",
+    "precio_invalido_libro": "All books in the order must have a valid unit price entered.",
+    "sin_libros_orden_compra": "The order must have at least one book added.",
+    "pago_no_completado": "Payment could not be completed, the purchase order was not generated."
+  },
+
+  "messagebox": 
+  {
+    "titulo": 
+    {
+      "error": "Error",
+      "recepcion_registrada": "Reception Registered",
+      "cancelar": "Cancel?",
+      "eliminar": "Delete?",
+      "orden_compra_generada": "Purchase Order Generated",
+      "confirmar_recepcion": "Confirm Reception",
+      "confirmacion": "Confirm Operation",
+      "registro_exito": "Distributor Registered",
+      "modificacion_exito": "Distributor Modified",
+      "eliminacion_exito": "Distributor Deleted"
+    },
+    "mensaje":
+    {
+      "recepcion_registrada": "The reception was successfully registered.",
+      "cancelar": "Are you sure you want to cancel the operation? The entered quantities and prices will be lost.",
+      "eliminar": "Do you want to delete the book from the order?",
+      "confirmar_recepcion": "Do you confirm the reception registration?"
+    },
+    "button":
+    {
+      "aceptar": "Accept",
+      "cancelar": "Cancel"
+    }
+  }
+}

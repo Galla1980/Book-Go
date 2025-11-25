@@ -9,13 +9,9 @@ using System.Threading.Tasks;
 
 namespace DAL_327LG
 {
-    public class DALPermiso_327LG
+    public class DALPermiso_327LG: DALAbstracta_327LG
     {
-        private string connectionString_327LG;
-        public DALPermiso_327LG() 
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+ 
 
         public List<BEPermiso_327LG> ObtenerPermisos_327LG()
         {

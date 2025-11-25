@@ -8,14 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAL_327LG
 {
-    public class DALPerfil_327LG
+    public class DALPerfil_327LG : DALAbstracta_327LG
     {
-        private string connectionString_327LG;
-
-        public DALPerfil_327LG()
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+        
 
         public void AsignarFamilia_327LG(BEPerfil_327LG perfil, BEFamilia_327LG familia)
         {

@@ -8,13 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAL_327LG
 {
-    public class DALFamilia_327LG
+    public class DALFamilia_327LG : DALAbstracta_327LG
     {
-        private string connectionString_327LG;
-        public DALFamilia_327LG() 
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+       
 
         public List<BEFamilia_327LG> ObtenerFamilias_327LG()
         {

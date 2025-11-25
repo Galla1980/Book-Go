@@ -8,13 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAL_327LG
 {
-    public class DALEjemplar_327LG
+    public class DALEjemplar_327LG: DALAbstracta_327LG
     {
-        private string connectionString_327LG;
-        public DALEjemplar_327LG() 
-        {
-            connectionString_327LG = "Data Source=.;Initial Catalog=SistemaBiblioteca;Integrated Security=True;Trust Server Certificate=True";
-        }
+    
 
         public void ActualizarEjemplar_327LG(int nroEjemplar_327LG, Estado_327LG estado)
         {
@@ -85,6 +81,36 @@ namespace DAL_327LG
                                 dr["Editorial_327LG"].ToString(),
                                 Convert.ToInt32(dr["Edicion_327LG"])
                             )
+                        );
+                        listaEjemplares.Add(ejemplar);
+                    }
+                }
+            }
+            return listaEjemplares;
+        }
+
+        public List<BEEjemplar_327LG> ObtenerTodosEjemplares()
+        {
+            List<BEEjemplar_327LG> listaEjemplares = new List<BEEjemplar_327LG>();
+            using (SqlConnection con_327LG = new SqlConnection(connectionString_327LG))
+            {
+                string query = @" SELECT *
+                FROM Ejemplar_327LG";
+                SqlCommand cmd_327LG = new SqlCommand(query, con_327LG);
+                con_327LG.Open();
+
+                using (SqlDataReader dr = cmd_327LG.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Estado_327LG estado;
+                        if (!Enum.TryParse(dr["Estado_327LG"].ToString(), out estado))
+                            estado = Estado_327LG.Disponible;
+
+                        BEEjemplar_327LG ejemplar = new BEEjemplar_327LG(
+                            Convert.ToInt32(dr["nroEjemplar_327LG"]),
+                            estado,
+                            Convert.ToString(dr["ISBN_327LG"])
                         );
                         listaEjemplares.Add(ejemplar);
                     }

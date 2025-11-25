@@ -2,70 +2,74 @@
   "menu_usuario": {
     "texto": "User",
     "items": {
-      "iniciar_sesion": "Log In",
-      "cambiar_contrasena": "Change Password",
-      "cerrar_sesion": "Log Out"
+      "iniciar_sesion": "Log in",
+      "cambiar_contrasena": "Change password",
+      "cerrar_sesion": "Log out"
     }
   },
   "menu_admin": {
     "texto": "Admin",
-    "items": 
-    {
+    "items": {
       "gestion_usuarios": "User management",
       "perfiles": "Profiles",
-      "gestion_familias": "Family Management",
-      "gestion_perfiles": "Profiles Management",
+      "gestion_familias": "Family management",
+      "gestion_perfiles": "Profile management",
       "bitacora": "Event log"
     }
   },
   "menu_maestro": {
     "texto": "Master",
-    "items":
-    {
-      "libros":"Books",
-      "ejemplares":"Copies",
-      "clientes": "Clients"
+    "items": {
+      "libros": "Books",
+      "ejemplares": "Copies",
+      "clientes": "Clients",
+      "distribuidores": "Distributors"
     }
-    
   },
   "menu_prestamos": {
-    "texto": "Book Loans",
-    "items": 
-    {
+    "texto": "Loans",
+    "items": {
       "registrar_prestamo": "Register loan",
       "registrar_devolucion": "Register return"
     }
   },
   "menu_reposicion": {
-    "texto": "Replenishment"
+    "texto": "Restock",
+    "items": {
+      "registrar_distribuidor": "Register distributor",
+      "solicitar_cotizacion": "Request quotation",
+      "generar_orden_compra": "Generate purchase order",
+      "registrar_recepcion": "Register reception"
+    }
   },
   "menu_reporte": {
     "texto": "Reports",
-    "items": 
-    {
-      "factura": "Bill"
+    "items": {
+      "factura": "Invoice",
+      "orden": "Purchase order"
     }
   },
   "menu_ayuda": {
     "texto": "Help"
   },
   "label_idioma": "Language:",
-    "messagebox": {
-    "titulo": 
-    {
-      "cierre_sesion": "Log Out"
+
+  "messagebox": {
+    "titulo": {
+      "cierre_sesion": "Log out",
+      "inconsistencias":"Inconsistencies."
     },
-    "mensaje":
-    {
-      "cierre_sesion": "Are you sure you want to log out?"
+    "mensaje": {
+      "cierre_sesion": "Do you want to log out?",
+      "inconsistencias":"There are inconsistencies in the database. Please call an administrator."
     },
-    "button":
-    {
-      "aceptar": "Ok",
+    "button": {
+      "aceptar": "Accept",
       "cancelar": "Cancel"
     }
   },
+
   "exception": {
-    "sesion_no_iniciada": "No user is currently logged in"
+    "sesion_no_iniciada": "No session started"
   }
 }

@@ -18,10 +18,13 @@
 
     "exception":
     {
+      
       "campos_vacios": "Todos los campos deben estar llenos.",
       "isbn_caracteres": "El ISBN debe tener 13 caracteres númericos",
       "libro_existe": "Un libro con este ISBN ya existe",
-      "edicion_entero": "La edición debe ser un número entero."
+      "edicion_entero": "La edición debe ser un número entero.",
+      "seleccionar_fila": "Debe seleccionar un libro en la grilla para modificar.",
+      "sin_cambios": "La modificación debe cambiar al menos uno de los campos."
     },
 
     "messagebox": 
@@ -29,10 +32,12 @@
       "titulo": 
       {
         "error": "Error",
+        "libro_modificado": "Libro modificado",
         "libro_cargado": "Libro cargado"
       },
       "mensaje":  
       {
+        "libro_modificado":"Libro modificado correctamente",
         "libro_cargado": "Libro cargado correctamente"
       },
       "button":

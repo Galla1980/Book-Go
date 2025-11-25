@@ -16,6 +16,8 @@ namespace BLL_327LG
     public class BLLFactura_327LG
     {
         DALFactura_327LG dalFactura_327LG;
+        private readonly BLLDigitoVerificador_327LG bllDigitoVerificador_327LG = new BLLDigitoVerificador_327LG();
+
         public BLLFactura_327LG()
         {
             dalFactura_327LG = new DALFactura_327LG();
@@ -24,6 +26,8 @@ namespace BLL_327LG
         public void GenerarFactura_327LG(BECliente_327LG cliente, decimal monto,BELibro_327LG libro)
         {
             dalFactura_327LG.GuardarFactura_327LG(new BEFactura_327LG(DateTime.Now, cliente, monto, libro));
+            bllDigitoVerificador_327LG.GuardarDigitoVerificador_327LG(new BEDigitoVerificador_327LG("Factura_327LG"));
+
         }
 
         public void GenerarReporte(BEFactura_327LG factura)

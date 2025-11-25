@@ -1,0 +1,79 @@
+{
+  "label": 
+  {
+    "lblTitulo": "Register distributor",
+    "lblModoConsulta": "Mode: View",
+    "lblModoRegistrar": "Mode: Register",
+    "lblModoEliminar": "Mode: Delete",
+    "lblModoModificar": "Mode: Edit",
+    "lblCUIT": "CUIT",
+    "lblEmpresa": "Company",
+    "lblDireccion": "Address",
+    "lblCorreo": "Email",
+    "lblTelefono": "Phone"
+  },
+
+  "button": 
+  {
+    "btnRegistrar": "Register",
+    "btnEliminar": "Delete",
+    "btnModificar": "Edit",
+    "btnAplicar": "Apply",
+    "btnSerializar": "Serialize",
+    "btnDeserializar": "Deserialize",
+    "btnActualizar": "Refresh grid",
+    "btnLimpiar": "Clear",
+    "btnCancelar": "Cancel"
+  },
+
+  "datagridview":
+  {
+    "columna":
+    {
+      "CUIT": "CUIT",
+      "empresa": "Company",
+      "correo": "Email",
+      "direccion": "Address",
+      "telefono": "Phone"
+    }
+  },
+
+  "exception":
+  {
+    "seleccionar_fila": "You must select a distributor from the grid.",
+    "distribuidor_no_encontrado": "No distributor was found in the database with that CUIT.",
+    "grilla_vacia": "The grid cannot be empty.",
+    "campos_vacios": "Please fill in all fields.",
+    "cuit_invalido": "The entered CUIT is not valid. The format must be: xx-xxxxxxxx-x.",
+    "cuit_ya_registrado": "The entered CUIT is already assigned to another distributor.",
+    "nombre_con_numeros": "The name cannot contain numbers.",
+    "apellido_con_numeros": "The last name cannot contain numbers.",
+    "dni_no_valido": "The DNI does not meet the format (8 digits).",
+    "dni_en_uso": "The DNI is already in use.",
+    "email_no_valido": "The email format is not valid.",
+    "telefono_no_valido": "The phone number format is not valid.\n Expected format: 011 1234-5678",
+    "sin_cambios": "The distributor cannot be modified because there are no changes in the entered data."
+  },
+
+  "messagebox": 
+  {
+    "titulo": 
+    {
+      "error": "Error",
+      "registro_exito": "Distributor registered",
+      "modificacion_exito": "Distributor updated",
+      "eliminacion_exito": "Distributor deleted"
+    },
+    "mensaje":
+    {
+      "registro_exito": "The distributor was registered successfully.",
+      "modificacion_exito": "The selected distributor was updated successfully.",
+      "eliminacion_exito": "The selected distributor was deleted successfully."
+    },
+    "button":
+    {
+      "aceptar": "OK",
+      "cancelar": "Cancel"
+    }
+  }
+}

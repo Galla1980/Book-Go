@@ -24,7 +24,8 @@
     {
       "libros":"Libros",
       "ejemplares":"Ejemplares",
-      "clientes" : "Clientes"
+      "clientes" : "Clientes",
+      "distribuidores": "Distribuidores"
     }    
   },
   "menu_prestamos": {
@@ -36,13 +37,21 @@
     }
   },
   "menu_reposicion": {
-    "texto": "Reposición"
+    "texto": "Reposición",
+    "items": 
+    {
+      "registrar_distribuidor": "Registrar distribuidor",
+      "solicitar_cotizacion": "Solicitar cotización",
+      "generar_orden_compra": "Generar orden compra",
+      "registrar_recepcion": "Registrar recepción"
+    }
   },
   "menu_reporte": {
     "texto": "Reportes",
     "items": 
     {
-      "factura": "Factura"
+      "factura": "Factura",
+      "orden": "Orden de compra"
     }
   },
   "menu_ayuda": {
@@ -53,10 +62,12 @@
   "messagebox": {
     "titulo": 
     {
-      "cierre_sesion": "Cerrar sesión"
+      "cierre_sesion": "Cerrar sesión",
+      "inconsistencias":"Inconsistencias"
     },
     "mensaje":
     {
+      "inconsistencias":"Hay incosistencias en la base de datos. Por favor llame a un administrador.",
       "cierre_sesion": "¿Desea cerrar la sesión?"
     },
     "button":

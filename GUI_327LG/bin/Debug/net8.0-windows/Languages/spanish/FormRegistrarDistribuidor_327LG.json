@@ -1,0 +1,83 @@
+{
+    "label": 
+    {
+      "lblTitulo": "Registrar distribuidor",
+      "lblModoConsulta": "Modo: Consulta",
+      "lblModoRegistrar": "Modo: Registrar",
+      "lblModoEliminar": "Modo: Eliminar",
+      "lblModoModificar": "Modo: Modificar",
+      "lblCUIT": "CUIT",
+      "lblEmpresa": "Empresa",
+      "lblDireccion": "Dirección",
+      "lblCorreo": "Correo",
+      "lblTelefono": "Teléfono"
+    },
+
+
+    "button": 
+    {
+      "btnRegistrar": "Registrar",
+      "btnEliminar": "Eliminar",
+      "btnModificar": "Modificar",
+      "btnAplicar": "Aplicar",
+      "btnSerializar": "Serializar",
+      "btnDeserializar": "Deserializar",
+      "btnActualizar": "Actualizar grilla",
+      "btnLimpiar": "Limpiar",
+      "btnCancelar": "Cancelar"
+      
+    },
+    "datagridview":
+    {
+      "columna":
+      {
+        "CUIT": "CUIT",
+        "empresa": "Empresa",
+        "correo": "Correo",
+        "direccion": "Dirección",
+        "telefono": "Teléfono"
+      }
+    },
+
+    "exception":
+    {
+      "seleccionar_fila": "Debe seleccionar un distribuidor en la grilla.",
+      "distribuidor_no_encontrado": "No se encontro ningún distribuidor en la base de datos con ese CUIT",
+      "grilla_vacia": "La grilla no puede estar vacía.",
+      "campos_vacios": "Por favor complete todos los campos.",
+      "cuit_invalido": "El CUIT ingresado no es válido, el formato debe ser: xx-xxxxxxxx-x .",
+      "cuit_ya_registrado": "El CUIT ingresado ya esta asignado a otro distribuidor.",
+      "nombre_con_numeros": "El nombre no puede contener números.",
+      "apellido_con_numeros": "El apellido no puede contener números.",
+      "dni_no_valido": "El DNI no cumple el formato (8 digitos)",
+      "dni_en_uso": "El DNI está en uso.",
+      "email_no_valido": "El formato del correo no es valido.",
+      "telefono_no_valido": "El formato del telefono no es valido.\n Formato esperado: 011 1234-5678",
+      "sin_cambios": "No se puede modificar el distribuidor, no hay ningún cambio en los datos ingresados."
+    },
+
+    "messagebox": 
+    {
+      "titulo": 
+      {
+        "error": "Error",
+        "registro_exito": "Distribuidor registrado",
+        "modificacion_exito": "Distribuidor modificado",
+        "eliminacion_exito": "Distribuidor eliminado"
+
+
+      },
+      "mensaje":
+      {
+        "registro_exito": "El distribuidor se registró correctamente.",
+        "modificacion_exito": "El distribuidor seleccionado se modificó correctamente.",
+        "eliminacion_exito": "El distribuidor seleccionado se eliminó correctamente."
+        
+      },
+      "button":
+      {
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar"
+      }
+    }
+}

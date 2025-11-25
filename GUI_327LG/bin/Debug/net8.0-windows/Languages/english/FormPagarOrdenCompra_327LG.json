@@ -1,0 +1,54 @@
+{
+    "label": 
+    {
+        "lblTitulo": "Pay Purchase Order",
+        "lblBanco": "Bank",
+        "lblMonto": "Amount to Pay",
+        "lblNombre": "Cardholder Name",
+        "lblNumero": "Card Number",
+        "lblCodigoSeg": "Security Code",
+        "lblVencimiento": "Expiration Date"
+    },
+
+    "button": 
+    {
+        "btnCobrar": "Charge"
+    },
+
+    "combobox":
+    {
+        "itemEfectivo": "Cash",
+        "itemTarjeta": "Card"
+    },
+
+    "exception":
+    {
+        "monto_no_ingresado": "You must enter an amount.",
+        "cbu_invalido": "The CBU must have 22 numeric digits.",
+        "campos_vacios": "All fields must be completed.",
+        "nombre_titular_invalido": "The cardholder's name must only contain letters.",
+        "numero_tarjeta_invalido": "The card number must have 16 numeric digits.",
+        "codigo_seguridad_invalido": "The security code must have 3 digits.",
+        "vencimiento_formato_invalido": "The expiration date must be in MM/YY format.",
+        "tarjeta_vencida": "The entered card has expired.",
+        "pago_no_completado": "The payment could not be completed, the purchase order was not generated."
+    },
+
+    "messagebox": 
+    {
+        "titulo": 
+        {
+            "error": "Error",
+            "pago_exitoso": "Payment Successful"
+        },
+        "mensaje":
+        {
+            "pago_exitoso": "The payment was accepted."
+        },
+        "button":
+        {
+            "aceptar": "Ok",
+            "cancelar": "Cancel"
+        }
+    }
+}
